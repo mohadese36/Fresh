@@ -811,7 +811,8 @@
     <script src="vendor/fontAwesome5/all.min.js"></script>
     <script src="vendor/SwiperSlider/swiper.js"></script>
     <script src="js/slider.js"></script>
-    <script src="js/index.js"></script>
+    <script type="module" src="js/index.js"></script>
+
     <!-- Bootstrap JS -->
 
 <!-- Supabase -->
@@ -906,52 +907,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderProducts(data);
   }
-
-//   function renderProducts(products) {
-//     const container = document.getElementById('products-container');
-//     container.innerHTML = '';
-
-//     const grouped = {};
-
-//     products.forEach(product => {
-//       const cat = product.category.name;
-//       if (!grouped[cat]) grouped[cat] = [];
-//       grouped[cat].push(product);
-//     });
-
-//     for (const categoryName in grouped) {
-//       const section = document.createElement('div');
-//       section.classList.add('product-boxes');
-
-//       section.innerHTML = `
-//         <h2 class="product-category">${categoryName}</h2>
-//         <div class="row">
-//           ${grouped[categoryName].map(prod => `
-//             <div class="col-3">
-//               <div class="product-boxes__box">
-//                 <a href="#">
-//                   <img src="images/products/placeholder.jpg" alt="${prod.name}" class="img-fluid improduct-box__img-main">
-//                 </a>
-//                 <div class="product-box__main">
-//                   <div class="col-7 ps-2 product-box__detiles">
-//                     <a class="product-box__detiles-title">${prod.name}</a>
-//                     <p class="product-box__detiles-info">${prod.description}</p>
-//                     <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
-//                   </div>
-//                 </div>
-//                 <div class="product-box__footer"></div>
-//               </div>
-//             </div>
-//           `).join('')}
-//         </div>
-//       `;
-
-//       container.appendChild(section);
-//     }
-//   }
-
-
-//////////نشان دادن صفحه آرشیو
 
 
 function renderProducts(products) {
