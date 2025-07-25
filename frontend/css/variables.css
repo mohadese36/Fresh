@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Luckiest+Guy&display=swap');
+
+:root {
+    --primary-font: "IRANSans";
+    --primary-color: #2bce56;
+    --white-color: #fff;
+    --dark-color: #464749;
+
+    --color_black-01: #323232;
+    --color-background: #FAF7E8;
+    --color-primary: #106639;
+    --color-primary-dark: #16653B;
+    --color-secondary: #AE493C;
+    --color_secondary-04: #ffc300;
+    --border-button : #fcb917;
+    --color_secondary-05: #fff6a3;
+    --color_secondary-06: #fffde6;
+    --color_red: #c90000;
+    --color-secondary-dark: #9B1D11;
+    --color-accent: #7D190E;
+    --color-light: #FEFEFB;
+    --color-lighter: #FFFEF8;
+    --color-dark: #293B24;
+    --color-darker: #283821;
+    --color-border: #8D9482;
+    --color-text: #F8F5EA;
+    --color-text-dark: #293b24;
+    --color-h1: #FFFEF8;
+    --color-h1-in-image: #FAF7E8;
+    --color-h2: #106639;
+    --color-h2-footer: #283821;
+    --color-p-in-image: #F8F7F1;
+    --color-button: #9B1D11;
+    --color-button-text: #FEFEFB;
+    --color-hover: #AE493C;
+    --color-menu: #293B24;
+    --color-icons: #293B24;
+    --color-section: #293B24;
+    --color-footer-bottom: #293B24;
+    --color-span: #293B24;
+    --color-emoji: #16653B;
+
+    --red: #ca2934;
+	--blue: #aad5f6;
+	--green: #9caa40;
+	--yellow: #ecd400;
+	--brown: #b7884e;
+	--black: #1f2221;
+	--white: #fdfcfd;
+	--gray: #e5e5e6;
+
+	--display: "Luckiest Guy", cursive;
+	--serif: "Bitter", serif;
+}

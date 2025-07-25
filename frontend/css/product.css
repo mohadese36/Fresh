@@ -1,0 +1,532 @@
+
+@import "./variables.css";
+@import "./fonts.css";
+@import "./top-bar.css";
+@import "./navbar.css";
+@import "./defaults.css";
+@import "./footer.css";
+@import "./product-box.css";
+@import "./helper.css";
+@import "./breadcrumb.css";
+@import "./sidebar-productBox.css";
+
+/* Start Review-produc__wrapper Style */
+
+/* General Styles */
+/* Product Details Container */
+.product-details-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+    margin: 2vh auto;
+    max-width: 80vw;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    /* box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); */
+}
+
+/* Product Image */
+.product-image img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+/* Product Info */
+.product-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.product-features {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.product-features li {
+    margin-bottom: 0.5rem;
+}
+
+.product-usage, .product-ingredients {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Price Section */
+.price-section {
+    margin-top: 2vh;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Quantity Section */
+.quantity-section {
+    margin-top: 1vh;
+    font-size: 1rem;
+}
+
+.quantity-section label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    font-size: 2.5rem;
+    line-height: 0.8;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: #ddd;
+}
+
+#quantity {
+    width: 15%;
+    text-align: center;
+    font-size: 1.7rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+/* Global Styles */
+
+/* Global Styles for the Tabs */
+
+.product-intro {
+    max-width: 80vw;
+    background-color: #fff;
+    /* background-color: var(--color-background); */
+    /* background: var(--color_secondary-05); */
+    padding:2rem;
+    margin: 0  auto 3rem;
+}
+.nav-tabs {
+    display: flex;
+    justify-content: flex-start; /* Align tabs to the left */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.nav-item {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-size: 1.7rem;
+    padding: 0.7rem 1.5rem;
+    color: #555;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-bottom: 0 !important;
+    border-radius: 1rem 1rem 0 0 !important; /* Rounded corners at the top only */
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 0.5rem; /* Add some space between tabs */
+    transition: all 0.3s ease-in-out;
+    /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); */
+}
+
+.nav-link:hover {
+    color: #218838;
+    border-color: transparent !important;
+}
+
+/* Active Tab Styles */
+.nav-link.active {
+    color: #c31010 !important;
+    background: var(--color-background) !important;
+    /* background-color: #007bff;
+    border-color: #007bff; */
+    font-weight: bold;
+    border:2px solid #fcb917 !important;
+    border-bottom: 0 !important;
+}
+
+.nav-link.active:hover {
+    border:2px solid var(--border-button) !important;
+    border-bottom: 0 !important;
+}
+
+/* Border for Active Tab (excluding bottom border) */
+.nav-link.active {
+
+    border-bottom: none; /* Remove bottom border */
+}
+
+/* Tab Content Styles */
+.tab-content {
+    padding: 2em 5rem;
+    margin-top: 0 !important;
+    background-color: var(--color-background);
+    border: 1px solid #dee2e6;
+    border-top: 0;
+    /* border-radius: 0.5em; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+/* Individual Tab Pane (For showing active content) */
+.tab-pane {
+    display: none;
+}
+
+
+#nutrition.active {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 3rem;
+}
+
+#nutrition p {
+    margin-top: 3rem;
+}
+.tab-pane.active {
+    display: block;
+}
+
+/* Border for the open tab pane */
+.tab-pane.show {
+    /* border: 2px solid #007bff; */
+    border-radius: 0.5em;
+    padding: 1rem;
+}
+
+
+
+
+/* Description Tab */
+#desc h3,
+#ingredients h3,
+#storage h3,
+#nutrition h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color_red);
+    margin-bottom: 1rem;
+}
+
+#ingredients h3 {
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    /* text-transform: uppercase; */
+    
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+#desc p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+
+}
+
+
+#ingredients ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#ingredients li {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Storage Conditions Tab */
+
+
+#storage ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#storage li {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+
+#nutrition p {
+    color: var(--color_black-01);
+}
+
+#nutrition table {
+    /* width: 50%; */
+    border-collapse: collapse;
+}
+
+#nutrition th,
+#nutrition td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
+    border: 1px solid #ddd;
+}
+
+#nutrition th {
+    background-color: #f1f1f1;
+    color: var(--color-primary);
+}
+
+#nutrition td {
+    background-color: #fafafa;
+    color: var(--color_black-01);
+}
+
+#nutrition td:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#nutrition table tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+/*  */
+
+
+.ingredients-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+    gap: 0.3rem;
+    padding: 1.5rem;
+}
+
+.ingredient-item {
+    background: var(--color_secondary-04);
+    color: var(--color_black-01);
+    padding: 0.8rem 1.5rem; /* فضای داخلی برای خوانایی بهتر */
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    display: inline-block;  /* اندازه کادر را متناسب با متن تنظیم می‌کند */
+}
+
+
+.ingredient-item:hover {
+    background: var(--color_red);
+    color: var(--color_secondary-05);
+    /* border-color: var(--border-button); */
+}
+
+.no-artificial {
+    font-size: 1.5rem;
+    position: relative; /* برای تنظیم خط روی متن */
+    display: inline-block; 
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--dark-color) !important;
+}
+
+
+
+
+/*  */
+
+/* related-products */
+.related-products {
+    max-width: 80vw;
+    margin: 0 auto;
+   
+}
+
+.related-products__card {
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 15px 55px rgba(34, 34, 34, 0.15) !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.related-products__card:hover {
+    transform: translateY(-10px);
+}
+
+.related-products__card-img {
+    width: 100%;
+    height: 180px;
+}
+
+.related-products__card-seller {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: var(--green);
+    /* color: var(--color_secondary-05); */
+    color: var(--color_black-01);
+    border-radius: 0.5rem 0 0.75rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    margin-right: 0;
+    text-transform: uppercase;
+    display: block;
+    -webkit-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+
+.related-products__card-rating {
+    position: absolute;
+    top: 40%;
+    right: 3%;
+    z-index: 1;
+    background-color: var(--color_red);
+    color: var(--color_secondary-05);
+    border-radius: 0.6rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    text-transform: uppercase;
+    display: block;
+    -webkit-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+    align-items: center;
+}
+
+
+.related-products__card-meta {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin-bottom: 1rem;
+}
+
+.related-products__card-body {
+    padding: 1rem 2rem;
+}
+
+.related-products__card-title a{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-secondary-dark);
+    transition: all 0.3s ease-in-out;
+}
+
+.related-products__card-title a:hover {
+    color: var(--color_red);
+}
+.related-products__card-text {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.related-products__card-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-primary) !important;
+}
+
+.related-products h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-tabs {
+        font-size: 0.9rem;
+    }
+
+    .nav-link {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .tab-content {
+        padding: 1rem;
+    }
+
+    #desc h3, #ingredients h3, #storage h3, #nutrition h3 {
+        font-size: 1.5rem;
+    }
+
+    #desc p, #ingredients li, #storage li, #nutrition td {
+        font-size: 1rem;
+    }
+}

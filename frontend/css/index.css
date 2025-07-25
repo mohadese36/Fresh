@@ -1,0 +1,471 @@
+
+@import "./variables.css";
+@import "./fonts.css";
+@import "./top-bar.css";
+@import "./navbar.css";
+@import "./defaults.css";
+@import "./footer.css";
+@import "./product.css";
+@import "./product-box.css";
+@import "./circle-icons.css";
+@import "./categori.css";
+
+/* Start Landing Styles */
+
+.Landing {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(../images/products/deli-2880w.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 7rem 0;
+    color: var(--color-p-in-image);
+}
+
+.Landing__title {
+    font-size: 3.4rem;
+    font-weight: bold;
+}
+
+.Landing__subTitle{
+    font-size: 2.3rem;
+    margin-top: 1.5rem;
+}
+.Landing__searchBar {
+    width: 60%;
+    position: relative;
+    margin: 3.5rem auto;
+}
+
+.Landing__searchBar-input {
+    width: 100%;
+    padding: 1.3rem;
+    border: none;
+    border-radius: 3rem;
+    opacity: 0.6;
+}
+
+.Landing__searchBar-btn {
+
+  
+    background: var(--color-primary);
+    position: absolute;
+    top: 7%;
+    right: 1rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: none;
+    border-radius: 3rem;
+    
+}
+
+.Landing__searchBar-icon {
+    color: var(--white-color);
+    font-size: 1.8rem;
+}
+/* 
+.Landing-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Landing-status__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.Landing-status__item  svg {
+    fill: var(--color-p-in-image);
+}
+.Landing-status__count {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.Landing-status__text {
+    font-weight: 600;
+} */
+/* Finish Landing Styles */
+
+/* Start Main Content Products Styles*/
+
+.main-content-products {
+  max-width: 1260px !important;
+  margin: 0 auto;
+}
+
+/* Start slider Main Content Products */
+
+/* استایل کلی اسلایدر */
+#carouselHomePage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* گوشه‌های گرد */
+}
+
+.carousel-home-row {
+  background: linear-gradient(var(--color_secondary-05), var(--color_red));
+
+}
+/* استایل عکس‌ها */
+
+.slide-img-WEF__container {
+  width: 50%;
+  height: auto;
+}
+.slide-img-WEF {
+  width: 100%;
+  height: 400px; 
+  object-fit: cover;
+}
+
+/* استایل متن‌ها */
+.slide-text-WEF {
+  width: 50%;
+  height: 100%;
+}
+
+/* استایل دکمه‌ها */
+.carousel-control-prev-WEF,
+.carousel-control-next-WEF {
+  /* width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%); */
+  
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5); /* پس‌زمینه مشکی با شفافیت */
+  border-radius: 50%; /* دکمه‌ها دایره‌ای شوند */
+
+  border: none;
+  cursor: pointer;
+
+}
+
+.carousel-indicators 
+
+.carousel-control-prev-WEF,
+.carousel-control-next-WEF {
+  /* left: 50%; */
+  all: unset;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* استایل دایره‌های نشانگر */
+.carousel-indicators-WEF {
+  /* width: 100%;
+  height: 6rem;
+  position: absolute;
+  left: 50%;
+
+  transform: translateX(-50%);
+  gap: 10px; 
+  padding: 0;
+  margin: 0;
+  z-index: 1; */
+  display: flex;
+  align-items: start !important;
+  justify-content: center;
+  position: absolute; 
+  left: 0;
+  right: 0; /* عرض کامل */
+
+  gap: 10px; /* فاصله بین دکمه‌ها */
+  padding: 0;
+  margin: 0;
+}
+
+
+.carousel-indicators [data-bs-target] {
+    /* box-sizing: content-box; */
+  display: flex;
+  align-items: center;
+    /* flex: 0 1 auto; */
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    /* text-indent: -999px; */
+    cursor: pointer;
+    background-color: #951adc;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
+
+}
+
+.carousel-indicators-WEF button {
+  /* width: 10px;
+  height: 10px;
+  border-radius: 50%; 
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer; */
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* دایره‌ای */
+  background-color: rgba(255, 255, 255, 0.5); /* رنگ سفید با شفافیت */
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.carousel-indicators-WEF button.active {
+  background-color: rgb(209, 40, 40); /* رنگ سفید کامل برای دایره فعال */
+}
+
+/* استایل‌های واکنش‌گرا برای موبایل */
+@media (max-width: 768px) {
+  .carousel-home-row {
+      flex-direction: column; /* عکس بالا و متن پایین */
+  }
+
+  .slide-img-WEF {
+      height: 300px; /* ارتفاع کمتر برای موبایل */
+      order: -1; /* عکس بالا قرار بگیرد */
+  }
+
+  .slide-text-WEF {
+      margin: 10px;
+      padding: 15px;
+      order: 1; /* متن پایین قرار بگیرد */
+  }
+
+
+  .carousel-control-prev-WEF,
+  .carousel-control-next-WEF {
+      width: 30px;
+      height: 30px;
+      background: var(--yellow) !important;
+      color: yellow;
+  }
+
+  .carousel-indicators-WEF {
+      bottom: 5px;
+  }
+
+  .carousel-indicators-WEF button {
+      width: 8px;
+      height: 8px;
+
+      background: red !important;
+  }
+}
+/* Finish slider Main Content Products */
+/* Finish Main Content Products Styles*/
+
+/* Start Leter Products & Articles Style */
+
+  .products,
+  .articles {
+    margin: 4rem 0;
+    padding: 0 2rem;
+  }
+  .products-header, 
+  .articles-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .products-header__right, 
+  .articles-header__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .products-header__text, 
+  .articles-header__text {
+    color: var(--color-span);
+    font-size: 1.5rem;
+  }
+
+  .products-header__text::before, 
+  .articles-header__text::before {
+      content: "";
+  }
+
+  .products-header__link, 
+  .articles-header__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--color-button);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .products-header__link:hover, 
+  .articles-header__link:hover {
+    background: var(--color-hover);
+    color: var(--color-button-text);
+  }
+
+
+/* Finish Leter Products Style */
+
+/* Start About Us Styles */
+
+.about-us {
+    margin: 6rem 0;
+  }
+  
+  .about-us__header {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .about-us__subtitle {
+    color: var(--color-span);
+    font-size: 1.5rem;
+  }
+  
+  .about-us__box {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    padding: 2rem 1.5rem;
+  }
+  
+  .about-us__icon {
+    color: var(--color-icons);
+    font-size: 6.5rem;
+  }
+  
+  .about-us__box-left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+  }
+  
+  .about-us__box-title {
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+  
+  /* Finish About Us Styles */
+
+  /* Start Popular Courses Styles */
+  .popular, .presell {
+    margin: 5rem 0;
+  }
+
+  .popular__slider .product-box, .presell__slider .product-box {
+    margin: 0 1.3rem;
+    box-shadow: 0 0 10px rgba(168, 172, 185, 0.3);
+  }
+
+  .popular__slider .product-box:hover, .presell__slider .product-box {
+    transform: none;
+  }
+
+  .presell__slider, .popular__slider {
+    margin: 4rem 0;
+    position: relative;
+  }
+
+/* Finish Popular Courses Styles */
+
+
+/* Start Article-card Styles */
+
+.article-card {
+  margin: 3rem 0;
+  transition: all 400ms ease;
+  border-radius: 1rem;
+  box-shadow: 0 5px 30px rgba(70, 72, 77, 0.08);
+}
+
+.article-card:hover {
+  transform: translateY(-0.6rem);
+}
+
+.article-card__img {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.article-card__content {
+  padding: 1rem 2rem 3rem 2rem;
+}
+
+.article-card__link {
+  font-weight: bold;
+  color: var(--color-h2);
+}
+
+.article-card__link {
+  pointer-events: none; /* لینک همچنان کار می‌کند */
+}
+
+.article-card__link:hover {
+  color: inherit !important;
+}
+
+.article-card__text {
+  color: var(--color-span);
+  font-size: 1.2rem;
+  padding: 1rem 0 2.5rem 0;
+}
+
+.article-card__btn {
+  background: var(--color-button);
+  color: var(--white-color);
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 400ms ease;
+}
+
+.article-card__btn:hover {
+  background: var(--color-hover);
+  color: var(--color-button-text);
+}
+
+/* Finish  Article-card Styles */
+
+/* Start Helper Class */
+
+  .title {
+      font-size: 2.3rem;
+      color: var(--color-span);
+      font-weight: bold;
+      line-height: 1.2;
+      position: relative;
+  }
+
+
+  /* .title::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 250px;
+      height: 60%;
+      background: rgba(43, 206, 86, 0.2);
+  } */
+/* Finish Helper Class */

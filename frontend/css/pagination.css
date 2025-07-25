@@ -1,0 +1,38 @@
+
+/* Start products Pagination Styles */
+
+.products-pagination {
+    margin: 3rem 0;
+}
+
+.products__pagination-list {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+.products__pagination-link {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--color_black-01);
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    margin: 0 0.5rem;
+}
+
+.products__pagination-link:hover {
+    background-color: var(--color_secondary-05);
+    color: var(--color_black-01);
+}
+
+.products__pagination-link--active {
+    background-color: var(--color_secondary-05);
+    color: var(--color_black-01);
+}
+
+/* Finish products Pagination Styles */

@@ -1,0 +1,45 @@
+
+/* Start default styles */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    line-height: 1.6;
+    font-size: 1.6rem;
+    font-family: var(--primary-font);
+    /* direction: rtl; */
+    background: #FAF7E8;
+}
+
+*,
+*::after,
+*::before {
+    outline: none;
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+    transition: all 0.6s ease;
+}
+
+a:hover {
+    color: var(--color-hove);
+}
+
+i {
+    user-select: none;
+}
+
+/* .container-fluid {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-left: 15px;
+    padding-right: 15px;
+  } */
+
+/* Finish default styles */

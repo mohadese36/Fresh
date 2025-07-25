@@ -1,0 +1,38 @@
+
+.circle-links {
+    padding: 4rem 0;
+    background: var(--blue); /* رنگ پس‌زمینه */
+    text-align: center;
+}
+
+.circle-links__container {
+    display: flex;
+    justify-content: center;
+    gap: 4rem; /* فاصله بین دایره‌ها */
+    flex-wrap: wrap; /* اگر فضای کافی نبود، به خط بعد برود */
+}
+
+.circle-links__item {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.circle-links__icon {
+    width: 80px; /* اندازه دایره */
+    height: 80px; /* اندازه دایره */
+    border: 5px solid var(--green);
+    border-radius: 50%; /* تبدیل به دایره */
+    background: var(--circle-color, #ffffff); /* رنگ پس‌زمینه دایره */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* سایه برای زیبایی */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.circle-links__icon img {
+    width: 40px; /* اندازه SVG */
+    height: 40px; /* اندازه SVG */
+}
