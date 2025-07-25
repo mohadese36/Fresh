@@ -1,35 +1,25 @@
-
 import { supabase } from './supabaseClient.js';
 
 export async function fetchProducts() {
   const { data, error } = await supabase
     .from('products')
     .select(`
-        id,
-        name,
-        description,
-        price,
-        stock,
-        created_at,
-        updated_at,
-        category_id,
-        image_url,
-        category:category_id (
-          id,
-          name
-        )
+      id, name, description, price, stock, created_at,
+      updated_at, category_id, image_url,
+      category:category_id ( id, name )
     `)
     .order('category_id', { ascending: true })
     .order('id', { ascending: true });
 
   if (error) {
     console.error('Error fetching products:', error);
-    return [];
+    return;
   }
-  return data;
+
+  renderProducts(data);
 }
 
-export function renderProducts(products) {
+function renderProducts(products) {
   const container = document.getElementById('products-container');
   container.innerHTML = '';
 
@@ -51,7 +41,7 @@ export function renderProducts(products) {
         ${grouped[categoryName].map(prod => `
           <div class="col-3">
             <div class="product-boxes__box">
-              <a href="#">
+              <a href="product.html?id=${prod.id}">
                 <img src="${prod.image_url || 'images/products/placeholder.jpg'}" alt="${prod.name}" class="img-fluid improduct-box__img-main">
               </a>
               <div class="product-box__main">
@@ -61,7 +51,6 @@ export function renderProducts(products) {
                   <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
                 </div>
               </div>
-              <div class="product-box__footer"></div>
             </div>
           </div>
         `).join('')}

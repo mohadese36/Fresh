@@ -32,8 +32,12 @@
                 </div>
             </div>
         </div>
-    
-        <div class="main-header">
+      <div class="main-header">
+        <div class="main-header__content">
+        <ul id="navbar" class="main-header__menu"></ul>
+        </div>
+    </div>
+        <!-- <div class="main-header">
             <div>
                 <div class="main-header__content">
                     <ul class="main-header__menu" id="navbar">   
@@ -114,7 +118,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- Finish Header -->
 
@@ -226,11 +230,16 @@
                         </div>
                     </div>
                 </section>     
+                <h1 id="category-title"></h1>
+                <div id="products-container" class="row"></div>
+
+                <!-- <h1 id="category-title"></h1>
+                <div id="products-container" class="row"></div> -->
                 <!-- Finish Breadcrumb -->
                 <!-- <h1 id="category-title"></h1> -->
-                 <h2 id="category-title" class="product-category"></h2>
-                <div id="products-container"  class="row"></div>
-                <nav id="categories-menu"></nav>
+                 <!-- <h2 id="category-title" class="product-category"></h2>
+                <div id="products-container"  class="row"></div> -->
+                <!-- <nav id="categories-menu"></nav> -->
             </div>
           </div>
         </div>
@@ -331,13 +340,23 @@
 <script src="vendor/fontAwesome5/all.min.js"></script>
 <script src="vendor/Bootstrap/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.min.js"></script> -->
+<script type="module" src="js/index.js"></script>
+ <script type="module" src="./js/categori.js"></script>
+
+
+
+<script type="module">
+  import { loadProductsByCategory } from './js/categori.js';
+  loadProductsByCategory();
+</script>
 
 
 
 
 
-<script>
+
+<!-- <script>
     const SUPABASE_URL = 'https://lgbgwpbpxtmltzrsbjnx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxnYmd3cGJweHRtbHR6cnNiam54Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2NzUxNzQsImV4cCI6MjA2ODI1MTE3NH0.Em8mM1z9xvVVKSi5kDfSoq-_Qof-u5JM7hDdqec6XA0';
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -590,10 +609,20 @@ products.forEach(p => {
 
 
 
+</script> -->
+
+
+<script type="module">
+  import { loadProductsByCategory } from "./js/categori.js";
+
+  const params = new URLSearchParams(window.location.search);
+  const categorySlug = params.get("slug");
+
+  loadProductsByCategory(categorySlug);
 </script>
 
 
-
+</script>
 
 </body>
 </html>

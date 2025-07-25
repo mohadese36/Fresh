@@ -270,23 +270,36 @@ function typeWriter(text, index) {
 
 // }
 
+// ------------------------
 
+//   import { fetchMenus } from './menu.js';
+// import { fetchProducts, renderProducts } from './products.js';
+// import { loadProductsByCategory } from './categori.js';
 
-  import { fetchMenus } from './menu.js';
-import { fetchProducts, renderProducts } from './products.js';
-import { loadProductsByCategory } from './category.js';
+// document.addEventListener('DOMContentLoaded', () => {
+//   fetchMenus();
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchMenus();
+//   const params = new URLSearchParams(window.location.search);
+//   const categorySlug = params.get("slug");
 
-  const params = new URLSearchParams(window.location.search);
-  const categorySlug = params.get("slug");
+//   if (categorySlug) {
+//     loadProductsByCategory(categorySlug);
+//   } else {
+//     fetchProducts().then(products => {
+//       renderProducts(products);
+//     });
+//   }
+// });
 
-  if (categorySlug) {
-    loadProductsByCategory(categorySlug);
-  } else {
-    fetchProducts().then(products => {
-      renderProducts(products);
-    });
-  }
-});
+// import { fetchMenus } from './menu.js';
+// // import { fetchProducts, renderProducts } from './products.js';
+// // import { loadProductsByCategory } from './categori.js';
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetchMenus(); // بارگذاری منو
+// });
+
+// js/index.js
+import { loadMenu } from './menu.js';
+loadMenu();
+
