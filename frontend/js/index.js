@@ -61,3 +61,12 @@ function typeWriter(text, index) {
 
 // testConnection();
 
+
+
+/////////////
+
+
+
+
+  console.log("p");
+  
