@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <main id="product-container"></main>
+        <div class="product-details-container">
+            <div class="product-image">
+                <img src="images/products/Pork_Chilli_and_Garlic_Salami_sliced_100g.jpg" alt="Sausage Image">
+            </div>
+            <div class="product-info-detaile">
+                <h1 class="product-title">Grilled Chicken Sausage</h1>
+                <p class="product-description">
+                    Our Grilled Chicken Sausage is made with fresh chicken and high-quality ingredients, offering a delicious and natural flavor. It's perfect for a quick meal, served with bread, vegetables, or your favorite sauces.
+                </p>
+                <h3 class="section-title">Features:</h3>
+                <ul class="product-features">
+                    <li>100% Fresh Chicken</li>
+                    <li>No preservatives or additives</li>
+                    <li>Perfect for grilling or frying</li>
+                    <li>Gluten-free</li>
+                </ul>
+                <h3 class="section-title">How to Use:</h3>
+                <p class="product-usage">
+                    Simply grill or fry the sausages until golden brown. You can serve them with bread, veggies, or any side of your choice.
+                </p>
+                <h3 class="section-title">Ingredients:</h3>
+                <p class="product-ingredients">Chicken, salt, black pepper, garlic, vegetable oil.</p>
+                <div class="price-section">
+                    <span class="price">$5.99</span>
+                </div>
+                <div class="quantity-section">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
+                        <button class="quantity-btn" id="increase">+</button>
+                    </div>
+                </div>                        
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="product-intro">
+            <div class="container">
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-tabs" id="productTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">
+                            Description
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-controls="ingredients" aria-selected="false">
+                            Ingredients
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storage" type="button" role="tab" aria-controls="storage" aria-selected="false">
+                            Storage Conditions
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nutrition-tab" data-bs-toggle="tab" data-bs-target="#nutrition" type="button" role="tab" aria-controls="nutrition" aria-selected="false">
+                            Nutritional Info
+                        </button>
+                    </li>
+                </ul>
+            
+                <!-- Tab Content -->
+                <div class="tab-content mt-3" id="productTabContent">
+                    <!-- Description Tab -->
+                    <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+                        <h3>Classic Beef Sausage</h3>
+                        <p>
+                            The Classic Beef Sausage is a premium product made from the finest cuts of beef. We take pride in crafting this sausage with traditional recipes that have been passed down through generations. The beef is carefully selected, seasoned with a blend of natural spices, and encased in a natural casing for the perfect bite.
+                        </p>
+                        <p>
+                            Whether you're grilling it for a family BBQ, adding it to your favorite pasta, or enjoying it in a sandwich, our Classic Beef Sausage is versatile and perfect for any occasion. With its rich flavor and juicy texture, it’s sure to satisfy all meat lovers.
+                        </p>
+                    </div>
+            
+                    <!-- Ingredients Tab -->
+                    <div class="tab-pane fade" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+                        <h3 class="section-title">Ingredients</h3>
+                        <p class="section-description">Our Classic Beef Sausage contains the following ingredients:</p>
+
+                        <div class="ingredients-container">
+                            <div class="ingredient-item">Beef (70%)</div>
+                            <div class="ingredient-item">Pork fat (20%)</div>
+                            <div class="ingredient-item">Salt</div>
+                            <div class="ingredient-item">Black pepper</div>
+                            <div class="ingredient-item">Garlic powder</div>
+                            <div class="ingredient-item">Onion powder</div>
+                            <div class="ingredient-item">Paprika</div>
+                            <div class="ingredient-item">Natural casing (sheep or hog casing)</div>
+                            <div class="ingredient-item">Water</div>
+                            <div class="ingredient-item">Natural preservatives (celery powder)</div>
+                        </div>
+
+                        <p class="no-artificial">Our sausages do not contain any artificial additives, preservatives, or MSG. We only use the best quality natural spices to enhance the taste of the beef.</p>
+                    </div>
+            
+                    <!-- Storage Conditions Tab -->
+                    <div class="tab-pane fade" id="storage" role="tabpanel" aria-labelledby="storage-tab">
+                        <h3>Storage Conditions</h3>
+                        <p>
+                            To ensure the best quality and taste, we recommend the following storage conditions for our Classic Beef Sausage:
+                        </p>
+                        <ul>
+                            <li>Keep refrigerated at 4°C (39°F) or below.</li>
+                            <li>If you do not plan to use the sausage within a week, we suggest freezing it for up to 3 months.</li>
+                            <li>For frozen sausages, ensure that they are thawed properly in the refrigerator before cooking.</li>
+                            <li>Once opened, consume within 3 days for optimal flavor and freshness.</li>
+                        </ul>
+                        <p>
+                            Always check the expiration date on the package for safety. Do not leave the sausage out at room temperature for extended periods.
+                        </p>
+                    </div>
+            
+                    <!-- Nutritional Info Tab -->
+                    <div class="tab-pane fade" id="nutrition" role="tabpanel" aria-labelledby="nutrition-tab">
+                        <div>
+                            <h3>Nutritional Information (Per 100g)</h3>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Energy</td>
+                                        <td>250 kcal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Protein</td>
+                                        <td>20g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fat</td>
+                                        <td>18g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saturated Fat</td>
+                                        <td>7g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carbohydrates</td>
+                                        <td>1g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sugars</td>
+                                        <td>0g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salt</td>
+                                        <td>1.5g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fiber</td>
+                                        <td>0g</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            Our Classic Beef Sausage is packed with protein and healthy fats, making it a great addition to a balanced diet. Please note that the values mentioned above are for 100g of sausage. Always consult the label for specific information on portion sizes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  -->
+
+    <section>
+        <div class="product-details-container">
+        <div class="product-image">
+            <img id="product-image" src="" alt="Product Image">
+        </div>
+        <div class="product-info-detaile">
+            <h1 id="product-title" class="product-title"></h1>
+            <p id="product-description" class="product-description"></p>
+
+            <h3 class="section-title">Features:</h3>
+            <ul id="product-features" class="product-features"></ul>
+
+            <h3 class="section-title">How to Use:</h3>
+            <p id="product-usage" class="product-usage"></p>
+
+            <h3 class="section-title">Ingredients:</h3>
+            <p id="product-ingredients" class="product-ingredients"></p>
+
+            <div class="price-section">
+            <span id="product-price" class="price"></span>
+            </div>
+
+            <div class="quantity-section">
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-controls">
+                <button class="quantity-btn" id="decrease">-</button>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
+                <button class="quantity-btn" id="increase">+</button>
+            </div>
+            </div>
+
+            <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
+        </div>
+        </div>
+    </section>
+
+
+    <section>
+    <div class="product-intro">
+        <div class="container">
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs" id="productTab" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">
+                Description
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-controls="ingredients" aria-selected="false">
+                Ingredients
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storage" type="button" role="tab" aria-controls="storage" aria-selected="false">
+                Storage Conditions
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="nutrition-tab" data-bs-toggle="tab" data-bs-target="#nutrition" type="button" role="tab" aria-controls="nutrition" aria-selected="false">
+                Nutritional Info
+            </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-3" id="productTabContent">
+
+            <!-- Description Tab -->
+            <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+            <h3 id="desc-title">Classic Beef Sausage</h3>
+            <p id="desc-text">
+                The Classic Beef Sausage is a premium product made from the finest cuts of beef. We take pride in crafting this sausage with traditional recipes that have been passed down through generations. The beef is carefully selected, seasoned with a blend of natural spices, and encased in a natural casing for the perfect bite.
+            </p>
+            <p id="desc-extra">
+                Whether you're grilling it for a family BBQ, adding it to your favorite pasta, or enjoying it in a sandwich, our Classic Beef Sausage is versatile and perfect for any occasion. With its rich flavor and juicy texture, it’s sure to satisfy all meat lovers.
+            </p>
+            </div>
+
+            <!-- Ingredients Tab -->
+            <div class="tab-pane fade" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+            <h3 class="section-title" id="ingredients-title">Ingredients</h3>
+            <p id="ingredients-description" class="section-description">
+                Our Classic Beef Sausage contains the following ingredients:
+            </p>
+
+            <div id="ingredients-container" class="ingredients-container">
+                <div class="ingredient-item">Beef (70%)</div>
+                <div class="ingredient-item">Pork fat (20%)</div>
+                <div class="ingredient-item">Salt</div>
+                <div class="ingredient-item">Black pepper</div>
+                <div class="ingredient-item">Garlic powder</div>
+                <div class="ingredient-item">Onion powder</div>
+                <div class="ingredient-item">Paprika</div>
+                <div class="ingredient-item">Natural casing (sheep or hog casing)</div>
+                <div class="ingredient-item">Water</div>
+                <div class="ingredient-item">Natural preservatives (celery powder)</div>
+            </div>
+
+            <p class="no-artificial" id="ingredients-no-artificial">
+                Our sausages do not contain any artificial additives, preservatives, or MSG. We only use the best quality natural spices to enhance the taste of the beef.
+            </p>
+            </div>
+
+            <!-- Storage Conditions Tab -->
+            <div class="tab-pane fade" id="storage" role="tabpanel" aria-labelledby="storage-tab">
+            <h3 id="storage-title">Storage Conditions</h3>
+            <p id="storage-text">
+                To ensure the best quality and taste, we recommend the following storage conditions for our Classic Beef Sausage:
+            </p>
+            <ul id="storage-list">
+                <li>Keep refrigerated at 4°C (39°F) or below.</li>
+                <li>If you do not plan to use the sausage within a week, we suggest freezing it for up to 3 months.</li>
+                <li>For frozen sausages, ensure that they are thawed properly in the refrigerator before cooking.</li>
+                <li>Once opened, consume within 3 days for optimal flavor and freshness.</li>
+            </ul>
+            <p id="storage-note">
+                Always check the expiration date on the package for safety. Do not leave the sausage out at room temperature for extended periods.
+            </p>
+            </div>
+
+            <!-- Nutritional Info Tab -->
+            <div class="tab-pane fade" id="nutrition" role="tabpanel" aria-labelledby="nutrition-tab">
+            <div>
+                <h3 id="nutrition-title">Nutritional Information (Per 100g)</h3>
+                <table class="table table-bordered" id="nutrition-table">
+                <thead>
+                    <tr>
+                    <th>Component</th>
+                    <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Energy</td>
+                    <td id="nutrition-energy">250 kcal</td>
+                    </tr>
+                    <tr>
+                    <td>Protein</td>
+                    <td id="nutrition-protein">20g</td>
+                    </tr>
+                    <tr>
+                    <td>Fat</td>
+                    <td id="nutrition-fat">18g</td>
+                    </tr>
+                    <tr>
+                    <td>Saturated Fat</td>
+                    <td id="nutrition-saturated-fat">7g</td>
+                    </tr>
+                    <tr>
+                    <td>Carbohydrates</td>
+                    <td id="nutrition-carbohydrates">1g</td>
+                    </tr>
+                    <tr>
+                    <td>Sugars</td>
+                    <td id="nutrition-sugars">0g</td>
+                    </tr>
+                    <tr>
+                    <td>Salt</td>
+                    <td id="nutrition-salt">1.5g</td>
+                    </tr>
+                    <tr>
+                    <td>Fiber</td>
+                    <td id="nutrition-fiber">0g</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <p id="nutrition-note">
+                Our Classic Beef Sausage is packed with protein and healthy fats, making it a great addition to a balanced diet. Please note that the values mentioned above are for 100g of sausage. Always consult the label for specific information on portion sizes.
+            </p>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    </section>
+</body>
+</html>
