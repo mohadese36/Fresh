@@ -467,21 +467,22 @@
     padding: 1rem 2rem;
 }
 
-.related-products__card-title a{
-    font-size: 2.5rem;
+.related-products__card-title {
+    font-size: 2rem;
     font-weight: 600;
     color: var(--color-secondary-dark);
     transition: all 0.3s ease-in-out;
+    margin-bottom: 1rem;
 }
 
-.related-products__card-title a:hover {
+.related-products__card-title:hover {
     color: var(--color_red);
 }
 .related-products__card-text {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-weight: 500;
     color: var(--dark-color);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .related-products__card-price {

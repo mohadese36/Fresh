@@ -109,19 +109,20 @@ async function fetchProducts() {
   let query = supabase
     .from('products')
     .select(`
+    id,
+    name,
+    description,
+    features,
+    price,
+    stock,
+    created_at,
+    updated_at,
+    category_id,
+    image_url,
+    category:category_id (
       id,
       name,
-      description,
-      price,
-      stock,
-      created_at,
-      updated_at,
-      category_id,
-      image_url,
-      category:category_id (
-        id,
-        name,
-        slug
+      slug
       )
     `)
     .order('id', { ascending: true });
@@ -163,6 +164,11 @@ function getCategorySlugFromURL() {
   return params.get('category'); // مثلا "sausage-varieties"
 }
 
+// function truncateText(text, maxLength) {
+//   if (!text) return "No description available.";
+//   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+// }
+
 function renderProducts(products) {
   const container = document.getElementById('products-container');
   container.innerHTML = '';
@@ -180,31 +186,53 @@ function renderProducts(products) {
     section.classList.add('product-boxes');
 
     section.innerHTML = `
-      <h2 class="product-category">${categoryName}</h2>
-      <div class="row">
-        ${grouped[categoryName].map(prod => `
-          <div class="col-3">
-            <div class="product-boxes__box">
-              <a href="product.html?id=${prod.id}">
-                <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid improduct-box__img-main">
-              </a>
-              <div class="product-box__main">
-                <div class="col-7 ps-2 product-box__detiles">
-                  <a href="product.html?id=${prod.id}" class="product-box__detiles-title">${prod.name}</a>
-                  <p class="product-box__detiles-info">${prod.description}</p>
-                  <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
-                </div>
-              </div>
-              <div class="product-box__footer"></div>
+  <h2 class="product-category">${categoryName}</h2>
+  <div class="row">
+    ${grouped[categoryName].map(prod => `
+      <div class="col-md-6 col-lg-3 mb-4">
+        <a href="product.html?id=${prod.id}" class="related-products__card-link text-decoration-none">
+          <div class="product-box__main shadow-sm h-100">
+            <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid related-products__card-img">
+            <div class="col-7 ps-2 product-box__detiles">
+              <a class="product-box__detiles-title">${prod.name}</a>
+              <p class="product-box__detiles-info">${prod.features}</p>
+              <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
             </div>
           </div>
-        `).join('')}
+          <div class="product-box__footer"></div>
+        </a>
       </div>
-    `;
+    `).join('')}
+  </div>
+`;
+
+    // section.innerHTML = `
+    //   <h2 class="product-category">${categoryName}</h2>
+    //   <div class="row">
+    //     ${grouped[categoryName].map(prod => `
+    //       <div class="col-md-6 col-lg-3 mb-4">
+    //         <a href="product.html?id=${prod.id}" class="related-products__card-link text-decoration-none">
+    //           <div class="related-products__card shadow-sm h-100">
+    //             <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid related-products__card-img">
+
+    //             <div class="related-products__card-body text-center px-3 pb-3">
+    //               <h5 class="related-products__card-title">${prod.name}</h5>
+    //               <p class="related-products__card-text text-muted small">${prod.features || 'No features.'}</p>
+    //               <span class="related-products__card-price text-danger fw-bold">£${parseFloat(prod.price).toFixed(2)}</span>
+    //             </div>
+    //           </div>
+    //         </a>
+    //       </div>
+    //     `).join('')}
+    //   </div>
+    // `;
 
     container.appendChild(section);
   }
 }
+
+
+
 
 function fixImageUrl(url) {
   if (!url) return 'images/products/placeholder.jpg';
@@ -212,3 +240,45 @@ function fixImageUrl(url) {
   const base = 'https://lgbgwpbpxtmltzrsbjnx.supabase.co/storage/v1/object/public/product-images/';
   return base + url;
 }
+// function renderProducts(products) {
+//   const container = document.getElementById('products-container');
+//   container.innerHTML = '';
+
+//   const grouped = {};
+
+//   products.forEach(product => {
+//     const catName = (product.category && product.category.name) ? product.category.name : 'Other';
+//     if (!grouped[catName]) grouped[catName] = [];
+//     grouped[catName].push(product);
+//   });
+
+//   for (const categoryName in grouped) {
+//     const section = document.createElement('div');
+//     section.classList.add('product-boxes');
+
+//     section.innerHTML = `
+//       <h2 class="product-category">${categoryName}</h2>
+//       <div class="row">
+//         ${grouped[categoryName].map(prod => `
+//           <div class="col-3">
+//             <div class="product-boxes__box">
+//               <a href="product.html?id=${prod.id}">
+//                 <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid improduct-box__img-main">
+//               </a>
+//               <div class="product-box__main">
+//                 <div class="col-7 ps-2 product-box__detiles">
+//                   <a href="product.html?id=${prod.id}" class="product-box__detiles-title">${prod.name}</a>
+//                   <p class="product-box__detiles-info">${prod.description}</p>
+//                   <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
+//                 </div>
+//               </div>
+//               <div class="product-box__footer"></div>
+//             </div>
+//           </div>
+//         `).join('')}
+//       </div>
+//     `;
+
+//     container.appendChild(section);
+//   }
+// }

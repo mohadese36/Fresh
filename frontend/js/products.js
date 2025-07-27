@@ -27,96 +27,60 @@
 
 
 /////////////
-import { supabase } from './supabaseClient.js';
 
 
 
 
+// function populateProductTabs(product) {
+//   document.getElementById('desc-title').textContent = product.name || '';
+//   document.getElementById('desc-text').textContent = product.description || '';
+//   document.getElementById('desc-extra').textContent = product.extra_description || '';
 
-// import { supabase } from './supabaseClient.js';
+//   document.getElementById('ingredients-description').textContent = "Our " + (product.name || '') + " contains the following ingredients:";
 
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+//   const ingredientsContainer = document.getElementById('ingredients-container');
+//   ingredientsContainer.innerHTML = '';
+//   if(product.ingredients){
+//     product.ingredients.split(',').forEach(ing => {
+//       const div = document.createElement('div');
+//       div.classList.add('ingredient-item');
+//       div.textContent = ing.trim();
+//       ingredientsContainer.appendChild(div);
+//     });
+//   } else {
+//     ingredientsContainer.textContent = 'No ingredients listed.';
+//   }
 
-async function loadProduct() {
-  if (!productId) {
-    alert('Product ID is missing!');
-    return;
-  }
+//   document.getElementById('ingredients-no-artificial').textContent = product.no_artificial_note || 'Our sausages do not contain any artificial additives, preservatives, or MSG.';
 
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .eq('id', productId)
-    .single();
+//   document.getElementById('storage-text').textContent = product.storage_conditions || 'No storage info available.';
+//   const storageList = document.getElementById('storage-list');
+//   storageList.innerHTML = '';
+//   if(product.storage_list && Array.isArray(product.storage_list)){
+//     product.storage_list.forEach(item => {
+//       const li = document.createElement('li');
+//       li.textContent = item;
+//       storageList.appendChild(li);
+//     });
+//   } else {
+//     const li = document.createElement('li');
+//     li.textContent = 'Keep refrigerated at 4°C (39°F) or below.';
+//     storageList.appendChild(li);
+//   }
+//   document.getElementById('storage-note').textContent = product.storage_note || 'Always check the expiration date on the package for safety.';
 
-  if (error) {
-    alert('Error loading product: ' + error.message);
-    return;
-  }
+//   const nutrition = product.nutrition_info || {};
+//   document.getElementById('nutrition-energy').textContent = nutrition.Energy || 'N/A';
+//   document.getElementById('nutrition-protein').textContent = nutrition.Protein || 'N/A';
+//   document.getElementById('nutrition-fat').textContent = nutrition.Fat || 'N/A';
+//   document.getElementById('nutrition-saturated-fat').textContent = nutrition['Saturated Fat'] || 'N/A';
+//   document.getElementById('nutrition-carbohydrates').textContent = nutrition.Carbohydrates || 'N/A';
+//   document.getElementById('nutrition-sugars').textContent = nutrition.Sugars || 'N/A';
+//   document.getElementById('nutrition-salt').textContent = nutrition.Salt || 'N/A';
+//   document.getElementById('nutrition-fiber').textContent = nutrition.Fiber || 'N/A';
 
-  // پر کردن فیلدهای اصلی
-  document.getElementById('product-title').textContent = data.name;
-  document.getElementById('product-description').textContent = data.description;
-  document.getElementById('product-price').textContent = `$${data.price}`;
-  document.getElementById('product-image').src = data.image_url;
-
-  // تب‌ها
-  populateProductTabs(data);
-}
-
-window.addEventListener('DOMContentLoaded', loadProduct);
-
-function populateProductTabs(product) {
-  document.getElementById('desc-title').textContent = product.name || '';
-  document.getElementById('desc-text').textContent = product.description || '';
-  document.getElementById('desc-extra').textContent = product.extra_description || '';
-
-  document.getElementById('ingredients-description').textContent = "Our " + (product.name || '') + " contains the following ingredients:";
-
-  const ingredientsContainer = document.getElementById('ingredients-container');
-  ingredientsContainer.innerHTML = '';
-  if(product.ingredients){
-    product.ingredients.split(',').forEach(ing => {
-      const div = document.createElement('div');
-      div.classList.add('ingredient-item');
-      div.textContent = ing.trim();
-      ingredientsContainer.appendChild(div);
-    });
-  } else {
-    ingredientsContainer.textContent = 'No ingredients listed.';
-  }
-
-  document.getElementById('ingredients-no-artificial').textContent = product.no_artificial_note || 'Our sausages do not contain any artificial additives, preservatives, or MSG.';
-
-  document.getElementById('storage-text').textContent = product.storage_conditions || 'No storage info available.';
-  const storageList = document.getElementById('storage-list');
-  storageList.innerHTML = '';
-  if(product.storage_list && Array.isArray(product.storage_list)){
-    product.storage_list.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      storageList.appendChild(li);
-    });
-  } else {
-    const li = document.createElement('li');
-    li.textContent = 'Keep refrigerated at 4°C (39°F) or below.';
-    storageList.appendChild(li);
-  }
-  document.getElementById('storage-note').textContent = product.storage_note || 'Always check the expiration date on the package for safety.';
-
-  const nutrition = product.nutrition_info || {};
-  document.getElementById('nutrition-energy').textContent = nutrition.Energy || 'N/A';
-  document.getElementById('nutrition-protein').textContent = nutrition.Protein || 'N/A';
-  document.getElementById('nutrition-fat').textContent = nutrition.Fat || 'N/A';
-  document.getElementById('nutrition-saturated-fat').textContent = nutrition['Saturated Fat'] || 'N/A';
-  document.getElementById('nutrition-carbohydrates').textContent = nutrition.Carbohydrates || 'N/A';
-  document.getElementById('nutrition-sugars').textContent = nutrition.Sugars || 'N/A';
-  document.getElementById('nutrition-salt').textContent = nutrition.Salt || 'N/A';
-  document.getElementById('nutrition-fiber').textContent = nutrition.Fiber || 'N/A';
-
-  document.getElementById('nutrition-note').textContent = product.nutrition_note || 'Our ' + (product.name || '') + ' is packed with protein and healthy fats, making it a great addition to a balanced diet.';
-}
+//   document.getElementById('nutrition-note').textContent = product.nutrition_note || 'Our ' + (product.name || '') + ' is packed with protein and healthy fats, making it a great addition to a balanced diet.';
+// }
 
 
 ///////////////////////
