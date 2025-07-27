@@ -1,108 +1,30 @@
 
+// ===== Quantity Control Section =====
+// This script only controls the quantity input (+ / -)
+// It won't interfere with other scripts in this file.
 
-// import { supabase } from './supabaseClient.js';
+document.addEventListener('DOMContentLoaded', () => {
+  const decreaseBtn = document.getElementById('decrease');
+  const increaseBtn = document.getElementById('increase');
+  const quantityInput = document.getElementById('quantity');
 
-// // import { supabase } from './supabaseClient.js';
+  if (decreaseBtn && increaseBtn && quantityInput) {
+    decreaseBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const value = parseInt(quantityInput.value);
+      if (value > 1) quantityInput.value = value - 1;
+    });
 
-// const urlParams = new URLSearchParams(window.location.search);
-// const productId = urlParams.get('id');
+    increaseBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const value = parseInt(quantityInput.value);
+      quantityInput.value = value + 1;
+    });
+  }
+});
 
-// async function loadProduct() {
-//   if (!productId) {
-//     alert('Product ID is missing!');
-//     return;
-//   }
 
-//   const { data, error } = await supabase
-//     .from('products')
-//     .select('*')
-//     .eq('id', productId)
-//     .single();
 
-//   if (error) {
-//     alert('Error loading product: ' + error.message);
-//     return;
-//   }
-
-//   // پر کردن فیلدهای اصلی
-//   document.getElementById('product-title').textContent = data.name;
-//   document.getElementById('product-description').textContent = data.description;
-//   document.getElementById('product-price').textContent = `$${data.price}`;
-//   document.getElementById('product-image').src = data.image_url;
-
-//   // تب‌ها
-//   populateProductTabs(data);
-// }
-
-// window.addEventListener('DOMContentLoaded', loadProduct);
-
-// function populateProductTabs(product) {
-//   // ====================== Description Tab ======================
-//   const descTab = document.getElementById('desc');
-//   descTab.innerHTML = `
-//     <h3>${product.name || ''}</h3>
-//     <p>${product.description || ''}</p>
-//     <p>${product.extra_description || ''}</p>
-//   `;
-
-//   // ====================== Ingredients Tab ======================
-//   const ingredientsTab = document.getElementById('ingredients');
-//   const ingredients = product.ingredients ? product.ingredients.split(',') : [];
-//   const ingredientHTML = ingredients.map(item => `
-//     <div class="ingredient-item">${item.trim()}</div>
-//   `).join('');
-
-//   ingredientsTab.innerHTML = `
-//     <h3 class="section-title">Ingredients</h3>
-//     <p class="section-description">Our ${product.name || ''} contains the following ingredients:</p>
-//     <div class="ingredients-container">
-//       ${ingredientHTML || '<div class="ingredient-item">No ingredients listed.</div>'}
-//     </div>
-//     <p class="no-artificial">${product.no_artificial_note || 'Our sausages do not contain any artificial additives, preservatives, or MSG.'}</p>
-//   `;
-
-//   // ====================== Storage Conditions Tab ======================
-//   const storageTab = document.getElementById('storage');
-//   const storageItems = (product.storage_list && Array.isArray(product.storage_list)) ? product.storage_list : [
-//     'Keep refrigerated at 4°C (39°F) or below.',
-//     'If you do not plan to use the sausage within a week, we suggest freezing it for up to 3 months.',
-//     'For frozen sausages, ensure that they are thawed properly in the refrigerator before cooking.',
-//     'Once opened, consume within 3 days for optimal flavor and freshness.'
-//   ];
-
-//   const storageHTML = storageItems.map(item => `<li>${item}</li>`).join('');
-//   storageTab.innerHTML = `
-//     <h3>Storage Conditions</h3>
-//     <p>${product.storage_conditions || 'To ensure the best quality and taste, we recommend the following storage conditions:'}</p>
-//     <ul>${storageHTML}</ul>
-//     <p>${product.storage_note || 'Always check the expiration date on the package for safety. Do not leave the sausage out at room temperature for extended periods.'}</p>
-//   `;
-
-//   // ====================== Nutritional Info Tab ======================
-//   const nutrition = product.nutrition_info || {};
-//   const nutritionTab = document.getElementById('nutrition');
-//   nutritionTab.innerHTML = `
-//     <div>
-//       <h3>Nutritional Information (Per 100g)</h3>
-//       <table class="table table-bordered">
-//         <thead>
-//           <tr><th>Component</th><th>Amount</th></tr>
-//         </thead>
-//         <tbody>
-//           <tr><td>Energy</td><td>${nutrition.Energy || 'N/A'}</td></tr>
-//           <tr><td>Protein</td><td>${nutrition.Protein || 'N/A'}</td></tr>
-//           <tr><td>Fat</td><td>${nutrition.Fat || 'N/A'}</td></tr>
-//           <tr><td>Saturated Fat</td><td>${nutrition['Saturated Fat'] || 'N/A'}</td></tr>
-//           <tr><td>Carbohydrates</td><td>${nutrition.Carbohydrates || 'N/A'}</td></tr>
-//           <tr><td>Sugars</td><td>${nutrition.Sugars || 'N/A'}</td></tr>
-//           <tr><td>Salt</td><td>${nutrition.Salt || 'N/A'}</td></tr>
-//           <tr><td>Fiber</td><td>${nutrition.Fiber || 'N/A'}</td></tr>
-//         </tbody>
-//       </table>
-//     </div>
-//     <p>${product.nutrition_note || `Our ${product.name || ''} is packed with protein and healthy fats, making it a great addition to a balanced diet.`}</p>
-//   `;
-// }
 import { supabase } from './supabaseClient.js';
 
 // 1. گرفتن ID محصول از URL
