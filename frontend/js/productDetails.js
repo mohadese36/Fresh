@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<<<<<<< HEAD
-=======
 // // import { supabase } from './supabaseClient.js';
 
 // const urlParams = new URLSearchParams(window.location.search);
@@ -279,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
->>>>>>> c91b653 (Add checkout page and implement shopping cart functionality with JavaScript)
+
 import { supabase } from './supabaseClient.js';
 import { initAddToCart } from './addToCart.js'; // ⬅️ اضافه شد
 
