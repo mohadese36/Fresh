@@ -1,0 +1,32 @@
+
+@import "./variables.css";
+@import "./fonts.css";
+@import "./top-bar.css";
+@import "./navbar.css";
+@import "./defaults.css";
+@import "./footer.css";
+@import "./product-box.css";
+@import "./helper.css";
+@import "./breadcrumb.css";
+@import "./sidebar-productBox.css";
+@import "./index.css";
+
+.text-bigger {
+    font-size: 4rem;
+    color: red !important;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+.col-right {
+  align-self: start;
+}
+
+.basket-is-empty {
+  color: red !important;
+}
