@@ -3,29 +3,31 @@
 // This script only controls the quantity input (+ / -)
 // It won't interfere with other scripts in this file.
 
-document.addEventListener('DOMContentLoaded', () => {
-  const decreaseBtn = document.getElementById('decrease');
-  const increaseBtn = document.getElementById('increase');
-  const quantityInput = document.getElementById('quantity');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const decreaseBtn = document.getElementById('decrease');
+//   const increaseBtn = document.getElementById('increase');
+//   const quantityInput = document.getElementById('quantity');
 
-  if (decreaseBtn && increaseBtn && quantityInput) {
-    decreaseBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const value = parseInt(quantityInput.value);
-      if (value > 1) quantityInput.value = value - 1;
-    });
+//   if (decreaseBtn && increaseBtn && quantityInput) {
+//     decreaseBtn.addEventListener('click', (e) => {
+//       e.preventDefault();
+//       const value = parseInt(quantityInput.value);
+//       if (value > 1) quantityInput.value = value - 1;
+//     });
 
-    increaseBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const value = parseInt(quantityInput.value);
-      quantityInput.value = value + 1;
-    });
-  }
-});
+//     increaseBtn.addEventListener('click', (e) => {
+//       e.preventDefault();
+//       const value = parseInt(quantityInput.value);
+//       quantityInput.value = value + 1;
+//     });
+//   }
+// });
 
-
+//////////
 
 import { supabase } from './supabaseClient.js';
+import { addItemToBasket } from './cartManager.js';
+
 
 // 1. گرفتن ID محصول از URL
 function getProductIdFromURL() {
@@ -48,6 +50,7 @@ async function fetchProductDetails(productId) {
 
   displayProductDetails(data);
   displayProductTabs(data);
+  initAddToCart(data); 
 }
 
 // 3. نمایش اطلاعات اصلی محصول
@@ -157,6 +160,23 @@ function displayProductTabs(product) {
 const productId = getProductIdFromURL();
 if (productId) {
   fetchProductDetails(productId);
+
 } else {
   console.error('No product ID found in URL.');
 }
+/////////////نمایش در سبد خرید :
+function initAddToCart(product) {
+  const btn = document.getElementById('add-to-cart-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const productToAdd = {
+      id: product.id,
+      name: product.name,
+      price: parseFloat(product.price),
+      quantity: 1
+    };
+    addItemToBasket(productToAdd);
+  });
+}
+
