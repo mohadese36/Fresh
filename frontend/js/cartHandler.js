@@ -1,24 +1,26 @@
 ////////این صفحه مخصوص صفحاتی مثل product.html هست که یک دکمه Add to Cart دارن.
 
+
 import { updateBasketUI, addItemToBasket } from './cartManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   updateBasketUI();
 
-  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-    button.addEventListener('click', () => {
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', () => {
       const product = {
-        id: button.dataset.productId,
-        name: button.dataset.productName,
-        price: parseFloat(button.dataset.productPrice),
+        id: addToCartBtn.dataset.productId,
+        name: addToCartBtn.dataset.productName,
+        price: parseFloat(addToCartBtn.dataset.productPrice),
         quantity: 1
       };
 
       addItemToBasket(product);
+      updateBasketUI(); // 👈 این خط خیلی مهمه
     });
-  });
+  }
 });
 
-
-cartHandler.js
 

@@ -95,8 +95,7 @@
 
 
 
-/////////////////
-
+////////////////
 import { supabase } from './supabaseClient.js';
 import { addItemToBasket } from './cartManager.js';
 
@@ -242,3 +241,19 @@ function fixImageUrl(url) {
 /////////////////فراخوانی دگمه ها 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.add-to-cart-btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        id: button.dataset.productId,
+        name: button.dataset.productName,
+        price: parseFloat(button.dataset.productPrice),
+        quantity: 1
+      };
+
+      addItemToBasket(product);
+    });
+  });
+});

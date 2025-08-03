@@ -73,7 +73,6 @@
 
 /////////////////کدهای امروز یکشنبه
 
-=======
 // export function initAddToCart(productId) {
 //   document.addEventListener('DOMContentLoaded', () => {
 //     const addToCartBtn = document.getElementById('add-to-cart');
@@ -169,4 +168,3 @@ export function initAddToCart(productId) {
     updateCartIcon();
   });
 }
->>>>>>> new-branch-from-old-commit
