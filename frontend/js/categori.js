@@ -52,27 +52,33 @@
 //     section.classList.add('product-boxes');
 
 //     section.innerHTML = `
-//       <h2 class="product-category">${categoryName}</h2>
-//       <div class="row">
-//         ${grouped[categoryName].map(prod => `
-//           <div class="col-3">
-//             <div class="product-boxes__box">
-//               <a href="#">
-//                 <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid improduct-box__img-main">
-//               </a>
-//               <div class="product-box__main">
-//                 <div class="col-7 ps-2 product-box__detiles">
-//                   <a class="product-box__detiles-title">${prod.name}</a>
-//                   <p class="product-box__detiles-info">${prod.description}</p>
-//                   <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
-//                 </div>
-//               </div>
-//               <div class="product-box__footer"></div>
+//   <h2 class="product-category">${categoryName}</h2>
+//   <div class="row">
+//     ${grouped[categoryName].map(prod => `
+//       <div class="col-md-6 col-lg-4 mb-4">
+//         <a href="product.html?id=${prod.id}" class="related-products__card-link text-decoration-none">
+//           <div class="product-box__main shadow-sm h-100">
+//             <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid related-products__card-img">
+//             <div class="col-12 ps-2 product-box__detiles">
+//               <a class="product-box__detiles-title">${prod.name}</a>
+//               <p class="product-box__detiles-info">${prod.features}</p>
+//               <p class="product-box__detiles-info">£${parseFloat(prod.price).toFixed(2)}/kg</p>
+//               <button
+//                 class="add-to-cart-btn"
+//                 data-product-id="${prod.id}"
+//                 data-product-name="${prod.name}"
+//                 data-product-price="${prod.price}"
+//                 >
+//                 Add to Cart
+//             </button>
 //             </div>
 //           </div>
-//         `).join('')}
+//           <div class="product-box__footer"></div>
+//         </a>
 //       </div>
-//     `;
+//     `).join('')}
+//   </div>
+// `;
 
 //     container.appendChild(section);
 //   }
@@ -97,7 +103,6 @@
 
 ////////////////
 import { supabase } from './supabaseClient.js';
-import { addItemToBasket } from './cartManager.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -238,22 +243,21 @@ function fixImageUrl(url) {
   return base + url;
 }
 
-/////////////////فراخوانی دگمه ها 
+/////////////نمایش  سبد خرید در هر صفحه :
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.add-to-cart-btn');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const product = {
-        id: button.dataset.productId,
-        name: button.dataset.productName,
-        price: parseFloat(button.dataset.productPrice),
-        quantity: 1
-      };
-
-      addItemToBasket(product);
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('basket-box.html')
+    .then(res => res.text())
+    .then(data => {
+      const container = document.getElementById('basket-box-container');
+      if (container) {
+        container.innerHTML = data;
+      }
     });
-  });
 });
+
+///////////اضافه شدن محصول به باکس سبد خرید
+
+import { addItemToBasket} from './basket.js';
+
+

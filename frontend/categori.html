@@ -204,6 +204,7 @@
                   <div class="product-info"></div>
                 </div> -->
             </div>
+
             <div>
               <div class="product">
                 <!-- Start Breadcrumb -->
@@ -250,39 +251,40 @@
                 <!-- <nav id="categories-menu"></nav> -->
             </div>
           </div>
+
           <div>
             <aside>
-              <div class="card card-cats-menu sticky">
+              <div id="basket-box-container"></div>
+
+              <!-- <div class="card card-cats-menu sticky">
                 <div class=" card-body-basket p-3">
-                  <!--  -->
                   <div class="" role="complementary">
-                      <div class="card card-basket border-0">
-                        <div class="basket-is-empty text-center">
-                          <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
-                          <p class="card-text mb-3">Your basket is empty.</p>
-                        </div>
+                    <div class="card card-basket border-0">
+                      <div class="basket-is-empty text-center">
+                        <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
+                        <p class="card-text mb-3">Your basket is empty.</p>
+                      </div>
 
-                        <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
+                      <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
                         <div class="row align-items-center pb-2">
-                            <div class="col-7">
-                                <a class="text-bigger" href="/basket/" title="Go to the 'basket' page where you can make more changes to your basket."><i class="bi bi-basket"></i></a>
-                            </div>
-                            <div class="col text-left">
-                                Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
-                        <table class="table">
-                            <tbody class="basket-items include-price include-ajax-controls"></tbody>
-                        </table>
+                          <div class="col-7">
+                            <a class="text-bigger" href="/basket/"><i class="bi bi-basket"></i></a>
+                          </div>
+                          <div class="col text-left">
+                            Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
+                          </div>
                         </div>
                       </div>
+
+                      <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
+                        <table class="table">
+                          <tbody class="basket-items include-price include-ajax-controls"></tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
-                  <!--  -->
                 </div>
-              </div>
+              </div> -->
             </aside>
           </div>
 
@@ -385,10 +387,11 @@
 <script src="vendor/fontAwesome5/all.min.js"></script>
 <script src="vendor/Bootstrap/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type="module" src="./js/index.js"></script>
 <script type="module" src="./js/menu.js"></script>
 <script type="module" src="./js/categori.js"></script>
-<script type="module" src="./js/cartManager.js"></script>
-<script type="module" src="./scripts/cartHandler.js"></script>
+<script type="module" src="./js/basket.js"></script>
+
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.min.js"></script> -->
 <!-- <script type="module" src="js/index.js"></script> -->
@@ -661,7 +664,14 @@ products.forEach(p => {
 
 
 
-</script>
+<!-- <script>
+  fetch('basket-box.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('basket-box-container').innerHTML = data;
+    });
+</script> -->
+
 
 </body>
 </html>

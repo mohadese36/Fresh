@@ -1,27 +1,26 @@
 
-//////این کدها درست هستند 
-// export function addItemToBasket(product) {
-//   let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+export function addItemToBasket(product) {
+  let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-//   const existingItem = cart.find(item => item.productId === product.id);
+  const existingItem = cart.find(item => item.productId === product.id);
 
-//   if (existingItem) {
-//     existingItem.quantity += product.quantity || 1;
-//   } else {
-//     cart.push({
-//       productId: product.id,
-//       name: product.name,
-//       price: product.price,
-//       quantity: product.quantity || 1,
-//     });
-//   }
+  if (existingItem) {
+    existingItem.quantity += product.quantity || 1;
+  } else {
+    cart.push({
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity || 1,
+    });
+  }
 
-//   localStorage.setItem('cartItems', JSON.stringify(cart));
+  localStorage.setItem('cartItems', JSON.stringify(cart));
 
-//   updateBasketUI();
-// }
+  updateBasketUI();
+}
 
-// function updateBasketUI() {
+// export function updateBasketUI() {
 //   const emptyMessage = document.querySelector('.basket-is-empty');
 //   const notEmptySections = document.querySelectorAll('.basket-is-not-empty');
 //   const basketBody = document.querySelector('.basket-items');
@@ -67,6 +66,17 @@
 //     `;
 
 //     basketBody.appendChild(row);
+
+//     const checkoutBtn = document.getElementById('checkout-btn');
+//     if (checkoutBtn) {
+//     if (cart.length > 0) {
+//         checkoutBtn.style.display = 'block';
+//     } else {
+//         checkoutBtn.style.display = 'none';
+//     }
+//     }
+
+
 //   });
 
 //   const guidePriceEl = document.querySelector('.basket-guide-price');
@@ -75,63 +85,10 @@
 //   }
 
 //   addBasketControlsListeners();
+
+//   // اگر نیاز بود یکبار دیگر چک می‌کنیم
+//   setTimeout(addBasketControlsListeners, 50);
 // }
-
-// function addBasketControlsListeners() {
-//   document.querySelectorAll('.basket-items .increase').forEach(btn => {
-//     btn.onclick = () => changeQuantity(btn.dataset.id, 1);
-//   });
-//   document.querySelectorAll('.basket-items .decrease').forEach(btn => {
-//     btn.onclick = () => changeQuantity(btn.dataset.id, -1);
-//   });
-//   document.querySelectorAll('.basket-items .remove').forEach(btn => {
-//     btn.onclick = () => removeItem(btn.dataset.id);
-//   });
-// }
-
-// function changeQuantity(productId, delta) {
-//   let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-//   const item = cart.find(i => i.productId === productId);
-//   if (!item) return;
-
-//   item.quantity += delta;
-//   if (item.quantity < 1) item.quantity = 1;
-
-//   localStorage.setItem('cartItems', JSON.stringify(cart));
-//   updateBasketUI();
-// }
-
-// function removeItem(productId) {
-//   let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-//   cart = cart.filter(i => i.productId !== productId);
-//   localStorage.setItem('cartItems', JSON.stringify(cart));
-//   updateBasketUI();
-// }
-
-
-///////////// این کدها درست هستند
-
-
-export function addItemToBasket(product) {
-  let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-  const existingItem = cart.find(item => item.productId === product.id);
-
-  if (existingItem) {
-    existingItem.quantity += product.quantity || 1;
-  } else {
-    cart.push({
-      productId: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: product.quantity || 1,
-    });
-  }
-
-  localStorage.setItem('cartItems', JSON.stringify(cart));
-
-  updateBasketUI();
-}
 
 export function updateBasketUI() {
   const emptyMessage = document.querySelector('.basket-is-empty');
@@ -144,6 +101,11 @@ export function updateBasketUI() {
     if (emptyMessage) emptyMessage.style.display = 'block';
     notEmptySections.forEach(el => (el.style.display = 'none'));
     if (basketBody) basketBody.innerHTML = '';
+
+    // ⛔ مخفی‌کردن دکمه‌ی checkout در حالت خالی
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) checkoutBtn.style.display = 'none';
+
     return;
   }
 
@@ -186,8 +148,16 @@ export function updateBasketUI() {
     guidePriceEl.textContent = `£${total.toFixed(2)}`;
   }
 
+  // ✅ نمایش دکمه checkout فقط زمانی که cart پر است
+  const checkoutBtn = document.getElementById('checkout-btn');
+  if (checkoutBtn) {
+    checkoutBtn.style.display = cart.length > 0 ? 'block' : 'none';
+  }
+
   addBasketControlsListeners();
+  setTimeout(addBasketControlsListeners, 50);
 }
+
 
 function addBasketControlsListeners() {
   document.querySelectorAll('.basket-items .increase').forEach(btn => {
@@ -219,3 +189,5 @@ function removeItem(productId) {
   localStorage.setItem('cartItems', JSON.stringify(cart));
   updateBasketUI();
 }
+
+

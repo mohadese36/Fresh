@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- components/basket-box.html -->
+<div>
+  <aside>
+    <div class="card card-cats-menu sticky">
+      <div class="card-body-basket p-3">
+        <div role="complementary">
+          <div class="card card-basket border-0">
+            <div class="basket-is-empty text-center">
+              <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
+              <p class="card-text mb-3">Your basket is empty.</p>
+            </div>
+
+            <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
+              <div class="row align-items-center pb-2">
+                <div class="col-7">
+                  <a class="text-bigger" href="/basket/"><i class="bi bi-basket"></i></a>
+                </div>
+                <div class="col text-left">
+                  Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
+              <table class="table">
+                <tbody class="basket-items include-price include-ajax-controls"></tbody>
+              </table>
+            </div>
+            <!-- ✅ دکمه رفتن به پرداخت -->
+            <div class="basket-checkout-btn-wrapper" style="padding: 1rem; text-align: center;">
+            <a href="checkout.html" class="btn btn-primary btn-block" id="checkout-btn" style="display:none;">
+                Go to Checkout
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+</body>
+</html>

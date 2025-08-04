@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/product.css">
+  <style>
+    .product-image {
+      width: 170px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .card {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
     <!-- Start Header -->
@@ -119,13 +131,103 @@
         </div>
     </header>
     <!-- Finish Header -->
-
-  <main class="checkout-container">
-    <h1>Checkout</h1>
-    <div id="cart-summary" class="cart-summary">
-      <!-- اینجا اطلاعات سبد خرید نمایش داده می‌شود -->
+    <section>
+   <!-- <div class="container my-5">
+    <h2 class="mb-4">Your Checkout</h2>
+    <div id="checkout-items" class="row g-2">
     </div>
-  </main>
+  </div> -->
+    <div class="container my-5">
+    <h2 class="mb-4 text-center">Checkout</h2>
+
+    <div class="row">
+      <!-- ستون محصولات -->
+      <div class="col-md-7">
+        <h4 class="mb-3">Your Basket</h4>
+        <div id="checkout-items">
+          <!-- کارت محصولات قرار می‌گیرند اینجا -->
+        </div>
+      </div>
+
+      <!-- ستون فرم پرداخت -->
+      <div class="col-md-5">
+        <h4 class="mb-3">Payment Details</h4>
+        <form id="checkout-form">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" required/>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" required/>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Shipping Address</label>
+            <textarea class="form-control" id="address" rows="2" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" maxlength="16" required/>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="expiry" class="form-label">Expiry Date</label>
+              <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required/>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cvv" maxlength="4" required/>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Place Order</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    </section>
+<!-- Popup Modal -->
+<div id="demoPopup" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 2rem;
+  z-index: 1050;
+">
+  <h3 style="margin-bottom: 1rem;">⚠️ Demo Site Notice</h3>
+  <p style="font-size: 1.1rem; line-height: 1.5;">
+    This is a sample portfolio website. The payment options and all related features are for demonstration purposes only. 
+    No real transactions will occur.<br><br>
+    If you are interested in building a similar project, feel free to contact me at:<br>
+    <a href="mailto:ariagh3936@gmail.com" style="color: #007bff;">ariagh3936@gmail.com</a>
+  </p>
+  <button id="closePopup" style="
+    margin-top: 2rem;
+    padding: 0.6rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+  ">Close</button>
+</div>
+
+<!-- Background Overlay -->
+<div id="overlay" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1040;
+"></div>
 
 
 <!-- Supabase -->
@@ -137,50 +239,98 @@
 <script type="module" src="./js/menu.js"></script>
 
 <!-- Bootstrap JS -->
-<script type="module" src="./js/addToCart.js"></script>
+<!-- <script type="module" src="./js/addToCart.js"></script> -->
 
-  <script type="module">
-    import { supabase } from './js/supabaseClient.js';
 
-    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+ <script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-    const cartContainer = document.getElementById('cart-summary');
+const SUPABASE_URL = 'https://lgbgwpbpxtmltzrsbjnx.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxnYmd3cGJweHRtbHR6cnNiam54Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2NzUxNzQsImV4cCI6MjA2ODI1MTE3NH0.Em8mM1z9xvVVKSi5kDfSoq-_Qof-u5JM7hDdqec6XA0';
 
-    if (cartData.length === 0) {
-      cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-    } else {
-      const item = cartData[0];
-      const productId = item.productId;
-      const quantity = item.quantity;
 
-      async function loadProduct() {
-        const { data, error } = await supabase
-          .from('products')
-          .select('*')
-          .eq('id', productId)
-          .single();
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        if (error) {
-          cartContainer.innerHTML = `<p>Error loading product info.</p>`;
-          console.error(error);
-          return;
-        }
+    const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const container = document.getElementById("checkout-items");
 
-        const total = (parseFloat(data.price) * quantity).toFixed(2);
-
-        cartContainer.innerHTML = `
-          <div class="checkout-item">
-            <h2>${data.name}</h2>
-            <p>Price: $${data.price}</p>
-            <p>Quantity: ${quantity}</p>
-            <p><strong>Total: $${total}</strong></p>
-            <button onclick="alert('Purchase completed!')">Complete Purchase</button>
-          </div>
-        `;
+    async function loadProducts() {
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your basket is empty.</p>";
+        return;
       }
 
-      loadProduct();
+      // استخراج شناسه‌ها از سبد خرید
+      const productIds = cart.map(item => parseInt(item.productId));
+
+      // واکشی محصولات از Supabase
+      const { data: products, error } = await supabase
+        .from("products")
+        .select("id, name, price, image_url")
+        .in("id", productIds);
+
+      if (error) {
+        container.innerHTML = "<p>Error loading products.</p>";
+        console.error(error);
+        return;
+      }
+
+      // رندر محصولات
+      cart.forEach(cartItem => {
+        const product = products.find(p => p.id === parseInt(cartItem.productId));
+        if (!product) return;
+
+        const col = document.createElement("div");
+        col.className = "col-md-6 col-lg-4";
+
+        col.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <img src="${product.image_url}" class="card-img-top product-image" alt="${product.name}" />
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">Quantity: ${cartItem.quantity}</p>
+              <p class="card-text">Price: £${(product.price * cartItem.quantity).toFixed(2)}</p>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(col);
+      });
     }
+
+    loadProducts();
+
+
+    // گرفتن ارجاعات به فرم پرداخت، پاپ‌آپ، لایه پوششی (overlay) و دکمه بستن پاپ‌آپ
+const form = document.getElementById("checkout-form");
+const popup = document.getElementById("demoPopup");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closePopup");
+
+// زمانی که فرم ارسال می‌شود (کاربر دکمه Place Order را می‌زند)
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // جلوگیری از ارسال واقعی فرم و رفرش صفحه
+
+  // نمایش پاپ‌آپ اطلاع‌رسانی و فعال‌کردن لایه پوششی پشت پاپ‌آپ
+  popup.style.display = "block";
+  overlay.style.display = "block";
+});
+
+// وقتی کاربر روی دکمه بستن پاپ‌آپ کلیک کند
+closeBtn.addEventListener("click", () => {
+  // مخفی کردن پاپ‌آپ و لایه پوششی
+  popup.style.display = "none";
+  overlay.style.display = "none";
+});
+
+// وقتی کاربر بیرون از پاپ‌آپ (روی لایه پوششی) کلیک کند
+overlay.addEventListener("click", () => {
+  // پاپ‌آپ و لایه پوششی را مخفی می‌کند
+  popup.style.display = "none";
+  overlay.style.display = "none";
+});
+
   </script>
+
 </body>
 </html>

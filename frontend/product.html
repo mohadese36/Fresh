@@ -179,6 +179,7 @@
                     <span id="product-price" class="price"></span>
                 </div>
 
+                <div id="add-to-cart-container"></div>
                 <!-- <div class="quantity-section">
                     <label for="quantity">Quantity:</label>
                     <div class="quantity-controls">
@@ -189,30 +190,35 @@
                 </div> -->
 
                 <!-- <button id="add-to-cart" class="add-to-cart">Add to Cart</button> -->
-                 <button id="add-to-cart-btn">Add to Cart</button>
+                 <!-- <button id="add-to-cart-btn">Add to Cart</button> -->
 
 
                 </div>
             </div>
+
             <div>
             <aside>
-              <div class="card card-cats-menu sticky">
+                <!-- جعبه سبد خرید -->
+                <div id="basket-box-container"></div>
+
+
+
+                <!-- <div class="card card-cats-menu sticky">
                 <div class=" card-body-basket p-3">
-                  <!--  -->
-                  <div class="" role="complementary">
-                      <div class="card card-basket border-0">
+                    <div class="" role="complementary">
+                    <div class="card card-basket border-0">
                         <div class="basket-is-empty text-center">
-                         <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
-                          <p class="card-text mb-3">Your basket is empty.</p>
+                        <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
+                        <p class="card-text mb-3">Your basket is empty.</p>
                         </div>
 
                         <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
                         <div class="row align-items-center pb-2">
                             <div class="col-7">
-                                <a class="text-bigger" href="/basket/" title="Go to the 'basket' page where you can make more changes to your basket."><i class="bi bi-basket"></i></a>
+                            <a class="text-bigger" href="/basket/"><i class="bi bi-basket"></i></a>
                             </div>
                             <div class="col text-left">
-                                Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
+                            Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
                             </div>
                         </div>
                         </div>
@@ -222,13 +228,15 @@
                             <tbody class="basket-items include-price include-ajax-controls"></tbody>
                         </table>
                         </div>
-                      </div>
-                  </div>
-                  <!--  -->
+                    </div>
+                    </div>
                 </div>
-              </div>
+                </div> -->
             </aside>
             </div>
+
+
+
         </div>
         <!-- <button id="add-to-cart" class="add-to-cart">Buy Now</button> -->
         </div>
@@ -427,14 +435,12 @@
 
 <!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<!-- <script type="module" src="js/index.js"></script> -->
+<script type="module" src="./js/index.js"></script>
  <script type="module" src="./js/menu.js"></script>
- <script type="module" src="./js/products.js"></script>
  <script type="module" src="./js/productDetails.js"></script>
  <script type="module" src="./js/related-products.js"></script>
- <script type="module" src="./js/addToCart.js"></script>
-<script type="module" src="./js/cartManager.js"></script>
-<!-- <script type="module" src="./scripts/cartHandler.js"></script> -->
+    <script type="module" src="./js/basket.js"></script>
+
 
 
 
@@ -442,6 +448,13 @@
 
 
 <!-- Supabase -->
+<!-- <script>
+  fetch('basket-box.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('basket-box-container').innerHTML = data;
+    });
+</script> -->
 
 
 <script>
