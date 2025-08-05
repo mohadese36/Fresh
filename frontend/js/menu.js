@@ -118,6 +118,9 @@
 //   const menuHTML = buildMenuHTML(menuTree);
 //   menuContainer.innerHTML = menuHTML;
 // });
+
+
+
 //////////////////////////
 import { supabase } from './supabaseClient.js';
 

@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchProducts() {
   const categorySlug = getCategorySlugFromURL();
-
   let query = supabase
     .from('products')
     .select(`
@@ -132,6 +131,8 @@ async function fetchProducts() {
       )
     `)
     .order('id', { ascending: true });
+   
+
 
   if (categorySlug) {
     // فیلتر محصولات بر اساس slug دسته
@@ -148,6 +149,7 @@ async function fetchProducts() {
     }
 
     if (categories.length > 0) {
+      console.log('✅ Found category ID:', categories[0].id); // ← چاپ آی‌دی دسته
       query = query.eq('category_id', categories[0].id);
     } else {
       // اگر دسته‌ای با این slug نبود، محصولات خالی نمایش داده شود
@@ -168,7 +170,11 @@ async function fetchProducts() {
 function getCategorySlugFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get('category'); // مثلا "sausage-varieties"
+  // return params.get('slug');
+
 }
+
+
 
 
 function renderProducts(products) {
@@ -260,4 +266,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 import { addItemToBasket} from './basket.js';
 
+
+
+
+
+
+
+
+// این کد slug موجود در URL رو استخراج می‌کنه
+const params = new URLSearchParams(window.location.search);
+const slug = params.get('slug');
+// console.log('📌 Current slug:', slug);
 

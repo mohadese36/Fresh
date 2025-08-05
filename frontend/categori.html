@@ -239,16 +239,6 @@
                 <h1 id="category-title"></h1>
                 <div id="products-container" class="row"></div>
                 <div id="product-features" class="product-features"></div>
-  
-                <!-- <div id="products-container" class="products-grid"></div> -->
-
-                <!-- <h1 id="category-title"></h1>
-                <div id="products-container" class="row"></div> -->
-                <!-- Finish Breadcrumb -->
-                <!-- <h1 id="category-title"></h1> -->
-                 <!-- <h2 id="category-title" class="product-category"></h2>
-                <div id="products-container"  class="row"></div> -->
-                <!-- <nav id="categories-menu"></nav> -->
             </div>
           </div>
 
@@ -399,6 +389,12 @@
 
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    console.log('All URL params:', [...params.entries()]);
+  });
+</script>
 
 
 
