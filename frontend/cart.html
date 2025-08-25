@@ -201,55 +201,85 @@
     </div>
     </header>
     <!-- Finish Header -->
+    <main class="cart-container">
+    <h1>Your Basket</h1>
 
-  <main class="cart-container">
+    <div class="basket-is-empty text-center">
+        <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
+        <p class="card-text mb-3">Your basket is empty.</p>
+    </div>
+
+    <div class="basket-is-not-empty" style="display:none;">
+        <table class="table">
+        <thead>
+            <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            </tr>
+        </thead>
+        <tbody class="basket-items include-price include-ajax-controls"></tbody>
+        </table>
+
+        <h3>Total: <span id="cart-total">£0.00</span></h3>
+
+        <div class="basket-checkout-btn-wrapper" style="padding: 1rem; text-align: center;">
+        <a href="./checkout.html" class="btn btn-primary btn-block" id="checkout-btn" style="display:none;">Go to Checkout</a>
+        </div>
+    </div>
+    </main>
+
+
+  <!-- <main class="cart-container">
     <h1>Your Basket</h1>
     <div id="cart-items"></div>
 
-        <div>
-            <aside>
-              <div class="card card-cats-menu sticky">
-                <div class=" card-body-basket p-3">
-                  <!--  -->
-                  <div class="" role="complementary">
-                      <div class="card card-basket border-0">
-                        <div class="basket-is-empty text-center">
-                          <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
-                          <p class="card-text mb-3">Your basket is empty.</p>
-                        </div>
+    <div>
+        <aside>
+            <div class="card card-cats-menu sticky">
+            <div class=" card-body-basket p-3">
 
-                        <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
-                        <div class="row align-items-center pb-2">
-                            <div class="col-7">
-                                <a class="text-bigger" href="/basket/" title="Go to the 'basket' page where you can make more changes to your basket."><i class="bi bi-basket"></i></a>
-                            </div>
-                            <div class="col text-left">
-                                Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
-                            </div>
-                        </div>
-                        </div>
+                <div class="" role="complementary">
+                    <div class="card card-basket border-0">
+                    <div class="basket-is-empty text-center">
+                        <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
+                        <p class="card-text mb-3">Your basket is empty.</p>
+                    </div>
 
-                        <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
-                        <table class="table">
-                            <tbody class="basket-items include-price include-ajax-controls"></tbody>
-                        </table>
+                    <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
+                    <div class="row align-items-center pb-2">
+                        <div class="col-7">
+                            <a class="text-bigger" href="/basket/" title="Go to the 'basket' page where you can make more changes to your basket."><i class="bi bi-basket"></i></a>
                         </div>
+                        <div class="col text-left">
+                            Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
+                        </div>
+                    </div>
+                    </div>
 
-                        <!-- ✅ دکمه رفتن به پرداخت -->
-                        <div class="basket-checkout-btn-wrapper" style="padding: 1rem; text-align: center;">
-                        <a href="/checkout" class="btn btn-primary btn-block" id="checkout-btn" style="display:none;">
-                            Go to Checkout
-                        </a>
-                        </div>
-                      </div>
-                  </div>
-                  <!--  -->
+                    <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
+                    <table class="table">
+                        <tbody class="basket-items include-price include-ajax-controls"></tbody>
+                    </table>
+                    </div>
+
+
+                    <div class="basket-checkout-btn-wrapper" style="padding: 1rem; text-align: center;">
+                    <a href="/checkout" class="btn btn-primary btn-block" id="checkout-btn" style="display:none;">
+                        Go to Checkout
+                    </a>
+                    </div>
+                    </div>
                 </div>
-              </div>
-            </aside>
-        </div>
-    
 
+            </div>
+            </div>
+        </aside>
+    </div>
+    
+</main> -->
     <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/fontAwesome5/all.min.js"></script>
@@ -260,9 +290,11 @@
 <script type="module" src="./js/cartManager.js"></script>
 <script type="module" src="./scripts/cartHandler.js"></script>
  <script type="module" src="./js/productDetails.js"></script>
+ <script type="module" src="./js/cart.js"></script>
+ <script type="module" src="./js/supabaseClient.js"></script>
 
 <!-- Supabase -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
 <!-- Supabase -->
  <!-- <script type="module">
 document.addEventListener('DOMContentLoaded', () => {

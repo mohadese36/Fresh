@@ -3,8 +3,8 @@
 
 
 import { supabase } from './supabaseClient.js';
-import { addItemToBasket} from './basket.js';
-import { updateBasketUI } from './basket.js';
+import { addItemToBasket} from './basket-box.js';
+import { updateBasketUI } from './basket-box.js';
 
 // 1. گرفتن ID محصول از URL
 function getProductIdFromURL() {
