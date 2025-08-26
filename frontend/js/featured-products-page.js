@@ -184,3 +184,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
+
+
+
+
+
+// // --- لود باکس سبد خرید ---
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('basket-box.html')
+    .then(res => res.text())
+    .then(data => {
+      const container = document.getElementById('basket-box-container');
+      if (container) {
+        container.innerHTML = data;
+      }
+    });
+});
