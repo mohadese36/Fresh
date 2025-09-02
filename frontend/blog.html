@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/blog.css">
+    <style>
+      .article__banner {
+        width: 100%;
+        height: auto;
+      }
+      .article__seconadary-banner {
+        width: 40%;
+        height: auto;
+        margin-left: 0;
+        border-radius: 7px;
+      }
+    </style>
 </head>
 <body>
     <!-- Start Header -->
@@ -74,8 +86,54 @@
     </section>     
     <!-- Finish Breadcrumb -->
 
-    <!-- Finish Breadcrumb -->
+     <!-- Start Article -->
     <main class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-8" id="article-container"></div>
+        <div class="col-4">
+          <div class="products-info">
+            <div class="product-info">
+              <span class="product-info__products-title">Latest Articles</span>
+              <ul class="last-articles__list" id="latest-articles-list"></ul>
+            </div>
+            <div class="product-info">
+              <span class="product-info__products-title">Top-Rated Products</span>
+              <ul class="product-info__products-list">
+                <li class="product-info__products-list-item">
+                  <a href="#" class="product-info__products-link">
+                    <img src="images/products/beef.png" alt="Product Cover" class="product-info__products-img" />
+                    <span class="product-info__products-text">Premium Grass-Fed Beef</span>
+                  </a>
+                </li>
+                <li class="product-info__products-list-item">
+                  <a href="#" class="product-info__products-link">
+                    <img src="images/products/chicken.png" alt="Product Cover" class="product-info__products-img" />
+                    <span class="product-info__products-text">Free-Range Chicken</span>
+                  </a>
+                </li>
+                <li class="product-info__products-list-item">
+                  <a href="#" class="product-info__products-link">
+                    <img src="images/products/salmon.png" alt="Product Cover" class="product-info__products-img" />
+                    <span class="product-info__products-text">Fresh Wild-Caught Salmon</span>
+                  </a>
+                </li>
+                <li class="product-info__products-list-item">
+                  <a href="#" class="product-info__products-link">
+                    <img src="images/products/turkey.png" alt="Product Cover" class="product-info__products-img" />
+                    <span class="product-info__products-text">Organic Turkey Breast</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+    <!-- <main class="main">
       <div class="container">
         <div class="row">
           <div class="col-8">
@@ -256,8 +314,8 @@
           </div>
         </div>
       </div>
-    </main>    
-    <!-- Start Footer -->
+    </main>     -->
+      <!-- Finish Article --> 
 
     <!-- Start Footer -->
     <footer class="footer">
@@ -353,6 +411,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- <script type="module" src="./js/index.js"></script> -->
     <script type="module" src="./js/menu.js"></script>
+    <script type="module" src="./js/article.js"></script>
 
 </body>
 </html>

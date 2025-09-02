@@ -15,6 +15,195 @@
     <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+
+    <style>
+    .content-inner {
+      padding-top: 100px;
+      /* padding-bottom: 70px; */
+    }
+    .adv-box.style-1 {
+      overflow:unset;
+      background-color: #054F48;
+      text-align: center;
+    }
+
+  .adv-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 100%;
+  }
+
+  .adv-box.style-1 .adv-content {
+    padding: 30px 20px 0px;
+  }
+
+  .adv-box.style-1 .adv-content span {
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+  }
+.adv-box.style-1 .adv-content .title {
+  color: #FECC48;
+  font-weight: 800;
+  font-size: 43px;
+  font-family: var(--font-family-title);
+  line-height: 64px;
+}
+
+
+.adv-box.style-1 .adv-media {
+  position: relative;
+  overflow: unset;
+  width: 400px;
+  left: -31px;
+  top: 0px;
+}
+
+.adv-media img {
+  width: 100%;
+  border-radius: 20px;
+}
+.adv-media.main-media img{
+  width: 40rem;
+}
+.adv-box.style-1 .adv-media .item-media {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.offer-label {
+  width: 100px;
+  height: 100px;
+}
+.adv-box.style-2 {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  overflow: unset;
+  background: #EB0029;
+}
+.adv-box.style-2 .adv-media {
+  position: relative;
+  overflow: unset;
+  height: 220px;
+  min-height: 220px;
+  width: 200px;
+}
+.adv-box.style-2 .adv-media img {
+    position: absolute;
+    bottom: -1px;
+    object-fit: cover;
+    width: 28rem;
+}
+.adv-box.style-2 .adv-content {
+  padding: 10px;
+  margin-left: -10px;
+}
+.adv-box.style-2 .adv-content .special {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+}
+.adv-box.style-2 .adv-content .title {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 55px;
+}
+.adv-box.style-2 .adv-content .price {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 36px;
+  color: #F9FE10;
+  display: block;
+  margin-bottom: 8px;
+}
+.adv-box.style-3 .adv-content {
+  padding: 40px 15px 40px 190px;
+}
+.adv-box.style-3 {
+background: #FF9D2E;
+}
+.adv-box.style-3 .adv-content .special {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.adv-box.style-3 .adv-content .title {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  color: #FECC48;
+}
+
+.adv-box.style-4 {
+  overflow: unset;
+  /* background-color: rgb(19, 137, 25); */
+  background: #219652;
+  /* background: #FF9D2E; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 30px 0 30px;
+}
+.adv-box.style-4 .adv-media {
+  position: relative;
+  overflow: unset;
+  width: 250px;
+  min-width: 250px;
+  height: 150px;
+}
+
+.adv-box.style-4 .adv-media img {
+  width: 22rem;
+  position: absolute;
+  bottom: -1px;
+  right: -10px;
+}
+
+.m-b30 {
+  margin-bottom: 30px;
+}
+
+.offer-label span {
+  color: #222222;
+  font-size: 22px;
+  font-weight: 900 !important;
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  line-height: 1.2;
+}
+
+.offer-label img {
+    animation: dzRotate360 10s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+ @keyframes dzRotate360 {
+  0% {
+    transform: rotate(0deg);
+}
+
+100% {
+    transform: rotate(360deg);
+}
+ }
+
+
+
+
+
+
+
+
+</style>
 </head>
 <body>
     <!-- Start Header -->
@@ -450,7 +639,70 @@
     </section>
     <!-- Finish circle links -->
 
+    <section class="content-inner overflow-hidden pb-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 m-b30 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+						<div class="adv-box style-1" style="background-image:url('assets/images/adv/pic2.png'); background-repeat:no-repeat; background-position:center; background-size:cover;">
+							<div class="adv-content">
+								<span class="special">FRIDAY SPECIAL</span>
+								<h4 class="title">TASTY BURGER</h4>
+							</div>
+							<div class="adv-media">
+								<img class="main-media" src="./images/landing/bandeau_pdts_carnes.png" alt="/">
+								<div class="item-media offer-label">
+									<img src="./images/landing/label.png" alt="/">
+									<span class="">50% OFF</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 m-b30 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+								<div class="adv-box style-2">
+									<div class="adv-media">
+										<img src="images/landing/landing-sausagepng.png" alt="/">
+									</div>
+									<div class="adv-content">
+										<span class="special text-white">TODAY SPECIAL</span>
+										<h4 class="title text-white">Nodels</h4>
+										<span class="price">60% OFF</span>
+										<a href="shop-cart.html" class="btn btn-white btn-hover-3"><span class="btn-text" data-text="Add To Cart">Add To Cart</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 m-b30 wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+								<div class="adv-box style-3" style="background-image:url('./images/landing/Turkey-Cranberry-Sausage.jpg'); background-size:cover; background-position:center;">
+									<div class="adv-content">
+										<span class="special text-white">MUSHROOM</span>
+										<h4 class="title">BURGER</h4>
+										<a href="shop-cart.html" class="btn btn-white btn-hover-3"><span class="btn-text" data-text="Add To Cart">Add To Cart</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+								<div class="adv-box style-4" style="background-repeat:no-repeat; background-size:cover;">
+									<div class="adv-content">
+										<span class="special text-white">FOR LIMITED TIME ONLY</span>
+										<h4 class="price">35% Offer</h4>
+									</div>
+									<a href="shop-cart.html" class="btn btn-white btn-hover-3"><span class="btn-text" data-text="Add To Cart">Add To Cart</span></a>
+
+                  <div class="adv-media">
+										<img src="./images/svgs/burgar.svg" alt="burger icon" width="200" height="auto">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
     <!-- Start Main Content Products -->
+
+
      <div class="main-content-products">
         <div class="text-center mb-3">
             <h1 class="h1-32">Good afternoon</h1>
@@ -527,11 +779,49 @@
             </div>
         </div>
 
+    <!-- 🟢 Special Offers Section -->
+    <section class="products-content py-5">
+    <div class="container">
+        <h2 class="mb-4 section-title">Special Offers</h2>
+        <div class="row" id="special-offers-products">
+        <!-- کارت‌های Special Offers اینجا با جاوااسکریپت پر میشن -->
+        </div>
+    </div>
+    </section>
+
+    <!-- 🟢 New Arrivals Section -->
+    <section class="products-content py-5">
+    <div class="container">
+        <h2 class="mb-4 section-title">New Arrivals</h2>
+        <div class="row" id="new-arrivals-products">
+        <!-- کارت‌های New Arrivals اینجا با جاوااسکریپت پر میشن -->
+        </div>
+    </div>
+    </section>
+
+    <!-- 🟢 Best Sellers Section -->
+    <section class="products-content py-5">
+    <div class="container">
+        <h2 class="mb-4 section-title">Best Sellers</h2>
+        <div class="row" id="best-sellers-products">
+        <!-- کارت‌های Best Sellers اینجا با جاوااسکریپت پر میشن -->
+        </div>
+    </div>
+    </section>
+
+    <!-- 🟢 Discounted Products Section -->
+    <section class="products-content py-5">
+    <div class="container">
+        <h2 class="mb-4 section-title">Discounted Products</h2>
+        <div class="row" id="discounted-products-products">
+        <!-- کارت‌های Discounted Products اینجا با جاوااسکریپت پر میشن -->
+        </div>
+    </div>
+    </section>
             
-        <div class="products-content">
+        <!-- <div class="products-content">
             <div class="container">
                 <div class="row">
-                    <!-- باکس محصول 1 -->
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -545,8 +835,7 @@
                             </div>
                         </div>
                     </div>
-        
-                    <!-- باکس محصول 2 -->
+
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -560,7 +849,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- باکس محصول 3 -->
+
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -574,7 +863,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- باکس محصول 4 -->
+
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -588,7 +877,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- باکس محصول 5 -->
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -602,7 +890,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- باکس محصول 6 -->
+
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -616,7 +904,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- باکس محصول 7 -->
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -630,7 +917,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- باکس محصول 8 -->
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="product-box d-flex align-items-center p-2 border rounded shadow-sm">
                             <div class="col-7 ps-2 product-box__detiles">
@@ -644,14 +930,77 @@
                             </div>
                         </div>
                     </div>
-        
-                    <!-- می‌تونی محصولات بیشتری اینجا اضافه کنی -->
                 </div>
             </div>
-        </div>
-        <!-- Finish Leter Products -->
-     </div>
+        </div> -->
+     </div> 
     <!-- Finish Main Content Products -->
+
+    <!-- Start About Us -->
+<div class="about-us">
+  <div class="container">
+    <div class="about-us__header text-center">
+      <span class="about-us__title title">چرا ما را انتخاب کنید؟</span>
+      <span class="about-us__subtitle">ویژگی‌هایی که ما را از دیگران متمایز می‌کند</span>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-6">
+          <div class="about-us__box">
+            <div class="about-us__box-right">
+              <i class="fas fa-gem about-us__icon"></i>
+            </div>
+            <div class="about-us__box-left">
+              <span class="about-us__box-title">کیفیت تضمین‌شده</span>
+              <span class="about-us__box-text">همه محصولات با بهترین استانداردها تولید و عرضه می‌شوند.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="about-us__box">
+            <div class="about-us__box-right">
+              <i class="fas fa-truck about-us__icon"></i>
+            </div>
+            <div class="about-us__box-left">
+              <span class="about-us__box-title">تحویل سریع</span>
+              <span class="about-us__box-text">ارسال سریع و مطمئن به سراسر کشور.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="about-us__box">
+            <div class="about-us__box-right">
+              <i class="fas fa-leaf about-us__icon"></i>
+            </div>
+            <div class="about-us__box-left">
+              <span class="about-us__box-title">محصولات سالم</span>
+              <span class="about-us__box-text">مواد اولیه طبیعی و ارگانیک برای سبک زندگی سالم.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="about-us__box">
+            <div class="about-us__box-right">
+              <i class="fas fa-headset about-us__icon"></i>
+            </div>
+            <div class="about-us__box-left">
+              <span class="about-us__box-title">پشتیبانی ۲۴/۷</span>
+              <span class="about-us__box-text">پشتیبانی همیشگی برای پاسخ به سوالات و نیازهای شما.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Finish About Us -->
+
 
     <!-- Start About Us -->
     <div class="about-us">
@@ -813,9 +1162,10 @@
     <script src="vendor/fontAwesome5/all.min.js"></script>
     <script src="vendor/SwiperSlider/swiper.js"></script>
     <script type="module" src="./js/menu.js"></script>
+    <script type="module" src="./js/home-sections.js"></script>
     <script src="js/slider.js"></script>
 
-    <!-- <script type="module" src="js/index.js"></script> -->
+    <script type="module" src="js/index.js"></script>
     <!-- Bootstrap JS -->
 
 <!-- Supabase -->
