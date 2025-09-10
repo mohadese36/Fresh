@@ -19,12 +19,21 @@
     <style>
     .content-inner {
       padding-top: 100px;
-      /* padding-bottom: 70px; */
+      padding-bottom: 70px;
+        background-image: url(../frontend/images/landing/background1.jpg);
+        /* background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; */
     }
     .adv-box.style-1 {
       overflow:unset;
-      background-color: #054F48;
+      /* background-color: #054F48; */
+      background-image: url(../frontend/images/landing/box-background2.jpg);
       text-align: center;
+       background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover;
+
     }
 
   .adv-box {
@@ -53,11 +62,12 @@
 
 
 .adv-box.style-1 .adv-media {
-  position: relative;
+  /* position: relative;
   overflow: unset;
   width: 400px;
   left: -31px;
-  top: 0px;
+  top: 0px; */
+
 }
 
 .adv-media img {
@@ -65,7 +75,10 @@
   border-radius: 20px;
 }
 .adv-media.main-media img{
-  width: 40rem;
+  width: 10rem;
+}
+.main-media {
+  width: 33rem !important;
 }
 .adv-box.style-1 .adv-media .item-media {
   position: absolute;
@@ -73,8 +86,8 @@
   bottom: 20px;
 }
 .offer-label {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
 }
 .adv-box.style-2 {
   background-color: var(--primary);
@@ -142,8 +155,9 @@ background: #FF9D2E;
 .adv-box.style-4 {
   overflow: unset;
   /* background-color: rgb(19, 137, 25); */
-  background: #219652;
+  /* background: #219652; */
   /* background: #FF9D2E; */
+  background-image: url(../frontend/images/landing/box-background1.jpg);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -158,11 +172,35 @@ background: #FF9D2E;
 }
 
 .adv-box.style-4 .adv-media img {
-  width: 22rem;
+  width: 28rem;
   position: absolute;
   bottom: -1px;
   right: -10px;
 }
+
+.adv-box .adv-media img:nth-child(2) {
+  width: 12rem;
+  position: absolute;
+  bottom: 82px;
+  right: 268px;
+
+    /* انیمیشن */
+  animation: zoomInOut 2.5s infinite alternate ease-in-out;
+}
+
+/* تعریف keyframes */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* بزرگ شدن */
+  }
+  100% {
+    transform: scale(1); /* برگشت به اندازه اصلی */
+  }
+}
+
 
 .m-b30 {
   margin-bottom: 30px;
@@ -170,7 +208,7 @@ background: #FF9D2E;
 
 .offer-label span {
   color: #222222;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 900 !important;
   position: absolute;
   top: 54%;
@@ -639,17 +677,17 @@ background: #FF9D2E;
     </section>
     <!-- Finish circle links -->
 
-    <section class="content-inner overflow-hidden pb-0">
+    <section class="content-inner overflow-hidden">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4 col-md-12 m-b30 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-						<div class="adv-box style-1" style="background-image:url('assets/images/adv/pic2.png'); background-repeat:no-repeat; background-position:center; background-size:cover;">
+					<div class="col-lg-4 col-md-12  wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+						<div class="adv-box style-1">
 							<div class="adv-content">
 								<span class="special">FRIDAY SPECIAL</span>
 								<h4 class="title">TASTY BURGER</h4>
 							</div>
 							<div class="adv-media">
-								<img class="main-media" src="./images/landing/bandeau_pdts_carnes.png" alt="/">
+								<!-- <img class="main-media" src="./images/landing/hero-img-7-3.png" alt="/"> -->
 								<div class="item-media offer-label">
 									<img src="./images/landing/label.png" alt="/">
 									<span class="">50% OFF</span>
@@ -690,7 +728,8 @@ background: #FF9D2E;
 									<a href="shop-cart.html" class="btn btn-white btn-hover-3"><span class="btn-text" data-text="Add To Cart">Add To Cart</span></a>
 
                   <div class="adv-media">
-										<img src="./images/svgs/burgar.svg" alt="burger icon" width="200" height="auto">
+										<img src="./images/landing/protein-basket.jpg" alt="burger icon" width="200" height="auto">
+										<img src="./images/landing/hero-img-1-2-2.png" alt="burger icon" width="200" height="auto">
 									</div>
 								</div>
 							</div>
@@ -1162,10 +1201,11 @@ background: #FF9D2E;
     <script src="vendor/fontAwesome5/all.min.js"></script>
     <script src="vendor/SwiperSlider/swiper.js"></script>
     <script type="module" src="./js/menu.js"></script>
-    <script type="module" src="./js/home-sections.js"></script>
+    <!-- <script type="module" src="./js/home-sections.js"></script> -->
     <script src="js/slider.js"></script>
 
-    <script type="module" src="js/index.js"></script>
+    <!-- <script type="module" src="js/index.js"></script> -->
+     <script type="module" src="js/basket-box.js"></script>
     <!-- Bootstrap JS -->
 
 <!-- Supabase -->

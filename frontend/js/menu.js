@@ -315,8 +315,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
           // لینک یا اسپن عادی
           linkHTML = item.url
-            ? `<a href="${item.url}" class="main-header__link">${item.title}</a>`
-            : `<span class="main-header__link">${item.title}</span>`;
+          ? `<a href="${item.url.replace(/^\/frontend\//, '')}" class="main-header__link">${item.title}</a>`
+          : `<span class="main-header__link">${item.title}</span>`;
+
         }
       }
 
