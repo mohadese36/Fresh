@@ -17,6 +17,42 @@
     <link rel="stylesheet" href="css/index.css">
 
     <style>
+
+      /* start search */
+      .search-results-container {
+        position: absolute;
+        background: white;
+        border: 1px solid #ccc;
+        max-height: 300px;
+        overflow-y: auto;
+        width: 100%;
+        z-index: 999;
+      }
+
+      .search-result-item {
+        display: block;
+        padding: 8px 12px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .search-result-item:hover {
+        background-color: #f0f0f0;
+      }
+
+      .search-results-container h4 {
+        margin: 5px 10px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .no-results {
+        display: block;
+        padding: 8px 12px;
+        color: #999;
+      }
+
+/* finish search */
     .content-inner {
       padding-top: 100px;
       padding-bottom: 70px;
@@ -1206,6 +1242,7 @@ background: #FF9D2E;
 
     <!-- <script type="module" src="js/index.js"></script> -->
      <script type="module" src="js/basket-box.js"></script>
+     <script type="module" src="./js/search.js"></script>
     <!-- Bootstrap JS -->
 
 <!-- Supabase -->
