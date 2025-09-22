@@ -19,38 +19,30 @@
     <style>
 
       /* start search */
-      .search-results-container {
+      /* .search-results-container {
         position: absolute;
-        background: white;
-        border: 1px solid #ccc;
-        max-height: 300px;
-        overflow-y: auto;
+        inset-inline-start: 0;
+        inset-block-start: 100%;
+
         width: 100%;
-        z-index: 999;
+        max-height: 60vh;
+        overflow: auto;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: .5rem;
+        z-index: 1000;
+        box-shadow: 0 10px 30px rgba(0,0,0,.08);
       }
-
+      .search-section-title { margin: .5rem .5rem .25rem; font-size: .9rem; color: #666; }
       .search-result-item {
-        display: block;
-        padding: 8px 12px;
-        color: #333;
-        text-decoration: none;
+        display: block; padding: .5rem .75rem; text-decoration: none; color: #222; border-radius: 8px;
       }
+      .search-result-item:hover, .search-result-item.active { background: #f5f7fa; }
+      .search-view-all { display:block; padding:.5rem .75rem; text-align:center; color:#0a58ca; }
+      .no-results { display:block; padding:.75rem; color:#666; }
+      mark { background: #ffef9f; } */
 
-      .search-result-item:hover {
-        background-color: #f0f0f0;
-      }
-
-      .search-results-container h4 {
-        margin: 5px 10px;
-        font-size: 0.9rem;
-        color: #666;
-      }
-
-      .no-results {
-        display: block;
-        padding: 8px 12px;
-        color: #999;
-      }
 
 /* finish search */
     .content-inner {
@@ -281,121 +273,69 @@ background: #FF9D2E;
 </head>
 <body>
     <!-- Start Header -->
-    <header class="header">
-    <div class="top-bar">
-        <div class="container-fluid">
-            <div class="top-bar__content">
-                <div class="top-bar__right"></div>
+    <header class="header" role="banner">
+        <div class="top-bar">
+          <div class="container-fluid">
+              <div class="top-bar__content d-flex align-items-center justify-content-between">
+
                 <div class="top-bar__left">
-                    <a href="#" class="main-header__search-bt">
-                        <i class="fas fa-search main-header__search-icon"></i>
-                    </a>
-                    <a href="./cart.html" class="main-header__cart-btn position-relative">
-                        <i class="fas fa-shopping-cart main-header__cart-icon"></i>
-                        <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-                    </a>
-                    <a href="#" class="main-header__profile">
-                        <span class="main-header__profile-text">محمد امین سعیدی راد</span>
+                    <a href="/" class="brand" aria-label="Go to home">
+                    <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
                     </a>
                 </div>
+
+                <div class="top-bar__right d-flex align-items-center">
+                    <form class="searchbar desktop-search" role="search" action="/search" method="get">
+                    <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
+                    <input class="Landing__searchBar-input" type="search" name="q"
+                            placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search"/>
+                    </form>
+
+                    <button class="main-header__toggle d-inline-block d-lg-none"
+                    type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="main-header__toggle-bar"></span>
+                    <span class="main-header__toggle-bar"></span>
+                    <span class="main-header__toggle-bar"></span>
+                    </button>
+
+                    <a href="./cart.html" class="main-header__cart-btn position-relative" aria-label="Open cart">
+                    <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
+                    <span id="cart-count-badge"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        style="display:none;">0</span>
+                    </a>
+
+                    <a href="#" class="main-header__profile d-flex align-items-center" aria-label="Your account">
+                    <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
+                    <span class="main-header__profile-text d-none d-md-inline"></span>
+                    </a>
+
+                    <button id="logout-btn" type="button" class="d-flex align-items-center">
+                    <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
+                    <span class="logout-text d-none d-md-inline">Logout</span>
+                    </button>
+                </div>
+              </div>
+          </div>
+
+              <!-- Main header / Navigation strip -->
+          <div class="main-header">
+            <div class="container-fluid px-0">
+              <div class="main-header__content">
+                <nav class="main-header__nav" aria-label="Main navigation">
+                  <ul id="navbar" class="main-header__menu"></ul>
+                </nav>
+
+              </div>
             </div>
-        </div>
-    </div>
-
-    <div class="main-header">
-        <div>
-          <div class="main-header__content">
-           <ul id="navbar" class="main-header__menu"></ul>
-
-            <!-- <ul class="main-header__menu" id="navbar">   
-              <li class="main-header__item" id="menu-item-1"><span id="menu-span-1"></span>
-                <ul class="main-header__dropdown" id="submenu-1">
-                  <li id="submenu-item-1"><a href="#special-offers" id="submenu-link-1"><span id="submenu-span-1"></span></a></li>
-                  <li id="submenu-item-2"><a href="#new-arrivals" id="submenu-link-2"><span id="submenu-span-2"></span></a></li>
-                  <li id="submenu-item-3"><a href="#best-sellers" id="submenu-link-3"><span id="submenu-span-3"></span></a></li>
-                  <li id="submenu-item-4"><a href="#discounted-products" id="submenu-link-4"><span id="submenu-span-4"></span></a></li>
-                  <li id="submenu-item-5"><a href="#customer-reviews" id="submenu-link-5"><span id="submenu-span-5"></span></a></li>
-                  <li id="submenu-item-6"><a href="#contact-us" id="submenu-link-6"><span id="submenu-span-6"></span></a></li>
-                </ul>
-              </li>
-      
-              <li class="main-header__item" id="menu-item-2"><span id="menu-span-2"></span>
-                <ul class="main-header__dropdown" id="submenu-2">
-                  <li id="submenu-item-7"><a href="/products/sausage" id="submenu-link-7"><span id="submenu-span-7"></span></a>
-                    <ul id="submenu-sub-2-1">
-                      <li id="submenu-sub-item-1"><a href="/products/sausage/red-meat" id="submenu-sub-link-1">  </a></li>
-                      <li id="submenu-sub-item-2"><a href="/products/sausage/chicken" id="submenu-sub-link-2"> </a></li>
-                      <li id="submenu-sub-item-3"><a href="/products/sausage/hot-dog" id="submenu-sub-link-3"> </a></li>
-                      <li id="submenu-sub-item-4"><a href="/products/sausage/smoked" id="submenu-sub-link-4"> </a></li>
-                      <li id="submenu-sub-item-5"><a href="/products/sausage/chorizo" id="submenu-sub-link-5"> </a></li>
-                      <li id="submenu-sub-item-6"><a href="/products/sausage/pepperoni" id="submenu-sub-link-6"> </a></li>
-                    </ul>
-                  </li>
-      
-                  <li id="submenu-item-8"><a href="/products/sausage-varieties" id="submenu-link-8"><span id="submenu-span-8"> </span></a>
-                    <ul id="submenu-sub-2-2">
-                      <li id="submenu-sub-item-7"><a href="/products/sausage-varieties/red-meat" id="submenu-sub-link-7"></a></li>
-                      <li id="submenu-sub-item-8"><a href="/products/sausage-varieties/chicken" id="submenu-sub-link-8"></a></li>
-                      <li id="submenu-sub-item-9"><a href="/products/sausage-varieties/hot-dog" id="submenu-sub-link-9"></a></li>
-                      <li id="submenu-sub-item-10"><a href="/products/sausage-varieties/smoked" id="submenu-sub-link-10"></a></li>
-                      <li id="submenu-sub-item-11"><a href="/products/sausage-varieties/chorizo" id="submenu-sub-link-11"></a></li>
-                      <li id="submenu-sub-item-12"><a href="/products/sausage-varieties/pepperoni" id="submenu-sub-link-12"></a></li>
-                    </ul>
-                  </li>
-      
-                  <li id="submenu-item-9"><a href="/products/salami" id="submenu-link-9"><span id="submenu-span-9"></span></a>
-                    <ul id="submenu-sub-2-3">
-                      <li id="submenu-sub-item-13"><a href="/products/salami/beef" id="submenu-sub-link-13"></a></li>
-                      <li id="submenu-sub-item-14"><a href="/products/salami/chicken-mushroom" id="submenu-sub-link-14"></a></li>
-                      <li id="submenu-sub-item-15"><a href="/products/salami/special-ham" id="submenu-sub-link-15"></a></li>
-                      <li id="submenu-sub-item-16"><a href="/products/salami/dry" id="submenu-sub-link-16"></a></li>
-                      <li id="submenu-sub-item-17"><a href="/products/salami/special" id="submenu-sub-link-17"></a></li>
-                    </ul>
-                  </li>
-      
-                  <li id="submenu-item-10"><a href="/products/burger" id="submenu-link-10"><span id="submenu-span-10"></span></a>
-                    <ul id="submenu-sub-2-4">
-                      <li id="submenu-sub-item-18"><a href="/products/burger/beef" id="submenu-sub-link-18"></a></li>
-                      <li id="submenu-sub-item-19"><a href="/products/burger/chicken" id="submenu-sub-link-19"></a></li>
-                      <li id="submenu-sub-item-20"><a href="/products/burger/turkey" id="submenu-sub-link-20"></a></li>
-                      <li id="submenu-sub-item-21"><a href="/products/burger/vegan" id="submenu-sub-link-21"></a></li>
-                    </ul>
-                  </li>
-      
-                  <li id="submenu-item-11"><a href="/products/diet" id="submenu-link-11"><span id="submenu-span-11"></span></a>
-                    <ul id="submenu-sub-2-5">
-                      <li id="submenu-sub-item-22"><a href="/products/diet/low-fat-sausage" id="submenu-sub-link-22"></a></li>
-                      <li id="submenu-sub-item-23"><a href="/products/diet/low-fat-salami" id="submenu-sub-link-23"></a></li>
-                      <li id="submenu-sub-item-24"><a href="/products/diet/protein-burger" id="submenu-sub-link-24"></a></li>
-                      <li id="submenu-sub-item-25"><a href="/products/diet/gluten-free" id="submenu-sub-link-25"></a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-      
-              <li class="main-header__item" id="menu-item-3"><span id="menu-span-3"></span></li>
-      
-              <li class="main-header__item" id="menu-item-4"><a href="/featured-products" id="menu-link-4"></a>
-                <ul class="main-header__dropdown" id="submenu-4">
-                  <li id="submenu-item-12"><a href="/featured-products/organic-healthy" id="submenu-link-12"></a></li>
-                  <li id="submenu-item-13"><a href="/featured-products/top-categories" id="submenu-link-13"></a></li>
-                  <li id="submenu-item-14"><a href="/featured-products/exclusive-store" id="submenu-link-14"></a></li>
-                  <li id="submenu-item-15"><a href="/featured-products/unique-features" id="submenu-link-15"></a></li>
-                </ul>
-              </li>
-      
-              <li class="main-header__item" id="menu-item-5"><span id="menu-span-5"></span>
-                <ul class="main-header__dropdown" id="submenu-5">
-                  <li id="submenu-item-16"><span id="submenu-span-16"></span></li>
-                  <li id="submenu-item-17"><span id="submenu-span-17"></span></li>
-                </ul>
-              </li>
-            </ul> -->
           </div>
         </div>
-    </div>
+
+
+
     </header>
     <!-- Finish Header -->
+
 
     <!-- Start Landing -->
     <section class="Landing">
@@ -403,70 +343,11 @@ background: #FF9D2E;
             <h1 class="Landing__title"></h1>
             <h2 class="Landing__subTitle"></h2>
             <div class="Landing__searchBar">
-                <input type="text" class="Landing__searchBar-input" placeholder="ipsum dolor sit?">
+                <!-- <input type="text" class="Landing__searchBar-input" placeholder="ipsum dolor sit?">
                 <button class="Landing__searchBar-btn" type="submit">
                     <i class="fas fa-search Landing__searchBar-icon"></i>
-                </button>
+                </button> -->
             </div>
-            <!-- <div class="Landing-status">
-                <div class="Landing-status__item">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 511.992 511.992;" xml:space="preserve" width="80" height="80">
-                        <g id="XMLID_806_">
-                            <g id="XMLID_386_">
-                            <path id="XMLID_389_" d="M511.005,279.646c-4.597-46.238-25.254-89.829-58.168-122.744    c-28.128-28.127-62.556-46.202-98.782-54.239V77.255c14.796-3.681,25.794-17.074,25.794-32.993c0-18.748-15.252-34-34-34h-72    c-18.748,0-34,15.252-34,34c0,15.918,10.998,29.311,25.793,32.993v25.479c-36.115,8.071-70.429,26.121-98.477,54.169    c-6.138,6.138-11.798,12.577-16.979,19.269c-0.251-0.019-0.502-0.038-0.758-0.038H78.167c-5.522,0-10,4.477-10,10s4.478,10,10,10    h58.412c-7.332,12.275-13.244,25.166-17.744,38.436H10c-5.522,0-10,4.477-10,10s4.478,10,10,10h103.184    c-2.882,12.651-4.536,25.526-4.963,38.437H64c-5.522,0-10,4.477-10,10s4.478,10,10,10h44.54    c0.844,12.944,2.925,25.82,6.244,38.437H50c-5.522,0-10,4.477-10,10s4.478,10,10,10h71.166    c9.81,25.951,25.141,50.274,45.999,71.132c32.946,32.946,76.582,53.608,122.868,58.181c6.606,0.652,13.217,0.975,19.819,0.975    c39.022,0,77.548-11.293,110.238-32.581c4.628-3.014,5.937-9.209,2.923-13.837s-9.209-5.937-13.837-2.923    c-71.557,46.597-167.39,36.522-227.869-23.957c-70.962-70.962-70.962-186.425,0-257.388c70.961-70.961,186.424-70.961,257.387,0    c60.399,60.4,70.529,156.151,24.086,227.673c-3.008,4.632-1.691,10.826,2.94,13.833c4.634,3.008,10.826,1.691,13.833-2.941    C504.367,371.396,515.537,325.241,511.005,279.646z M259.849,44.263c0-7.72,6.28-14,14-14h72c7.72,0,14,6.28,14,14s-6.28,14-14,14    h-1.794h-68.413h-1.793C266.129,58.263,259.849,51.982,259.849,44.263z M285.642,99.296V78.263h48.413v20.997    C317.979,97.348,301.715,97.36,285.642,99.296z"></path>
-                            <path id="XMLID_391_" d="M445.77,425.5c-2.64,0-5.21,1.07-7.069,2.93c-1.87,1.86-2.931,4.44-2.931,7.07    c0,2.63,1.061,5.21,2.931,7.07c1.859,1.87,4.43,2.93,7.069,2.93c2.63,0,5.2-1.06,7.07-2.93c1.86-1.86,2.93-4.44,2.93-7.07    c0-2.63-1.069-5.21-2.93-7.07C450.97,426.57,448.399,425.5,445.77,425.5z"></path>
-                            <path id="XMLID_394_" d="M310.001,144.609c-85.538,0-155.129,69.59-155.129,155.129s69.591,155.129,155.129,155.129    s155.129-69.59,155.129-155.129S395.539,144.609,310.001,144.609z M310.001,434.867c-74.511,0-135.129-60.619-135.129-135.129    s60.618-135.129,135.129-135.129S445.13,225.228,445.13,299.738S384.512,434.867,310.001,434.867z"></path>
-                            <path id="XMLID_397_" d="M373.257,222.34l-49.53,49.529c-4.142-2.048-8.801-3.205-13.726-3.205c-4.926,0-9.584,1.157-13.726,3.205    l-22.167-22.167c-3.906-3.905-10.236-3.905-14.143,0c-3.905,3.905-3.905,10.237,0,14.142l22.167,22.167    c-2.049,4.142-3.205,8.801-3.205,13.726c0,17.134,13.939,31.074,31.074,31.074s31.074-13.94,31.074-31.074    c0-4.925-1.157-9.584-3.205-13.726l48.076-48.076v0l1.453-1.453c3.905-3.905,3.905-10.237,0-14.142    S377.164,218.435,373.257,222.34z M310.001,310.812c-6.106,0-11.074-4.968-11.074-11.074s4.968-11.074,11.074-11.074    s11.074,4.968,11.074,11.074S316.107,310.812,310.001,310.812z"></path>
-                            <path id="XMLID_398_" d="M416.92,289.86h-9.265c-5.522,0-10,4.477-10,10s4.478,10,10,10h9.265c5.522,0,10-4.477,10-10    S422.442,289.86,416.92,289.86z"></path>
-                            <path id="XMLID_399_" d="M212.346,289.616h-9.264c-5.522,0-10,4.477-10,10s4.478,10,10,10h9.264c5.522,0,10-4.477,10-10    S217.868,289.616,212.346,289.616z"></path>
-                            <path id="XMLID_400_" d="M310.123,212.083c5.522,0,10-4.477,10-10v-9.264c0-5.523-4.478-10-10-10s-10,4.477-10,10v9.264    C300.123,207.606,304.601,212.083,310.123,212.083z"></path>
-                            <path id="XMLID_424_" d="M309.879,387.393c-5.522,0-10,4.477-10,10v9.264c0,5.523,4.478,10,10,10s10-4.477,10-10v-9.264    C319.879,391.87,315.401,387.393,309.879,387.393z"></path>
-                            <path id="XMLID_425_" d="M10,351.44c-2.63,0-5.21,1.07-7.07,2.93c-1.86,1.86-2.93,4.44-2.93,7.07c0,2.64,1.069,5.21,2.93,7.07    s4.44,2.93,7.07,2.93s5.21-1.07,7.069-2.93c1.86-1.86,2.931-4.44,2.931-7.07s-1.07-5.21-2.931-7.07    C15.21,352.51,12.63,351.44,10,351.44z"></path>
-                            </g>
-                        </g>
-                    </svg>
-                    <span class="Landing-status__count" id="products-count">31,320</span>
-                    <span class="Landing-status__text">Lorem ipsum dolor sit.</span>
-                </div>
-                <div class="Landing-status__item">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 511.992 511.992;" xml:space="preserve" width="80" height="80">
-                        <g id="XMLID_806_">
-                            <g id="XMLID_386_">
-                            <path id="XMLID_389_" d="M511.005,279.646c-4.597-46.238-25.254-89.829-58.168-122.744    c-28.128-28.127-62.556-46.202-98.782-54.239V77.255c14.796-3.681,25.794-17.074,25.794-32.993c0-18.748-15.252-34-34-34h-72    c-18.748,0-34,15.252-34,34c0,15.918,10.998,29.311,25.793,32.993v25.479c-36.115,8.071-70.429,26.121-98.477,54.169    c-6.138,6.138-11.798,12.577-16.979,19.269c-0.251-0.019-0.502-0.038-0.758-0.038H78.167c-5.522,0-10,4.477-10,10s4.478,10,10,10    h58.412c-7.332,12.275-13.244,25.166-17.744,38.436H10c-5.522,0-10,4.477-10,10s4.478,10,10,10h103.184    c-2.882,12.651-4.536,25.526-4.963,38.437H64c-5.522,0-10,4.477-10,10s4.478,10,10,10h44.54    c0.844,12.944,2.925,25.82,6.244,38.437H50c-5.522,0-10,4.477-10,10s4.478,10,10,10h71.166    c9.81,25.951,25.141,50.274,45.999,71.132c32.946,32.946,76.582,53.608,122.868,58.181c6.606,0.652,13.217,0.975,19.819,0.975    c39.022,0,77.548-11.293,110.238-32.581c4.628-3.014,5.937-9.209,2.923-13.837s-9.209-5.937-13.837-2.923    c-71.557,46.597-167.39,36.522-227.869-23.957c-70.962-70.962-70.962-186.425,0-257.388c70.961-70.961,186.424-70.961,257.387,0    c60.399,60.4,70.529,156.151,24.086,227.673c-3.008,4.632-1.691,10.826,2.94,13.833c4.634,3.008,10.826,1.691,13.833-2.941    C504.367,371.396,515.537,325.241,511.005,279.646z M259.849,44.263c0-7.72,6.28-14,14-14h72c7.72,0,14,6.28,14,14s-6.28,14-14,14    h-1.794h-68.413h-1.793C266.129,58.263,259.849,51.982,259.849,44.263z M285.642,99.296V78.263h48.413v20.997    C317.979,97.348,301.715,97.36,285.642,99.296z"></path>
-                            <path id="XMLID_391_" d="M445.77,425.5c-2.64,0-5.21,1.07-7.069,2.93c-1.87,1.86-2.931,4.44-2.931,7.07    c0,2.63,1.061,5.21,2.931,7.07c1.859,1.87,4.43,2.93,7.069,2.93c2.63,0,5.2-1.06,7.07-2.93c1.86-1.86,2.93-4.44,2.93-7.07    c0-2.63-1.069-5.21-2.93-7.07C450.97,426.57,448.399,425.5,445.77,425.5z"></path>
-                            <path id="XMLID_394_" d="M310.001,144.609c-85.538,0-155.129,69.59-155.129,155.129s69.591,155.129,155.129,155.129    s155.129-69.59,155.129-155.129S395.539,144.609,310.001,144.609z M310.001,434.867c-74.511,0-135.129-60.619-135.129-135.129    s60.618-135.129,135.129-135.129S445.13,225.228,445.13,299.738S384.512,434.867,310.001,434.867z"></path>
-                            <path id="XMLID_397_" d="M373.257,222.34l-49.53,49.529c-4.142-2.048-8.801-3.205-13.726-3.205c-4.926,0-9.584,1.157-13.726,3.205    l-22.167-22.167c-3.906-3.905-10.236-3.905-14.143,0c-3.905,3.905-3.905,10.237,0,14.142l22.167,22.167    c-2.049,4.142-3.205,8.801-3.205,13.726c0,17.134,13.939,31.074,31.074,31.074s31.074-13.94,31.074-31.074    c0-4.925-1.157-9.584-3.205-13.726l48.076-48.076v0l1.453-1.453c3.905-3.905,3.905-10.237,0-14.142    S377.164,218.435,373.257,222.34z M310.001,310.812c-6.106,0-11.074-4.968-11.074-11.074s4.968-11.074,11.074-11.074    s11.074,4.968,11.074,11.074S316.107,310.812,310.001,310.812z"></path>
-                            <path id="XMLID_398_" d="M416.92,289.86h-9.265c-5.522,0-10,4.477-10,10s4.478,10,10,10h9.265c5.522,0,10-4.477,10-10    S422.442,289.86,416.92,289.86z"></path>
-                            <path id="XMLID_399_" d="M212.346,289.616h-9.264c-5.522,0-10,4.477-10,10s4.478,10,10,10h9.264c5.522,0,10-4.477,10-10    S217.868,289.616,212.346,289.616z"></path>
-                            <path id="XMLID_400_" d="M310.123,212.083c5.522,0,10-4.477,10-10v-9.264c0-5.523-4.478-10-10-10s-10,4.477-10,10v9.264    C300.123,207.606,304.601,212.083,310.123,212.083z"></path>
-                            <path id="XMLID_424_" d="M309.879,387.393c-5.522,0-10,4.477-10,10v9.264c0,5.523,4.478,10,10,10s10-4.477,10-10v-9.264    C319.879,391.87,315.401,387.393,309.879,387.393z"></path>
-                            <path id="XMLID_425_" d="M10,351.44c-2.63,0-5.21,1.07-7.07,2.93c-1.86,1.86-2.93,4.44-2.93,7.07c0,2.64,1.069,5.21,2.93,7.07    s4.44,2.93,7.07,2.93s5.21-1.07,7.069-2.93c1.86-1.86,2.931-4.44,2.931-7.07s-1.07-5.21-2.931-7.07    C15.21,352.51,12.63,351.44,10,351.44z"></path>
-                            </g>
-                        </g>
-                    </svg>
-                    <span class="Landing-status__count"  id="minutes-counter">31,320</span>
-                    <span class="Landing-status__text">Lorem ipsum dolor sit.</span>
-                </div>
-                <div class="Landing-status__item">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 511.992 511.992;" xml:space="preserve" width="80" height="80">
-                        <g id="XMLID_806_">
-                            <g id="XMLID_386_">
-                            <path id="XMLID_389_" d="M511.005,279.646c-4.597-46.238-25.254-89.829-58.168-122.744    c-28.128-28.127-62.556-46.202-98.782-54.239V77.255c14.796-3.681,25.794-17.074,25.794-32.993c0-18.748-15.252-34-34-34h-72    c-18.748,0-34,15.252-34,34c0,15.918,10.998,29.311,25.793,32.993v25.479c-36.115,8.071-70.429,26.121-98.477,54.169    c-6.138,6.138-11.798,12.577-16.979,19.269c-0.251-0.019-0.502-0.038-0.758-0.038H78.167c-5.522,0-10,4.477-10,10s4.478,10,10,10    h58.412c-7.332,12.275-13.244,25.166-17.744,38.436H10c-5.522,0-10,4.477-10,10s4.478,10,10,10h103.184    c-2.882,12.651-4.536,25.526-4.963,38.437H64c-5.522,0-10,4.477-10,10s4.478,10,10,10h44.54    c0.844,12.944,2.925,25.82,6.244,38.437H50c-5.522,0-10,4.477-10,10s4.478,10,10,10h71.166    c9.81,25.951,25.141,50.274,45.999,71.132c32.946,32.946,76.582,53.608,122.868,58.181c6.606,0.652,13.217,0.975,19.819,0.975    c39.022,0,77.548-11.293,110.238-32.581c4.628-3.014,5.937-9.209,2.923-13.837s-9.209-5.937-13.837-2.923    c-71.557,46.597-167.39,36.522-227.869-23.957c-70.962-70.962-70.962-186.425,0-257.388c70.961-70.961,186.424-70.961,257.387,0    c60.399,60.4,70.529,156.151,24.086,227.673c-3.008,4.632-1.691,10.826,2.94,13.833c4.634,3.008,10.826,1.691,13.833-2.941    C504.367,371.396,515.537,325.241,511.005,279.646z M259.849,44.263c0-7.72,6.28-14,14-14h72c7.72,0,14,6.28,14,14s-6.28,14-14,14    h-1.794h-68.413h-1.793C266.129,58.263,259.849,51.982,259.849,44.263z M285.642,99.296V78.263h48.413v20.997    C317.979,97.348,301.715,97.36,285.642,99.296z"></path>
-                            <path id="XMLID_391_" d="M445.77,425.5c-2.64,0-5.21,1.07-7.069,2.93c-1.87,1.86-2.931,4.44-2.931,7.07    c0,2.63,1.061,5.21,2.931,7.07c1.859,1.87,4.43,2.93,7.069,2.93c2.63,0,5.2-1.06,7.07-2.93c1.86-1.86,2.93-4.44,2.93-7.07    c0-2.63-1.069-5.21-2.93-7.07C450.97,426.57,448.399,425.5,445.77,425.5z"></path>
-                            <path id="XMLID_394_" d="M310.001,144.609c-85.538,0-155.129,69.59-155.129,155.129s69.591,155.129,155.129,155.129    s155.129-69.59,155.129-155.129S395.539,144.609,310.001,144.609z M310.001,434.867c-74.511,0-135.129-60.619-135.129-135.129    s60.618-135.129,135.129-135.129S445.13,225.228,445.13,299.738S384.512,434.867,310.001,434.867z"></path>
-                            <path id="XMLID_397_" d="M373.257,222.34l-49.53,49.529c-4.142-2.048-8.801-3.205-13.726-3.205c-4.926,0-9.584,1.157-13.726,3.205    l-22.167-22.167c-3.906-3.905-10.236-3.905-14.143,0c-3.905,3.905-3.905,10.237,0,14.142l22.167,22.167    c-2.049,4.142-3.205,8.801-3.205,13.726c0,17.134,13.939,31.074,31.074,31.074s31.074-13.94,31.074-31.074    c0-4.925-1.157-9.584-3.205-13.726l48.076-48.076v0l1.453-1.453c3.905-3.905,3.905-10.237,0-14.142    S377.164,218.435,373.257,222.34z M310.001,310.812c-6.106,0-11.074-4.968-11.074-11.074s4.968-11.074,11.074-11.074    s11.074,4.968,11.074,11.074S316.107,310.812,310.001,310.812z"></path>
-                            <path id="XMLID_398_" d="M416.92,289.86h-9.265c-5.522,0-10,4.477-10,10s4.478,10,10,10h9.265c5.522,0,10-4.477,10-10    S422.442,289.86,416.92,289.86z"></path>
-                            <path id="XMLID_399_" d="M212.346,289.616h-9.264c-5.522,0-10,4.477-10,10s4.478,10,10,10h9.264c5.522,0,10-4.477,10-10    S217.868,289.616,212.346,289.616z"></path>
-                            <path id="XMLID_400_" d="M310.123,212.083c5.522,0,10-4.477,10-10v-9.264c0-5.523-4.478-10-10-10s-10,4.477-10,10v9.264    C300.123,207.606,304.601,212.083,310.123,212.083z"></path>
-                            <path id="XMLID_424_" d="M309.879,387.393c-5.522,0-10,4.477-10,10v9.264c0,5.523,4.478,10,10,10s10-4.477,10-10v-9.264    C319.879,391.87,315.401,387.393,309.879,387.393z"></path>
-                            <path id="XMLID_425_" d="M10,351.44c-2.63,0-5.21,1.07-7.07,2.93c-1.86,1.86-2.93,4.44-2.93,7.07c0,2.64,1.069,5.21,2.93,7.07    s4.44,2.93,7.07,2.93s5.21-1.07,7.069-2.93c1.86-1.86,2.931-4.44,2.931-7.07s-1.07-5.21-2.931-7.07    C15.21,352.51,12.63,351.44,10,351.44z"></path>
-                            </g>
-                        </g>
-                    </svg>
-                    <span class="Landing-status__count" id="users-counter">31,320</span>
-                    <span class="Landing-status__text">Lorem ipsum dolor sit.</span>
-                </div>
-            </div> -->
         </div>
     </section>
     <!-- Finish Landing -->
@@ -1240,9 +1121,12 @@ background: #FF9D2E;
     <!-- <script type="module" src="./js/home-sections.js"></script> -->
     <script src="js/slider.js"></script>
 
-    <!-- <script type="module" src="js/index.js"></script> -->
+    <script type="module" src="js/index.js"></script>
      <script type="module" src="js/basket-box.js"></script>
      <script type="module" src="./js/search.js"></script>
+     <script type="module" src="js/login-form.js"></script>
+     <script type="module" src="js/user-header.js"></script>
+
     <!-- Bootstrap JS -->
 
 <!-- Supabase -->

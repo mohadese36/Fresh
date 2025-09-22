@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
     <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <title>HOME</title>
 </head>
 <body>
 
@@ -76,39 +84,25 @@
 
     </header>
     <!-- Finish Header -->
-    <!-- components/basket-box.html -->
-    <div>
-    <!-- Mini Basket (HTML-only; JS already wires it) -->
-    <div class="mini-basket card">
-      <div class="mini-basket__head">
-        <a href="./cart.html">
-          <i class="fa-solid fa-basket-shopping"></i>
-        </a>
-        <div class="mini-basket__title">Your basket</div>
-        <div class="mini-basket__total">
-          <span>Guide price</span>
-          <strong class="basket-guide-price">£0.00</strong>
-        </div>
-      </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/fontAwesome5/all.min.js"></script>
+    <script src="vendor/SwiperSlider/swiper.js"></script>
+    <script type="module" src="./js/menu.js"></script>
+    <!-- <script type="module" src="./js/home-sections.js"></script> -->
+    <script src="js/slider.js"></script>
 
-      <div class="mini-basket__body">
-        <!-- Empty state -->
-        <div class="basket-is-empty">Your basket is empty</div>
+    <!-- <script type="module" src="js/index.js"></script> -->
+     <script type="module" src="js/basket-box.js"></script>
+     <script type="module" src="./js/search.js"></script>
+     <script type="module" src="js/login-form.js"></script>
+     <script type="module" src="js/user-header.js"></script>
 
-        <!-- Filled state -->
-        <div class="basket-is-not-empty">
-          <table class="basket-table">
-            <tbody class="basket-items"><!-- rows injected by JS --></tbody>
-          </table>
-        </div>
-      </div>
+    <!-- Bootstrap JS -->
 
-      <div class="mini-basket__footer">
-        <a href="./checkout.html" id="checkout-btn" class="btn btn-checkout w-100">Go to Checkout</a>
-      </div>
-    </div>
-
-    </div>
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Supabase -->
 </body>
- <script type="module" src="./js/cart.js"></script>
 </html>

@@ -1,4 +1,9 @@
 import { supabase } from './supabaseClient.js';
+import { updateHeaderUserInfo } from './user-header.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateHeaderUserInfo();
+});
 
 // ---- تنظیمات عمومی ----
 const LOCALE = 'en-GB';

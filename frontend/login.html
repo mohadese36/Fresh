@@ -15,7 +15,7 @@
     <header class="header">
         <div class="top-bar">
             <div class="container-fluid">
-                <div class="top-bar__content">
+                <!-- <div class="top-bar__content">
                     <div class="top-bar__right">
                         <ul class="top-bar__menu">
                             <li class="top-bar__item">
@@ -42,12 +42,12 @@
                             <i class="fas fa-phone top-bar__phone-icon"></i>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     
         <div class="main-header">
-            <div class="container-fluid">
+            <!-- <div class="container-fluid">
                 <div class="main-header__content">
                     <div class="main-header__right">
                         <img src="images/logo/Logo.png" class="main-header__logo" alt="logo">
@@ -141,43 +141,23 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </header>
     <!-- Finish Header -->
 
     <!-- Start login -->
-    <section class="login-register">
-        <div class="login">
-            <span class="login-title">ورود به حساب کاربری</span>
-            <span class="login-subtitle">
-                خوشحالیم دوباره میبینیمت دوست عزیز :)
-            </span>
-
-            <div class="login__new-member">
-                <span class="login__new-member-text">
-                    کاربر جدید هستید؟
-                </span>
-                <a href="./register.html" class="login__new-member-link">ثبت نام</a>
-            </div>
-
-            <form action="#" class="login-form">
-              <div class="login-form__username">
-                <input type="text" class="login-form__username-input" id="username" placeholder="نام کاربری یا آدرس ایمیل" />
-                <i class="fa fa-user login-form__username-icon"></i>
-              </div>
-              <div class="login-form__password">
-                <input type="password" class="login-form__password-input" id="password" placeholder="رمز عبور" />
-                <i class="fa fa-lock-open login-form__password-icon"></i>
-              </div>
-              <button class="login-form__btn" type="submit">
-                <i class="fas fa-sign-out-alt login-form__btn-icon"></i>
-                <span class="login-form__btn-text">ورود</span>
-              </button>              
-            </form>
-        </div>
+    <section class="login-register" id="login-section">
+    <h2>Login</h2>
+    <form class="login-form">
+        <input type="email" id="username" placeholder="Email" required>
+        <input type="text" id="fullName" placeholder="Full name (optional)">
+        <button type="submit">Login</button>
+    </form>
     </section>
     <!-- Finish login -->
+
+
 
     <!-- Start Footer -->
     <footer class="footer">
@@ -269,6 +249,12 @@
     <!-- Finish Footer -->
     <script src="vendor/fontAwesome5/all.min.js"></script>
     <script src="vendor/Bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="js/login.js"></script>
+
+    <script type="module" src="js/user-auth.js"></script>
+    <script type="module" src="js/login-form.js"></script>
+
+
+
+
 </body>
 </html>

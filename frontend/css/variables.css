@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Luckiest+Guy&display=swap');
 
-:root {
+/* :root {
     --primary-font: "IRANSans";
     --primary-color: #2bce56;
     --white-color: #fff;
@@ -53,4 +53,83 @@
 
 	--display: "Luckiest Guy", cursive;
 	--serif: "Bitter", serif;
+} */
+
+/* variables.css — Brand Palette & tokens */
+:root{
+  /* ==== Core (from my palette) ==== */
+  --brand-100:#e7f3e8; --brand-200:#cfe7d1; --brand-400:#2e7d32; --brand-500:#27712b;
+  --brand-600:#1f7f37; --brand-700:#17662a; --brand-800:#14532d;
+
+  --accent-red-100:#fde8e8; --accent-red-500:#b91c1c; --accent-red-600:#a81616;
+  --amber-100:#fff3d6; --amber-500:#f59e0b; --amber-600:#d97706;
+
+  --ink-900:#1f2937; --ink-700:#374151; --ink-600:#4b5563; --ink-500:#6b7280; --ink-400:#9ca3af;
+
+  --bg-page:#faf7f1;            /* صفحۀ روشن خامه‌ای */
+  --surface-1:#ffffff;          /* کارت/پنل */
+  --surface-2:#fbfbfc;
+  --border-1:#e6e9ee;
+
+  --btn-primary: var(--brand-600);
+  --btn-primary-hover: var(--brand-700);
+  --btn-primary-ring: color-mix(in srgb, var(--brand-600) 40%, transparent);
+
+  --price: var(--accent-red-500);
+  --success:#16a34a; --warning:#d97706;
+
+  --radius-lg:14px; --radius-md:10px;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.06);
+  --shadow-md:0 10px 28px rgba(16,24,40,.10);
+
+  --grad-brand: linear-gradient(90deg, var(--brand-600), var(--brand-400));
+  --grad-underline: linear-gradient(90deg, #c0392b, #27ae60);
+
+  /* ==== Extensions (picked from your palette) ==== */
+  /* Creams */
+  --meat-cream-50:#fffde6;   /* color_secondary-06 */
+  --meat-cream-100:#faf7e8;  /* color-background */
+  --meat-cream-200:#fff6a3;  /* color_secondary-05 */
+
+  /* Browns */
+  --meat-brown-500:#b7884e;  /* brown */
+
+  /* Yellows */
+  --meat-yellow-500:#ffc300; /* color_secondary-04 */
+  --meat-yellow-600:#fcb917; /* border-button */
+  --meat-brown-700: #323232; /* Very dark brown – like dark chocolate */
+
+
+
+  /* Reds */
+  --meat-red-600:#c90000;    /* color_red */
+  --meat-red-700:#9b1d11;    /* color-secondary-dark */
+  --meat-red-800:#7d190e;    /* color-accent */
+
+  /* Greens */
+  --meat-green-600:#16653b;  /* color-primary-dark */
+  --meat-green-700:#106639;  /* color-primary */
+  --meat-olive-800:#293b24;  /* color-dark / menu/icons */
+
+  /* ==== Semantic add-ons (optional to use anywhere) ==== */
+  --bg-cream: var(--meat-cream-100);
+  --chip-selected-bg: var(--meat-cream-50);
+  --badge-sale-bg: var(--meat-yellow-600);
+  --badge-sale-text: var(--ink-900);
+  --price-strong: var(--meat-red-600);
+  --btn-accent: var(--meat-green-700);
+  --btn-accent-hover: var(--meat-green-600);
+  --card-accent-border: var(--meat-cream-200);
+  --heading-olive: var(--meat-olive-800);
 }
+
+/* (Optional) Dark mode */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg-page:#121417; --surface-1:#171a1f; --surface-2:#1e232a; --border-1:#2a313a;
+    --ink-900:#e5e7eb; --ink-700:#d1d5db; --ink-600:#cbd5e1; --ink-500:#9ca3af;
+    --shadow-md:0 10px 28px rgba(0,0,0,.35);
+  }
+}
+
+

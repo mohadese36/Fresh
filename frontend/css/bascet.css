@@ -1,16 +1,4 @@
 
-@import "./variables.css";
-@import "./fonts.css";
-@import "./top-bar.css";
-@import "./navbar.css";
-@import "./defaults.css";
-@import "./footer.css";
-@import "./product-box.css";
-@import "./helper.css";
-@import "./breadcrumb.css";
-@import "./sidebar-productBox.css";
-@import "./index.css";
-
 .text-bigger {
     font-size: 4rem;
     color: red !important;
@@ -29,4 +17,223 @@
 
 .basket-is-empty {
   color: red !important;
+}
+
+.card-body-basket {
+  background: yellow !important;
+}
+
+
+
+/* ستون فیلتر روی دسکتاپ چسبان بالا + ستونی */
+@media (min-width: 992px){
+  .filters-sticky{
+    position: sticky;
+    top: 1rem;
+    display: flex;          /* مهم */
+    flex-direction: column; /* مهم */
+    gap: 1rem;
+  }
+  /* مینی‌بسکت را ببَر تهِ ستون فیلترها */
+  .filters-sticky .mini-basket{
+    margin-top: auto;       /* مهم: هلش می‌ده به پایین ستون */
+  }
+}
+/* ===== Mini-basket stick to bottom of sidebar (desktop) ===== */
+
+
+/* ===== Mini Basket – Layout & Card ===== */
+@media (min-width: 992px){
+  /* کمی باریک‌تر از ستون، تمیز و جمع‌وجور */
+  .col-lg-3 .mini-basket{
+    max-width: 320px;       /* می‌تونی 280–340 بزنی */
+    margin-left: auto;      /* به لبه‌ی راست ستون بچسبه */
+  }
+}
+.mini-basket{
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  overflow: hidden;
+  background: #fff;
+}
+
+/* اگر قبلاً برای تست رنگ/حاشیه داده بودی، بی‌اثر کن */
+.card-body-basket{ background: transparent !important; }
+.mini-basket{ outline: none !important; box-shadow: 0 8px 24px rgba(0,0,0,.06) !important; }
+
+/* ===== Header ===== */
+.mini-basket__head{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+.mini-basket__head .fa-basket-shopping{
+  font-size: 20px;
+  color: #9a1c1c;          /* قرمز گرم (Meat) */
+}
+.mini-basket__title{
+  font-weight: 600;
+  color: #1f2937;
+  flex: 1;
+}
+.mini-basket__total{
+  text-align: right;
+  line-height: 1.1;
+  font-size: .9rem;
+}
+.mini-basket__total span{
+  display:block;
+  color:#6b7280;
+}
+.mini-basket__total .basket-guide-price{
+  color:#111827;
+  font-weight: 700;
+}
+
+/* ===== Body (items table) ===== */
+.mini-basket__body{
+  padding: .5rem .75rem;
+}
+.basket-is-empty{
+  padding: .6rem .25rem;
+  color:#6b7280;
+  font-size: .95rem;
+}
+
+/* جدول آیتم‌ها */
+.basket-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.basket-table tbody tr + tr{
+  border-top: 1px solid #eee;    /* خط کمرنگ بین محصولات */
+}
+.side-basket-qty{
+  width: 58px;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 600;
+  color: #374151;
+  vertical-align: top;
+  padding-top: .4rem;
+}
+.side-basket-name{
+  padding: .5rem .25rem .25rem .25rem;
+  vertical-align: top;
+}
+.side-basket-name a{
+  display: block;
+  text-decoration: none;
+  color: #1f2937 !important;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.side-basket-price{
+  text-align: right;
+  font-weight: 700;
+  color: #111827;
+  vertical-align: top;
+  padding-top: .4rem;
+}
+
+/* کنترل‌ها ( + / - / حذف ) */
+.side-basket-controls-qty{
+  margin-top: .35rem;
+  display: flex;
+  gap: .35rem;
+  justify-content: center;
+}
+.side-basket-controls-remove{
+  margin-top: .35rem;
+  text-align: right;
+}
+.mini-basket .side-basket-controls .btn{
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: .15rem .48rem;
+  line-height: 1;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: .9rem;
+}
+.mini-basket .side-basket-controls .btn:hover{
+  background: #f3f4f6;
+}
+.mini-basket .side-basket-controls .remove{
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;      /* آیکن حذف کمی درشت‌تر */
+  opacity: .7;
+}
+.mini-basket .side-basket-controls .remove:hover{
+  opacity: 1;
+}
+
+/* ===== Footer (Checkout) ===== */
+.mini-basket__footer{
+  padding: .75rem;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+.btn-checkout{
+  background: #2e7d32;            /* سبز اعتماد + تضاد با تم گوشتی */
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .2px;
+  border: 0;
+  border-radius: 12px;
+  padding: .65rem 1rem;
+  transition: transform .06s ease, box-shadow .2s ease, background-color .2s ease;
+  box-shadow: 0 6px 14px rgba(46,125,50,.18);
+}
+.btn-checkout:hover{
+  background: #27692b;
+  box-shadow: 0 8px 18px rgba(46,125,50,.24);
+}
+.btn-checkout:active{
+  transform: translateY(1px);
+}
+
+/* ===== Meat page vibe (خنثی + تاکیدی) ===== */
+/* تایپوگرافی کمی قوی‌تر داخل سبد */
+.mini-basket,
+.mini-basket *{
+  font-family: inherit; /* از فونت کلی سایتت بگیر */
+}
+
+/* موبایل: سبد راست نمایش داده نشود (از آیکن هدر استفاده کن) */
+@media (max-width: 991.98px){
+  .mini-basket{ display:none; }
+}
+/* =========================
+   Mini-Basket Responsive ONLY
+   (بدون تغییر استایل‌های پایه‌ی شما)
+   ========================= */
+
+/* تبلت: 768–991px  → سبد را نمایش بده و عرضش 100% شود */
+@media (min-width:768px) and (max-width:991.98px){
+  /* چون در HTML ستون راست کلاس Bootstrap "d-none d-lg-block" دارد، اینجا override می‌کنیم */
+  .col-lg-3.d-none.d-lg-block{ display:block !important; }
+  .col-lg-3.d-none.d-lg-block .mini-basket{
+    max-width:100%;
+    margin:1rem 0;
+  }
+  /* استیکی لازم نیست؛ اگر خواستی فعال کن: */
+  /* .mini-basket{ position:sticky; top:.5rem; } */
+}
+
+/* دسکتاپ ≥992px: همان رفتار فعلی شما + کمی تطبیق برای viewport باریک */
+@media (min-width:992px) and (max-width:1199.98px){
+  .col-lg-3 .mini-basket{ max-width:300px; }
+}
+
+/* موبایل <768px: پنهان بماند (از آیکن هدر استفاده می‌کنی) */
+@media (max-width:767.98px){
+  .mini-basket{ display:none; }
 }

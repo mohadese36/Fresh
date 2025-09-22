@@ -1,4 +1,11 @@
 
+import { updateHeaderUserInfo } from './user-header.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateHeaderUserInfo();
+});
+
+
 
 async function fetchArticles() {
   try {

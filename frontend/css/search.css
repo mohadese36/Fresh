@@ -1,0 +1,145 @@
+/* ========= Searchbar (بدون تغییر مقادیر) ========= */
+
+/* لنگر مطمئن برای پنل نتایج */
+form.searchbar{ position: relative; }
+
+.searchbar{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .4rem .45rem;
+  margin-inline-end: .9rem;
+  border: 2px solid var(--meat-cream-200);
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(16,24,40,.10);
+  box-sizing: border-box;
+}
+
+/* آیکن */
+.searchbar__icon{
+  font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+  line-height: 1;
+  margin-inline-start: clamp(.1rem, 1vw, .2rem) !important;
+  flex: 0 0 auto;
+}
+
+/* ورودی */
+.searchbar .Landing__searchBar-input,
+.searchbar .Landing__searchBar-input:focus,
+.searchbar .Landing__searchBar-input:active{
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: clamp(.50rem, 1.8vw, .72rem) clamp(.75rem, 2.6vw, 1rem);
+  min-width: clamp(160px, 45vw, 260px);
+  font-size: clamp(.95rem, 3.6vw, 1rem);
+  line-height: 1.35;
+  color: inherit;
+}
+
+/* Placeholder */
+.Landing__searchBar-input::placeholder{
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  color: var(--ink-500, #6b7280);
+  opacity: 1;
+}
+
+/* فوکوس روی ظرف */
+.searchbar:focus-within{
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-200, #cfe7d1) 70%, transparent);
+}
+
+
+/* ========= Results Panel ========= */
+
+.search-results-container{ display: none; }
+
+/* فقط وقتی محتوا دارد نمایش بده؛ لنگرش خود فرم است */
+form.searchbar.desktop-search > .search-results-container:not(:empty){
+  display: block;
+  position: absolute;
+  inset-inline: 0;
+  top: calc(100% + .5rem);
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 5;                 /* کافی؛ کل تاپ‌بار بالاتر از منوست */
+  max-height: 50vh;
+  overflow: auto;
+  border: 2px solid var(--meat-cream-200);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  padding: .6rem;
+  font-size: clamp(13px, 2.6vw, 16px);
+  line-height: 1.4;
+}
+
+/* آیتم‌ها */
+.search-results-container :is(a, button, li, .result-item){
+  display: block;
+  background: #fff !important;
+  border: 1px solid var(--meat-cream-200) !important;
+  border-radius: 12px !important;
+  padding: .6rem .8rem !important;
+  margin-block: .35rem !important;
+  color: var(--heading-olive) !important;
+  text-decoration: none !important;
+  line-height: 1.35;
+}
+
+.search-results-container :is(a, button, li, .result-item):hover{
+  background: color-mix(in srgb, var(--meat-cream-200) 40%, transparent) !important;
+}
+
+.search-results-container :is(a, button, li, .result-item):focus-visible{
+  outline: 3px solid var(--meat-yellow-600);
+  outline-offset: 2px;
+}
+
+/* تیتر گروه */
+.search-results-container :is(h3, .results-heading){
+  margin: .2rem 0 .4rem;
+  font-size: clamp(.95rem, 2.2vw, 1.05rem);
+  font-weight: 700;
+  color: var(--heading-olive);
+}
+
+/* View all */
+.search-results-container :is(.view-all, [data-view-all], a[href*="view all" i], a[href*="view-all" i]){
+  margin-top: .75rem !important;
+  padding: .65rem 1rem !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  border: 1.5px solid var(--meat-green-700) !important;
+  color: var(--meat-green-700) !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  font-size: clamp(.95rem, 2.2vw, 1.05rem) !important;
+}
+
+
+/* ========= Mobile (≤767px): تثبیت جای سرچ ========= */
+@media (max-width: 767px){
+  /* اگر راستِ تاپ‌بار wrap می‌زند، سرچ ردیف دوم و تمام‌عرض */
+  .top-bar__right{ flex-wrap: wrap; align-content: flex-start; gap: clamp(8px, 2vw, 12px); }
+
+  form.searchbar.desktop-search{
+    order: 2;                 /* ردیف دوم */
+    flex: 0 0 100%;
+    width: 100%;
+    transform: none !important; translate: 0 !important;  /* ضد جابجایی ناخواسته */
+  }
+
+  form.searchbar.desktop-search .Landing__searchBar-input{
+    width: 100%; min-width: 0;
+  }
+
+  /* تأکید: پنل دقیقاً زیر فرم و هم‌عرض */
+  form.searchbar.desktop-search > .search-results-container:not(:empty){
+    top: calc(100% + .5rem) !important;
+  }
+}

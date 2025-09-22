@@ -1,141 +1,196 @@
 
-// // search.js
-// import { supabase } from './supabaseClient.js';
 
-// const articlesJSONPath = './articles.json';
-// const searchInput = document.querySelector('.Landing__searchBar-input');
-
-// let articles = [];
-
-// async function loadArticles() {
-//   const res = await fetch(articlesJSONPath);
-//   articles = await res.json();
-// }
-
-// loadArticles();
-
-// // جستجوی محصولات از Supabase
-// async function searchProducts(query) {
-//   const { data: products } = await supabase
-//     .from('products')
-//     .select('id, name, category_id')
-//     .ilike('name', `%${query}%`);
-
-//   return products || [];
-// }
-
-// // جستجوی مقالات از JSON
-// function searchArticles(query) {
-//   return articles.filter(article =>
-//     article.title.toLowerCase().includes(query.toLowerCase())
-//   );
-// }
-
-// // وقتی Enter زده شد، صفحه نتایج باز شود
-// searchInput.addEventListener('keydown', async (e) => {
-//   if (e.key === 'Enter') {
-//     e.preventDefault();
-//     const query = searchInput.value.trim();
-//     if (!query) return;
-//     window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
-//   }
-// });
-
-// search.js
 import { supabase } from './supabaseClient.js';
 
-const searchInput = document.querySelector('.Landing__searchBar-input');
-const resultsContainer = document.createElement('div');
-resultsContainer.classList.add('search-results-container');
-searchInput.parentNode.appendChild(resultsContainer);
+const input = document.querySelector('.Landing__searchBar-input');
+if (!input) {
+  console.warn('search.js: .Landing__searchBar-input not found on this page.');
+} else {
+  // ----- UI container -----
+  const results = document.createElement('div');
+  results.classList.add('search-results-container'); // استایل رو خودت بده
+  input.parentNode.appendChild(results);
 
-let articles = [];
+  // ----- Helpers -----
+  const MIN_CHARS = 2;
+  const MAX_RESULTS = 8;
+  let articles = [];
+  let activeIndex = -1;
+  let token = 0; // برای جلوگیری از race
 
-// بارگذاری مقالات JSON
-async function loadArticles() {
-  try {
-    const res = await fetch('data/articles.json');
-    articles = await res.json();
-    console.log('Articles loaded:', articles); // برای تست
-  } catch (err) {
-    console.error('Error loading articles:', err);
+  function escapeLike(s) {
+    return s.replace(/([%_\\])/g, '\\$1');
   }
-}
-loadArticles();
+  function escReg(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+  function debounce(fn, delay = 250) {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), delay);
+    };
+  }
+  function buildOrForWordPrefix(column, q) {
+    // ابتدای کل نام + ابتدای کلمه بعد از جداکننده‌های رایج
+    const seps = [' ', '-', '_', '/', '('];
+    const patterns = [`${q}%`, ...seps.map(sep => `%${sep}${q}%`)];
+    return patterns.map(p => `${column}.ilike.${p}`).join(',');
+  }
+  function highlightWordStarts(text, q) {
+    if (!q) return text;
+    // ابتدای رشته یا بعد از فاصله/خط‌تیره/آندرلاین/اسلش/(
+    const re = new RegExp(`(^|[\\s\\-_/\\(])(${escReg(q)})`, 'ig');
+    return text.replace(re, (_, pre, match) => `${pre}<mark>${match}</mark>`);
+  }
 
-// جستجوی محصولات Supabase
-async function searchProducts(query) {
-  try {
-    const { data: products, error } = await supabase
-      .from('products')
-      .select('id, name')
-      .ilike('name', `%${query}%`);
-    if (error) {
-      console.error('Supabase search error:', error);
+  async function loadArticles() {
+    if (articles.length) return;
+    try {
+      const res = await fetch('data/articles.json');
+      articles = await res.json();
+    } catch (e) {
+      console.error('Error loading articles:', e);
+    }
+  }
+
+  // ----- Data fetchers -----
+  async function searchProductsPrefix(query) {
+    try {
+      const escaped = escapeLike(query);
+      const orCond = buildOrForWordPrefix('name', escaped);
+      const { data, error } = await supabase
+        .from('products')
+        .select('id, name')
+        .or(orCond)
+        .order('name', { ascending: true })
+        .limit(MAX_RESULTS);
+
+      if (error) {
+        console.error('Supabase search error:', error);
+        return [];
+      }
+      return data || [];
+    } catch (e) {
+      console.error('Error searching products:', e);
       return [];
     }
-    return products || [];
-  } catch (err) {
-    console.error('Error searching products:', err);
-    return [];
-  }
-}
-
-// نمایش نتایج جستجو
-async function handleSearch() {
-  const query = searchInput.value.trim();
-  if (!query) {
-    resultsContainer.innerHTML = '';
-    return;
   }
 
-  // منتظر باش تا مقالات بارگذاری بشن
-  if (!articles || articles.length === 0) await loadArticles();
-
-  const matchingArticles = articles.filter(a =>
-    a.title.toLowerCase().includes(query.toLowerCase())
-  );
-
-  const products = await searchProducts(query);
-
-  let html = '';
-
-  if (products.length) {
-    html += `<h4>Products</h4>`;
-    html += products
-      .map(
-        p =>
-          `<a href="product.html?id=${p.id}" class="search-result-item">${p.name}</a>`
-      )
-      .join('');
+  function searchArticlesPrefix(query) {
+    const q = query.toLowerCase();
+    const wordStart = (title = '') =>
+      title
+        .toLowerCase()
+        .split(/[\s\-_\/(]+/)
+        .some(w => w.startsWith(q)) || title.toLowerCase().startsWith(q);
+    return (articles || []).filter(a => wordStart(a.title)).slice(0, MAX_RESULTS);
   }
 
-  if (matchingArticles.length) {
-    html += `<h4>Articles</h4>`;
-    html += matchingArticles
-      .map(
-        a =>
-          `<a href="blog.html?slug=${a.slug}" class="search-result-item">${a.title}</a>`
-      )
-      .join('');
-  }
-
-  resultsContainer.innerHTML =
-    html || '<span class="no-results">No results found</span>';
-}
-
-// event live search
-searchInput.addEventListener('input', handleSearch);
-
-// Enter هم کار کنه (اختیاری)
-searchInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    const query = searchInput.value.trim();
-    if (query) {
-      // برای ساده‌سازی، روی اولین نتیجه کلیک کن
-      const firstResult = resultsContainer.querySelector('a');
-      if (firstResult) firstResult.click();
+  // ----- Render -----
+  function render(products, arts, query) {
+    activeIndex = -1;
+    if ((!products || !products.length) && (!arts || !arts.length)) {
+      results.innerHTML = `<div class="no-results">No results found</div>`;
+      return;
     }
+
+    let html = '';
+
+    if (products?.length) {
+      html += `<h4 class="search-section-title">Products</h4>`;
+      html += products
+        .map(
+          (p, i) =>
+            `<a href="product.html?id=${p.id}" class="search-result-item" data-idx="${i}" data-type="product">${highlightWordStarts(
+              p.name,
+              query
+            )}</a>`
+        )
+        .join('');
+    }
+
+    if (arts?.length) {
+      html += `<h4 class="search-section-title">Articles</h4>`;
+      html += arts
+        .map(
+          (a, i) =>
+            `<a href="blog.html?slug=${a.slug}" class="search-result-item" data-idx="${products.length + i}" data-type="article">${highlightWordStarts(
+              a.title,
+              query
+            )}</a>`
+        )
+        .join('');
+    }
+
+    // View all
+    const encoded = encodeURIComponent(query);
+    html += `<a class="search-view-all" href="categori.html?search=${encodeURIComponent(query)}">View all results</a>`;
+
+    results.innerHTML = html;
   }
-});
+
+  function moveActive(delta) {
+    const items = [...results.querySelectorAll('.search-result-item')];
+    if (!items.length) return;
+    activeIndex = (activeIndex + delta + items.length) % items.length;
+    items.forEach((el, i) => el.classList.toggle('active', i === activeIndex));
+  }
+
+  // ----- Main handler -----
+  const handle = debounce(async () => {
+    const q = input.value.trim();
+    const thisToken = ++token;
+
+    if (!q || q.length < MIN_CHARS) {
+      results.innerHTML = '';
+      return;
+    }
+
+    await loadArticles();
+
+    const [prods, arts] = await Promise.all([
+      searchProductsPrefix(q),
+      Promise.resolve(searchArticlesPrefix(q)),
+    ]);
+
+    // جلوگیری از رندر پاسخ کهنه
+    if (thisToken !== token) return;
+
+    render(prods, arts, q);
+  }, 250);
+
+  // ----- Events -----
+  input.addEventListener('input', handle);
+
+  input.addEventListener('keydown', e => {
+    const items = [...results.querySelectorAll('.search-result-item')];
+    if (!items.length) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      moveActive(1);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      moveActive(-1);
+    } else if (e.key === 'Enter') {
+      if (activeIndex >= 0) {
+        e.preventDefault();
+        items[activeIndex].click();
+      }
+    } else if (e.key === 'Escape') {
+      results.innerHTML = '';
+    }
+  });
+
+  // بستن نتایج با کلیک بیرون
+  document.addEventListener('click', (e) => {
+    if (e.target === input || results.contains(e.target)) return;
+    results.innerHTML = '';
+  });
+
+  // فوکوسِ مجدد: اگر کوئری هست، نتایج را بازسازی کن
+  input.addEventListener('focus', () => {
+    if (input.value.trim().length >= MIN_CHARS) handle();
+  });
+}

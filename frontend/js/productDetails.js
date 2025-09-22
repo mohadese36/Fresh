@@ -6,6 +6,12 @@ import { supabase } from './supabaseClient.js';
 import { addItemToBasket} from './basket-box.js';
 import { updateBasketUI } from './basket-box.js';
 
+import { updateHeaderUserInfo } from './user-header.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateHeaderUserInfo();
+});
+
 // 1. گرفتن ID محصول از URL
 function getProductIdFromURL() {
   const params = new URLSearchParams(window.location.search);

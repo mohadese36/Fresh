@@ -1,0 +1,461 @@
+/* === Top Bar (بدون گرادیان) — نسخه بزرگ‌تر و چشمگیر === */
+.top-bar {
+  background: url('../images/logo/header-img.jpg') center/cover no-repeat, var(--bg-cream, #faf7e8);
+  color: var(--heading-olive, #293b24);
+  padding-block: 4.5rem;
+}
+
+/* ظرف داخلی با فاصله امن از لبه‌ها */
+.top-bar__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4.5vw, 40px);
+}
+
+/* ===== Header Refresh ===== */
+
+/* لوگو بزرگ و مشخص (بدون !important) */
+.top-bar .top-bar__right .brand__logo{
+  height: 124px;         /* بود: ~80-100 */
+  max-inline-size: 320px;
+  inline-size: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* دکمه‌ها: سایز بزرگ — بدون !important روی ابعاد و تایپوگرافی */
+.top-bar .top-bar__left a,
+.top-bar .top-bar__left button{
+  appearance: none;
+  border: 2px solid var(--meat-yellow-600, #fcb917);
+  /* گرادیان زرد گرم — نگه‌داشتن !important فقط برای غلبه‌ی رنگ */
+  background: var(--meat-yellow-500);
+  color: var(--heading-olive, #293b24) !important;
+
+  font-family: var(--serif, "Bitter", serif);
+  font-weight: 800;
+  font-size: 1.22rem;
+  line-height: 1;
+
+  padding: 1rem 1.45rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+
+  box-shadow: 0 2px 6px rgba(16,24,40,.14);
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+/* هاور/فوکِس — بدون !important */
+.top-bar .top-bar__left a:hover,
+.top-bar .top-bar__left button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(16,24,40,.14);
+  filter: saturate(1.06);
+}
+.top-bar .top-bar__left a:focus-visible,
+.top-bar .top-bar__left button:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--meat-yellow-600,#fcb917) 55%, transparent);
+  outline-offset: 2px;
+}
+/* ظرف فرم: سفید ساده */
+.searchbar{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem;
+  border: 2px solid var(--meat-cream-200);
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(16,24,40,.10);
+}
+
+/* فقط آیکن؛ بدون پس‌زمینه و بدون حاشیه سبز */
+.searchbar__icon{
+  font-size: 1.5rem;
+  /* color: var(--heading-olive); */
+  line-height: 1;
+  margin-inline-start: 1rem !important;
+}
+
+/* 1) آیکن ذره‌بین بزرگ‌تر و کمی فاصله‌ی بهتر */
+.searchbar__icon{
+  /* font-size: 1.28rem;    */
+  margin-inline-start: .2rem;
+  line-height: 1;
+}
+
+
+/* input با همان استایل‌های قبلی */
+/* صفر کردن کامل استایل‌های حاشیه و فوکوس روی input */
+.searchbar .Landing__searchBar-input,
+.searchbar .Landing__searchBar-input:focus,
+.searchbar .Landing__searchBar-input:active {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;   /* پس‌زمینه از .searchbar تأمین می‌شود */
+  padding: .72rem 1rem;      /* فقط پدینگ داخلی برای راحتی تایپ */
+  min-width: 260px;
+}
+
+/* رینگ فوکِس فقط روی ظرف سرچ‌بار */
+.searchbar:focus-within {
+  border-color: var(--meat-yellow-600);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--meat-yellow-600) 32%, transparent);
+}
+
+/* فاصله‌ها: بین سرچ‌بار و دکمه‌های کناری + بین آیکن و ورودی */
+.searchbar { gap: .6rem; padding: .4rem .45rem; margin-inline-end: .9rem; }
+.top-bar__left { gap: .9rem; }
+.searchbar__icon { margin-inline-start: .1rem; }
+
+/* نتایج: کاملاً نامرئی وقتی خالی است */
+.search-results-container{ display: none; }
+.search-results-container:not(:empty){
+  display: block;
+  position: absolute;
+  inset-inline: 0;
+  top: calc(100% + .5rem);
+  z-index: 30;
+  max-height: 50vh;
+  overflow: auto;
+  border: 2px solid var(--meat-cream-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: .6rem;
+}
+
+
+/* دکمه فقط-آیکن (مثل سرچ) — بدون !important */
+.top-bar .top-bar__left .icon-btn{
+  padding: 1rem;
+  min-width: 3.3rem;
+  min-height: 3.3rem;
+  justify-content: center;
+}
+
+/* واریانت‌ها با nth-child (در صورت ثابت بودن ترتیب) */
+/* Cart (دومی): قرمز اشتها‌آور — فقط رنگ‌ها !important می‌مانند */
+.top-bar .top-bar__left > *:nth-child(2){
+  border-color: var(--meat-red-700, #9b1d11);
+  color: #fff !important;
+  background: linear-gradient(180deg, var(--meat-red-700,#9b1d11), var(--meat-red-800,#7d190e)) !important;
+}
+
+/* Username / CTA (سومی): سبز برند — فقط رنگ‌ها !important */
+.top-bar .top-bar__left > *:nth-child(3){
+  border-color: var(--meat-green-700, #106639);
+  color: #fff !important;
+  background: linear-gradient(180deg, var(--meat-green-700,#106639), var(--meat-green-600,#16653b)) !important;
+}
+
+/* Logout (چهارمی): زرد باقی بماند ولی با حروف تیره — فقط رنگ متن !important برای خوانایی */
+/* .top-bar .top-bar__left > *:nth-child(4){
+  color: var(--heading-olive, #293b24) !important;
+
+} */
+
+/* بیج سبد خرید — فقط رنگ/نمایش !important برای غلبه بر تم‌های قبلی */
+#cart-count-badge{
+  position: static; /* fallback */
+  display: inline-flex !important;
+  align-items: center; justify-content: center;
+  min-width: 1.55rem;
+  height: 1.55rem;
+  padding: 0 .35rem;
+  margin-inline-start: .2rem;
+  border-radius: 999px;
+
+  background: var(--meat-red-600, #c90000) !important;
+  color: #fff !important;
+  font-weight: 900;
+  font-size: .9rem;
+  box-shadow: 0 0 0 2px #fff inset, 0 2px 6px rgba(0,0,0,.2);
+}
+
+/* 2) فوکوس سبزِ ملایم به‌جای نارنجی (روی خود .searchbar) */
+.searchbar:focus-within{
+  border-color: var(--brand-500);
+  /* هاله‌ی سبز کمرنگ؛ از پالت روشن استفاده می‌کنیم */
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-200, #cfe7d1) 70%, transparent);
+}
+/* Placeholder کمی بزرگتر و خواناتر */
+.Landing__searchBar-input::placeholder {
+  font-size: 1.5rem;   /* پیش‌فرض معمولاً ~0.9rem هست */
+  color: var(--ink-500, #6b7280); /* خاکستری ملایم از پالت */
+  opacity: 1;           /* بعضی مرورگرها opacity میدن، اینو یک می‌کنیم */
+}
+
+/* اگر قبلاً برای focus-within هاله‌ی زرد گذاشته بودی، این بلوک بعد از آن بیاید. */
+
+/* اگر مرورگر :has داشته باشد، بیج را به گوشه بالا-راست پین می‌کنیم — بدون !important لازم */
+@supports(selector(:has(*))){
+  .top-bar .top-bar__left > *:nth-child(2){ position: relative; }
+  .top-bar .top-bar__left > *:nth-child(2) #cart-count-badge{
+    position: absolute;
+    inset-block-start: -8px;
+    inset-inline-end: -8px;
+    margin: 0;
+  }
+}
+
+/* =========================
+   RESPONSIVE REWORK (no HTML changes)
+   ========================= */
+
+/* Tablet – فاصله‌ها و اندازه‌ها متعادل‌تر */
+@media (max-width: 900px){
+  .top-bar__content{
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    padding-inline: clamp(16px, 4.5vw, 28px);
+  }
+  .top-bar .top-bar__right .brand__logo{
+    height: 110px;
+    max-inline-size: 300px;
+  }
+  .top-bar__left{
+    flex: 1 1 100%;
+    justify-content: center;
+    gap: .7rem .8rem;
+    flex-wrap: wrap;
+  }
+  .top-bar__left :is(a,button){
+    font-size: 1.08rem;
+    padding: .9rem 1.1rem;
+  }
+}
+
+/* ========= Mobile UX Fix (≤560px) ========= */
+@media (max-width: 560px){
+
+  .top-bar{
+    padding-block: 1.1rem;
+    box-shadow: 0 4px 12px rgba(16,24,40,.08);
+  }
+
+  .top-bar__content{
+    flex-direction: column;
+    align-items: center;
+    gap: .85rem;
+    padding-inline: clamp(12px, 5vw, 18px);
+  }
+
+  .top-bar .top-bar__right .brand__logo{
+    height: 92px;
+    max-inline-size: 260px;
+  }
+
+  /* دکمه‌ها: چینش با Flex-wrap */
+  .top-bar__left{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .65rem .7rem;  /* row/col gap */
+  }
+
+  /* پایه‌ی دکمه‌ها (قرصی، تاچ‌فرندلی) */
+  .top-bar__left :is(a,button){
+    font-size: 1.02rem;
+    padding: .78rem 1rem;
+    min-height: 44px;       /* اندازهٔ لمس استاندارد */
+  }
+
+  /* --- ردیف اول: Search & Cart (هر کدام نیم‌عرض) --- */
+  /* Search: آیکن ذره‌بین دارد */
+  .top-bar__left :is(a,button):has(.main-header__search-icon){
+    flex: 0 0 calc(50% - .35rem);
+    max-width: 220px;
+  }
+  /* Cart: شامل بیج یا کلاس/آیکن cart */
+  .top-bar__left :is(a,button):has(#cart-count-badge),
+  .top-bar__left :is(a,button):has([class*="shopping-cart"]),
+  .top-bar__left :is(a,button):has([class*="cart"]){
+    flex: 0 0 calc(50% - .35rem);
+    max-width: 220px;
+    position: relative;
+  }
+  /* جای‌گذاری بیج روی دکمهٔ Cart */
+  .top-bar__left :is(a,button):has(#cart-count-badge) #cart-count-badge{
+    position: absolute;
+    inset-block-start: -8px;
+    inset-inline-end: -8px;
+    min-width: 1.3rem;
+    height: 1.3rem;
+    font-size: .78rem;
+  }
+
+  /* --- ردیف دوم: Login/Account/Profile/Logout (وسط و عرض ثابت) --- */
+  .top-bar__left a[href*="login" i],
+  .top-bar__left a[href*="signin" i],
+  .top-bar__left a[href*="register" i],
+  .top-bar__left a[href*="account" i],
+  .top-bar__left a[href*="profile" i],
+  .top-bar__left a[href*="user" i],
+  .top-bar__left a[href*="logout" i],
+  .top-bar__left button[id*="login" i],
+  .top-bar__left button[id*="signin" i],
+  .top-bar__left button[id*="register" i],
+  .top-bar__left button[id*="account" i],
+  .top-bar__left button[id*="profile" i],
+  .top-bar__left button[id*="user" i],
+  .top-bar__left button[id*="logout" i]{
+    flex: 1 1 100%;
+    max-width: 320px;       /* عرض شیک، نه تمام عرض صفحه */
+    margin-inline: auto;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ========= Tablet (561–900px): تعادل چیدمان ========= */
+@media (min-width: 561px) and (max-width: 900px){
+  .top-bar__content{
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    padding-inline: clamp(16px, 4.5vw, 28px);
+  }
+  .top-bar .top-bar__right .brand__logo{
+    height: 110px;
+    max-inline-size: 300px;
+  }
+  .top-bar__left{
+    flex: 1 1 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .7rem .8rem;
+  }
+  /* سه/چهار دکمه کنار هم با اندازه ثابت */
+  .top-bar__left :is(a,button){
+    font-size: 1.08rem;
+    padding: .9rem 1.1rem;
+  }
+}
+/* ///////////////////////////////////// */
+
+
+
+
+
+
+@media (max-width: 767px) {
+
+  .top-bar__content {
+    margin-bottom: 4rem;
+  }
+
+  .top-bar .top-bar__left .brand__logo {
+    /* height: 84px; */
+    max-inline-size: 200px;
+    inline-size: auto;
+    object-fit: contain;
+  }
+
+  .top-bar__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+  }
+
+  /* ردیف اصلی از بالا تراز شود تا لوگو با دکمه‌ها هم‌سطح شود */
+  .top-bar__content{
+    align-items: flex-start !important;
+  }
+
+  /* لوگو */
+  .top-bar__left{ display: flex !important; align-items: center !important; padding-top: .1rem; }
+  .brand{ display: flex !important; align-items: center !important; }
+  .brand__logo{
+    display: block !important;                   /* حذف گپ baseline تصویر */
+    height: clamp(46px, 9vw, 58px);              /* به‌جای var(--pastro-mobile-logo-h-*) */
+    transform: translateY(-22px);                /* به‌جای var(--pastro-mobile-logo-y) */
+  }
+
+  /* سمت راست: دکمه‌ها در ردیف اول، سرچ‌بار در ردیف دوم */
+  .top-bar__right{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: wrap !important;
+    column-gap: .5rem !important;                /* به‌جای var(--pastro-mobile-gap) */
+    row-gap: .5rem !important;                   /* به‌جای var(--pastro-mobile-gap) */
+  }
+
+ .top-bar__right .desktop-search{
+  order: 99 !important;                        /* بیاید بعد از دکمه‌ها */
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-top: clamp(1rem, 6vw, 5rem) !important;   /* بین 1rem و 5rem با ترجیح 6vw */
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  transform: translateX(clamp(-12%, -7%, -3%));    /* بین -12% و -3% با ترجیح -7% */
+}
+
+
+  .top-bar__right .desktop-search .Landing__searchBar-input{
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* هم‌سطح‌سازی خیلی جزئی آیکن‌ها (دلخواه) */
+  .top-bar__right > .main-header__toggle,
+  .top-bar__right > .main-header__cart-btn,
+  .top-bar__right > .main-header__profile,
+  .top-bar__right > #logout-btn{
+    margin-top: 2px;
+  }
+}
+
+
+/* ===== فقط XS: زیر 576px ===== */
+@media (max-width: 575.98px) {
+
+    .top-bar__right .desktop-search {
+    transform: translateX(-9%);
+  }
+  /* لوگو کمی بالا‌تر برای تراز میلی‌متری */
+  /* .brand__logo{
+    display: block;
+    height: clamp(80px, 6vw, 100px) !important;
+    transform: translateY(-15px);
+  } */
+
+  /* ظرف راست یک ردیف کامل بگیرد (بیاید زیر لوگو) */
+  .top-bar__right{
+    width: 50%;
+    gap: .35rem;
+  }
+
+
+}
+@media (max-width: 425.98px) {
+    /* .top-bar__right .desktop-search {
+    transform: translateX(-15%);
+    margin-top: 1rem !important;
+  } */
+
+}
+
+
+
+/* @media (max-width: 560px) {
+ 
+} */
+
+
+
+
+

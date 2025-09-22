@@ -1,93 +1,181 @@
 
-/* Start top-bar Styles */
 
+/* 1) پس‌زمینه را از .top-bar بردار و به شبه‌عنصر بده، تا ارتفاعش واقعی شود */
+header.header .top-bar{
+  position: relative;
+  background: none !important;                /* پس‌زمینهٔ قبلی خنثی شود */  
+  padding-bottom: var(--nav-h) !important;    
+  z-index: 10;
+  isolation: isolate;     /* ← همین یک خط اختلافِ لایه‌ها را قطعی می‌کند */
+
+}
 .top-bar {
-    background: url(../images/logo/header-img.jpg);
-    background-position: center;
-    background-size: cover;
-    color: var(--dark-color);
-	display: flex;
-	align-items: stretch;
-	justify-content: center;
-    padding: 4rem 0;
-    /* padding-top: 8rem;/ */
+  padding-block-end: calc( clamp(20px, 4vw, 72px) + var(--nav-h) + var(--search-row-space) );
+  /* padding-block-end: calc( clamp(20px, 4vw, 72px) + var(--nav-h) ); */
+  /* padding-block-end: clamp(20px, 4vw, 72px); */
+  color: var(--heading-olive, #293b24);
 }
 
+
+/* بلوک با نسبت ثابت که همان تصویر را نمایش می‌دهد */
+header.header .top-bar::before{
+    content:""; 
+    display:block;
+    width:100%;
+    aspect-ratio: var(--hero-ratio);
+    background: url("../images/logo/header-img.jpg") no-repeat center top / contain;
+}
+
+
+/* 2) محتوای بالایی (لوگو/سرچ/اکشن‌ها) روی پس‌زمینه قرار بگیرد */
+header.header .top-bar > .container-fluid{
+  position: absolute;
+  inset: 0 0 var(--nav-h) 0;                  /* تا بالای منو */
+}
+/* ظرف داخلی با فاصله امن از لبه‌ها */
 .top-bar__content {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4.5vw, 40px);
 }
 
-.top-bar__right,
-.top-bar__left {
-    display: flex;
+/* لوگوی واکنش‌گرا */
+.top-bar .top-bar__left .brand__logo {
+  height: clamp(72px, 12vw, 124px);
+  max-inline-size: clamp(180px, 26vw, 320px);
+  inline-size: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* کنترل‌ها */
+.top-bar__right {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 2vw, 1rem)
+}
+
+/* دکمه‌ها (واکنش‌گرا) */
+.top-bar .top-bar__right > :is(a, button) {
+  appearance: none;
+  border: 2px solid var(--meat-yellow-600, #fcb917);
+  background: var(--meat-yellow-500) !important;
+  color: var(--meat-brown-700) !important;
+  font-family: var(--serif, "Bitter", serif);
+  font-weight: 800;
+
+  font-size: clamp(0.78rem, 1.5vw, 1.1rem);         /* کوچیک‌تر توی موبایل */
+  line-height: 1.1;
+
+  padding-block: clamp(0.35rem, 1.2vw, 0.8rem);     /* فاصله عمودی متعادل */
+  padding-inline: clamp(0.7rem, 2vw, 1.2rem);       /* فاصله افقی کمتر در موبایل */
+
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.25rem, 1vw, 0.5rem);                /* فاصله داخلی محتوا */
+
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.14);
+  cursor: pointer;
+  transition: transform 1s ease, box-shadow 1s ease, filter 1s ease;
+}
+
+
+/* حالت هاور/فوکوس */
+.top-bar .top-bar__right > :is(a,button):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(16,24,40,.14);
+  filter: saturate(1.06);
+}
+.top-bar .top-bar__right > :is(a,button):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--meat-yellow-600,#fcb917) 55%, transparent);
+  outline-offset: 2px;
+}
+
+
+/* به‌صورت پیش‌فرض: دیده میشه (زیر 993px) */
+.top-bar .top-bar__right > *:nth-child(2) {
+  display: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+/* نوارهای داخل دکمه همبرگر */
+.top-bar .top-bar__right > *:nth-child(2) > .main-header__toggle-bar {
+  display: block;
+  width: clamp(22px, 5vw, 32px);
+  height: clamp(2px, 0.6vw, 3px);
+  background-color: var(--brand-500);
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+
 }
 
 
 
-/* main-header left */
-.main-header__left {
-    display: flex;
-    align-items: center;
+/* استایل سبد خرید فقط آیکن با رنگ هماهنگ و سایز واکنش‌گرا */
+.top-bar .top-bar__right > *:nth-child(3) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--meat-olive-800) !important;
+  position: relative;   /* لنگر برای Badge */
+  padding: 0 !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  margin-inline: clamp(0.2rem, 1.2vw, 0.6rem);
 }
 
-.main-header__search-bt {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4.3rem;
-    height: 4.3rem;
-    border-radius: 0.5rem;
-    background: var(--color-primary);
-}
-
-.main-header__search-icon {
-    font-family: 2.2rem;
-    color: var(--white-color);
-}
-
-.main-header__cart-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4.3rem;
-    height: 4.3rem;
-    border-radius: 0.5rem;
-    margin-right: 1rem;
-    background-color: #f0f2f7;
-}
-
+/* سایز آیکون سبد خرید بزرگ‌تر و واکنش‌گرا */
 .main-header__cart-icon {
-    color: var(--color-icons);
-    font-size: 2.2rem;
-    transition: all 0.6s ease;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1;
 }
 
-.main-header__cart-icon:hover {
-    color: var(--color-hover);
+
+.top-bar .top-bar__right > *:nth-child(4) {
+  color: var(--heading-olive, #293b24) !important;
 }
 
-.main-header__profile {
-    display: flex;
-    align-items: center;
-    padding: 0 1.5rem;
-    color: var(--color-span);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    margin-right: 1rem;
-    transition: all 0.6s ease;
-    height: 4.3rem;
+/* پین کردن بیج روی گوشهٔ راست-بالا؛ مستقل از نوع display */
+.main-header__cart-btn{ position: relative !important; overflow: visible !important; }
+
+#cart-count-badge{
+  position: absolute !important;
+  border: 2px solid var(--meat-cream-200);
+  inset-block-start: -6px !important;   /* بالا */
+  inset-inline-end: -6px !important;    /* راست */
+  left: auto !important; top: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  z-index: 1;
 }
 
-.main-header__profile:hover {
-    color: var(--color-button-text);
-    background: var(--color-primary);
+
+
+@supports(selector(:has(*))){
+  .main-header__cart-btn:has(#cart-count-badge){
+    position: relative !important;
+  }
+  .main-header__cart-btn #cart-count-badge{
+    position: absolute !important;
+    inset-block-start: 0 !important;
+    inset-inline-end: 0 !important;
+    transform: translate(50%, -50%) !important;
+    margin: 0 !important;
+  }
 }
 
-/* main-header left */
+/* /////////////////// */
 
-
-
-
-/* Finish top-bar Styles */

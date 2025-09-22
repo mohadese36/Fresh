@@ -126,6 +126,12 @@
 import { supabase } from './supabaseClient.js';
 import { updateBasketUI } from './basket-box.js';
 
+import { updateHeaderUserInfo } from './user-header.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateHeaderUserInfo();
+});
+
 // --- تابع کمکی: کوتاه کردن متن ---
 function truncateText(text, maxLength) {
   if (!text) return "";

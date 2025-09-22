@@ -1,120 +1,233 @@
 
-
-/* Start Navbar Styles */
-
-
-.main-header__content {
-	background: var(--brown);
-	color: var(--yellow);
-	position: relative;
-	border-bottom: 0.5rem solid var(--green);
-	border-top: 0.5rem solid var(--green);
-	.main-header__menu {
-		display: flex;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		align-items: center;
-		justify-content: center;
-		gap: 6rem;
-		width: 70%;
-		margin: 0 auto;
-	}
-	menu, a {
-		all: unset;
-	}
-	.main-header__menu li{
-		font-family: var(--display);
-		-webkit-text-stroke: 2px var(--black);
-		font-size: 2rem;
-		/* flex: 1; */
-		text-align: center;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 1rem 0 0.5rem;
-    	cursor: pointer;
-		transition: transform 0.25s ease-in-out;
-		.main-header__dropdown {
-			display: none;
-      width: 100vw;
-		}
-		span span {
-			color: var(--red);
-		}
-		&:hover{
-			span {
-				transform: scale(1.1);
-				color: var(--blue);
-				span {
-					color: var(--red);
-				}
-			}
-			.main-header__dropdown {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				position: absolute;
-				top: 100%;
-				width: 90%;
-				margin: 0 auto !important;
-				left: 1rem;
-				right: 0;
-				background: var(--red);
-				padding: 2rem;
-				border-bottom: 0.5rem solid var(--green);
-				border-top: 0.5rem solid var(--green);
-        		z-index: 1;
-
-
-		li {
-			cursor: pointer;
-			display: block;
-			font-size: 1.6rem !important;
-          	font-weight: 400;
-			padding: 0.75rem 0;
-			margin: 0;
-			color: var(--yellow);
-			flex: 1;
-			span {
-            font-size: 2rem;
-			color: var(--yellow);
-			&:hover {
-			color: var(--green);
-              font-weight: 700;
-			}
-
-			}
-			li {
-				font-family: var(--serif);
-				-webkit-text-stroke: 0;
-				font-size: 1.2rem;
-				line-height: 1.2;
-				&:hover {
-					color: var(--black);
-				}
-			}
-				}
-				ul {
-					position: static;
-					background: transparent;
-					padding: 0;
-					display: block;
-					border: 0;
-				}
-			}
-		}
-	}
+/* منو همیشه به لبه‌ی تصویر بچسبد */
+.main-header{
+  position:absolute; left:0; right:0; bottom:0;
+  height: var(--nav-h);
+  padding-top:0; margin-top:0;
 }
 
+
+/* 3) خود نوارِ منو همیشه به لبهٔ پایین پس‌زمینه سنجاق شود */
+header.header .main-header{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: var(--nav-h);
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 3;
+  /* اگر پس‌زمینهٔ منو دارد و باید روی تصویر بنشیند، این‌ها اختیاری‌اند: */
+  /* background: rgba(0,0,0,0); backdrop-filter: none; */
+}
+
+/* فقط نگاشت رنگ‌ها به پالت برند شما؛ سایر رفتارها بدون تغییر */
+.main-header__content {
+	display: flex;
+	align-items: center !important;
+	justify-content: center;
+  background: var(--meat-brown-500);            /* قبلی: var(--brown) */
+  color: var(--meat-cream-50);                  /* قبلی: var(--yellow) */
+  position: relative;
+  border-bottom: 0.5rem solid var(--meat-green-700); /* قبلی: var(--green) */
+  border-top: 0.5rem solid var(--meat-green-700);    /* قبلی: var(--green) */
+
+  .main-header__menu {
+    display: flex ;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    /* width: 70%; */
+    margin: 0 auto;
+  }
+
+  menu, a {
+    all: unset;
+  }
+
+  .main-header__menu li{
+    font-family: var(--display);
+    -webkit-text-stroke: 2px var(--meat-olive-800);  /* قبلی: var(--black) */
+    font-size: 2rem;
+    /* flex: 1; */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0 0.5rem;
+    cursor: pointer;
+    transition: transform 0.25s ease-in-out;
+
+    .main-header__dropdown {
+      display: none;
+      width: 100vw;
+    }
+
+    /* تأکید داخل عنوان دو‌لایه */
+    span span {
+      color: var(--meat-red-700);                     /* قبلی: var(--red) */
+    }
+
+    &:hover{
+      span {
+        transform: scale(1.1);
+        color: var(--meat-green-600);                 /* قبلی: var(--blue) */
+        span {
+          color: var(--meat-red-700);                 /* قبلی: var(--red) */
+        }
+      }
+
+      .main-header__dropdown {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        position: absolute;
+        top: 100%;
+        width: 90%;
+        margin: 0 auto !important;
+        left: 1rem;
+        right: 0;
+        /* background: var(--red); */
+        background-image: url(../images/landing/red-texture-new.webp);
+        padding: 2rem;
+        /* border-bottom: 0.5rem solid var(--meat-green-700); */
+        border-top: 0.5rem solid var(--meat-green-700);   
+        z-index: 1;
+
+        li {
+          cursor: pointer;
+          display: block;
+          font-size: 1.6rem !important;
+          font-weight: 400;
+          padding: 0.75rem 0;
+          margin: 0;
+          color: var(--meat-cream-50);                 /* قبلی: var(--yellow) */
+          flex: 1;
+
+          span {
+            font-size: 2rem;
+            color: var(--meat-cream-50);               /* قبلی: var(--yellow) */
+            &:hover {
+              color: var(--meat-green-700);            /* قبلی: var(--green) */
+              font-weight: 700;
+            }
+          }
+
+          li {
+            font-family: var(--serif);
+            -webkit-text-stroke: 0;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            &:hover {
+              color: var(--meat-olive-800);            /* قبلی: var(--black) */
+            }
+          }
+        }
+
+        ul {
+          position: static;
+          background: transparent;
+          padding: 0;
+          display: block;
+          border: 0;
+        }
+      }
+    }
+  }
+}
 
 /* Finish Navbar Styles */
 
 
 
 
+/* //////////// */
 
+/* منو در حالت همبرگری  */
+
+/* ===== Isolated Offcanvas (بدون دست‌زدن به تاپ‌بار و main-header) ===== */
+.offcanvas-nav{
+  position: fixed;
+  left: 0;
+  top: var(--offcanvas-top, 0);
+  height: calc(100dvh - var(--offcanvas-top, 0));
+  width: min(50vw, 520px);          /* ≥768px نصف صفحه */
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+  /* background: var(--meat-brown-500, #795b2e); */
+  background-image: url(../images/landing/red-texture-new.webp);
+  color: var(--meat-cream-50, #fff);
+  z-index: 1100;
+  overflow: auto;
+  box-shadow: 0 10px 30px rgba(16,24,40,.25);
+  will-change: transform; 
+}
+.offcanvas-nav.is-open{ transform: translateX(0); }
+
+/* وقتی UL #navbar داخل آف‌کانس است، عمودی و ساده می‌شود */
+.offcanvas-nav #navbar{
+  display: block;
+  padding: 1rem;
+  margin: 0;
+  list-style: none;
+}
+.offcanvas-nav #navbar > li{ display: block; padding: .45rem 0; }
+.offcanvas-nav #navbar a{
+  all: unset;
+  display: block;
+  padding: .6rem .75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.offcanvas-nav #navbar a:hover{ background: rgba(255,255,255,.08); }
+
+/* زیرمنوها داخل آف‌کانس: ایستاده و بدون position */
+.offcanvas-nav #navbar .main-header__dropdown{
+  display: block !important;
+  position: static !important;
+  width: auto !important;
+  background: none !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* موبایل: تمام‌صفحه و دقیقاً زیر سرچ‌بار
+@media (max-width: 767px){
+  .offcanvas-nav{
+    width: 100vw;
+    max-width: 100vw;
+    border-radius: 12px 12px 0 0;
+  }
+
+} */
+
+
+/* بک‌دراپ */
+.nav-backdrop{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.32);
+  opacity: 0; pointer-events: none;
+  transition: opacity 2s ease;
+  z-index: 1090;
+}
+.nav-backdrop.is-visible{ opacity: 1; pointer-events: auto; }
+
+/* قفل اسکرول وقتی منو باز است */
+body.nav-lock{ overflow: hidden; }
+
+/* همبرگری → ضربدر (فقط همین؛ ابعادش عوض نمی‌شود) */
+/* حالت باز: همبرگر → ضربدر؛ بدون تغییر استایل پایه */
+.main-header__toggle.is-open > .main-header__toggle-bar:nth-child(1){
+  transform: translateY(calc(100% + 0.35rem)) rotate(45deg);
+}
+.main-header__toggle.is-open > .main-header__toggle-bar:nth-child(2){
+  opacity: 0;
+}
+.main-header__toggle.is-open > .main-header__toggle-bar:nth-child(3){
+  transform: translateY(calc(-100% - 0.35rem)) rotate(-45deg);
+}
 
 
 
