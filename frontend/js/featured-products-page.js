@@ -121,7 +121,7 @@
 
 
 
-
+////////////////////////////////////////
 
 import { supabase } from './supabaseClient.js';
 import { updateBasketUI } from './basket-box.js';

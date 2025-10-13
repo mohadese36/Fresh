@@ -1,47 +1,106 @@
 
 
-/* Start Helper Classes */
+html {
+  scroll-behavior: smooth; /* اسکرول نرم بین بخش‌ها */
+}
+
+body {
+  animation: softLoad 0.8s ease-out; /* محو نرم هنگام لود */
+}
+
+@keyframes softLoad {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.product-details-container:hover,
+.related-products__card:hover,
+.you-may-also-like__card:hover {
+  box-shadow: 0 8px 24px rgba(39, 113, 43, 0.18), 
+              0 0 10px rgba(46, 125, 50, 0.15);
+  transform: translateY(-4px);
+}
+
+.product-image img,
+.related-products__card-img,
+.you-may-also-like__card img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.product-image img:hover,
+.related-products__card-img:hover,
+.you-may-also-like__card img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.08) contrast(1.1);
+}
+
+h2, h3.section-title, .product-title {
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 3px;
+  background: var(--grad-underline); 
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+h2:hover::after,
+h3.section-title:hover::after,
+.product-title:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ⭐ FIXED GOLD STARS STYLE */
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 0.4vw, 0.4rem);
+  margin-bottom: clamp(0.6rem, 0.8vw, 0.8rem);
+  line-height: 1;
+}
+
+.rating-stars i,
+.rating-stars .fa-star,
+.rating-stars .fa-star-half-alt,
+.rating-stars .fa-star-half-stroke {
+  color: var(--amber-500) !important; /* 💛 طلایی برند */
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+/* در هاور کمی براق‌تر و درخشان‌تر می‌شه */
+.rating-stars i:hover {
+  color: var(--amber-600) !important;
+  transform: scale(1.2);
+}
+.rating-count {
+  font-size: clamp(0.85rem, 0.9vw, 1rem);
+  color: var(--ink-500);
+  margin-left: 0.3rem;
+}
+
+/* === Fade-in Animation (Global) === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 
-/* .title {
-    font-size: 2.3rem;
-    color: #444446;
-    font-weight: bold;
-    line-height: 1.2;
-    position: relative;
-  } */
-  
-  /* .title::before {
-    content: "";
-    position: absolute;
-    right: -1rem;
-    width: 0.4rem;
-    height: 4.4rem;
-    background-color: var(--primary-color);
-    border-radius: 5rem;
-    transform: rotate(8deg);
-  } */
-  
-  /* .title::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 60%;
-    background-color: rgba(43, 206, 86, 0.2);
-  } */
-  .no-artificial::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%; /* به اندازه متن */
-    height: 80%; /* ضخامت خط */
-    /* background-color: rgba(43, 206, 86, 0.1);  */
-    background: linear-gradient(to right, transparent, rgba(43, 206, 86, 0.5), transparent);  /* خط با افکت قلم مو */
-
-
-  }
-  /* Finish Helper Classes */
 

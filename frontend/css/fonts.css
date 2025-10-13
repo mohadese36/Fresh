@@ -3,3 +3,33 @@
     font-family: 'IRANSans';
     src: url(../fonts/IRANSans/IRANSans.ttf);
 }
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+
+/* ==== SWEET CREAMY FONT FAMILY ==== */
+
+/* Regular */
+@font-face {
+  font-family: "Sweet Creamy";
+  src: url("../fonts/IRANSans/Sweet\Creamy.woff2 ") format("woff2"),
+       url("../fonts/IRANSans/Sweet\ Creamy.ttf") format("truetype"),
+       url("../fonts/IRANSans/Sweet\ Creamy.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic */
+@font-face {
+  font-family: "Sweet Creamy";
+  src: url("../fonts/IRANSans/Creamy Italic.woff2") format("woff2"),
+       url("../fonts/IRANSans/Sweet\ Creamy\ Italic.ttf") format("truetype"),
+       url("../fonts/IRANSans/Sweet\ Creamy\ Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+

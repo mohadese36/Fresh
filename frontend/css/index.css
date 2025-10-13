@@ -13,6 +13,44 @@
 @import "bascet.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
 @import "search.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
 @import "responsive.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "product.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "circle-icons.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "checkout.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "cart.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "blog.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "categori.css";   
+
+@font-face {
+  font-family: 'SweetCreamy-Regular';
+  src: url('../fonts/IRANSans/Sweet\ Creamy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SweetCreamy-Regular-OTF';
+  src: url('../fonts/IRANSans/Sweet\ Creamy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SweetCreamy-Italic';
+  src: url('../fonts/IRANSans/Sweet\ Creamy\ Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SweetCreamy-Italic-OTF';
+  src: url('../fonts/IRANSans/Sweet\ Creamy\ Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+
+/* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
 
 header.header{
   --hero-ratio: 1920 / 289;                  
@@ -20,6 +58,7 @@ header.header{
   --search-row-space: 0px;    
 }
 
+body {background: var(--meat-cream-100) ;}
 /* =========================
    Landing / Hero
    ========================= */
@@ -58,10 +97,10 @@ header.header{
   font-size: 1rem;
 }
 .Landing__searchBar-input::placeholder{ color: var(--ink-400); }
-.Landing__searchBar-input:focus{
+/* .Landing__searchBar-input:focus{
   outline:0;
   box-shadow: 0 0 0 3px var(--btn-primary-ring);
-}
+} */
 .Landing__searchBar-btn{
   position:absolute; inset-inline-end:.4rem; top:50%;
   translate: 0 -50%;

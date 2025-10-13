@@ -1,23 +1,16 @@
 
-
-/* 1) پس‌زمینه را از .top-bar بردار و به شبه‌عنصر بده، تا ارتفاعش واقعی شود */
-header.header .top-bar{
-  position: relative;
-  background: none !important;                /* پس‌زمینهٔ قبلی خنثی شود */  
-  padding-bottom: var(--nav-h) !important;    
-  z-index: 10;
-  isolation: isolate;     /* ← همین یک خط اختلافِ لایه‌ها را قطعی می‌کند */
+/* یک سری  */
+/* header.header {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  padding-bottom: 0;
 
 }
-.top-bar {
-  padding-block-end: calc( clamp(20px, 4vw, 72px) + var(--nav-h) + var(--search-row-space) );
-  /* padding-block-end: calc( clamp(20px, 4vw, 72px) + var(--nav-h) ); */
-  /* padding-block-end: clamp(20px, 4vw, 72px); */
-  color: var(--heading-olive, #293b24);
+header.header .top-bar > .container-fluid{
+  position: absolute;
+  inset: 0 0 var(--nav-h) 0;                
 }
-
-
-/* بلوک با نسبت ثابت که همان تصویر را نمایش می‌دهد */
 header.header .top-bar::before{
     content:""; 
     display:block;
@@ -27,12 +20,84 @@ header.header .top-bar::before{
 }
 
 
-/* 2) محتوای بالایی (لوگو/سرچ/اکشن‌ها) روی پس‌زمینه قرار بگیرد */
-header.header .top-bar > .container-fluid{
-  position: absolute;
-  inset: 0 0 var(--nav-h) 0;                  /* تا بالای منو */
+header.header.is-scrolled .main-header{
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
-/* ظرف داخلی با فاصله امن از لبه‌ها */
+
+  header.header.is-scrolled .top-bar{
+  padding-block: var(--tb-pad-sm);
+  background-position: center -16px;  
+}
+
+
+header.header.is-scrolled{
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+} */
+
+/*  */
+
+/* //////////////////یک سری */
+/* header.header {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  padding-bottom: 0;
+
+}
+header.header .top-bar{
+  position: relative;
+  background: url("../images/logo/header-img.jpg") no-repeat center top / contain !important;
+  isolation: isolate;
+  padding-block: clamp(12px, 3vw, 24px);
+}
+
+.main-header {
+ margin-top: 6rem !important;
+}
+  header.header.is-scrolled .top-bar{
+  padding-block: var(--tb-pad-sm);
+  background-position: center -16px;  
+}
+
+
+header.header.is-scrolled{
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+
+} */
+/* //////////////////// */
+header.header {
+  background: var(--meat-cream-100) !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 1100;
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+/* حالت عادی */
+header.header .top-bar {
+  position: relative;
+  background-image: url("../images/logo/header-img.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;   /* دقیقاً بالا ثابت بمونه */
+  background-size: 100% auto;
+  background-attachment: scroll;     
+  isolation: isolate;
+  padding: 3rem 0;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: padding 0.25s ease, box-shadow 0.25s ease, background-position 0.25s ease;
+}
+
+/* حالت بعد از اسکرول */
+header.header.is-scrolled .top-bar {
+  padding: 0 !important;                    /* ارتفاع واقعاً کم میشه */
+  background-position: center -20px;        /* تصویر رو فقط کمی جابجا می‌کنیم که جمع نشه */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+/* ///////////////////// */
 .top-bar__content {
   display: flex;
   justify-content: space-between;
@@ -99,7 +164,7 @@ header.header .top-bar > .container-fluid{
 
 /* به‌صورت پیش‌فرض: دیده میشه (زیر 993px) */
 .top-bar .top-bar__right > *:nth-child(2) {
-  display: none !important;
+  /* display: none !important; */
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -179,3 +244,17 @@ header.header .top-bar > .container-fluid{
 
 /* /////////////////// */
 
+/* خاموش کردن افکت اسکرول در ≤576px
+@media (max-width: 576px){
+  header.header .top-bar{
+    padding: 3rem 0 !important;
+    background-position: left top !important;
+    transition: none !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08) !important;
+  }
+  header.header.is-scrolled .top-bar{
+    padding: 3rem 0 !important;
+    background-position: left top !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08) !important;
+  }
+} */

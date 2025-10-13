@@ -2,7 +2,7 @@
 
 import { supabase } from './supabaseClient.js';
 
-const input = document.querySelector('.Landing__searchBar-input');
+const input = document.querySelector('#main-search');
 if (!input) {
   console.warn('search.js: .Landing__searchBar-input not found on this page.');
 } else {
@@ -125,7 +125,8 @@ if (!input) {
 
     // View all
     const encoded = encodeURIComponent(query);
-    html += `<a class="search-view-all" href="categori.html?search=${encodeURIComponent(query)}">View all results</a>`;
+    html += `<a class="search-view-all" href="categori.html?search=${encodeURIComponent(query)}&src=header">View all results</a>`;
+
 
     results.innerHTML = html;
   }

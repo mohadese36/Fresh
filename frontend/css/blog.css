@@ -1,215 +1,387 @@
 
-@import "./variables.css";
-@import "./fonts.css";
-@import "./top-bar.css";
-@import "./navbar.css";
-@import "./defaults.css";
-@import "./footer.css";
-@import "./product-box.css";
-@import "./breadcrumb.css";
-@import "./sidebar-productBox.css";
+/* ===========================================
+   📰 ARTICLE PAGE – Pastro Style Redesign
+   =========================================== */
 
-/* Start Article Details Styles */
-
+/* ========== Article Wrapper ========== */
 .article {
-    padding: 2.4rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 30px rgba(70, 72, 77, 0.08);
+  padding: clamp(1.6rem, 2vw, 3.2rem);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--surface-1);
+  color: var(--ink-700);
+  margin-bottom: clamp(3rem, 5vw, 5rem);
 }
 
+/* ========== Article Title ========== */
 .article__title {
-    font-size: 2.6rem;
-    font-weight: bold;
-    color: var(--dark-color);
-    border-bottom: 2px solid #f3f3f3;
-    padding-bottom: 1rem;
+  font-size: clamp(1.8rem, 1.4vw + 1.2rem, 3rem);
+  font-weight: 800;
+  color: var(--brand-900);
+  padding-bottom: clamp(0.6rem, 0.8vw, 1rem);
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(1.6rem, 2vw, 2.8rem);
+  display: inline-block;
 }
 
+/* ========== Article Header (Meta Info) ========== */
 .article__header {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.8rem, 1vw, 1.6rem);
+  color: var(--ink-500);
+  font-size: clamp(1rem, 0.5vw + 0.8rem, 1.3rem);
+  margin-bottom: clamp(2rem, 2.5vw, 3rem);
 }
 
 .article-header__item {
-    margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .article-header__icon {
-    font-size: 1.7rem;
-    color: #c7c7c7;
+  color: var(--brand-600);
+  font-size: clamp(1.3rem, 0.5vw + 1rem, 1.6rem);
 }
 
-.article-header__text {
-    font-size: 1.2rem;
-    color: #8f8f8f;
+/* ========== Article Banners ========== */
+.article__banner,
+.article__seconadary-banner {
+  width: 100%;
+  margin: clamp(1.5rem, 2vw, 3rem) auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.article__banner {
-    margin-top: 4rem;
+.article__banner:hover,
+.article__seconadary-banner:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
 }
 
+/* ========== Article Rating ========== */
 .article__score {
-    display: flex;
-    align-items: center;
-    margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: clamp(1.5rem, 2vw, 3rem) 0;
+  font-size: clamp(1.2rem, 0.6vw + 1rem, 1.6rem);
+  color: var(--ink-600);
 }
 
-.article__score-icon {
-    margin-left: -0.4rem;
-}
-
-.article__score-text {
-    margin-right: 2rem;
-    font-size: 1.7rem;
-    color: #7d7d7f;
-}
-
+/* ========== "What You'll Learn" Box ========== */
 .article-read {
-    background-color: #f2f2f2;
-    border-radius: 3rem;
-    padding: 2rem 3rem;
-    margin: 3rem 0;
+  background: var(--meat-cream-50);
+  border: 1px solid var(--meat-cream-200);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 2vw, 3rem);
+  margin: clamp(2rem, 3vw, 4rem) 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .article-read__title {
-    display: block;
-    color: #333333;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+  display: block;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 0.8vw + 1rem, 1.8rem);
+  color: var(--brand-800);
+  margin-bottom: clamp(0.8rem, 1vw, 1.2rem);
 }
 
 .article-read__link {
-    line-height: 2;
-    font-size: 1.5rem;
-    color: #1e83f0;
+  display: block;
+  line-height: 1.9;
+  color: var(--brand-700);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 0.5vw + 0.9rem, 1.4rem);
+  transition: color 0.3s ease;
 }
 
 .article-read__link:hover {
-    text-decoration: underline;
+  color: var(--meat-red-700);
+  text-decoration: underline;
 }
 
-.article__seconadary-banner {
-    display: block;
-    margin: 0 auto;
-}
-
-.article-section {
-    margin: 5rem 0;
-}
-
+/* ========== Section Titles ========== */
 .article-section__title {
-    font-size: 2.4rem;
-    color: #008c25;
-    font-weight: bold;
-    line-height: 1.2;
+  font-size: clamp(1.6rem, 1.2vw + 1rem, 2.4rem);
+  font-weight: 800;
+  color: var(--brand-800);
+  display: inline-block;
+  margin-bottom: clamp(1rem, 1.5vw, 2rem);
+  padding-bottom: 0.3rem;
+  transition: color 0.3s ease;
 }
 
-.article-section__text {
-    margin: 2rem 0;
+.article-section__title:hover {
+  color: var(--meat-red-700);
 }
 
-.article-section__img {
-    display: block;
-    margin: 0 auto;
+/* ========== Paragraphs ========== */
+.article-section__text,
+.paragraph {
+  font-size: clamp(1.1rem, 0.8vw + 0.8rem, 1.6rem);
+  line-height: 1.9;
+  color: var(--ink-700);
+  margin: clamp(1rem, 2vw, 2.5rem) 0;
 }
 
-.article_social-media {
-    display: flex;
-    align-items: center;
+/* ===================================
+   🌿 SIDEBAR SECTION (LATEST + PRODUCTS)
+   =================================== */
+.products-info {
+  position: sticky;
+  top: clamp(5rem, 8vw, 7rem);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
 }
-
-.article-social-media__text {
-    font-size: 1.05rem;
-    color: #7d7d7f;
-
-}
-
-.article-social-media__link {
-    display: flex;
-    align-items: center;
-    margin: 0.5rem;
-    color: #8f8f8f;
-}
-/* Finish Article Details Styles */
-
-/* Start Sidebar Styles */
 
 .product-info {
-    overflow: hidden;
+  background: var(--surface-1);
+  border: 1px solid var(--meat-cream-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(23, 102, 42, 0.08);
+  padding: clamp(1.5rem, 2vw, 2.5rem);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.product-info:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(23, 102, 42, 0.15);
+}
+
+/* Sidebar Titles */
 .product-info__products-title {
-    position: relative;
+  font-size: clamp(1.6rem, 0.9vw + 1rem, 2rem);
+  font-weight: 900;
+  color: var(--brand-900);
+  border-bottom: 3px solid var(--brand-600);
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  margin-bottom: clamp(1.4rem, 2vw, 2rem);
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
 }
 
-.product-info__products-title::before {
-    content: "";
-    position: absolute;
-    width: 22px;
-    height: 39px;
-    background-color: var(--primary-color);
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 12px;
-    right: -27px;
-    top: -5px;
-    transform: skewX(-10deg);
-}
-
-.sidebar-articles__list {
-    margin-top: 2rem;
-}
-
-.sidebar-articles__item {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #eeeeee;
-    padding: 0.9rem 1.3rem 0.9rem 1rem;
-    transition: all 400ms ease;
-}
-
-.sidebar-articles__item:hover {
-    padding-right: 2rem;
-    background-color: #f8f9fa;
-}
-
-.sidebar-articles__item:hover .sidebar-articles__icon {
-    color: var(--primary-color);
-}
-
-.sidebar-articles__icon {
-    font-size: 1.4rem;
-    color: #909aa7;
-    transition: all 400ms ease;
-}
-
-.sidebar-articles__link {
-    font-size: 1.3rem;
-    margin-right: 0.5rem;
-}
-
+/* === Latest Articles Box === */
 .last-articles__list {
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1vw, 1.2rem);
+  list-style: none;
+  padding: 0;
 }
 
 .last-articles__item {
-    border-bottom: 1px solid #eeeeee;
-    padding: 1rem 0;
+  background: var(--meat-cream-50);
+  border-radius: var(--radius-md);
+  padding: clamp(0.8rem, 1vw, 1.2rem) clamp(1rem, 1.5vw, 1.6rem);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.last-articles__item:hover {
+  background: var(--brand-100);
+  transform: translateX(4px);
 }
 
 .last-articles__link {
-    font-size: 1.5rem;
+  font-size: clamp(1.2rem, 0.6vw + 0.9rem, 1.5rem);
+  font-weight: 600;
+  color: var(--brand-800);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
 }
 
-/* Finish Sidebar Styles */
-
-/* Start Helper Classes */
-
-.paragraph {
-    font-size: 1.5rem;
-    line-height: 3rem;
-    color: #7d7e7f;
+.last-articles__link:hover {
+  color: var(--meat-red-700);
 }
 
-/* Finish Helper Classes */
+/* === Product List Under Sidebar === */
+.product-info__products-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info__products-link {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 1vw, 1.4rem);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 0.6vw + 0.9rem, 1.5rem);
+  text-decoration: none;
+  color: var(--brand-800);
+  transition: color 0.3s ease;
+}
+
+.product-info__products-link:hover {
+  color: var(--meat-red-700);
+}
+
+.product-info__products-img {
+  width: clamp(40px, 5vw, 70px);
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-info__products-link:hover .product-info__products-img {
+  transform: scale(1.05);
+}
+
+/* ========== Responsive Layouts ========== */
+@media (max-width: 991px) {
+  .blog-tab-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.4rem, 1vw, 0.8rem);
+    width: 100%;
+  }
+
+  .blog-tab-buttons button {
+    flex: 0 1 36%;
+    max-width: 180px;
+    padding: clamp(0.35rem, 0.6vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem) !important;
+    font-size: clamp(0.85rem, 0.5vw + 0.8rem, 1rem);
+    border-radius: 2.2rem;
+    line-height: 1.3;
+  }
+
+  .article .row {
+    flex-direction: column;
+  }
+
+  .col-8,
+  .col-4 {
+    width: 100%;
+  }
+
+  .products-info {
+    position: static;
+  }
+
+  .product-info {
+    margin-top: 2rem;
+  }
+}
+
+/* =========================================
+   📱 BLOG – Mobile Tabs (Under Breadcrumb)
+========================================= */
+.blog-mobile-tabs {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .blog-mobile-tabs {
+    display: block;
+    background: var(--meat-cream-100);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: clamp(1rem, 2vw, 1.6rem);
+    margin: clamp(1rem, 3vw, 2rem) auto;
+  }
+
+  .blog-tab-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.6rem, 1vw, 1.2rem);
+    margin-bottom: clamp(1.2rem, 2vw, 2rem);
+  }
+
+  .blog-tab-buttons button {
+    flex: 1;
+    border: none;
+    font-weight: 700;
+    font-size: clamp(1.2rem, 0.8vw + 0.8rem, 1.6rem);
+    padding: clamp(0.8rem, 1.2vw, 1.4rem) clamp(1.2rem, 2vw, 2.4rem);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: var(--ink-900);
+  }
+
+  .blog-tab-buttons button:first-child {
+    background: var(--brand-900);
+    color: var(--meat-cream-100);
+    box-shadow: 0 4px 10px rgba(31, 127, 55, 0.25);
+    border-radius: 3rem 0 0 3rem;
+  }
+
+  .blog-tab-buttons button:first-child:hover {
+    background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  }
+
+  .blog-tab-buttons button:nth-child(2) {
+    background: var(--meat-red-800);
+    color: var(--meat-cream-100);
+    box-shadow: 0 4px 10px rgba(155, 29, 17, 0.25);
+    border-radius: 0 3rem 3rem 0;
+  }
+
+  .blog-tab-buttons button:nth-child(2):hover {
+    background: linear-gradient(135deg, var(--meat-red-800), var(--accent-red-500));
+  }
+
+  .blog-tab-buttons button.active {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .blog-tab-content {
+    display: none;
+  }
+
+  .blog-tab-content.active {
+    display: block;
+  }
+
+  .blog-mobile-tab-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1vw, 1.2rem);
+  }
+
+  .blog-mobile-tab-list li {
+    background: var(--meat-cream-50);
+    border-radius: var(--radius-md);
+    padding: clamp(0.8rem, 1vw, 1.2rem);
+    box-shadow: var(--shadow-sm);
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-bottom: 0;
+  }
+
+  .blog-mobile-tab-list li:hover {
+    background: var(--brand-100);
+    transform: translateX(4px);
+  }
+
+  .products-info {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .article__title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+
+  .article-section__text {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+  }
+
+  .products-info {
+    flex-direction: column;
+  }
+}

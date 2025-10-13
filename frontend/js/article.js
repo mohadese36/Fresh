@@ -110,119 +110,6 @@ async function fetchArticles() {
 fetchArticles();
 
 
-
-    // async function fetchArticles() {
-    //   try {
-    //     // فرض می‌کنیم فایل JSON در مسیر data/articles.json قرار دارد
-    //     const response = await fetch('data/articles.json');
-    //     const articles = await response.json();
-
-    //     // لود مقاله بر اساس slug از URL
-    //     const urlParams = new URLSearchParams(window.location.search);
-    //     const slug = urlParams.get('slug');
-    //     const article = articles.find(a => a.slug === slug) || articles[0]; // اگه slug نبود، اولین مقاله لود می‌شه
-
-    //     const articleContainer = document.getElementById('article-container');
-
-    //     // محاسبه ستاره‌های پر، نیمه‌پر و خالی
-    //     const fullStars = Math.floor(article.rating);
-    //     const hasHalfStar = article.rating % 1 >= 0.5;
-    //     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    //     const starsHtml = `
-    //       ${'<img src="images/svgs/star_fill.svg" class="article__score-icon" />'.repeat(fullStars)}
-    //       ${hasHalfStar ? '<img src="images/svgs/star_half.svg" class="article__score-icon" />' : ''}
-    //       ${'<img src="images/svgs/star.svg" class="article__score-icon" />'.repeat(emptyStars)}
-    //     `;
-
-    //     // رندر محتوای مقاله (پاراگراف‌ها و تصاویر)
-    //     let contentHtml = '';
-    //     let sectionCount = 0;
-    //     article.content.forEach(item => {
-    //       if (item.type === 'paragraph') {
-    //         // هر پاراگراف را در یک section قرار می‌دهیم
-    //         sectionCount++;
-    //         contentHtml += `
-    //           <div class="article-section">
-    //             <h2 class="article-section__title">Section ${sectionCount}</h2>
-    //             <p class="paragraph article-section__text">${item.text}</p>
-    //         `;
-    //       } else if (item.type === 'image') {
-    //         contentHtml += `<img src="${item.src}" alt="${item.alt}" class="article__seconadary-banner" />`;
-    //         // بستن div فقط در صورتی که پاراگراف قبلی باز شده باشد
-    //         if (contentHtml.includes('<div class="article-section">')) {
-    //           contentHtml += `</div>`;
-    //         }
-    //       }
-    //     });
-    //     // بستن div آخر اگر باز مانده باشد
-    //     if (contentHtml.includes('<div class="article-section">')) {
-    //       contentHtml += `</div>`;
-    //     }
-
-    //     // ساختار HTML مقاله
-    //     const articleHtml = `
-    //       <div class="article" id="article-${article.id}">
-    //         <h1 class="article__title">${article.title}</h1>
-    //         <div class="article__header">
-    //           <div class="article-header__category article-header__item">
-    //             <i class="far fa-folder article-header__icon"></i>
-    //             <a href="#" class="article-header__text">${article.category}</a>
-    //           </div>
-    //           <div class="article-header__category article-header__item">
-    //             <i class="far fa-user article-header__icon"></i>
-    //             <span class="article-header__text">Posted by ${article.author}</span>
-    //           </div>
-    //           <div class="article-header__category article-header__item">
-    //             <i class="far fa-clock article-header__icon"></i>
-    //             <span class="article-header__text">${article.date}</span>
-    //           </div>
-    //           <div class="article-header__category article-header__item">
-    //             <i class="far fa-eye article-header__icon"></i>
-    //             <span class="article-header__text">${article.views} Views</span>
-    //           </div>
-    //         </div>
-    //         <img src="${article.cover}" alt="Article Cover" class="article__banner" />
-    //         <div class="article__score">
-    //           <div class="article__score-icons">
-    //             ${starsHtml}
-    //           </div>
-    //           <span class="article__score-text">${article.rating}/5 - (${article.ratingCount} Ratings)</span>
-    //         </div>
-    //         ${contentHtml}
-    //         <div class="article-read">
-    //           <span class="article-read__title">What You Will Learn in This Article</span>
-    //           <ul class="article-read__list">
-    //             <li class="article-read__item"><a href="#" class="article-read__link">Benefits of High-Protein Diets</a></li>
-    //             <li class="article-read__item"><a href="#" class="article-read__link">Choosing Quality Meat Products</a></li>
-    //             <li class="article-read__item"><a href="#" class="article-read__link">Shop Our Premium Collection</a></li>
-    //           </ul>
-    //         </div>
-    //         <div class="article_social-media">
-    //           <span class="article-social-media__text">Share</span>
-    //           <a href="#" class="article-social-media__link"><i class="fab fa-telegram-plane article-social-media__icon"></i></a>
-    //           <a href="#" class="article-social-media__link"><i class="fab fa-twitter article-social-media__icon"></i></a>
-    //           <a href="#" class="article-social-media__link"><i class="fab fa-facebook-f article-social-media__icon"></i></a>
-    //         </div>
-    //       </div>
-    //     `;
-    //     articleContainer.innerHTML = articleHtml;
-
-    //     // رندر لیست مقاله‌ها در سایدبار
-    //     const latestArticlesList = document.getElementById('latest-articles-list');
-    //     const articlesHtml = articles.map(article => `
-    //       <li class="last-articles__item">
-    //         <a href="?slug=${article.slug}" class="last-articles__link">${article.title}</a>
-    //       </li>
-    //     `).join('');
-    //     latestArticlesList.innerHTML = articlesHtml;
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error);
-    //     document.getElementById('article-container').innerHTML = '<p>Error loading article. Please try again.</p>';
-    //   }
-    // }
-
-    // // اجرای تابع دریافت مقاله‌ها
-    // fetchArticles();
 ////////////////////////////////////////////////////////////////////////
 
 // برای واکشی محصولات Best Sellers از دیتابیس 
@@ -262,3 +149,65 @@ async function loadBestSellers() {
 
 // اجرای تابع بعد از لود شدن صفحه
 document.addEventListener('DOMContentLoaded', loadBestSellers);
+
+
+
+
+// سکشن بلاگ در نسخه موبایل 
+// === BLOG: Responsive Tabs + Dynamic Data ===
+document.addEventListener("DOMContentLoaded", () => {
+  const latestMobileList = document.getElementById("blog-latest-articles");
+  const bestSellersMobile = document.getElementById("blog-top-products");
+
+  // ----------------------------
+  // 1. اتصال دکمه‌های تب موبایل
+  // ----------------------------
+  function setupBlogTabs() {
+    const tabButtons = document.querySelectorAll(".blog-tab-btn");
+    const tabContents = document.querySelectorAll(".blog-tab-content");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        tabContents.forEach((c) => c.classList.remove("active"));
+        btn.classList.add("active");
+
+        const target = document.querySelector(`#blog-tab-${btn.dataset.tab}`);
+        if (target) target.classList.add("active");
+      });
+    });
+  }
+
+  // -----------------------------------
+  // 2. پر کردن داده‌های داینامیک واقعی
+  // -----------------------------------
+  function fillMobileTabs() {
+    const latestDesktopList = document.getElementById("latest-articles-list");
+    const bestSellersDesktop = document.querySelector(".product-info__products-list");
+
+    if (latestDesktopList && latestMobileList) {
+      latestMobileList.innerHTML = latestDesktopList.innerHTML;
+    }
+    if (bestSellersDesktop && bestSellersMobile) {
+      bestSellersMobile.innerHTML = bestSellersDesktop.innerHTML;
+    }
+  }
+
+  // -----------------------------------
+  // 3. صبر کن تا محتواهای واقعی لود شن
+  // -----------------------------------
+  const observer = new MutationObserver(() => {
+    const hasArticles = document.querySelector("#latest-articles-list li");
+    const hasProducts = document.querySelector(".product-info__products-list li");
+
+    if (hasArticles && hasProducts) {
+      fillMobileTabs();
+      setupBlogTabs();
+      observer.disconnect(); // فقط یک بار انجام بده
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+
+

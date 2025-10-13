@@ -1,24 +1,9 @@
 /* ========= [ Breakpoint: 990px ↓ ] ========= */
 @media (max-width: 993px) {
-  /* .top-bar__content {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  } */
 
-  /* .top-bar__right {
-    flex-shrink: 0;
-  } */
-
-  /* .top-bar__right {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    flex-wrap: nowrap; 
-    justify-content: flex-end;
-    flex-grow: 1;
-  } */
+  header.header .top-bar {
+    padding: 1rem 0 0 !important;
+  }
 
   .searchbar {
     flex: 1;
@@ -30,33 +15,7 @@
     width: 100%;
   }
 
-  /* دکمه‌های بالا */
-  /* .top-bar__right > * {
-    white-space: nowrap; 
-  } */
-
-    /* .main-header__toggle {
-    display: inline-flex !important;
-    } */
-  /* همبرگر هماهنگ با بقیه دکمه‌ها
-  .main-header__toggle {
-    display: inline-flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    padding: 0.6rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .main-header__toggle-bar {
-    width: 20px;
-    height: 3px;
-    background-color: var(--meat-olive-800);
-    border-radius: 2px;
-  } */
+  
     .top-bar .top-bar__right > *:nth-child(2) {
     display: inline-flex !important;
   }
@@ -65,11 +24,30 @@
   .main-header {
     display: none;
   }
+
+  /* filter */
+.filters-toggle {
+  border-radius: 999px;
+  background: var(--meat-cream-300) !important;
+  opacity: 0.9;
+  color: var(--meat-yellow-400);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  padding: 0.4rem 0.8rem; /* ⬅️ کوچیک‌تر از قبل */
+  font-size: 1.1rem;       /* ⬅️ فونت کوچک‌تر */
+  font-weight: 600;
+
+}
+
+/* معرفی محصول */
+/* .product-title {
+  border-radius: 1rem !important;
+} */
 }
 
 /* ====== فقط موبایل و کوچکتر ====== */
 @media (max-width: 767px){
-
+  header.header{ position: relative; z-index: 1000;}
   /* 1) والد: از فلکس به گرید (لوگو + 4 ستون اکشن) */
   .top-bar .top-bar__content{
     display: grid !important;
@@ -78,10 +56,12 @@
     align-items: center;
     column-gap: .5rem;
     row-gap: .75rem;
-    justify-content: initial !important; /* خنثی‌سازی فلکس قبلی (بوت‌استرپ) */
-    transform: none !important;          /* جلوگیری از جابه‌جایی ناخواسته */
+    justify-content: initial !important; 
+    transform: none !important;
   }
-
+ header.header .top-bar {
+  box-shadow: none !important;
+ }
   /* 2) لوگو در ستون 1، ردیف 1 */
   .top-bar .top-bar__left{
     grid-column: 1 !important;
@@ -132,6 +112,32 @@
   form.searchbar.desktop-search > .search-results-container:not(:empty){
     top: calc(100% + .5rem) !important;
   }
+/* product-category */
+
+  .product-category {
+    text-align: center !important;
+    display: block !important;
+    margin-inline: auto;
+  }
+    .product-category::after {
+    display: none;
+  }
+
+  /* chip */
+  .filter-chips  {
+    justify-content: center;
+  }
+
+
+
+  /* برای زیبایی کلی کارت‌ها در موبایل */
+  .related-products__card {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+  .related-products__card-price {
+    margin-top: 0 !important;
+  }
+
 }
 
 
@@ -179,5 +185,30 @@
   } */
 }
 
+/* @media (max-width: 417px) {
+  .nav-link {
+    border: clamp(1px, 0.3vw, 2px) solid var(--border-1) !important;
+    border-radius: clamp(0.6rem, 1.5vw, 1rem) !important;
+  }
+  .nav-tabs .nav-link.active::after,
+  .nav-link.active::after {
+    content: none !important;
+    display: none !important;
+    height: 0 !important;
+    background: none !important;
+  }
 
+  .nav-tabs .nav-link.active,
+  .nav-link.active {
+   border: clamp(1px, 0.3vw, 2px) solid var(--border-1) !important;
+    position: relative;
+    z-index: 4;
+  }
+  .tab-content {
+    border-radius: var(--radius-lg) !important;
+  }
+} */
+
+
+/* /////////////// */
 

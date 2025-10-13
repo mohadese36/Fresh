@@ -116,7 +116,7 @@ export async function updateBasketUI() {
             </div>
           </td>
           <td class="side-basket-name">
-            <a href="/p/${item.products.id}/" class="text-dark">${item.products.name}</a>
+            <a href="/p/${item.products.id}/">${item.products.name}</a>
           </td>
           <td class="side-basket-price">
             £${(price * qty).toFixed(2)}

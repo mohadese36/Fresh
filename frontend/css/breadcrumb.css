@@ -2,16 +2,19 @@
 
 /* Start Breadcrumb Styles */
 
-.breadcrumb {
-    margin-bottom: 2rem;
-}
+    .cart-container > .breadcrumb {
+      background: transparent !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    }
 
-.breadcrumb__content {
+  .breadcrumb__content {
     display: flex;
     background-color: var(--color_secondary-06);
-    padding: 1.5rem 2rem;
+    /* پدینگ عمودی و افقی به صورت پویا */
+    padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2rem);
     border-radius: 1rem;
-}
+  }
+
 
 .breadcrumb__home-content-icon {
     display: flex;
@@ -19,10 +22,18 @@
     justify-content: center;
     width: 3.6rem;
     height: 3.6rem;
-    color: var(--color-primary);
+    /* color: var(--color-primary); */
     border-radius: 1rem;
     font-size: 1.8rem;
+    color: var(--brand-800) !important;          /* سبز برند تو */
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,.08));
+    font-size: clamp(18px, .6rem + .7vw, 22px);
+    transition: transform .15s ease, color .15s ease;
 }
+  .breadcrumb__home-content-icon:hover .breadcrumb__home-icon{
+    color: var(--brand-700) !important;
+    transform: translateY(-1px);
+  }
 
 .breadcrumb__list {
     display: flex;
@@ -37,8 +48,9 @@
 .breadcrumb__link {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
-    color: #7f8187;
+    font-size: clamp(1.1rem, 1vw + 0.8rem, 1.4rem); 
+    color: var(--ink-600);  /* خاکستری ملایم */
+    font-weight: 500;
 }
 
 .breadcrumb__link:hover {
@@ -46,10 +58,117 @@
 }
 
 .breadcrumb__icon {
-    color: #7f8187;
-    font-size: 1.5rem;
+  font-size: clamp(1.2rem, 1vw + 0.9rem, 1.5rem); /* حدود 19px تا 24px */
+  color: var(--ink-500);
     margin: 0 0.7rem;
+
 }
 
 
 /* Finish Breadcrumb Styles */
+/* ===== نان‌برد ===== */
+section.breadcrumb {
+  /* background: var(--amber-100); */
+  border-radius: var(--radius-md);
+  padding: clamp(.6rem, 1.5vw, 1rem);
+  /* box-shadow: 0 4px 12px rgba(0,0,0,.08); */
+
+  /* فاصله واکنش‌گرا با clamp */
+  margin-bottom: clamp(1.25rem, 2vw, 3rem);
+}
+
+/* جلوگیری از دوبل فاصله وقتی تیتر میاد */
+section.breadcrumb + .checkout-title,
+section.breadcrumb + .cart-title {
+  margin-top: 0;
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.breadcrumb__list li a {
+  font-size: clamp(1.1rem, 1vw + 0.8rem, 1.4rem); /* حدود 18px تا 22px */
+  font-weight: 500;
+  color: var(--ink-700);
+  text-decoration: none;
+}
+.breadcrumb__list li a:hover {
+  text-decoration: underline;
+}
+/*  */
+
+
+
+/* breadcrumb موبایل — فقط خانه و آخرین آیتم */
+@media (max-width: 575.98px){
+  .breadcrumb__list li:not(:last-child){
+    display: none !important;
+  }
+  .breadcrumb__home-content-icon {
+    margin-inline-end: .4rem;
+  }
+}
+
+/* ======= دکمه فیلتر در breadcrumb (نسخه نهایی تمام واکنش‌گرا با clamp) ======= */
+.breadcrumb__content .filters-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* فاصله بین آیکون و متن واکنش‌گرا */
+  gap: clamp(0.25rem, 0.5vw, 0.6rem);
+
+  /* رنگ و پس‌زمینه از پالت برند */
+  background: var(--amber-500);
+  color: var(--ink-900);
+
+  /* ضخامت border و گردی گوشه‌ها متناسب با عرض صفحه */
+  border: clamp(1px, 0.15vw, 1.5px) solid var(--amber-600);
+  border-radius: clamp(8px, 1vw, 12px);
+
+  /* padding و اندازه فونت کاملاً واکنش‌گرا */
+  padding: clamp(0.35rem, 0.6vw, 0.55rem) clamp(0.7rem, 1.2vw, 1rem);
+  font-size: clamp(0.85rem, 0.7vw + 0.8rem, 1.1rem);
+  font-weight: 600;
+
+  /* سایه ظریف با اندازه پویا */
+  box-shadow: 0 clamp(1px, 0.3vw, 2px) clamp(6px, 1vw, 8px) rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* حالت هاور – فقط رنگ و افکت لطیف‌تر */
+.breadcrumb__content .filters-toggle:hover {
+  background: var(--amber-600);
+  border-color: var(--brand-600);
+  transform: translateY(clamp(-1px, -0.3vw, -2px));
+  box-shadow: 0 clamp(2px, 0.6vw, 3px) clamp(8px, 1.2vw, 10px) rgba(0, 0, 0, 0.15);
+}
+
+/* آیکون قیف */
+.breadcrumb__content .filters-icon {
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.3rem);
+  color: var(--brand-800);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb__content .filters-toggle:hover .filters-icon {
+  color: var(--brand-700);
+}
+
+/* دکمه فقط در سایزهای کوچک نمایش داده شود */
+.breadcrumb__content .filters-toggle {
+  /* از طریق clamp شفافیت کنترل‌شده در دسکتاپ */
+  opacity: clamp(1, 200vw - 1980vw, 0); /*  در موبایل=۱ → دسکتاپ≈۰  */
+  pointer-events: auto;
+}
+@media (min-width: 992px) {
+  .breadcrumb__content .filters-toggle {
+    display: none !important;
+  }
+}
+
+

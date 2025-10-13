@@ -1,139 +1,469 @@
-/* Imports (مثل قبل)
-@import "./variables.css";
-@import "./fonts.css";
-@import "./top-bar.css";
-@import "./navbar.css";
-@import "./defaults.css";
-@import "./footer.css";
-@import "./product-box.css";
-@import "./helper.css";
-@import "./breadcrumb.css";
-@import "./sidebar-productBox.css"; */
+/* ================== Categori.css — پالِت‌محور، موبایل‌اول، بدون تغییر HTML ================== */
 
-/* کارت‌ها هم‌قد + لینک کارت */
+
+/* لینک کارت (بدون تغییر رفتار) */
 .related-products__card-link{ display:block; color:inherit; text-decoration:none; }
 
-#products-container .row{ align-items:stretch; }                  /* ستون‌ها تا ته کشیده شوند */
-#products-container > .row > [class*="col-"]{ display:flex; }     /* هر ستون، فلکس شود */
-#products-container .product-card{ width:100%; }                   /* کارت عرض کامل ستون */
+/* ستون‌ها و هم‌قد شدن کارت‌ها */
+#products-container .row{ align-items:stretch; }
+#products-container > .row > [class*="col-"]{ display:flex; }
+#products-container .product-card{ width:100%; height:100%; }
 
 /* ظرف کارت */
 .product-card.product-box__main{
   display:flex; flex-direction:column; height:100%;
-  border:1px solid #eaeaea; border-radius:14px;
-  background:#fff !important; padding:0; overflow:hidden;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  border:1px solid var(--border-1);
+  border-radius: var(--radius-lg, 14px);
+  /* background: var(--surface-1) !important; */
+  padding:0; overflow:hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
 }
-.product-card:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.08); border-color:#e2e8f0; }
+.product-card:hover{
+  color: var(--brand-800, #14532d);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 10px 28px rgba(16,24,40,.10));
+  border-color: color-mix(in srgb, var(--meat-cream-300) 60%, var(--meat-cream-200) 40%);
+}
 
 /* تصویر ثابت */
-.related-products__card-img{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:#fff; }
+.related-products__card-img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; display:block;
+  background: var(--surface-1);
+}
 
 /* بدنه کارت */
 .product-box__detiles{
-  padding:.85rem .95rem 1rem !important;
-  display:flex; flex-direction:column; gap:.45rem; flex:1 1 auto;
-  background:#fff !important;
+  padding: .85rem .95rem 1rem !important;
+  display:flex; flex-direction:column; gap:.5rem; flex:1 1 auto;
+  background: var(--amber-100) !important;
 }
 
-/* عنوان: دوخطه + ارتفاع ثابت (علت اصلی ناهم‌ترازی) */
+/* عنوان: دوخطه + کِلمپ برای سایز */
 .product-box__detiles-title{
-  display:block; font-weight:800; font-size:1rem; line-height:1.25;
-  color:var(--brand-800,#14532d); text-decoration:none; letter-spacing:.2px;
+  display:block;
+  font-weight: 800;
+  font-size: clamp(1rem, .92rem + .2vw, 1.05rem);
+  line-height:1.25;
+  color: var(--brand-800, #14532d);
+  letter-spacing:.2px;
+  text-decoration:none;
 
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
-  min-height:2.6em; /* ≈ ارتفاع 2 خط */
-}
-
-/* توضیح: دوخطه */
-.product-box__detiles-info{
-  color:#6b7280; font-size:.9rem; margin:0;
-  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
-  min-height:2.6em;
-}
-
-/* قیمت (می‌چسبد به پایین) */
-.product-box__price{ margin-top:auto; font-weight:800; font-size:1.1rem; color:var(--price,#b91c1c); }
-
-/* دکمه Add to Cart */
-.btn-cart{
-  margin-top:.6rem; width:100%; display:flex; align-items:center; justify-content:center; gap:.5rem;
-  border:none; border-radius:999px; padding:.62rem .95rem; font-weight:800; font-size:.92rem;
-  background:var(--btn-primary,#1f7f37); color:#fff;
-  box-shadow:0 2px 0 rgba(0,0,0,.06) inset, 0 6px 16px rgba(31,127,55,.18);
-  transition:transform .04s ease, filter .15s ease, box-shadow .15s ease;
-}
-.btn-cart i{ font-size:1.05rem; line-height:1; }
-.btn-cart:hover{ filter:brightness(1.06); box-shadow:0 8px 22px rgba(31,127,55,.22); }
-.btn-cart:active{ transform:translateY(1px); }
-.btn-cart:focus-visible{ outline:3px solid var(--btn-primary-ring); outline-offset:2px; }
-
-/* عنوان دسته با خط زیرین گرادیانی */
-.product-category{
-  margin:.25rem 0 1rem; font-weight:900; line-height:1.2;
-  color:#2f3a2e; font-size:clamp(1.2rem,2.1vw,1.5rem);
-  position:relative; padding-inline-start:0;
-}
-.product-category::after{
-  content:""; display:block; width:72px; height:3px; border-radius:2px; margin-top:.45rem;
-  background:var(--grad-underline, linear-gradient(90deg,#c0392b,#27ae60));
-  opacity:.95;
-}
-
-/* فاصله‌های کلی صفحه */
-.products-wrapper{ padding:1.5rem 0; margin:1rem 0 2rem; }
-
-/* فیلترها روی دسکتاپ چسبان */
-@media (min-width:992px){ .filters-sticky{ position:sticky; top:1rem; } }
-
-/* Filter Chips */
-.filter-chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.filter-chips .chip{border:1px solid #e5e7eb;border-radius:20px;padding:.25rem .6rem;background:#fff;cursor:pointer;font-size:.9rem}
-.filter-chips .chip .chip-x{margin-inline-start:.4rem;opacity:.6}
-.filter-chips .chip:hover{background:#f8fafc}
-.filter-chips .chip--clear{border-style:dashed}
-
-/* Skeleton loading */
-.skel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
-.skel-card{border-radius:12px;overflow:hidden;border:1px solid #f0f0f0;background:#fff !important}
-.skel-img,.skel-line{position:relative;overflow:hidden;background:#eee}
-.skel-img{height:180px}
-.skel-line{height:12px;margin:10px}
-.skel-line.w50{width:50%}.skel-line.w70{width:70%}.skel-line.w90{width:90%}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.skel-img::before,.skel-line::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);background-size:200% 100%;animation:shimmer 1.4s infinite}
-
-/* توجه: استایل‌های مینی‌بسکت از این فایل حذف شد و به bascet.css منتقل شد */
-/* --- Equal height fix (pixel-perfect) --- */
-#products-container .row{ align-items:stretch; }                  /* ستون‌ها تا ته کشیده شوند */
-#products-container > .row > [class*="col-"]{ display:flex; }     /* هر ستون فلکس شود */
-#products-container .product-card{ width:100%; height:100%; }     /* کارت پرِ ستون شود */
-
-/* تصویر ثابت و بدون تغییر ارتفاع */
-.related-products__card-img{ aspect-ratio:4/3; object-fit:cover; display:block; }
-
-/* بدنه کارت سفید و ثابت */
-.product-box__detiles{
-  background:#fff !important;
-  display:flex; flex-direction:column; gap:.45rem; flex:1 1 auto;
-  padding:.85rem .95rem 1rem !important;
-}
-
-/* عنوان: دقیقاً دو خط با ارتفاع ثابت */
-.product-box__detiles-title{
-  line-height:1.25; font-size:1rem; font-weight:800;
-  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
-  min-height: calc(1.25em * 2);  /* ارتفاع دو خط */
+  min-height: 2.6em; /* ≈ دو خط */
   margin:0;
 }
-
-/* توضیح: دقیقاً دو خط با ارتفاع ثابت */
+/* توضیح (دو خط): رنگ خنثیِ خوانا از پالت */
 .product-box__detiles-info{
-  color:#6b7280; font-size:.9rem; line-height:1.3; margin:0;
+  color: var(--ink-600);
+  font-size: clamp(0.95rem, 0.3vw + 0.85rem, 1.10rem);
+  margin-bottom: .75rem;
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
   min-height: calc(1.3em * 2);
 }
 
-/* قیمت و دکمه، همیشه ته کارت */
-.product-box__price{ margin-top:auto; margin-bottom:.35rem; line-height:1; }
-.btn-cart{ min-height:44px; }
+/* قیمت: پررنگ و مشخص */
+.product-box__price{
+  margin-top:auto; margin-bottom:.35rem;
+  line-height:1;
+  font-weight:800;
+  font-size: clamp(1.05rem, 1rem + .3vw, 1.2rem);
+  color: var(--price-strong, var(--meat-red-600));
+}
+
+/* دکمه Add to Cart: پالت برند + کنتراست مناسب */
+.btn-cart{
+  margin-top:.6rem; width:100%;
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  border:none; border-radius: 999px;
+  padding:.62rem .95rem;
+  font-weight:800; font-size:1.05rem;
+
+  /* background: var(--brand-100); */
+  background: var(--meat-cream-300) !important;
+  color: var(--brand-700);
+  /* box-shadow: 0 2px 0 rgba(0,0,0,.06) inset, 0 6px 16px color-mix(in srgb, var(--brand-600) 18%, transparent); */
+  transition: transform .06s ease, filter .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+.btn-cart i{ font-size:1.2rem; line-height:1; color: var(--amber-600); }
+.btn-cart:hover{
+  filter: brightness(1.05);
+  /* box-shadow: 0 8px 22px color-mix(in srgb, var(--brand-600) 22%, transparent); */
+}
+.btn-cart:active{ transform: translateY(1px); }
+.btn-cart:focus-visible{ outline:3px solid var(--btn-primary-ring); outline-offset:2px; }
+
+/* ===== عنوان دسته با خط زیرین ===== */
+.product-category {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.4rem, 0.6vw, 0.8rem);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 1vw + 1.1rem, 2rem);
+  line-height: 1.2;
+  color: var(--meat-olive-800);
+  margin-block: clamp(1.6rem, 2.5vw, 2.8rem) clamp(1.6rem, 2.8vw, 3.2rem);
+  padding-inline-start: clamp(0.1rem, 0.2vw, 0.25rem);
+  width: max-content;
+  overflow: visible;
+}
+
+
+/* خط زیر عنوان */
+.product-category::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * clamp(0.7rem, 1vw, 1.1rem));
+  left: 0;
+  width: 100%;
+  height: clamp(0.22rem, 0.35vw, 0.36rem);
+  background: var(--meat-yellow-600);
+  border-radius: clamp(2px, 0.4vw, 4px);
+  opacity: 0.95;
+}
+
+/* المان بصری کوچک کنار عنوان (placeholder؛ بعداً می‌تونی SVG خودت رو جایگزین کنی) */
+.product-category::before{
+  content: "";
+  flex: 0 0 auto;
+  width: clamp(0.65rem, 0.9vw, 0.9rem);
+  height: clamp(0.65rem, 0.9vw, 0.9rem);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--amber-500), var(--meat-yellow-600));
+  box-shadow: 0 clamp(1px,0.2vw,2px) clamp(3px,0.4vw,4px) rgba(0,0,0,.15);
+  transform: translateY(0.03em);
+}
+
+/* اختیاری: اگر جایی خواستی عنوان را بدون media وسط‌چین کنی،
+   همین کلاس را به همان h2 اضافه کن (بدون تغییر بقیه‌ی صفحات) */
+.product-category.is-centered{
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+}
+
+/* 🔹 وسط‌چین در موبایل */
+
+
+
+/* فاصله‌های کلی صفحه */
+.products-wrapper {
+  /* پدینگ عمودی (بالا و پایین) واکنش‌گرا */
+  padding: clamp(0.75rem, 2vw, 1.5rem) 0;
+
+  /* مارجین بالا، راست/چپ، پایین — با تغییر تطبیقی */
+  margin: clamp(0.5rem, 1vw, 1rem) 0 clamp(1rem, 3vw, 2rem);
+}
+
+
+/* ===== فیلترها ===== */
+
+.input-group input{
+  /* border: 2px solid var(--meat-cream-300) !important; */
+}
+
+.input-group button {
+  background: var(--meat-cream-300);
+  border: 0 ;
+}
+
+
+.input-group button i{
+color: var(--brand-800);
+}
+/* Desktop ≥ 992px — فقط چیدمان و اسکرول داخلی، بدون sticky */
+/* Desktop (lg up): خودِ ظرف Offcanvas را sticky کن؛
+   بدنه‌اش اسکرول عمودی داشته باشد */
+@media (min-width: 992px){
+  /* ظرف ستون فیلتر */
+  #filtersOffcanvas{
+    position: sticky;
+    top: var(--stick-top-fixed);
+    align-self: start;    
+    transform: none !important;
+    visibility: visible !important;
+    /* inset: auto !important; */
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* محتوای داخل (جایی که کلاس filters-sticky دارد) */
+  #filtersOffcanvas .offcanvas-body.filters-sticky{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overscroll-behavior: contain;
+    max-height: calc(100svh - var(--stick-top, 96px) - 1rem);
+    overflow-y: auto;              /* اسکرول فقط داخل محتوا */
+    overflow-x: visible;
+  }
+}
+
+
+
+
+/* حالت موبایل: پنهان‌سازی فیلتر */
+@media (max-width: 991.98px) {
+  header.header  {
+    z-index: 100;
+  }
+  #filtersCollapse {
+    display: none !important;
+  }
+
+  .filters-sticky {
+    margin: var(--sp-3) 0;
+    box-shadow: var(--shadow-card);
+    /* z-index: 15000 !important; */
+  }
+}
+
+/* =========== فیلتر چپ (Sidebar) =========== */
+#archive-q::placeholder {
+  color: var(--amber-6000) !important;             /* رنگ ملایم، هماهنگ با متن غیرفعال */
+  font-size: var(--fz-sm);           /* اندازه کوچک و خوانا */
+  font-weight: 400;
+  font-style: normal;
+  opacity: 0.5;                        /* اطمینان از دیده‌شدن کامل */
+  transition: color 0.2s ease;
+}
+
+.filters-sticky {
+    display: flex;              /* برگرداندن چیدمان ستونی */
+    flex-direction: column;
+    gap: 1rem;
+    /* max-height: calc(100svh - var(--stick-top, 96px) - 1rem); */
+    overflow-y: auto;           /* فقط عمودی اسکرول شود */
+    overflow-x: visible;        /* اسکرول افقی نداشته باشیم */
+}
+
+.filters-sticky .card {
+  border: 1px solid var(--meat-cream-300);
+  border-radius: var(--rad-md);
+  margin-bottom: 1rem;
+  transition: all 0.25s ease;
+  background: var(--amber-100);
+    box-shadow:
+    0 clamp(1px, 0.3vw, 2px) clamp(6px, 0.8vw, 8px) rgba(0, 0, 0, 0.08),
+    0 clamp(1px, 0.2vw, 1px) clamp(3px, 0.4vw, 4px) rgba(0, 0, 0, 0.04);
+  border-radius: clamp(8px, 0.8vw, 10px);
+  border: 1px solid var(--meat-cream-300);
+  background: color-mix(in srgb, var(--amber-100) 85%, white 15%);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.filters-sticky .card:hover {
+  transform: translateY(-2px);
+    box-shadow:
+    0 clamp(2px, 0.4vw, 4px) clamp(10px, 1vw, 12px) rgba(0, 0, 0, 0.12);
+  transform: translateY(clamp(-1px, -0.3vw, -2px));
+}
+
+.filters-sticky .form-label,
+.filters-sticky label {
+  color: var(--brand-500);
+  font-weight: 600;
+  font-size: var(--fz-md);
+}
+
+.filters-sticky .form-control,
+.filters-sticky .form-select {
+  border-color: var(--meat-cream-300);
+  border-radius: var(--rad-md);
+  font-size: var(--fz-md);
+  padding: 0.5rem 0.75rem;
+}
+
+
+#sort {
+  background-color: var(--meat-cream-50);
+  color: var(--ink-900);
+  border: 1px solid var(--col-border);
+  border-radius: var(--rad-md);
+  padding: var(--sp-2) var(--sp-3);
+  appearance: none;
+}
+
+#sort:focus,
+.filters-sticky .form-control:focus,
+.filters-sticky .input-group:focus-within .btn {
+  outline: none;
+  border:1px solid var(--meat-cream-300) !important;
+  box-shadow: 0 0 0 1px var(--meat-cream-300);
+}
+
+.card-cats-menu .list-group-item {
+  border: none;
+  background: transparent;
+  color: #264d28;
+  font-size: var(--fz-md);
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+.card-cats-menu .list-group-item span {
+  background: var(--brand-100) !important;
+  color: #264d28 !important;
+  border: 2px solid var(--meat-cream-300) !important;
+}
+.card-cats-menu .list-group-item:hover {
+  color: #a43c26;
+}
+
+/* چک‌باکس‌ها */
+.filters-sticky .form-check-input {
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid #264d28;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filters-sticky .form-check-input:checked {
+  background-color: #264d28;
+  border-color: #264d28;
+  box-shadow: 0 0 0 3px rgba(38, 77, 40, 0.15);
+}
+
+.filters-sticky .form-check-input:hover {
+  border-color: #1d3821;
+}
+
+.filters-sticky .form-check-input:checked[type=checkbox] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M13.485 1.929a1 1 0 0 1 0 1.414L6.414 10.414a1 1 0 0 1-1.414 0L2.515 7.929a1 1 0 0 1 1.414-1.414L6 8.586l6.071-6.071a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E");
+}
+/* دگمه فیلتر */
+#applyFilters {
+  padding: 0.7rem 1.2rem;
+  border-radius: clamp(10px, 0.8vw, 12px);
+  font-size: clamp(1.1rem, 0.7vw + 1.05rem, 1.25rem);
+  font-weight: 700;
+  color: var(--meat-cream-50);
+  text-decoration: none;
+  background: var(--meat-green-600);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  border: n
+}
+
+#applyFilters:hover {
+  background: var(--meat-green-700);
+}
+
+/* =========== فیلترهای فعال (چیب‌ها) =========== */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  
+}
+
+.filter-chips .chip {
+  border: 2px solid var(--amber-500);
+  border-radius: 20px;
+  padding: .28rem .65rem;
+  background: var(--meat-red-700);
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--meat-cream-50);
+  transition: background-color .15s ease, border-color .15s ease;
+  /* margin-bottom: 3rem; */
+}
+
+.filter-chips .chip:hover {
+  background: var(--surface-2);
+  color:  var(--meat-red-700);
+}
+
+.filter-chips .chip .chip-x {
+  margin-inline-start: 1rem;
+  /* opacity: .6; */
+}
+
+.filter-chips .chip--clear {
+  border: 3px solid var(--amber-500);
+  /* color: var(--meat-cream-50); */
+}
+
+.filter-chips {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-chips .chip {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* =========== Skeleton loading =========== */
+.skel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.skel-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-1);
+  background: var(--surface-1) !important;
+}
+
+.skel-img,
+.skel-line {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-2) 60%, var(--border-1) 40%);
+}
+
+.skel-img {
+  height: 180px;
+}
+
+.skel-line {
+  height: 12px;
+  margin: 10px;
+}
+
+.skel-line.w50 {
+  width: 50%;
+}
+.skel-line.w70 {
+  width: 70%;
+}
+.skel-line.w90 {
+  width: 90%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skel-img::before,
+.skel-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+/* ستون فیلتر روی دسکتاپ چسبان بالا + ستونی */
+@media (min-width: 992px){
+
+  /* مینی‌بسکت را ببَر تهِ ستون فیلترها */
+  .filters-sticky .mini-basket{
+    margin-top: auto;       /* مهم: هلش می‌ده به پایین ستون */
+  }
+}

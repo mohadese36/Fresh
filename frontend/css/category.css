@@ -40,16 +40,6 @@
   box-shadow: 0 clamp(1px, 0.3vw, 2px) clamp(10px, 1vw, 10px) rgba(0,0,0,0.1);
 }
 
-/* Subtle visual enhancement for product images */
-.product-image img {
-  filter: brightness(1.03) contrast(1.05) !important;
-}
-
-.product-image img:hover {
-  filter: brightness(1.08) contrast(1.1);
-}
-
-
 /* === Product Info === */
 .product-info-detaile {
   flex: 1;
@@ -425,12 +415,11 @@ aside {
 ========================================= */
 
 .related-products {
-  max-width: inherit; /* inherits the width from parent container */
+  max-width: 80vw;
   margin: 0 auto;
 }
 
-.related-products h2,
-.you-may-also-like h2 {
+.related-products h2 {
   font-size: clamp(1.8rem, 1.4vw + 1rem, 3.2rem);
   font-weight: 800;
   color: var(--brand-900);
@@ -451,7 +440,6 @@ aside {
   background: var(--bg-page) !important;
   border: 1px solid var(--meat-cream-200);
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
@@ -581,115 +569,6 @@ aside {
 }
 
 
-/* ===============================
-   🌿 YOU MAY ALSO LIKE SLIDER
-=============================== */
-
-.you-may-also-like {
-  margin-top: clamp(3rem, 5vw, 5rem);
-  background: var(--meat-cream-50);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.2rem, 3vw, 2rem);
-  box-shadow: var(--shadow-md);
-}
-
-/* .you-may-also-like h2 {
-  font-size: clamp(1.8rem, 1.2vw + 1rem, 3rem);
-  font-weight: 800;
-  color: var(--brand-800);
-  margin-bottom: clamp(1.2rem, 2vw, 2.4rem);
-  border-bottom: 3px solid var(--brand-600);
-  display: inline-block;
-  padding-bottom: .3rem;
-  text-transform: capitalize;
-  letter-spacing: -0.02em;
-} */
-
-.you-may-also-like__wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/* Slider container */
-.you-may-also-like__slider {
-  display: flex;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 0.8rem;
-  scrollbar-width: none; /* Firefox */
-}
-.you-may-also-like__slider::-webkit-scrollbar {
-  display: none; /* Chrome */
-}
-
-/* Product cards */
-.you-may-also-like__card {
-  flex: 0 0 clamp(220px, 26vw, 280px);
-  scroll-snap-align: start;
-  background: var(--surface-1);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--meat-cream-200);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-  padding: clamp(1rem, 2vw, 1.2rem);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.you-may-also-like__card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(16,24,40,0.12);
-}
-.you-may-also-like__card img {
-  width: 100%;
-  height: clamp(160px, 20vw, 200px);
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  margin-bottom: .6rem;
-}
-.you-may-also-like__card h3 {
-  font-size: clamp(1.1rem, 1vw + 0.8rem, 1.4rem);
-  color: var(--brand-800);
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: .4rem;
-}
-.you-may-also-like__card .price {
-  font-size: clamp(1rem, 0.8vw + 0.8rem, 1.3rem);
-  font-weight: 700;
-  color: var(--meat-red-700);
-}
-
-/* Slider buttons */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--brand-600);
-  color: var(--amber-100);
-  border: none;
-  border-radius: 50%;
-  width: clamp(2.2rem, 2vw + 2rem, 3rem);
-  height: clamp(2.2rem, 2vw + 2rem, 3rem);
-  cursor: pointer;
-  transition: background .3s ease, transform .2s ease;
-  z-index: 2;
-}
-.slider-btn:hover {
-  background: var(--brand-700);
-  transform: translateY(-50%) scale(1.05);
-}
-.slider-btn:active {
-  transform: translateY(-50%) scale(0.95);
-}
-.slider-btn.prev {
-  left: clamp(0.2rem, 1vw, 1rem);
-}
-.slider-btn.next {
-  right: clamp(0.2rem, 1vw, 1rem);
-}
-
 /* =========================================
    📱 GLOBAL RESPONSIVE MEDIA QUERIES
    (From all 3 sections)
@@ -742,13 +621,11 @@ aside {
     border-radius: 1rem !important;
   }
 
-  .related-products,
-  .you-may-also-like{
+  .related-products{
     text-align: center;           
   }
-  .related-products h2,
-  .you-may-also-like h2{
-    margin-inline: auto !important;     
+  .related-products h2{
+    margin-inline: auto;     
   }
 }
 
@@ -756,18 +633,13 @@ aside {
    📱 MOBILE (max-width: 767px)
    → Related Products cards styling
 ========================================= */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .related-products__card {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   }
 
   .related-products__card-price {
     margin-top: 0 !important;
-  }
-
-  /* You May Also Like */
-  .slider-btn {
-    display: none; /* on touch devices, users swipe */
   }
 }
 

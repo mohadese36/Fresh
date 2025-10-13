@@ -19,67 +19,62 @@
               <div class="top-bar__content d-flex align-items-center justify-content-between">
 
                 <div class="top-bar__left">
-                    <a href="/" class="brand" aria-label="Go to home">
-                    <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
+                    <a href="index.html" class="brand" aria-label="Go to home">
+                      <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
                     </a>
                 </div>
 
                 <div class="top-bar__right d-flex align-items-center">
                     <form class="searchbar desktop-search" role="search" action="/search" method="get">
-                    <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
-                    <input class="Landing__searchBar-input" type="search" name="q"
-                            placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search"/>
+                      <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
+                      <input id="main-search" class="Landing__searchBar-input" type="search" name="q"
+                             placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search"/>
                     </form>
 
                     <button class="main-header__toggle d-inline-block d-lg-none"
-                    type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="main-header__toggle-bar"></span>
-                    <span class="main-header__toggle-bar"></span>
-                    <span class="main-header__toggle-bar"></span>
+                            type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="main-header__toggle-bar"></span>
+                      <span class="main-header__toggle-bar"></span>
+                      <span class="main-header__toggle-bar"></span>
                     </button>
 
                     <a href="./cart.html" class="main-header__cart-btn position-relative" aria-label="Open cart">
-                    <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
-                    <span id="cart-count-badge"
-                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                        style="display:none;">0</span>
+                      <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
+                      <span id="cart-count-badge"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="display:none;">0</span>
                     </a>
 
                     <a href="#" class="main-header__profile d-flex align-items-center" aria-label="Your account">
-                    <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
-                    <span class="main-header__profile-text d-none d-md-inline"></span>
+                      <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
+                      <span class="main-header__profile-text d-none d-md-inline"></span>
                     </a>
 
                     <button id="logout-btn" type="button" class="d-flex align-items-center">
-                    <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
-                    <span class="logout-text d-none d-md-inline">Logout</span>
+                      <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
+                      <span class="logout-text d-none d-md-inline">Logout</span>
                     </button>
                 </div>
               </div>
           </div>
 
-              <!-- Main header / Navigation strip -->
+          <!-- Main header / Navigation strip -->
           <div class="main-header">
             <div class="container-fluid px-0">
               <div class="main-header__content">
                 <nav class="main-header__nav" aria-label="Main navigation">
                   <ul id="navbar" class="main-header__menu"></ul>
                 </nav>
-
               </div>
             </div>
           </div>
         </div>
-
-
-
     </header>
     <!-- Finish Header -->
 
     <!-- Start review-product -->
      <div class="review-product">
         <div class="container">
-            <!-- Start Breadcrumb -->
             <!-- Start Breadcrumb -->
             <section class="breadcrumb">
             <div class="container">
@@ -94,190 +89,206 @@
             </div>
             </section>
             <!-- Finish Breadcrumb -->    
-            <!-- Finish Breadcrumb -->
         </div>  
     </div>   
 
-    <section>
-        <div class="select-products-container">
-            <div class="product-details-container">
-                <div class="product-image">
-                <img id="product-image" src="" alt="Product Image">
-                </div>
-                <div class="product-info-detaile">
-                <h1 id="product-title" class="product-title"></h1>
-                <p id="product-description" class="product-description"></p>
-
-                <h3 class="section-title">Features:</h3>
-                <ul id="product-features" class="product-features"></ul>
-
-                <h3 class="section-title">How to Use:</h3>
-                <p id="product-usage" class="product-usage"></p>
-
-                <h3 class="section-title">Ingredients:</h3>
-                <p id="product-ingredients" class="product-ingredients"></p>
-
-                <div class="price-section">
-                    <span id="product-price" class="price"></span>
-                </div>
-
-                <div id="add-to-cart-container"></div>
-                <!-- <div class="quantity-section">
-                    <label for="quantity">Quantity:</label>
-                    <div class="quantity-controls">
-                    <button class="quantity-btn" id="decrease">-</button>
-                    <input type="number" id="quantity" name="quantity" value="1" readonly>
-                    <button class="quantity-btn" id="increase">+</button>
+    <div class="container">
+        <section class="product-intro fade-in">
+            <div class="select-products-container">
+                <div class="product-details-container">
+                    <div class="product-image">
+                    <img id="product-image" src="" alt="Product Image">
                     </div>
-                </div> -->
+                    <div class="product-info-detaile">
+                    <h1 id="product-title" class="product-title"></h1>
+                    <!-- ⭐ Rating Stars -->
+                    <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(24 reviews)</span>
+                    </div>
+                    <p id="product-description" class="product-description"></p>
 
-                <!-- <button id="add-to-cart" class="add-to-cart">Add to Cart</button> -->
-                 <!-- <button id="add-to-cart-btn">Add to Cart</button> -->
+                    <h3 class="section-title">Features:</h3>
+                    <ul id="product-features" class="product-features"></ul>
+
+                    <h3 class="section-title">How to Use:</h3>
+                    <p id="product-usage" class="product-usage"></p>
+
+                    <h3 class="section-title">Ingredients:</h3>
+                    <p id="product-ingredients" class="product-ingredients"></p>
+
+                    <div class="price-section">
+                        <span id="product-price" class="price"></span>
+                    </div>
+
+                    <div id="add-to-cart-container"></div>
+                    <!-- <div class="quantity-section">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-controls">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" name="quantity" value="1" readonly>
+                        <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                    </div> -->
+
+                    <!-- <button id="add-to-cart" class="add-to-cart">Add to Cart</button> -->
+                    <!-- <button id="add-to-cart-btn">Add to Cart</button> -->
 
 
+                    </div>
+                </div>
+                <div>
+                    <aside>
+                        <!-- جعبه سبد خرید -->
+                        <div id="basket-box-container"></div>
+
+
+
+                        <!-- <div class="card card-cats-menu sticky">
+                        <div class=" card-body-basket p-3">
+                            <div class="" role="complementary">
+                            <div class="card card-basket border-0">
+                                <div class="basket-is-empty text-center">
+                                <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
+                                <p class="card-text mb-3">Your basket is empty.</p>
+                                </div>
+
+                                <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
+                                <div class="row align-items-center pb-2">
+                                    <div class="col-7">
+                                    <a class="text-bigger" href="/basket/"><i class="bi bi-basket"></i></a>
+                                    </div>
+                                    <div class="col text-left">
+                                    Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
+                                <table class="table">
+                                    <tbody class="basket-items include-price include-ajax-controls"></tbody>
+                                </table>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div> -->
+                    </aside>
                 </div>
             </div>
+        </section>
 
-            <div>
-            <aside>
-                <!-- جعبه سبد خرید -->
-                <div id="basket-box-container"></div>
+        <section class="products-tabs fade-in">
+            <div class="product-intro">
+                <div class="container">
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-tabs" id="productTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">Description</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-controls="ingredients" aria-selected="false">Ingredients</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storage" type="button" role="tab" aria-controls="storage" aria-selected="false">Storage Conditions</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="nutrition-tab" data-bs-toggle="tab" data-bs-target="#nutrition" type="button" role="tab" aria-controls="nutrition" aria-selected="false">Nutritional Info</button>
+                    </li>
+                </ul>
 
+                <!-- Tab Content -->
+                <div class="tab-content mt-3" id="productTabContent">
 
+                    <!-- Description Tab -->
+                    <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+                    <h3 id="desc-title"></h3>
+                    <p id="desc-text"></p>
+                    <p id="desc-extra"></p>
+                    </div>
 
-                <!-- <div class="card card-cats-menu sticky">
-                <div class=" card-body-basket p-3">
-                    <div class="" role="complementary">
-                    <div class="card card-basket border-0">
-                        <div class="basket-is-empty text-center">
-                        <p class="card-text mt-3 mb-1 text-bigger"><i class="bi bi-basket"></i></p>
-                        <p class="card-text mb-3">Your basket is empty.</p>
-                        </div>
+                    <!-- Ingredients Tab -->
+                    <div class="tab-pane fade" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+                    <h3 class="section-title" id="ingredients-title">Ingredients</h3>
+                    <p id="ingredients-description" class="section-description"></p>
+                    <div id="ingredients-container" class="ingredients-container"></div>
+                    <p class="no-artificial" id="ingredients-no-artificial"></p>
+                    </div>
 
-                        <div class="basket-is-not-empty side-basket-content-head" style="display: none;">
-                        <div class="row align-items-center pb-2">
-                            <div class="col-7">
-                            <a class="text-bigger" href="/basket/"><i class="bi bi-basket"></i></a>
-                            </div>
-                            <div class="col text-left">
-                            Guide price: <span class="basket-subtotal-value basket-guide-price">£0.00</span>
-                            </div>
-                        </div>
-                        </div>
+                    <!-- Storage Conditions Tab -->
+                    <div class="tab-pane fade" id="storage" role="tabpanel" aria-labelledby="storage-tab">
+                    <h3 id="storage-title">Storage Conditions</h3>
+                    <p id="storage-text"></p>
+                    <ul id="storage-list"></ul>
+                    <p id="storage-note"></p>
+                    </div>
 
-                        <div class="basket-is-not-empty table-responsive side-basket-content-body" style="display: none;">
-                        <table class="table">
-                            <tbody class="basket-items include-price include-ajax-controls"></tbody>
+                    <!-- Nutritional Info Tab -->
+                    <div class="tab-pane fade" id="nutrition" role="tabpanel" aria-labelledby="nutrition-tab">
+                    <div>
+                        <h3 id="nutrition-title">Nutritional Information (Per 100g)</h3>
+                        <table class="table table-bordered" id="nutrition-table">
+                        <thead>
+                            <tr>
+                            <th>Component</th>
+                            <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Energy</td><td id="nutrition-energy"></td></tr>
+                            <tr><td>Protein</td><td id="nutrition-protein"></td></tr>
+                            <tr><td>Fat</td><td id="nutrition-fat"></td></tr>
+                            <tr><td>Saturated Fat</td><td id="nutrition-saturated-fat"></td></tr>
+                            <tr><td>Carbohydrates</td><td id="nutrition-carbohydrates"></td></tr>
+                            <tr><td>Sugars</td><td id="nutrition-sugars"></td></tr>
+                            <tr><td>Salt</td><td id="nutrition-salt"></td></tr>
+                            <tr><td>Fiber</td><td id="nutrition-fiber"></td></tr>
+                        </tbody>
                         </table>
-                        </div>
                     </div>
+                    <p id="nutrition-note"></p>
                     </div>
+
                 </div>
-                </div> -->
-            </aside>
+                </div>
             </div>
+        </section>
 
+        <section class="related-products fade-in">
+            <div class="related-products">
+                <!-- Title -->
+                <h2 class="text-lg-start mb-4">Related Products</h2>
 
+                <!-- Container for dynamic related product cards -->
+                <div id="related-products-container" class="row">
+                <!-- Related product cards will be injected here dynamically -->
+                </div>
+            </div>
+        </section>
 
-        </div>
-        <!-- <button id="add-to-cart" class="add-to-cart">Buy Now</button> -->
-        </div>
+        <section class="you-may-also-like fade-in">
+            <h2>You May Also Like</h2>
+
+            <div class="you-may-also-like__wrapper">
+                <button class="slider-btn prev" aria-label="Previous">&#10094;</button>
+                
+                <div id="youMayAlsoLikeContainer" class="you-may-also-like__slider">
+                <!-- Cards injected by JS -->
+                </div>
+                
+                <button class="slider-btn next" aria-label="Next">&#10095;</button>
+            </div>
+        </section>
+
     </div>
-    </section>
-
-    <section>
-    <div class="product-intro">
-        <div class="container">
-        <!-- Navigation Tabs -->
-        <ul class="nav nav-tabs" id="productTab" role="tablist">
-            <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">Description</button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-controls="ingredients" aria-selected="false">Ingredients</button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storage" type="button" role="tab" aria-controls="storage" aria-selected="false">Storage Conditions</button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="nutrition-tab" data-bs-toggle="tab" data-bs-target="#nutrition" type="button" role="tab" aria-controls="nutrition" aria-selected="false">Nutritional Info</button>
-            </li>
-        </ul>
-
-        <!-- Tab Content -->
-        <div class="tab-content mt-3" id="productTabContent">
-
-            <!-- Description Tab -->
-            <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab">
-            <h3 id="desc-title"></h3>
-            <p id="desc-text"></p>
-            <p id="desc-extra"></p>
-            </div>
-
-            <!-- Ingredients Tab -->
-            <div class="tab-pane fade" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
-            <h3 class="section-title" id="ingredients-title">Ingredients</h3>
-            <p id="ingredients-description" class="section-description"></p>
-            <div id="ingredients-container" class="ingredients-container"></div>
-            <p class="no-artificial" id="ingredients-no-artificial"></p>
-            </div>
-
-            <!-- Storage Conditions Tab -->
-            <div class="tab-pane fade" id="storage" role="tabpanel" aria-labelledby="storage-tab">
-            <h3 id="storage-title">Storage Conditions</h3>
-            <p id="storage-text"></p>
-            <ul id="storage-list"></ul>
-            <p id="storage-note"></p>
-            </div>
-
-            <!-- Nutritional Info Tab -->
-            <div class="tab-pane fade" id="nutrition" role="tabpanel" aria-labelledby="nutrition-tab">
-            <div>
-                <h3 id="nutrition-title">Nutritional Information (Per 100g)</h3>
-                <table class="table table-bordered" id="nutrition-table">
-                <thead>
-                    <tr>
-                    <th>Component</th>
-                    <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Energy</td><td id="nutrition-energy"></td></tr>
-                    <tr><td>Protein</td><td id="nutrition-protein"></td></tr>
-                    <tr><td>Fat</td><td id="nutrition-fat"></td></tr>
-                    <tr><td>Saturated Fat</td><td id="nutrition-saturated-fat"></td></tr>
-                    <tr><td>Carbohydrates</td><td id="nutrition-carbohydrates"></td></tr>
-                    <tr><td>Sugars</td><td id="nutrition-sugars"></td></tr>
-                    <tr><td>Salt</td><td id="nutrition-salt"></td></tr>
-                    <tr><td>Fiber</td><td id="nutrition-fiber"></td></tr>
-                </tbody>
-                </table>
-            </div>
-            <p id="nutrition-note"></p>
-            </div>
-
-        </div>
-        </div>
-    </div>
-    </section>
-
-    <section>
-        <div class="related-products">
-            <!-- Title -->
-            <h2 class="text-lg-start mb-4">Related Products</h2>
-
-            <!-- Container for dynamic related product cards -->
-            <div id="related-products-container" class="row">
-            <!-- Related product cards will be injected here dynamically -->
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Finish  review-product -->
+    <!-- Finish review-product -->
 
     <!-- Start Footer -->
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="container">
             <div class="footer-widgets">
             <div class="row">
@@ -362,7 +373,7 @@
                 کلیه حقوق برای آکادمی آموزش برنامه نویسی سبز لرن محفوظ است.
             </span>
         </div>
-    </footer>
+    </footer> -->
     <!-- Finish Footer -->
 
 
@@ -377,13 +388,18 @@
 
 <!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script type="module" src="./js/index.js"></script>
- <script type="module" src="./js/menu.js"></script>
- <!-- <script type="module" src="./js/productDetails.js"></script> -->
- <script type="module" src="./js/related-products.js"></script>
-<script type="module" src="./js/basket-box.js"></script>
-<script type="module" src="js/featured-products-categorized.js"></script>
-<script type="module" src="./js/breadcrumb.js"></script>
+<script type="module" src="js/index.js"></script>
+ <script type="module" src="js/menu.js"></script>
+ <script type="module" src="js/productDetails.js"></script>
+ <script type="module" src="js/related-products.js"></script>
+<script type="module" src="js/basket-box.js"></script>
+<!-- <script type="module" src="js/featured-products-categorized.js"></script> -->
+<script type="module" src="js/breadcrumb.js"></script>
+<script type="module" src="js/search.js"></script>
+<script type="module" src="js/login-form.js"></script>
+<script type="module" src="js/user-header.js"></script>
+
+
 
 </body>
 </html>

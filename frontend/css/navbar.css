@@ -1,34 +1,20 @@
 
-/* منو همیشه به لبه‌ی تصویر بچسبد */
-.main-header{
-  position:absolute; left:0; right:0; bottom:0;
-  height: var(--nav-h);
-  padding-top:0; margin-top:0;
-}
-
-
-/* 3) خود نوارِ منو همیشه به لبهٔ پایین پس‌زمینه سنجاق شود */
-header.header .main-header{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: var(--nav-h);
-  margin: 0 !important;
-  padding: 0 !important;
-  z-index: 3;
-  /* اگر پس‌زمینهٔ منو دارد و باید روی تصویر بنشیند، این‌ها اختیاری‌اند: */
-  /* background: rgba(0,0,0,0); backdrop-filter: none; */
-}
-
-/* فقط نگاشت رنگ‌ها به پالت برند شما؛ سایر رفتارها بدون تغییر */
 .main-header__content {
-	display: flex;
-	align-items: center !important;
-	justify-content: center;
-  background: var(--meat-brown-500);            /* قبلی: var(--brown) */
-  color: var(--meat-cream-50);                  /* قبلی: var(--yellow) */
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+
+  /* تغییر فقط رنگ‌ها */
+  /* background: var(--meat-olive-800);                     */
+  background: var(--brand-900);  
+  /* background: var(--meat-red-800);   */
+  /* opacity: 0.9; */
+  color: var(--amber-100);                          
   position: relative;
-  border-bottom: 0.5rem solid var(--meat-green-700); /* قبلی: var(--green) */
-  border-top: 0.5rem solid var(--meat-green-700);    /* قبلی: var(--green) */
+  /* border-bottom: 0.5rem solid var(--meat-yellow-600);   
+  border-top:    0.5rem solid var(--meat-yellow-600);    */
+  border-bottom: 0.5rem solid var(--amber-600);   
+  border-top:    0.5rem solid var(--amber-600);    
 
   .main-header__menu {
     display: flex ;
@@ -48,7 +34,7 @@ header.header .main-header{
 
   .main-header__menu li{
     font-family: var(--display);
-    -webkit-text-stroke: 2px var(--meat-olive-800);  /* قبلی: var(--black) */
+    /* -webkit-text-stroke: 2px var(--meat-brown-700);      */
     font-size: 2rem;
     /* flex: 1; */
     text-align: center;
@@ -65,18 +51,18 @@ header.header .main-header{
     }
 
     /* تأکید داخل عنوان دو‌لایه */
-    span span {
-      color: var(--meat-red-700);                     /* قبلی: var(--red) */
-    }
+    /* span span {
+      color: var(--meat-yellow-600) ;                 
+    } */
 
     &:hover{
-      span {
+      /* span {
         transform: scale(1.1);
-        color: var(--meat-green-600);                 /* قبلی: var(--blue) */
+        color: var(--meat-yellow-600);               
         span {
-          color: var(--meat-red-700);                 /* قبلی: var(--red) */
+          color: var(--meat-yellow-600);              
         }
-      }
+      } */
 
       .main-header__dropdown {
         list-style: none;
@@ -89,39 +75,39 @@ header.header .main-header{
         margin: 0 auto !important;
         left: 1rem;
         right: 0;
-        /* background: var(--red); */
         background-image: url(../images/landing/red-texture-new.webp);
         padding: 2rem;
-        /* border-bottom: 0.5rem solid var(--meat-green-700); */
-        border-top: 0.5rem solid var(--meat-green-700);   
+        /* border-bottom: 0.5rem solid var(--meat-green-700) !important;
+        border-top: 0.5rem solid var(--meat-yellow-600)  ; */
         z-index: 1;
 
         li {
           cursor: pointer;
           display: block;
-          font-size: 1.6rem !important;
-          font-weight: 400;
+          font-size: 1.9rem !important;
+          font-weight: 600;
           padding: 0.75rem 0;
           margin: 0;
-          color: var(--meat-cream-50);                 /* قبلی: var(--yellow) */
+          color: var(--meat-cream-50);                 
           flex: 1;
 
           span {
-            font-size: 2rem;
-            color: var(--meat-cream-50);               /* قبلی: var(--yellow) */
+            /* font-size: 2rem; */
+            color: var(--meat-cream-50); 
+            /* font-weight: 300 !important;              */
+
             &:hover {
-              color: var(--meat-green-700);            /* قبلی: var(--green) */
-              font-weight: 700;
+              color: var(--meat-yellow-600);          
+              /* font-weight: 300 !important; */
             }
           }
 
           li {
-            font-family: var(--serif);
-            -webkit-text-stroke: 0;
-            font-size: 1.2rem;
-            line-height: 1.2;
+            font-size: 1.4rem !important;
+            font-weight: 300 !important ;
+            line-height: 1.3;
             &:hover {
-              color: var(--meat-olive-800);            /* قبلی: var(--black) */
+              color: var(--meat-cream-200) !important;             
             }
           }
         }
@@ -137,6 +123,7 @@ header.header .main-header{
     }
   }
 }
+
 
 /* Finish Navbar Styles */
 
@@ -157,7 +144,7 @@ header.header .main-header{
   transform: translateX(-100%);
   transition: transform 1s ease;
   /* background: var(--meat-brown-500, #795b2e); */
-  background-image: url(../images/landing/red-texture-new.webp);
+  background-image: url(../images/landing/roux-texture-2-1.webp);
   color: var(--meat-cream-50, #fff);
   z-index: 1100;
   overflow: auto;
@@ -193,7 +180,7 @@ header.header .main-header{
   border: 0 !important;
 }
 
-/* موبایل: تمام‌صفحه و دقیقاً زیر سرچ‌بار
+/* موبایل: تمام‌صفحه و دقیقاً زیر سرچ‌بار */
 @media (max-width: 767px){
   .offcanvas-nav{
     width: 100vw;
@@ -201,7 +188,7 @@ header.header .main-header{
     border-radius: 12px 12px 0 0;
   }
 
-} */
+}
 
 
 /* بک‌دراپ */

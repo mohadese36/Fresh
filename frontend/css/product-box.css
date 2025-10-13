@@ -35,15 +35,14 @@
       color: var(--color_red);
   }
 
-  .product-box__detiles-info {
-    font-size: 1.5rem;
-  }
 
   .product-box__detiles-info {
-    text-transform: uppercase;
-    font-size: 1.5rem !important;
-    color: var(--color-span);
-    margin-bottom: 1.5rem;
+    /* text-transform: uppercase; */
+    /* font-size: 1.5rem !important; */
+    /* color: var(--color-span); */
+    /* color: var(--amber-600); */
+    /* margin-bottom: 1.5rem; */
+    
   }
 
   .product-box__detiles-price {
