@@ -32,6 +32,9 @@ body {
   transform: scale(1.03);
   filter: brightness(1.08) contrast(1.1);
 }
+/*  */
+
+/*  */
 
 h2, h3.section-title, .product-title {
   position: relative;
@@ -99,6 +102,73 @@ h3.section-title:hover::after,
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+
+
+/* featured-products */
+/* فقط درون اسلایدر */
+#special-offers .related-products__card-rating,
+#new-arrivals .related-products__card-rating,
+#best-sellers .related-products__card-rating,
+#discounted-products .related-products__card-rating,
+#organic-healthy-products .related-products__card-rating,
+#products-with-unique-features .related-products__card-rating {
+  position: absolute;
+  top: clamp(110px, 18vw, 175px);
+  z-index: 3;
+}
+
+
+/* فقط برای اسلایدر – پنهان بودن در حالت عادی */ 
+/* card-rating */
+#special-offers .swiper-slide .related-products__card-rating,
+#new-arrivals .related-products__card-rating,
+#best-sellers .swiper-slide .related-products__card-rating,
+#discounted-products .related-products__card-rating,
+#organic-healthy-products .related-products__card-rating,
+#products-with-unique-features .related-products__card-rating {
+  opacity: 0;
+  visibility: hidden;
+}
+#special-offers .swiper-slide:hover .related-products__card-rating,
+#new-arrivals .related-products__card:hover .related-products__card-rating,
+#best-sellers .swiper-slide:hover .related-products__card-rating,
+#discounted-products .related-products__card:hover .related-products__card-rating,
+#organic-healthy-products .related-products__card:hover .related-products__card-rating,
+#products-with-unique-features .related-products__card:hover .related-products__card-rating {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 3;
+}
+
+/* card-seller */
+#special-offers .swiper-slide .related-products__card-seller,
+#new-arrivals .related-products__card-seller,
+#best-sellers .swiper-slide .related-products__card-seller,
+#discounted-products .related-products__card-seller,
+#organic-healthy-products .related-products__card-seller,
+#products-with-unique-features .related-products__card-seller {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+#special-offers .swiper-slide:hover .related-products__card-seller,
+#new-arrivals .related-products__card:hover .related-products__card-seller,
+#best-sellers .swiper-slide:hover .related-products__card-seller,
+#discounted-products .related-products__card:hover .related-products__card-seller,
+#organic-healthy-products .related-products__card:hover .related-products__card-seller,
+#products-with-unique-features .related-products__card:hover .related-products__card-seller{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 

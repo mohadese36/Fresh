@@ -20,26 +20,10 @@
       z-index: 1;
       margin-left: 50px;
     }
-    /* .background-image, [data-bg-src]{
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-    } */
 
-
-.discount_style4 .small-text{
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 26px;
-    color: blueviolet;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 0;
-    padding-left: 20px;
-}
 
 .discount_style4 .percentage{
-    font-family: var(--style-font);
+    font-family: monospace;
     font-weight: 700;
     font-size: 36px;
     line-height: 40px;
@@ -49,7 +33,9 @@
     text-align: center;
 }
 
-.discount_style4 .small-text {
+.discount_style4 .small-text-1,
+.discount_style4 .small-text-2 {
+  font-family: sans-serif;
     font-weight: 700;
     font-size: 14px;
     line-height: 26px;
@@ -70,13 +56,23 @@
     height: 115px;
     border-radius: 50%;
     border: 3px solid red;
-    /* z-index: -1; */
 }
-/* .svg-container{
-  z-index: -1 !important;
-}   */
+.discount_style4 .small-text-1 {
+    position: absolute;
+    top: 117px;
+    left: 91px;
+}
 
-
+.discount_style4 .small-text-2 {
+    position: absolute;
+    top: 44px;
+    left: 75px;
+}
+.percentage {
+    position: absolute;
+    top: 49px;
+    left: 84px;
+}
 </style>
 </head>
 <body>
@@ -181,20 +177,20 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M60.9461 0.000194001C60.0756 -0.00996091 59.2118 0.378781 58.7428 1.11216C56.9019 3.99234 57.3938 9.14437 59.7846 10.2116C66.1584 13.0597 69.3832 0.0973003 60.9461 0.000194001Z" fill="#FF0600"/>
           </svg>
         </div>
-        <p class="small-text">Up to</p>
+        <p class="small-text-1">Up to</p>
         <h3 class="percentage">32%</h3>
-        <p class="small-text">discount</p>
+        <p class="small-text-2">discount</p>
       </div>
     </div>
 
-      <div class="quantity-section">
+      <!-- <div class="quantity-section">
     <label for="quantity">Quantity:</label>
     <div class="quantity-controls">
       <button class="quantity-btn" id="decrease">-</button>
       <input type="number" id="quantity" name="quantity" value="1" readonly>
       <button class="quantity-btn" id="increase">+</button>
     </div>
-  </div>
+  </div> -->
 
   <!-- جاوااسکریپت در پایین بدنه -->
   <script>

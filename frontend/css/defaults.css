@@ -43,3 +43,54 @@ i {
   } */
 
 /* Finish default styles */
+
+/* ==== Pagination for special-offers ==== */
+
+
+/* شکل کلی دکمه‌ها */
+#special-offers .swiper-pagination-bullet {
+    background-color: var(--meat-cream-200);
+}
+
+/* وقتی فعال میشه */
+#special-offers .swiper-pagination-bullet-active {
+    background-color: var(--brand-900);
+    transform: scale(1.2);
+    border: 1px solid var(--meat-cream-200);
+  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); */
+}
+
+
+#special-offers .swiper-pagination,
+#best-sellers .swiper-pagination {
+  position: absolute;
+  bottom: -5px !important;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+/* شکل کلی دکمه‌ها */
+#special-offers .swiper-pagination-bullet,
+#best-sellers .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+}
+/* ==== Pagination for Best Sellers ==== */
+
+
+
+/* دکمه‌های نقطه‌ای عادی */
+#best-sellers .swiper-pagination-bullet {
+  border: 1px solid var(--warning); /* رنگ بوردر: نارنجی برند */
+}
+
+/* وقتی فعال میشه */
+#best-sellers .swiper-pagination-bullet-active {
+  background-color: var(--accent-red-500) ;/* نارنجی اصلی */
+  border-color: var(--meat-cream-50) ;
+  transform: scale(1.1);
+  /* box-shadow: 0 0 8px rgba(255, 152, 0, 0.5); */
+}

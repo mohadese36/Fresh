@@ -19,6 +19,7 @@
 @import "cart.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
 @import "blog.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
 @import "categori.css";   
+@import "featured-products.css";   
 
 @font-face {
   font-family: 'SweetCreamy-Regular';
