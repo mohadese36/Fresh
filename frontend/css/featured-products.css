@@ -1,77 +1,91 @@
+/* =========================================================
+   🎯 SLIDERS SECTIONS – MAIN STYLES
+   ========================================================= */
 
-
-/*start sliders  */
-
-
-#special-offers .featured-section__title,
-#best-sellers .featured-section__title,
-#new-arrivals .featured-section__title,
-#discounted-products .featured-section__title,
-#organic-healthy-products .featured-section__title,
-#products-with-unique-features .featured-section__title {
+/* =========================================
+   🧱 TITLES – Unified Style for All Sections
+   ========================================= */
+#special-offers h2,
+#best-sellers h2,
+#new-arrivals h2,
+#discounted-products h2,
+#organic-healthy-products h2,
+#products-with-unique-features h2 {
   font-size: clamp(2rem, 2vw + 1rem, 3.8rem);
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: var(--brand-900);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
-  margin: clamp(2rem, 4vw, 4rem) auto 50px;
+  margin: clamp(2rem, 4vw, 4rem) auto clamp(2.5rem, 5vw, 3.125rem);
   position: relative;
-  letter-spacing: -0.02em;
-  -webkit-text-stroke: 0.6px var(--meat-cream-50);
-  /* text-shadow: 0 0 6px rgba(255, 255, 255, 0.3); */
 }
 
 
-/* نوار زیر تیتر */
-#special-offers .featured-section__title::after,
-#best-sellers .featured-section__title::after,
-#new-arrivals .featured-section__title::after,
-#discounted-products .featured-section__title::after,
-#organic-healthy-products .featured-section__title::after,
-#products-with-unique-features .featured-section__title::after {
-  display: none;
-}
 
-/* /////////////////////////////////////////////////////////////////////////////////////////////////// */
-
+/* =========================================================
+   🧨 1. SPECIAL OFFERS – Parallax Background Section
+   ========================================================= */
 #special-offers {
- background-image: url(../images/landing/green-texture.webp);
-  overflow: hidden;
+  position: relative;
+  background-image: url("../images/landing/discounted-products-background-meaty-red.webp");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
 }
 
+/* 🔹 Overlay تیره */
+#special-offers::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
 
+/* 🔸 عنوان Special Offers */
+#special-offers h2 {
+  background: linear-gradient(90deg, var(--meat-cream-50), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 clamp(2px, 0.3vw, 4px) clamp(4px, 0.6vw, 6px) rgba(0, 0, 0, 0.35),
+    0 0 clamp(8px, 1vw, 10px) rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   🧱 LAYOUT – Offers Wrapper
+   ========================================================= */
 .offers-wrapper {
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-start; 
+  align-items: flex-start;
   gap: clamp(10px, 2vw, 20px);
   position: relative;
   overflow: visible;
 }
 
-/* /////////// */
+/* Swiper Slides Reset */
 .swiper-slide,
 .swiper-slide * {
-  transition: none !important;  
-  transform: none !important;   
+  transition: none !important;
+  transform: none !important;
 }
-
 
 .swiper-slide:hover,
 .swiper-slide:hover * {
   transform: none !important;
 }
 
-
 .swiper-slide {
-  border-radius:var(--radius-lg);
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
-/* /////////// */
-/* بنرها سمت راست */
+/* =========================================================
+   🖼️ OFFER BANNERS – Right Side
+   ========================================================= */
 .offers-wrapper .offer-banners {
   display: flex;
   flex-direction: column;
@@ -80,7 +94,6 @@
   gap: clamp(8px, 2vw, 14px);
 }
 
-/* اندازه‌ی بنرها */
 .offers-wrapper .offer-banner img {
   width: clamp(70px, 8vw, 100px);
   height: auto;
@@ -89,66 +102,220 @@
   border-radius: clamp(6px, 1vw, 10px);
 }
 
-/* 🎯 فلش curve_line_2.png */
+/* 🎯 Banner 1 – Curve Line */
 #special-offers .offer-banners .offer-banner:first-child {
   position: absolute;
-  top: clamp(-2.5rem, -9%, -4rem);     
-  right: clamp(6rem, 10vw, 10%);       
+  top: clamp(-2.5rem, -9%, -4rem);
+  right: clamp(6rem, 10vw, 10%);
   z-index: 20;
-  width: clamp(80px, 10vw, 120px);  
+  width: clamp(80px, 10vw, 120px);
   transform: rotate(6deg);
 }
 
-/* 🎯 بنر دوم (hero-img-1-3-2.png) */
+/* 🎯 Banner 2 – Floating Hero */
 #special-offers .offer-banners .offer-banner:last-child img {
-  width: clamp(85px, 10vw, 120px);     /* 🔹 اندازه متعادل‌تر */
-  height: auto;
-  display: block;
+  width: clamp(85px, 10vw, 120px);
   border-radius: clamp(8px, 1vw, 14px);
   object-fit: contain;
-  transform: scale(1);
-  transition: transform 6s ease-in-out;
   animation: gentleZoom 1s ease-in-out infinite alternate;
 }
 
-
 @keyframes gentleZoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);   /* 🔹 زوم کمتر از قبل تا حس طبیعی‌تر بده */
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }
 
-
-/* 🎯 پایین آوردن دکمه‌های Swiper Pagination فقط در Special Offers */
-
-  #special-offers .swiper-pagination,
-  #best-sellers .swiper-pagination {
-    position: relative !important;
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10px;
-    margin-bottom: 50px;
-    width: auto;
-  }
-
-
-/* 📱 در موبایل حذف */
-@media (max-width: 767px) {
-  #special-offers .offer-banners .offer-banner:first-child,
-   #special-offers .offer-banners .offer-banner:last-child img {
-    display: none !important;
-  }
+/* 🎯 Swiper Pagination Adjustment */
+#special-offers .swiper-pagination,
+#best-sellers .swiper-pagination {
+  position: relative !important;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: clamp(10px, 2vw, 12px);
+  margin-bottom: clamp(30px, 5vw, 50px);
+  width: auto;
 }
 
+/* =========================================================
+   🔥 2. BEST SELLERS – Parallax Background
+   ========================================================= */
+#best-sellers {
+  z-index: 1;
+  background:
+    linear-gradient(rgba(8, 10, 8, 0.55), rgba(0, 0, 0, 0.55)),
+    url('../images/products/best-sellers.jpg') center center / cover no-repeat;
+  background-attachment: fixed;
+}
 
-/* ===============================
-   🎯 FIXED RESPONSIVE – SPECIAL OFFERS
-   =============================== */
-/* ===== SPECIAL OFFERS – MOBILE & TABLET FIX ===== */
+#best-sellers h2 {
+  background: linear-gradient(90deg, var(--meat-cream-50), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 clamp(2px, 0.3vw, 4px) clamp(4px, 0.6vw, 6px) rgba(0, 0, 0, 0.35),
+    0 0 clamp(8px, 1vw, 10px) rgba(255, 255, 255, 0.15);
+}
+
+/* Floating Offer Banner */
+.offer-floating-banner {
+  position: absolute;
+  top: clamp(50px, 7vw, 90px);
+  left: clamp(-40px, -6vw, -60px);
+  z-index: 5;
+}
+
+.offer-floating-banner img {
+  width: clamp(150px, 22vw, 240px);
+  height: auto;
+  transform-origin: bottom left;
+}
+
+/* =========================================================
+   🍖 COMMON WRAPPERS & BACKGROUND SECTIONS
+   ========================================================= */
+#special-offers,
+#new-arrivals,
+#best-sellers,
+#discounted-products,
+#organic-healthy-products,
+#products-with-unique-features {
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+#new-arrivals,
+#discounted-products,
+#organic-healthy-products,
+#products-with-unique-features {
+  padding-bottom: clamp(2rem, 5vw, 6rem); /* 🟢 فاصله‌ی واکنش‌گرا از پایین */
+}
+
+/* =========================================================
+   🧡 NEW ARRIVALS
+   ========================================================= */
+#new-arrivals {
+  background: var(--amber-100);
+}
+
+#new-arrivals h2 {
+  background: linear-gradient(90deg, var(--brand-800), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0, 0, 0, 0.45),
+    0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   💸 DISCOUNTED PRODUCTS
+   ========================================================= */
+#discounted-products h2 {
+  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-brown-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(255, 235, 180, 0.12);
+}
+
+/* Decorative Badge */
+.order-now-deco {
+  position: absolute;
+  width: clamp(100px, 13vw, 160px);
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
+  transform: rotate(20deg);
+  animation: pulseShock 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.order-now-deco--right {
+ top: clamp(25px, 4vw, 36px);
+right: clamp(-100px, -6vw, -86px);
+
+}
+
+@keyframes pulseShock {
+  0%, 100% { transform: scale(1) rotate(20deg); }
+  25% { transform: scale(1.12) rotate(20deg); }
+  40% { transform: scale(0.96) rotate(20deg); }
+  55% { transform: scale(1.1) rotate(20deg); }
+  70% { transform: scale(0.98) rotate(20deg); }
+}
+
+/* =========================================================
+   🌿 ORGANIC & HEALTHY PRODUCTS
+   ========================================================= */
+#organic-healthy-products {
+  background-image: url("../images/landing/pencil-meat-pattern-bg-light-green-02.png");
+}
+
+#organic-healthy-products h2 {
+  background: linear-gradient(90deg, var(--brand-700), var(--brand-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.35),
+    0 0 8px rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   🟤 PRODUCTS WITH UNIQUE FEATURES
+   ========================================================= */
+#products-with-unique-features {
+  position: relative;
+  background-image: url("../images/landing/gourmet-meat-background-warm-ui.webp");
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--ink-900);
+}
+
+#products-with-unique-features h2 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-brown-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0, 0, 0, 0.4),
+    0 0 6px rgba(255, 221, 150, 0.2);
+}
+
+/* Overlay */
+#products-with-unique-features::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+#products-with-unique-features .container,
+#products-with-unique-features .w-75 {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* =========================================================
+   📱 MEDIA QUERIES – AT THE END (Organized)
+   ========================================================= */
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 400px) {
+  #special-offers .related-products__card-title,
+  #best-sellers .related-products__card-title {
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  }
+  #special-offers .related-products__card-text,
+  #best-sellers .related-products__card-text {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+}
 
 /* ===== MOBILE ===== */
 @media (max-width: 576px) {
@@ -156,14 +323,14 @@
   #best-sellers .offers-wrapper {
     flex-direction: column;
     align-items: center;
-    gap: 1.25rem;
+    gap: clamp(1rem, 3vw, 1.25rem);
   }
 
   #special-offers .w-75,
   #new-arrivals .w-75,
   #best-sellers .w-75,
-  #discounted-products .w-75, 
-  #organic-healthy-products .w-75, 
+  #discounted-products .w-75,
+  #organic-healthy-products .w-75,
   #products-with-unique-features .w-75 {
     width: 100% !important;
     margin: 0 !important;
@@ -172,13 +339,12 @@
   #special-offers .mySwiper,
   #best-sellers .mySwiper-bestsellers {
     width: 100% !important;
-    padding: 0 12px;
+    padding: 0 clamp(10px, 3vw, 12px);
   }
 
   #special-offers .swiper-slide,
   #best-sellers .swiper-slide {
     width: 100% !important;
-    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -186,13 +352,6 @@
   #best-sellers .related-products__card {
     width: 100%;
     max-width: 100%;
-  }
-
-  #special-offers .related-products__card-img,
-  #best-sellers .related-products__card-img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   #special-offers .related-products__card-img-wrapper,
@@ -208,198 +367,35 @@
     height: 100%;
     object-fit: cover;
   }
-
 }
 
-
-/* ===== VERY SMALL ===== */
-@media (max-width: 400px) {
-  #special-offers .related-products__card-title,
-  #best-sellers .related-products__card-title {
-    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  }
-
-  #special-offers .related-products__card-text,
-  #best-sellers .related-products__card-text {
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-  }
-}
-
-
-
-/* ==== 2. Best Sellers - Carousel with Parallax Background ==== */
-
-#best-sellers .featured-section__title {
-  color: var(--accent-red-500);
-  -webkit-text-stroke: 0.8px var(--brand-100);
-  /* text-shadow: 0 0 10px color-mix(in srgb, var(--brand-400) 35%, transparent); */
-  
-}
-
-#best-sellers {
-  z-index: 1;
-  background:
-    linear-gradient(rgba(60, 100, 50, 0.35), rgba(0, 0, 0, 0.7)),
-    url('../images/products/best-sellers.jpg') center center / cover no-repeat;
-  background-attachment: fixed;
-}
-
-/*  */
-/* === Best Sellers Layout Adjustment === */
-/* ✅ بنر آفر شناور در سمت چپ صفحه */
-.offer-floating-banner {
-  position: absolute;
-  /* top: clamp(20px, 5vw, 50px);  */
-  top: clamp(30px, 6vw, 80px);
-  z-index: 5;
-
-}
-
-.offer-floating-banner img {
-  width: clamp(120px, 20vw, 200px);; /* قبلاً: clamp(60px, 10vw, 100px) */
-  height: auto;
-  /* transform: rotate(8deg); */
-  transform-origin: bottom left;
-  display: block;
-}
-.animate-offer {
-  animation: offerFloat 9.5s ease-in-out infinite;
-  transform-origin: center;
-}
-
-
-@keyframes offerFloat {
-  0% {
-    opacity: 0;
-    transform: translate(-150%, 150%) scale(0.6);
-  }
-
-  15% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-
-  30% {
-    transform: translate(0, 0) scale(1.08);
-  }
-
-  45% {
-    transform: translate(0, 0) scale(0.97);
-  }
-
-  60% {
-    transform: translate(0, 0) scale(1.05);
-  }
-
-  75% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(-150%, 150%) scale(0.6);
-  }
-}
-
-
-
-
-
-
-/* 📱 مخفی در موبایل */
+/* ===== TABLET ===== */
 @media (max-width: 767px) {
-  .offer-floating-banner {
-    display: none;
+  .offer-floating-banner,
+  #special-offers .offer-banners .offer-banner:first-child,
+  #special-offers .offer-banners .offer-banner:last-child img {
+    display: none !important;
   }
 }
 
-
-
-/*  */
-
-/*finish sliders  */
-
-/* ==== 2. New Arrivals - Parallax Background ==== */
-#special-offers,
-#new-arrivals,
-#best-sellers,
-#discounted-products,
-#organic-healthy-products, 
-#products-with-unique-features {
-  overflow: hidden;
-  position: relative;
+/* ===== SMALL DESKTOP / TABLET ===== */
+@media (max-width: 768px) {
+  .order-now-deco { display: none; }
 }
 
-.parallax-section__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/products/breadcumb_bg_2-1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  opacity: 0.2;
-  z-index: -1;
+/* ===== LARGE MOBILE & TABLET ===== */
+@media (max-width: 991px) {
+  #special-offers,
+  #products-with-unique-features {
+    background-attachment: scroll;
+    background-position: center;
+  }
+
+  #special-offers::before {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  #products-with-unique-features::before {
+    background: rgba(30, 15, 5, 0.8);
+  }
 }
-
-.parallax-section .related-products__card {
-  background-color: var(--surface-1);
-  box-shadow: var(--shadow-sm);
-}
-
-
-
-/* =========================
-   DISCOUNTED PRODUCTS — SECTION DECOR SVG (corner stamp)
-   ========================= */
-
-
-#discounted-products .discount_style4 {
-  position: absolute;
-  top: -50px;              /* کمی از سکشن بالاتر بیاد */
-  right: 60px;             /* از سمت راست فاصله داشته باشه */
-  width: clamp(150px, 18vw, 220px); /* بزرگ‌تر و واکنش‌گرا */
-  height: auto;
-  z-index: 5;
-  pointer-events: none;
-}
-
-#discounted-products .discount_style4 img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
-  transition: transform 0.3s ease;
-}
-
-/* افکت ملایم هنگام هاور */
-#discounted-products .discount_style4:hover img {
-  transform: scale(1.05);
-}
-
-
-
-/*  */
-.discounted-section {
-  background-color: var(--amber-100);
-}
-.discounted-section .related-products__card {
-  border: 1px solid var(--accent-red-500);
-}
-.discounted-section .related-products__card-price {
-  color: var(--price-strong);
-}
-
-/* ==== 5. Organic Products - Soft Green Layout ==== */
-.organic-section {
-  background: linear-gradient(180deg, var(--brand-100), var(--brand-200));
-}
-.organic-section .related-products__card {
-  border: 1px solid var(--brand-400);
-
-}
-
-/* ==== 6. Unique Features - Split Grid ==== */

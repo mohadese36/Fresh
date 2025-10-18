@@ -49,17 +49,17 @@ i {
 
 /* شکل کلی دکمه‌ها */
 #special-offers .swiper-pagination-bullet {
-    background-color: var(--meat-cream-200);
+  background-color: var(--meat-cream-100); /* کرم روشن از پالت */
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
 }
 
-/* وقتی فعال میشه */
 #special-offers .swiper-pagination-bullet-active {
-    background-color: var(--brand-900);
-    transform: scale(1.2);
-    border: 1px solid var(--meat-cream-200);
-  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); */
+  background-color: var(--meat-yellow-600); /* زرد طلایی برند */
+  box-shadow: 0 0 6px rgba(252, 185, 23, 0.6);
+  transform: scale(1.2);
+  opacity: 1;
 }
-
 
 #special-offers .swiper-pagination,
 #best-sellers .swiper-pagination {
@@ -84,13 +84,212 @@ i {
 
 /* دکمه‌های نقطه‌ای عادی */
 #best-sellers .swiper-pagination-bullet {
-  border: 1px solid var(--warning); /* رنگ بوردر: نارنجی برند */
+  border: 1px solid var(--accent-red-500); 
+  background-color: var(--accent-red-500) ;
 }
 
 /* وقتی فعال میشه */
 #best-sellers .swiper-pagination-bullet-active {
-  background-color: var(--accent-red-500) ;/* نارنجی اصلی */
-  border-color: var(--meat-cream-50) ;
+  background-color: var(--accent-red-500) ;
+  border-color: var(--brand-100);
   transform: scale(1.1);
+  box-shadow: 0 0 6px rgba(185, 28, 28, 0.6);
+  transform: scale(1.15);
   /* box-shadow: 0 0 8px rgba(255, 152, 0, 0.5); */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* انواع تکست شادوها */
+.text-shadow-1{
+  background: linear-gradient(90deg, var(--meat-red-700), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+.text-shadow-2{  font-weight: 800;
+  letter-spacing: -0.02em;
+
+  /* 🎨 رنگ و افکت اصلی */
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-red-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* ✨ برای برجستگی و خوانایی بهتر */
+  text-shadow:
+    0 2px 3px rgba(0,0,0,0.35),  /* سایه‌ی اصلی برای کنتراست */
+    0 0 8px rgba(255,255,255,0.1); /* هاله‌ی نرم برای درخشش ملایم */
+  }
+.text-shadow-3{
+    font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--meat-cream-50), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 0 8px rgba(255,255,255,0.15);
+}
+.text-shadow-4{
+    font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-brown-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0,0,0,0.4),
+    0 0 6px rgba(255,221,150,0.2);
+}
+.text-shadow-5{
+    font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--meat-red-700), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0,0,0,0.45),
+    0 0 6px rgba(255,255,255,0.1);
+}
+.text-shadow-6{
+  background: linear-gradient(90deg, var(--meat-cream-100), var(--meat-yellow-500));
+text-shadow:
+  0 2px 3px rgba(0,0,0,0.25),
+  0 0 8px rgba(255,255,255,0.25);
+
+}
+.text-shadow-7{
+  background: linear-gradient(90deg, var(--meat-cream-200), var(--meat-yellow-400));
+text-shadow:
+  0 1px 3px rgba(0,0,0,0.3),
+  0 0 10px rgba(255,255,255,0.2);
+
+}
+.text-shadow-8{
+  background: linear-gradient(90deg, var(--meat-yellow-500), var(--meat-yellow-600));
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.4),
+  0 0 8px rgba(255,235,180,0.25);
+
+}
+.text-shadow-9{background: linear-gradient(90deg, var(--meat-brown-500), var(--meat-yellow-600));
+text-shadow:
+  0 2px 3px rgba(0,0,0,0.45),
+  0 0 6px rgba(255,230,160,0.15);
+}
+.text-shadow-10{
+  background: linear-gradient(90deg, var(--meat-olive-800), var(--meat-yellow-600));
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.4),
+  0 0 6px rgba(255,255,255,0.1);
+
+}
+.text-shadow-11{
+  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-yellow-600));
+text-shadow:
+  0 3px 4px rgba(0,0,0,0.55),
+  0 0 8px rgba(255,255,200,0.1);
+
+}
+.text-shadow-12{
+  background: linear-gradient(90deg, var(--meat-cream-50), var(--meat-yellow-600));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.35),
+  0 0 8px rgba(255,255,255,0.15);
+
+}
+.text-shadow-13{
+  background: linear-gradient(90deg, var(--meat-cream-100), var(--meat-yellow-500));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 3px rgba(0,0,0,0.25),
+  0 0 8px rgba(255,255,255,0.25);
+
+}
+.text-shadow-14{
+  background: linear-gradient(90deg, var(--meat-cream-200), var(--meat-yellow-400));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 1px 3px rgba(0,0,0,0.3),
+  0 0 10px rgba(255,255,255,0.2);
+
+}
+.text-shadow-15{
+  background: linear-gradient(90deg, var(--meat-yellow-500), var(--meat-yellow-600));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.4),
+  0 0 8px rgba(255,235,180,0.25);
+
+}
+.text-shadow-16{
+  background: linear-gradient(90deg, var(--meat-brown-500), var(--meat-yellow-600));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 3px rgba(0,0,0,0.45),
+  0 0 6px rgba(255,230,160,0.15);
+
+}
+.text-shadow-17{
+  background: linear-gradient(90deg, var(--meat-olive-800), var(--meat-yellow-600));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.4),
+  0 0 6px rgba(255,255,255,0.1);
+
+}
+.text-shadow-18{
+  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-yellow-600));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 3px 4px rgba(0,0,0,0.55),
+  0 0 8px rgba(255,255,200,0.1);
+
+}
+.text-shadow-19{
+  background: linear-gradient(90deg, var(--meat-red-700), var(--meat-red-600));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.45),
+  0 0 8px rgba(255,120,120,0.25);
+
+}
+.text-shadow-20{
+  background: linear-gradient(90deg, var(--brand-700), var(--brand-400));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.35),
+  0 0 8px rgba(255,255,255,0.12);
+
+}
+.text-shadow-21{
+  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-brown-500));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0, 0, 0, 0.4),
+  0 0 8px rgba(255, 235, 180, 0.12);
+
+}
+/* .text-shadow-22{}
+.text-shadow-23{} */

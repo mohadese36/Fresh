@@ -524,9 +524,9 @@ aside {
 }
 
 /* === Grid Column Wrapper === */
-#related-products-container > div {
+/* #related-products-container > div {
   display: flex;
-}
+} */
 
 /* === Card Body === */
 .related-products__card-body {

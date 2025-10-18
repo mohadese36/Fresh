@@ -59,6 +59,7 @@
 } */
 
 /* variables.css — Brand Palette & tokens */
+
 :root{
   /* ==== Core (from my palette) ==== */
   --brand-100:#e7f3e8; --brand-200:#cfe7d1; --brand-400:#2e7d32; --brand-500:#27712b;

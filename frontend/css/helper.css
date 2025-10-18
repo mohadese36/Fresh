@@ -174,3 +174,52 @@ h3.section-title:hover::after,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+
+/* نوار زیر تیتر در featured-products*/
+#special-offers .featured-section__title::after,
+#best-sellers .featured-section__title::after,
+#new-arrivals .featured-section__title::after,
+#discounted-products .featured-section__title::after,
+#organic-healthy-products .featured-section__title::after,
+#products-with-unique-features .featured-section__title::after {
+  display: none;
+}

@@ -98,6 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
   fadeEls.forEach(el => observer.observe(el));
 });
 
+/////////////
+
+
+/* ✅ اسکریپت فعال‌سازی انیمیشن بنر آفر فقط هنگام ورود به دید کاربر */
+
+
+
+
 
 
 
