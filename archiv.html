@@ -43,6 +43,141 @@
         </div>
     </section>
 
+    <!-- Start Main Info Section -->
+<main class="main">
+  <div class="container">
+    <div class="products-wrapper">
+
+      <!-- Breadcrumb -->
+      <section class="breadcrumb">
+        <div class="container px-0">
+          <div class="breadcrumb__content justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <div class="breadcrumb__home-content-icon">
+                <i class="fas fa-home breadcrumb__home-icon"></i>
+              </div>
+              <ul class="breadcrumb__list"><!-- breadcrumb.js پر می‌کند --></ul>
+            </div>
+
+            <!-- دکمه فیلتر فقط برای موبایل -->
+            <button id="filtersToggleBtn"
+                    class="btn filters-toggle d-lg-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#filtersOffcanvas"
+                    aria-controls="filtersOffcanvas">
+              <i class="bi bi-funnel-fill filters-icon" aria-hidden="true"></i>
+              <span class="filters-label">Filters</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="row g-4">
+
+        <!-- 🟢 محصولات (سمت چپ) -->
+        <div class="col-lg-9">
+          <div id="active-filters" class="filter-chips mb-3"></div>
+          <div id="products-container" class="row g-3 g-md-4"></div>
+        </div>
+
+        <!-- 🟣 سبد خرید + فیلترها (سمت راست) -->
+        <div class="col-lg-3 pan">
+          <div class="categori-aside">
+            <!-- مینی‌بسکت -->
+            <aside class="mini-basket-sticky mb-4">
+              <div class="card mini-basket">
+                <div class="card-body">
+                  <div id="basket-box-container"></div>
+                </div>
+              </div>
+            </aside>
+
+            <!-- فیلترها -->
+            <div class="offcanvas offcanvas-lg offcanvas-start border-0"
+                tabindex="-1"
+                id="filtersOffcanvas"
+                aria-labelledby="filtersLabel">
+
+              <!-- هدر فقط در موبایل -->
+              <div class="offcanvas-header d-lg-none">
+                <h5 class="offcanvas-title" id="filtersLabel">Filters</h5>
+                <button type="button" class="btn-close text-reset"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+              </div>
+
+              <!-- بدنه -->
+              <div class="offcanvas-body filters-sticky">
+                <!-- Search -->
+                <form id="archive-search" class="my-3 my-lg-0" role="search">
+                  <label for="archive-q" class="form-label visually-hidden">Search products</label>
+                  <div class="input-group">
+                    <input id="archive-q" class="form-control Landing__searchBar-input"
+                          type="text" placeholder="search products..." aria-label="search products">
+                    <button class="btn" type="submit" aria-label="Start search">
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </form>
+
+                <!-- Sort -->
+                <div class="card my-3 my-lg-0">
+                  <div class="card-body">
+                    <label for="sort" class="form-label">Sort by</label>
+                    <select id="sort" class="form-select">
+                      <option value="">Default</option>
+                      <option value="price_asc">Price: Low → High</option>
+                      <option value="price_desc">Price: High → Low</option>
+                      <option value="name_asc">Name: A → Z</option>
+                      <option value="name_desc">Name: Z → A</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Price / Availability -->
+                <div class="card my-3 my-lg-0">
+                  <div class="card-body">
+                    <div class="row g-2">
+                      <div class="col-6">
+                        <label for="minPrice" class="form-label">Min £</label>
+                        <input id="minPrice" type="number" class="form-control" min="0" step="0.01">
+                      </div>
+                      <div class="col-6">
+                        <label for="maxPrice" class="form-label">Max £</label>
+                        <input id="maxPrice" type="number" class="form-control" min="0" step="0.01">
+                      </div>
+                    </div>
+                    <div class="form-check mt-3">
+                      <input class="form-check-input" type="checkbox" id="inStock">
+                      <label class="form-check-label" for="inStock">In stock only</label>
+                    </div>
+
+                    <button id="applyFilters" class="btn w-100 mt-3" type="button">
+                      Apply filters
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="card card-cats-menu">
+                  <div class="card-body">
+                    <ul id="cats-list" class="list-group list-group-flush"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>
+<!-- Finish Main Info Section -->
+
     <script src="frontend/vendor/fontAwesome5/all.min.js"></script>
     <script src="frontend/vendor/Bootstrap/bootstrap.bundle.min.js"></script>
 </body>

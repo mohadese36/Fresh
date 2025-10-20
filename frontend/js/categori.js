@@ -231,7 +231,7 @@ function renderGroupedProducts(grouped, headingOverride) {
       ${headingOverride ? '' : `<h2 class="product-category">${categoryName}</h2>`}
       <div class="row g-3 g-md-4">
         ${(grouped[categoryName] || []).map(prod => `
-          <div class="col-12 col-sm-6">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
             <a href="product.html?id=${prod.id}" class="related-products__card-link text-decoration-none">
               <div class="product-box__main product-card shadow-sm h-100">
                 <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid related-products__card-img">
@@ -431,3 +431,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
+// این بخش برای  دگمه فیلتر در بریک پوینتهای کوچکتر است 
+
+document.addEventListener('DOMContentLoaded', function () {
+  const oc = document.getElementById('filtersOffcanvas');
+  const btn = document.getElementById('filtersToggleBtn');
+
+  // Bootstrap پس از close، دوباره فوکوس را روی دکمه می‌گذارد.
+  // با یک delay کوتاه، بلافاصله blur می‌کنیم و فوکوس را موقتاً به body می‌دهیم.
+  oc.addEventListener('hidden.bs.offcanvas', function () {
+    setTimeout(function () {
+      if (btn) {
+        btn.blur();
+        btn.classList.remove('active','show','focus');
+      }
+      // انتقال فوکوس به body تا هیچ استایل فوکوسی روی دکمه باقی نماند
+      document.body.setAttribute('tabindex','-1');
+      document.body.focus();
+      document.body.removeAttribute('tabindex');
+    }, 0);
+  });
+});

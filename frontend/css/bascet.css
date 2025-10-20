@@ -225,7 +225,7 @@
     margin:1rem 0;
   }
   /* استیکی لازم نیست؛ اگر خواستی فعال کن: */
-  /* .mini-basket{ position:sticky; top:.5rem; } */
+  .mini-basket{ position:sticky; top:.5rem; }
 }
 
 
