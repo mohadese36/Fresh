@@ -83,37 +83,7 @@ body {background: var(--meat-cream-100) ;}
   color: color-mix(in srgb, var(--surface-1), transparent 10%);
 }
 
-/* سرچ‌بار: قرصی + ریسپانسیو */
-.Landing__searchBar{
-  width: min(720px, 92%);
-  position: relative;
-  margin: clamp(1.5rem, 4vw, 3.5rem) auto 0;
-}
-.Landing__searchBar-input{
-  width:100%;
-  padding: 1.05rem 3.75rem 1.05rem 1.2rem;
-  border:1px solid var(--border-1);
-  background: rgba(255,255,255,.9);
-  border-radius: 999px;
-  font-size: 1rem;
-}
-.Landing__searchBar-input::placeholder{ color: var(--ink-400); }
-/* .Landing__searchBar-input:focus{
-  outline:0;
-  box-shadow: 0 0 0 3px var(--btn-primary-ring);
-} */
-.Landing__searchBar-btn{
-  position:absolute; inset-inline-end:.4rem; top:50%;
-  translate: 0 -50%;
-  width: 2.75rem; height: 2.75rem; border-radius:999px;
-  display:grid; place-items:center;
-  border:0; background: var(--btn-primary); color:#fff;
-  box-shadow: 0 6px 14px rgba(31,127,55,.22);
-  transition: background-color .2s ease, transform .06s ease;
-}
-.Landing__searchBar-btn:hover{ background: var(--btn-primary-hover); }
-.Landing__searchBar-btn:active{ transform: translateY(1px); }
-.Landing__searchBar-icon{ font-size:1.25rem; color:#fff; }
+
 
 /* حداکثر عرض لایه‌ی محتوا */
 .main-content-products{ max-width:1260px; margin:0 auto; }
@@ -121,11 +91,72 @@ body {background: var(--meat-cream-100) ;}
 /* =========================
    Home Carousel (hero slider)
    ========================= */
+
+   /* بخشgood afternoon */
+   /* 🎯 استایل بخش خوش‌آمد */
+.text-center.mb-3 {
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
+  margin-bottom: clamp(2rem, 3vw, 3rem);
+
+}
+
+
+/* ✨ تیتر اصلی */
+.h1-32 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--brand-700);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 3px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.75rem;
+
+  /* background: linear-gradient(90deg, var(--brand-700), var(--brand-400));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow:
+  0 2px 4px rgba(0,0,0,0.35),
+  0 0 8px rgba(255,255,255,0.12); */
+}
+
+/* ✨ توضیح زیر تیتر */
+.text-center.mb-3 .lead {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--brand-800);
+  font-weight: 400;
+}
+
+.text-center.mb-3 .lead a {
+  color: var(--meat-yellow-600);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.text-center.mb-3 .lead a:hover {
+  color: var(--meat-brown-700);
+  text-decoration: underline;
+}
+
+   /*  */
 #carouselHomePage{
-  position:relative; overflow:hidden;
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-lg);
   background: var(--surface-1);
-  box-shadow: var(--shadow-md);
+  border-radius: 1.25rem; /* 🔹 گوشه‌های نرم‌تر و لوکس‌تر */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.05),
+      rgba(0, 0, 0, 0.05)
+    ),
+    var(--meat-cream-50); /* 🔹 ته‌مایه گرمی برای پس‌زمینه */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25), /* 🔹 سایه اصلی برای عمق */
+    0 4px 8px rgba(0, 0, 0, 0.15),   /* 🔹 سایه نرم‌تر زیر لبه */
+    inset 0 2px 4px rgba(255, 255, 255, 0.15); /* 🔹 برجستگی داخلی */
+  overflow: hidden; /* 🔹 برای هماهنگی لبه‌ها */
+  transition: all 0.3s ease;
 }
 
 /* اگر دو ستون (عکس/متن) کنار هم داری */
@@ -133,54 +164,248 @@ body {background: var(--meat-cream-100) ;}
 .slide-text-WEF{ width:50%; }
 
 /* تصویر ریسپانسیو با نسبت معقول */
-.slide-img-WEF{
-  width:100%;
+.slide-text-WEF {
+  width: 50%;
   height: clamp(280px, 38vw, 420px);
-  object-fit:cover; display:block;
-  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* border-radius: var(--radius-lg); */
 }
 
 /* کنترل‌های قبلی/بعدی — مینیمال، دایره‌ای */
-.carousel-control-prev-WEF,
+/* .carousel-control-prev-WEF,
 .carousel-control-next-WEF{
   position:absolute; top:50%; translate:0 -50%;
   width:40px; height:40px; border-radius:50%;
   display:grid; place-items:center;
-  background: rgba(31,41,55,.55); /* ink-900 با شفافیت */
-  color:#fff; border:0; cursor:pointer;
+  background: rgba(31,41,55,.55); 
+  color:#091dcd !important; border:0; cursor:pointer;
   transition: filter .2s ease, transform .06s ease;
   z-index:2;
-}
-.carousel-control-prev-WEF:hover,
-.carousel-control-next-WEF:hover{ filter: brightness(1.1); }
-.carousel-control-prev-WEF:active,
-.carousel-control-next-WEF:active{ transform: translateY(-50%) scale(.98); }
-/* جای دکمه‌ها */
-.carousel-control-prev-WEF{ inset-inline-start: .75rem; }
-.carousel-control-next-WEF{ inset-inline-end: .75rem; }
+} */
 
-/* ایندیکاتورها: نقطه‌های کوچک برند */
-.carousel-indicators-WEF{
-  position:absolute; inset-inline:0; bottom: .75rem;
-  display:flex; justify-content:center; gap:.5rem; z-index:2;
+.carousel-item:nth-child(1) .slide-text-WEF {
+  background-image: url("../images/landing/green-landing-1.jpg");
 }
-.carousel-indicators-WEF button{
-  width:10px; height:10px; border-radius:50%; border:0; padding:0;
-  background: rgba(255,255,255,.55);
-  cursor:pointer; transition: transform .15s ease, background-color .2s ease;
+.carousel-item:nth-child(2) .slide-text-WEF {
+  background-image: url("../images/landing/orange-landing-2.jpg");
 }
-.carousel-indicators-WEF button.active{
+.carousel-item:nth-child(3) .slide-text-WEF {
+  background-image: url("../images/landing/red-landing-3.jpg");
+}
+.carousel-item:nth-child(4) .slide-text-WEF {
+  background-image: url("../images/landing/roux-landing-4.jpg");
+}
+/* .carousel-item:nth-child(5) .slide-text-WEF {
+  background-image: url("../images/landing/white-texture-2.webp");
+  color: var(--ink-900);
+} */
+/* مطمئن شو متن بالاتر از تصویر قرار می‌گیره */
+.carousel-home-row { position: relative; }
+.slide-text-WEF { position: relative; z-index: 3; }
+.slide-img-WEF__container { position: relative; z-index: 1; }
+
+/* اگه تصویر یا ظرفش روی متن افتاده، کلیک‌ها ازش عبور کنن */
+.slide-img-WEF__container,
+.slide-img-WEF__container .slide-img-WEF,
+.slide-img-WEF__container img {
+  pointer-events: none;
+}
+
+/* لینک‌ها داخل کاروسل حتماً کلیک‌پذیر باشن */
+#carouselHomePage a,
+#carouselHomePage .btn {
+  pointer-events: auto !important;
+}
+
+
+
+/* 🧠 تایپوگرافی و سه‌بعدی شدن متن */
+.slide-text-WEF h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem); /* 🔸 کمی بزرگ‌تر و چشم‌گیرتر */
+  font-weight: 700;
+  margin-bottom: clamp(0.85rem, 2vw, 1.4rem);
+  color: var(--meat-cream-50) !important;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    0 0 6px rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.01em; /* 🔸 کمی فاصله بین حروف برای جذابیت */
+  line-height: 1.3; /* 🔸 متراکم‌تر از پاراگراف تا تاکیدش بیشتر شه */
+  transition: all 0.3s ease;
+}
+
+
+
+.slide-text-WEF p {
+  max-width: 50ch; /* 🔹 عرض محدود و شیک برای متن */
+  margin-inline: auto;
+  font-size: clamp(1.15rem, 1.9vw, 1.4rem); /* 🔹 کمی درشت‌تر ولی نه زیاد */
+  line-height: 1.75;
+  font-weight: 300; /* 🔹 نازک و لوکس‌تر */
+  color: rgba(255, 255, 245, 0.95); /* 🔹 سفید گرم، نه سرد */
+  letter-spacing: 0.02em; /* 🔹 کمی فاصله برای ظرافت */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.25);
+  margin-bottom: clamp(0.8rem, 2vw, 1.3rem);
+  transition: all 0.3s ease;
+}
+
+/* برای موبایل */
+@media (max-width: 576px) {
+  .slide-text-WEF p {
+    max-width: 42ch;
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+    line-height: 1.65;
+  }
+}
+
+
+/* .slide-text-WEF p {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.7;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.35),
+    0 3px 8px rgba(0,0,0,0.25);
+  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+} */
+
+/* 🧈 دکمه‌ها */
+.slide-text-WEF .btn {
+  border-radius: var(--radius-md);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.2rem, 2vw, 1.8rem);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* دکمه روشن */
+.slide-text-WEF .btn-light {
+  background: var(--meat-cream-50);
+  color: var(--meat-red-700);
+}
+.slide-text-WEF .btn-light:hover {
+  background: var(--meat-yellow-600);
+  color: var(--ink-900);
+  transform: translateY(-2px);
+}
+
+/* دکمه سبز برند */
+.slide-text-WEF .btn-green-logo {
   background: var(--brand-600);
-  transform: scale(1.25);
+  color: #fff;
+}
+.slide-text-WEF .btn-green-logo:hover {
+  background: var(--brand-700);
+  transform: translateY(-2px);
 }
 
-/* موبایل: عکس بالا، متن پایین؛ کنترل‌ها کوچکتر */
-@media (max-width:768px){
-  .carousel-home-row{ flex-direction:column; }
-  .slide-img-WEF{ order:-1; height: 300px; }
-  .slide-text-WEF{ order:1; padding: 15px; margin: 10px; }
+
+/* ظرف تصویر */
+.slide-img-WEF__container {
+  width: 50%;
+  overflow: hidden;
+  /* border-radius: var(--radius-lg); */
+  position: relative;
+}
+
+/* تصویر اصلی */
+.slide-img-WEF {
+  width: 100%;
+  height: clamp(280px, 38vw, 420px);
+  object-fit: cover;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: var(--radius-lg); */
+  /* transition: transform 6s ease, filter 1.5s ease; */
+}
+
+/* افکت زوم ملایم و طبیعی */
+.carousel-item.active .slide-img-WEF {
+  /* transform: scale(1.05); */
+  /* filter: brightness(0.95) contrast(1.05); */
+}
+
+/* برای هماهنگی کامل بین متن و عکس */
+.carousel-home-row {
+  display: flex;
+  align-items: stretch;
+}
+/* 🎯 Indicators (pagination dots) */
+.carousel-indicators-WEF {
+  position: absolute;
+  inset-inline: 0;
+  bottom: clamp(0.5rem, 1vw, 1rem);
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  z-index: 5;
+  background: none !important;
+}
+
+/* نقطه‌های معمولی */
+.carousel-indicators-WEF button {
+  width: clamp(16px, 2.4vw, 24px);
+  height: clamp(16px, 2.4vw, 24px);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25) !important;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border: none;
+}
+
+/* دکمه فعال */
+.carousel-indicators-WEF button.active {
+  /* width: clamp(16px, 2.4vw, 24px) !important; */
+  height: clamp(16px, 2.4vw, 24px) !important;
+  border-radius: 50%;
+  background: var(--meat-yellow-600) !important; /* ✨ فقط رنگ پس‌زمینه تغییر می‌کند */
+  border: none !important;
+  box-shadow: none !important; /* ❌ بدون سایه */
+  transform: none !important; /* ❌ بدون بزرگ شدن */
+}
+
+
+/* 📱 نسخه موبایل */
+@media (max-width: 768px) {
+  .carousel-home-row { flex-direction: column; }
+  .slide-img-WEF__container,
+  .slide-text-WEF {
+    width: 100%;
+  }
+  .slide-img-WEF {
+    height: clamp(220px, 45vw, 320px);
+    border-radius: var(--radius-md);
+  }
+}
+
+/* 📱 ریسپانسیو موبایل */
+@media (max-width: 768px) {
+  .carousel-home-row { flex-direction: column; }
+  .slide-img-WEF__container,
+  .slide-text-WEF {
+    width: 100%;
+  }
+  .slide-img-WEF { order: -1; height: 300px; }
+  .slide-text-WEF { order: 1; padding: 15px; margin: 10px; }
   .carousel-control-prev-WEF,
-  .carousel-control-next-WEF{ width:32px; height:32px; }
+  .carousel-control-next-WEF {
+    width: 32px; height: 32px;
+  }
 }
 
 /* =========================
