@@ -1,0 +1,102 @@
+
+/* =========================
+   Later Products & Articles
+   ========================= */
+.products,
+.articles{ margin: 4rem 0; padding: 0 2rem; }
+.products-header,
+.articles-header{ display:flex; align-items:center; justify-content:space-between; }
+
+.products-header__right,
+.articles-header__right{ display:flex; flex-direction:column; align-items:center; }
+
+.products-header__text,
+.articles-header__text{
+  color: var(--ink-600);
+  font-size: 1.1rem;
+}
+.products-header__text::before,
+.articles-header__text::before{ content:""; }
+
+/* دکمه‌ی «مشاهده همه» مطابق پالت */
+.products-header__link,
+.articles-header__link{
+  display:flex; align-items:center; gap:.6rem;
+  background: var(--btn-primary); color:#fff;
+  padding:.5rem .9rem; border-radius: .6rem;
+  font-weight:600; letter-spacing:.2px; border:0;
+  transition: background-color .2s ease, transform .06s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 14px rgba(31,127,55,.18);
+}
+.products-header__link:hover,
+.articles-header__link:hover{ background: var(--btn-primary-hover); }
+.products-header__link:active,
+.articles-header__link:active{ transform: translateY(1px); }
+
+/* =========================
+   About Us
+   ========================= */
+.about-us{ margin: 6rem 0; }
+.about-us__header{ display:flex; flex-direction:column; }
+.about-us__subtitle{ color: var(--ink-600); font-size:1.1rem; }
+
+.about-us__box{
+  display:flex; align-items:center; gap:1rem;
+  background: var(--surface-1);
+  border:1px solid var(--border-1);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  margin: 2rem 0; padding: 1.25rem 1rem;
+}
+.about-us__icon{ color: var(--brand-600); font-size: 3.5rem; }
+.about-us__box-left{ display:flex; flex-direction:column; }
+.about-us__box-title{ font-weight: 800; font-size: 1.25rem; color: var(--ink-900); }
+
+/* =========================
+   Popular / Presell sections
+   ========================= */
+.popular, .presell{ margin: 5rem 0; }
+.presell__slider, .popular__slider{ margin: 2.5rem 0; position:relative; }
+.popular__slider .product-box,
+.presell__slider .product-box{
+  margin: 0 1.1rem;
+  box-shadow: 0 0 10px rgba(168,172,185,.3);
+  border-radius: var(--radius-md);
+}
+.popular__slider .product-box:hover,
+.presell__slider .product-box{ transform:none; }
+
+/* =========================
+   Article Card
+   ========================= */
+.article-card{
+  margin: 3rem 0; border-radius: var(--radius-lg);
+  background: var(--surface-1); border:1px solid var(--border-1);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.article-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.article-card__img{ border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.article-card__content{ padding: 1rem 1.25rem 1.5rem; }
+.article-card__link{ font-weight:800; color: var(--brand-600); text-decoration:none; }
+.article-card__link:hover{ color: var(--brand-700) !important; }
+.article-card__text{ color: var(--ink-600); font-size: 1rem; padding: .6rem 0 1rem; }
+
+.article-card__btn{
+  background: var(--btn-primary); color:#f007cd;
+  font-size: .95rem; font-weight:700; border:0;
+  padding:.5rem .9rem; border-radius:.6rem;
+  transition: background-color .2s ease, transform .06s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 14px rgba(31,127,55,.18);
+}
+.article-card__btn:hover{ background: var(--btn-primary-hover); }
+.article-card__btn:active{ transform: translateY(1px); }
+
+/* =========================
+   Helpers
+   ========================= */
+.title{
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  color: var(--ink-900);
+  font-weight: 800; line-height:1.2; position:relative;
+}

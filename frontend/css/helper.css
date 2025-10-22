@@ -54,11 +54,11 @@ h2::after {
   transition: transform 0.5s ease;
 }
 
-h2:hover::after,
+/* h2:hover::after,
 h3.section-title:hover::after,
 .product-title:hover::after {
   transform: scaleX(1);
-}
+} */
 
 
 /* ⭐ FIXED GOLD STARS STYLE */
@@ -215,11 +215,11 @@ h3.section-title:hover::after,
 /*  */
 
 /* نوار زیر تیتر در featured-products*/
-#special-offers .featured-section__title::after,
+/* #special-offers .featured-section__title::after,
 #best-sellers .featured-section__title::after,
 #new-arrivals .featured-section__title::after,
 #discounted-products .featured-section__title::after,
 #organic-healthy-products .featured-section__title::after,
 #products-with-unique-features .featured-section__title::after {
   display: none;
-}
+} */

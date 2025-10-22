@@ -13,6 +13,7 @@ body {
     /* direction: rtl; */
     background: #FAF7E8;
 }
+body {background: var(--meat-cream-100) ;}
 
 *,
 *::after,
@@ -43,6 +44,73 @@ i {
   } */
 
 /* Finish default styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ==== Pagination for special-offers ==== */
 

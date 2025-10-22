@@ -114,7 +114,8 @@
   }
 /* product-category */
 
-  .product-category {
+  .product-category,
+  .why-title {
     text-align: center !important;
     display: block !important;
     margin-inline: auto;

@@ -31,5 +31,35 @@
 }
 
 
+@font-face {
+  font-family: 'SweetCreamy-Regular';
+  src: url('../fonts/IRANSans/Sweet\ Creamy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SweetCreamy-Regular-OTF';
+  src: url('../fonts/IRANSans/Sweet\ Creamy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SweetCreamy-Italic';
+  src: url('../fonts/IRANSans/Sweet\ Creamy\ Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SweetCreamy-Italic-OTF';
+  src: url('../fonts/IRANSans/Sweet\ Creamy\ Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* //////////////////// */
+
 
 

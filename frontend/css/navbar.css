@@ -1,4 +1,10 @@
 
+header.header{
+  --hero-ratio: 1920 / 289;                  
+  --nav-h: clamp(48px, 5.5vw, 64px); 
+  --search-row-space: 0px;    
+}
+
 .main-header__content {
   display: flex;
   align-items: center !important;
