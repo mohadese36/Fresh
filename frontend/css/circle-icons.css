@@ -5,12 +5,12 @@
     text-align: center;
 }
 
-.circle-links__container {
+/* .circle-links__container {
     display: flex;
     justify-content: center;
     gap: 4rem;
     flex-wrap: wrap;
-}
+} */
 
 /* لینک هر آیتم */
 .circle-links__item {
@@ -22,13 +22,13 @@
 .circle-links__icon {
     width: 80px;
     height: 80px;
-    border: 4px solid var(--meat-brown-500);        /* قهوه‌ای گرم */
+    border: 4px solid var(--meat-brown-500);       
     border-radius: 50%;
-    background: var(--meat-cream-50);               /* کرم روشن */
+    background: var(--meat-cream-50);              
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 14px rgba(16,24,40,.12);      /* سایه نرم */
+    box-shadow: 0 6px 14px rgba(16,24,40,.12);      
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     cursor: pointer;
 }

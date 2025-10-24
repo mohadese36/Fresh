@@ -10,16 +10,17 @@
 @import "helper.css";
 @import "breadcrumb.css";
 @import "sidebar-productBox.css";
-@import "bascet.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "search.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "responsive.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "product.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "circle-icons.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "checkout.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "cart.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
-@import "blog.css";              /* ← صفحهٔ آرشیو (آخر بیاد تا بر بقیه غلبه کند) */          
+@import "bascet.css";                     
+@import "search.css";                    
+@import "responsive.css";                    
+@import "product.css";                 
+/* @import "circle-icons.css";                    */
+@import "checkout.css";                   
+@import "cart.css";                      
+@import "blog.css";            
 @import "categori.css";   
 @import "featured-products.css";   
+@import "ourMenu.css";   
 
 
 
@@ -59,6 +60,24 @@
 /* =========================
    Home Carousel (hero slider)
    ========================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    /* بخشgood afternoon */
    /* 🎯 استایل بخش خوش‌آمد */

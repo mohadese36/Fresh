@@ -17,38 +17,6 @@ observer.observe(document.body, {
 });
 
 
-////////اسکرول///////
-
-// (function () {
-//   const header = document.querySelector('header.header');
-
-//   // دو آستانه: یکی برای فعال‌شدن، یکی برای برگشت
-//   const ENTER = 80; // بعد از این مقدار، جمع شود
-//   const EXIT  = 30; // وقتی برگشتیم اینقدر بالا، به حالت عادی برگرد
-
-//   let shrunk = false;   // وضعیت فعلی
-//   let rafId = null;     // برای rAF throttle
-
-//   function update() {
-//     const y = window.scrollY || document.documentElement.scrollTop || 0;
-
-//     if (!shrunk && y > ENTER) {
-//       header.classList.add('is-scrolled');
-//       shrunk = true;
-//     } else if (shrunk && y < EXIT) {
-//       header.classList.remove('is-scrolled');
-//       shrunk = false;
-//     }
-//     rafId = null;
-//   }
-
-//   function onScroll() {
-//     if (rafId == null) rafId = requestAnimationFrame(update);
-//   }
-
-//   update();
-//   window.addEventListener('scroll', onScroll, { passive: true });
-// })();
 
 
 (function () {
