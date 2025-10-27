@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -----------------------------------
-  // 2. پر کردن داده‌های داینامیک واقعی
+
   // -----------------------------------
   function fillMobileTabs() {
     const latestDesktopList = document.getElementById("latest-articles-list");
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -----------------------------------
-  // 3. صبر کن تا محتواهای واقعی لود شن
+
   // -----------------------------------
   const observer = new MutationObserver(() => {
     const hasArticles = document.querySelector("#latest-articles-list li");
@@ -211,3 +211,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////
+
+/* Newsletter mini-validation + live a11y feedback */

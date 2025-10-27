@@ -69,11 +69,68 @@ document.addEventListener("DOMContentLoaded", () => {
 /////////////
 
 
-/* ✅ اسکریپت فعال‌سازی انیمیشن بنر آفر فقط هنگام ورود به دید کاربر */
+/* فوتر*/
 
 
+  // Tiny email validation with aria-live feedback
+  // (function(){
+  // const form = document.getElementById('newsletterForm');
+  // const email = document.getElementById('email');
+  // const live = form.querySelector('.newsletter__live');
+
+  //   form.addEventListener('submit', function(e){
+  //     e.preventDefault();
+  //     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+  //     if(!ok){
+  //       live.textContent = 'Please enter a valid email address.';
+  //       email.focus();
+  //       email.setAttribute('aria-invalid', 'true');
+  //     }else{
+  //       live.textContent = 'Thanks! Please check your inbox to confirm.';
+  //       email.value = '';
+  //       email.removeAttribute('aria-invalid');
+  //     }
+  //   });
+  // })();
 
 
+(function () {
+  const form  = document.getElementById('newsletterForm');
+  const email = document.getElementById('email');
+  const live  = form.querySelector('.newsletter__live');
 
+  let successTimer = null;
 
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // ایمیل معتبر؟
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+
+    // هر پیام/تایمر قدیمی را پاک کن
+    if (successTimer) {
+      clearTimeout(successTimer);
+      successTimer = null;
+    }
+    live.classList.remove('is-error', 'is-success');
+
+    if (!ok) {
+      live.textContent = 'Please enter a valid email address.';
+      live.classList.add('is-error');
+      email.setAttribute('aria-invalid', 'true');
+      email.focus();
+    } else {
+      live.textContent = 'Thanks! Please check your inbox to confirm.';
+      live.classList.add('is-success');
+      email.value = '';
+      email.removeAttribute('aria-invalid');
+
+      // پیام موفقیت بعد از چند ثانیه حذف شود
+      successTimer = setTimeout(() => {
+        live.textContent = '';
+        live.classList.remove('is-success');
+      }, 3500); // هر عددی خواستی (میلی‌ثانیه)
+    }
+  });
+})();
 

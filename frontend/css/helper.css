@@ -1,24 +1,26 @@
 
 
 html {
-  scroll-behavior: smooth; /* اسکرول نرم بین بخش‌ها */
+  scroll-behavior: smooth; 
 }
 
 body {
-  animation: softLoad 0.8s ease-out; /* محو نرم هنگام لود */
+  animation: softLoad 0.8s ease-out; 
 }
 
 @keyframes softLoad {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.product-details-container:hover,
+
+
+/* .product-details-container:hover,
 .related-products__card:hover,
 .you-may-also-like__card:hover {
   box-shadow: 0 8px 24px rgba(39, 113, 43, 0.18), 
-              0 0 10px rgba(46, 125, 50, 0.15);
+  0 0 10px rgba(46, 125, 50, 0.15);
   transform: translateY(-4px);
-}
+} */
 
 .product-image img,
 .related-products__card-img,
@@ -34,9 +36,9 @@ body {
 }
 /*  */
 
-/*  */
 
-h2, h3.section-title, .product-title {
+
+/* h2, h3.section-title, .product-title {
   position: relative;
   display: inline-block;
 }
@@ -52,7 +54,7 @@ h2::after {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease;
-}
+} */
 
 /* h2:hover::after,
 h3.section-title:hover::after,
@@ -63,8 +65,6 @@ h3.section-title:hover::after,
 
 /* ⭐ FIXED GOLD STARS STYLE */
 .rating-stars {
-  display: flex;
-  align-items: center;
   gap: clamp(0.25rem, 0.4vw, 0.4rem);
   margin-bottom: clamp(0.6rem, 0.8vw, 0.8rem);
   line-height: 1;
@@ -74,23 +74,13 @@ h3.section-title:hover::after,
 .rating-stars .fa-star,
 .rating-stars .fa-star-half-alt,
 .rating-stars .fa-star-half-stroke {
-  color: var(--amber-500) !important; /* 💛 طلایی برند */
+  color: var(--amber-500) !important; /* 💛 */
   font-size: clamp(1.1rem, 1.3vw, 1.4rem);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, color 0.2s ease;
   display: inline-block;
 }
 
-/* در هاور کمی براق‌تر و درخشان‌تر می‌شه */
-.rating-stars i:hover {
-  color: var(--amber-600) !important;
-  transform: scale(1.2);
-}
-.rating-count {
-  font-size: clamp(0.85rem, 0.9vw, 1rem);
-  color: var(--ink-500);
-  margin-left: 0.3rem;
-}
 
 /* === Fade-in Animation (Global) === */
 .fade-in {
@@ -103,113 +93,6 @@ h3.section-title:hover::after,
   opacity: 1;
   transform: translateY(0);
 }
-
-
-
-
-/* featured-products */
-/* فقط درون اسلایدر */
-#special-offers .related-products__card-rating,
-#new-arrivals .related-products__card-rating,
-#best-sellers .related-products__card-rating,
-#discounted-products .related-products__card-rating,
-#organic-healthy-products .related-products__card-rating,
-#products-with-unique-features .related-products__card-rating {
-  position: absolute;
-  top: clamp(110px, 18vw, 175px);
-  z-index: 3;
-}
-
-
-/* فقط برای اسلایدر – پنهان بودن در حالت عادی */ 
-/* card-rating */
-#special-offers .swiper-slide .related-products__card-rating,
-#new-arrivals .related-products__card-rating,
-#best-sellers .swiper-slide .related-products__card-rating,
-#discounted-products .related-products__card-rating,
-#organic-healthy-products .related-products__card-rating,
-#products-with-unique-features .related-products__card-rating {
-  opacity: 0;
-  visibility: hidden;
-}
-#special-offers .swiper-slide:hover .related-products__card-rating,
-#new-arrivals .related-products__card:hover .related-products__card-rating,
-#best-sellers .swiper-slide:hover .related-products__card-rating,
-#discounted-products .related-products__card:hover .related-products__card-rating,
-#organic-healthy-products .related-products__card:hover .related-products__card-rating,
-#products-with-unique-features .related-products__card:hover .related-products__card-rating {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: none;
-  transform: translateY(-6px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  z-index: 3;
-}
-
-/* card-seller */
-#special-offers .swiper-slide .related-products__card-seller,
-#new-arrivals .related-products__card-seller,
-#best-sellers .swiper-slide .related-products__card-seller,
-#discounted-products .related-products__card-seller,
-#organic-healthy-products .related-products__card-seller,
-#products-with-unique-features .related-products__card-seller {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-6px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-#special-offers .swiper-slide:hover .related-products__card-seller,
-#new-arrivals .related-products__card:hover .related-products__card-seller,
-#best-sellers .swiper-slide:hover .related-products__card-seller,
-#discounted-products .related-products__card:hover .related-products__card-seller,
-#organic-healthy-products .related-products__card:hover .related-products__card-seller,
-#products-with-unique-features .related-products__card:hover .related-products__card-seller{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*  */

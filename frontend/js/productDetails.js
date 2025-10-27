@@ -32,7 +32,7 @@ async function fetchProductDetails(productId) {
   }
 
   displayProductDetails(data);
-  displayProductTabs(data);
+  displayProductTabs(data);ظ
   // initAddToCart(data); 
 }
 

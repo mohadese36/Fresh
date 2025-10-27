@@ -1,30 +1,4 @@
 
-/* index.css — Root aggregator. Only @imports here */
-@import "variables.css";             /* ← پالت و توکن‌ها اینجاست */
-@import "fonts.css";
-@import "top-bar.css";
-@import "navbar.css";
-@import "defaults.css";
-@import "footer.css";
-@import "product-box.css";
-@import "helper.css";
-@import "breadcrumb.css";
-@import "sidebar-productBox.css";
-@import "bascet.css";                     
-@import "search.css";                    
-@import "responsive.css";                    
-@import "product.css";                 
-/* @import "circle-icons.css";                    */
-@import "checkout.css";                   
-@import "cart.css";                      
-@import "blog.css";            
-@import "categori.css";   
-@import "featured-products.css";   
-@import "ourMenu.css";   
-
-
-
-
 
 
 
@@ -61,24 +35,6 @@
    Home Carousel (hero slider)
    ========================= */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    /* بخشgood afternoon */
    /* 🎯 استایل بخش خوش‌آمد */
 .text-center.mb-3 {
@@ -99,12 +55,6 @@
     0 3px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.75rem;
 
-  /* background: linear-gradient(90deg, var(--brand-700), var(--brand-400));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-text-shadow:
-  0 2px 4px rgba(0,0,0,0.35),
-  0 0 8px rgba(255,255,255,0.12); */
 }
 
 /* ✨ توضیح زیر تیتر */
@@ -166,17 +116,6 @@ text-shadow:
   /* border-radius: var(--radius-lg); */
 }
 
-/* کنترل‌های قبلی/بعدی — مینیمال، دایره‌ای */
-/* .carousel-control-prev-WEF,
-.carousel-control-next-WEF{
-  position:absolute; top:50%; translate:0 -50%;
-  width:40px; height:40px; border-radius:50%;
-  display:grid; place-items:center;
-  background: rgba(31,41,55,.55); 
-  color:#091dcd !important; border:0; cursor:pointer;
-  transition: filter .2s ease, transform .06s ease;
-  z-index:2;
-} */
 
 .carousel-item:nth-child(1) .slide-text-WEF {
   background-image: url("../images/landing/green-landing-1.jpg");
@@ -190,10 +129,7 @@ text-shadow:
 .carousel-item:nth-child(4) .slide-text-WEF {
   background-image: url("../images/landing/roux-landing-4.jpg");
 }
-/* .carousel-item:nth-child(5) .slide-text-WEF {
-  background-image: url("../images/landing/white-texture-2.webp");
-  color: var(--ink-900);
-} */
+
 /* مطمئن شو متن بالاتر از تصویر قرار می‌گیره */
 .carousel-home-row { position: relative; }
 .slide-text-WEF { position: relative; z-index: 3; }
@@ -256,15 +192,6 @@ text-shadow:
 }
 
 
-/* .slide-text-WEF p {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.7;
-  text-shadow:
-    0 1px 2px rgba(0,0,0,0.35),
-    0 3px 8px rgba(0,0,0,0.25);
-  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
-} */
-
 /* 🧈 دکمه‌ها */
 .slide-text-WEF .btn {
   border-radius: var(--radius-md);
@@ -289,15 +216,6 @@ text-shadow:
   transform: translateY(-2px);
 }
 
-/* دکمه سبز برند */
-/* .slide-text-WEF .btn-green-logo {
-  background: var(--brand-600);
-  color: #fff;
-}
-.slide-text-WEF .btn-green-logo:hover {
-  background: var(--brand-700);
-  transform: translateY(-2px);
-} */
 
 
 /* ظرف تصویر */
@@ -318,8 +236,6 @@ text-shadow:
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border-radius: var(--radius-lg); */
-  /* transition: transform 6s ease, filter 1.5s ease; */
 }
 
 
@@ -398,119 +314,6 @@ text-shadow:
 }
 
 
-
-
-/* ==== Font Import: Modern, Professional ==== */
-/* @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap'); */
-
-.parallax-section {
-  position: relative;
-  background:
-  /* linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),  */
-   linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
-  url('../images/landing/special-offers-bg.jpg') center center / cover no-repeat fixed;
-  min-height: clamp(300px, 48vh, 520px);
-  display: flex;
-  align-items: center;
-  color: var(--meat-cream-50);
-  z-index: 1;
-  /* font-family: 'Inter', sans-serif; */
-  margin-top: clamp(4rem, 6vw, 8rem);
-  margin-bottom: clamp(5.5rem, 9vw, 11rem);
-
-}
-
-.parallax-overlay {
-  width: 100%;
-    padding-block: clamp(3rem, 10vh, 6rem); /* More vertical breathing */
-
-}
-
-.parallax-content {
-  max-width: clamp(320px, 60%, 680px);
-  text-align: left;
-  padding-inline: clamp(1.5rem, 6vw, 5rem);
-  margin-top: clamp(1.5rem, 4vh, 3rem); /* if content feels cramped */
-}
-
-section + section {
-  margin-top: clamp(3rem, 8vh, 5rem); /* spacing between sections */
-}
-
-.parallax-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1.2;
-  /* color: var(--meat-yellow-500); */
-  margin-bottom: clamp(1rem, 2vw, 1.6rem);
-  /* text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.45); */
-
-  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-red-600));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow:
-    0 2px 3px rgba(0,0,0,0.4),
-    0 0 5px rgba(255, 200, 0, 0.4);
-
-
-}
-
-.parallax-text {
-  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
-  line-height: 1.7;
-  font-weight: 500;
-  color: var(--meat-cream-50);
-  padding: clamp(0.4rem, 1vw, 0.6rem) 0;
-  border-radius: 6px;
-}
-
-/* Button remains untouched */
-.btn-parallax-light {
-  display: inline-block;
-  background: var(--meat-cream-50);
-  color: var(--meat-red-700);
-  border: 1px solid var(--meat-red-700);
-  padding: clamp(0.65rem, 1.6vw, 0.9rem) clamp(1.4rem, 3.2vw, 1.8rem);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.btn-parallax-light:hover {
-  background: var(--amber-100);
-  color: var(--meat-red-700);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  transform: translateY(-2px);
-}
-
-/* Responsive tweak */
-@media (max-width: 768px) {
-  .parallax-content {
-    padding-inline: clamp(1rem, 6vw, 2.5rem);
-  }
-
-  .parallax-title {
-    font-size: clamp(2rem, 7vw, 2.8rem);
-    text-align: center;
-  }
-
-  .parallax-text {
-    text-align: center;
-  }
-
-  .btn-parallax-light {
-    display: block;
-    margin-inline: auto;
-    margin-top: clamp(1rem, 2vh, 2rem);
-  }
-}
-
-
-
 /* ==== Why Choose Us - Enhanced Style ==== */
 
 
@@ -586,3 +389,251 @@ section + section {
   color: var(--meat-red-600);
 }
 
+
+
+/* ==== Font Import: Modern, Professional ==== */
+
+.parallax-section {
+  position: relative;
+  background:
+  /* linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),  */
+   linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
+  url('../images/landing/special-offers-bg.jpg') center center / cover no-repeat fixed;
+  min-height: clamp(300px, 48vh, 520px);
+  display: flex;
+  align-items: center;
+  color: var(--meat-cream-50);
+  z-index: 1;
+  /* font-family: 'Inter', sans-serif; */
+  margin-top: clamp(4rem, 6vw, 8rem);
+  margin-bottom: clamp(5.5rem, 9vw, 11rem);
+
+}
+
+.parallax-overlay {
+  width: 100%;
+    padding-block: clamp(3rem, 10vh, 6rem); /* More vertical breathing */
+
+}
+
+.parallax-content {
+  max-width: clamp(320px, 60%, 680px);
+  text-align: left;
+  padding-inline: clamp(1.5rem, 6vw, 5rem);
+  margin-top: clamp(1.5rem, 4vh, 3rem); /* if content feels cramped */
+}
+
+/* section + section {
+  margin-top: clamp(3rem, 8vh, 5rem); 
+} */
+
+.parallax-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  /* color: var(--meat-yellow-500); */
+  margin-bottom: clamp(1rem, 2vw, 1.6rem);
+  /* text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.45); */
+
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-red-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0,0,0,0.4),
+    0 0 5px rgba(255, 200, 0, 0.4);
+
+
+}
+
+.parallax-text {
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--meat-cream-50);
+  padding: clamp(0.4rem, 1vw, 0.6rem) 0;
+  border-radius: 6px;
+}
+
+/* Button remains untouched */
+.btn-parallax-light {
+  display: inline-block;
+  background: var(--meat-cream-50);
+  color: var(--meat-red-700);
+  border: 1px solid var(--meat-red-700);
+  padding: clamp(0.65rem, 1.6vw, 0.9rem) clamp(1.4rem, 3.2vw, 1.8rem);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-parallax-light:hover {
+  background: var(--amber-100);
+  color: var(--meat-red-700);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .parallax-content {
+    padding-inline: clamp(1rem, 6vw, 2.5rem);
+  }
+
+  .parallax-title {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    text-align: center;
+  }
+
+  .parallax-text {
+    text-align: center;
+  }
+
+  .btn-parallax-light {
+    display: block;
+    margin-inline: auto;
+    margin-top: clamp(1rem, 2vh, 2rem);
+  }
+}
+
+
+
+/* 🌿 SUBSCRIBE SECTION (Final Clean Version) */
+
+.subscribe-section{
+  background: var(--bg-cream);
+}
+
+.subscribe-card{
+  background: var(--brand-100);
+  border: 1px solid var(--card-accent-border);
+  border-radius: clamp(10px, 2vw, var(--radius-lg));
+  box-shadow: var(--shadow-sm);
+}
+
+.subscribe-badge{
+  font-size: clamp(12px, 1.6vw, 14px);
+  background: var(--badge-sale-bg);
+  color: var(--badge-sale-text);
+  padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px);
+}
+
+.subscribe-title{
+  /* color: var(--heading-olive); */
+   color: var(--brand-600);
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: clamp(20px, 3.2vw, 32px); 
+  margin-bottom: clamp(24px, 4vw, 36px) !important;
+}
+
+.subscribe-subtitle{
+  color: var(--ink-600);
+  font-size: clamp(13px, 2vw, 15px);
+   margin-bottom: clamp(20px, 3vw, 28px) !important;
+}
+
+/* Placeholder ها: ایتالیک و کمرنگ */
+.form-control::placeholder{
+  font-style: italic;
+  color: var(--ink-400);
+  opacity: 1; /* برای اعمال شدن رنگ در کروم */
+  font-size: clamp(12px, 1.7vw, 13px);
+}
+
+.form-label{
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: var(--amber-600);
+}
+
+.form-control{
+  border-radius: clamp(8px, 1.6vw, var(--radius-md));
+  border-color: var(--border-1);
+  padding: clamp(10px, 2.3vw, 12px) clamp(12px, 2.4vw, 14px);
+  font-size: clamp(14px, 2.2vw, 16px);
+}
+
+.form-check-label{
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: var(--ink-600);
+}
+
+/* چک‌باکس: هم‌رنگ پالت، کمی بزرگ‌تر و هم‌تراز با متن کنار خود */
+.form-check{
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.4vw, 10px);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 1px var(--meat-yellow-500);
+  border-color: var(--brand-400);
+}
+
+/* کارت: کمی فضای بالایی تا حس «به پایین چسبیده» از بین بره */
+.subscribe-card{
+  padding-top: clamp(22px, 3.6vw, 32px);
+}
+
+.subscribe-btn {
+  padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 28px);
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-600), var(--meat-yellow-600));
+  color: var(--surface-1);
+  font-weight: 700;
+  font-size: clamp(13px, 2vw, 15px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+#subscribeSpinner{
+  width: clamp(18px, 4vw, 20px);
+  height: clamp(18px, 4vw, 20px);
+  border-width: clamp(2px, .5vw, 3px);
+  color: var(--btn-primary);
+}
+
+#subscribeAlert{
+  font-size: clamp(13px, 2vw, 14px);
+  border-radius: clamp(8px, 1.6vw, var(--radius-md));
+}
+
+.subscribe-perks li{
+  background: var(--chip-selected-bg);
+  border: 1px dashed var(--meat-brown-500);
+  padding: clamp(6px, 1.8vw, 10px) clamp(10px, 2.6vw, 14px);
+  border-radius: clamp(10px, 2vw, var(--radius-lg));
+  color: var(--meat-brown-700);
+  font-size: clamp(12px, 1.8vw, 14px);
+}
+
+/* Visual area */
+.subscribe-visual{
+  display: grid;
+  place-items: center;
+  padding: clamp(8px, 2vw, 16px);
+}
+
+.subscribe-gif{
+  /* border-radius: clamp(12px, 2.4vw, 18px); */
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.subscribe-accent{
+  position: absolute;
+  inset: auto 0 0 auto;
+  transform: translate(12%, 18%);
+  width: clamp(120px, 24vw, 220px);
+  opacity: .12;
+  pointer-events: none;
+}

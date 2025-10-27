@@ -2,6 +2,7 @@
 
 import { supabase } from './supabaseClient.js';
 
+
 const input = document.querySelector('#main-search');
 if (!input) {
   console.warn('search.js: .Landing__searchBar-input not found on this page.');

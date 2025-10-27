@@ -46,13 +46,14 @@
 
 
   /* Browns */
-  --meat-brown-500:#b7884e;  /* brown */
+  
   
 
   /* Yellows */
   --meat-yellow-400:#ffff00; /* color_secondary-04 */
   --meat-yellow-500:#ffc300; /* color_secondary-04 */
   --meat-yellow-600:#fcb917; /* border-button */
+  --meat-brown-500:#b7884e;  /* brown */
   --meat-brown-700: #323232; /* Very dark brown – like dark chocolate */
 
 

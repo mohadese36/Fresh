@@ -126,14 +126,14 @@
   cursor: pointer;
 }
 
-.circle-links__icon svg {
-  /* width: clamp(26px, 3.5vw, 36px);
+/* .circle-links__icon svg {
+  width: clamp(26px, 3.5vw, 36px);
   height: auto;
   fill: var(--meat-olive-800);
   transition: all 0.3s ease; */
-  /* background: var(--brand-100); */
+  /* background: var(--brand-100);
 
-}
+} */
 
 .circle-links__item:hover .circle-links__icon {
   transform: translateY(-4px);
@@ -375,116 +375,7 @@
 
 
 
-/* 🌿 SUBSCRIBE SECTION (Final Clean Version) */
-.subscribe-section {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--brand-100) 95%, white),
-    color-mix(in srgb, var(--brand-200) 90%, var(--meat-cream-50))
-  );
-  padding: clamp(50px, 8vw, 100px) 0;
-  text-align: center;
-  border-top: 2px solid color-mix(in srgb, var(--meat-yellow-600) 30%, transparent);
-}
 
-.subscribe-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(20px, 5vw, 60px);
-}
-
-.subscribe-content {
-  flex: 1 1 400px;
-  max-width: 700px;
-  padding: 0 clamp(16px, 3vw, 24px);
-  text-align: center;
-}
-
-/* گیف سمت راست */
-.subscribe-image {
-  flex: 1 1 240px;
-  text-align: center;
-}
-
-.subscribe-image img {
-  width: clamp(120px, 22vw, 200px);
-  height: auto;
-  object-fit: contain;
-  border-radius: var(--radius-md);
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.12));
-}
-
-/* متن‌ها و فرم */
-.subscribe-title {
-  font-size: clamp(22px, 3.2vw, 36px);
-  font-weight: 800;
-  color: var(--brand-600);
-  margin-bottom: clamp(8px, 1.2vw, 12px);
-}
-
-.subscribe-text {
-  color: var(--ink-700);
-  font-size: clamp(14px, 2vw, 16px);
-  margin-bottom: clamp(26px, 4vw, 40px);
-  line-height: 1.6;
-}
-
-/* فرم و دکمه */
-.subscribe-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(10px, 2vw, 14px);
-}
-
-.subscribe-input {
-  flex: 1 1 280px;
-  padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 20px);
-  border-radius: 999px;
-  border: 2px solid var(--brand-300);
-  background: var(--surface-1);
-  font-size: clamp(13px, 2vw, 15px);
-  color: var(--ink-900);
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.subscribe-input:focus {
-  border-color: var(--brand-600);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-600) 25%, transparent);
-}
-
-.subscribe-btn {
-  padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 28px);
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--brand-600), var(--meat-yellow-600));
-  color: #fff;
-  font-weight: 700;
-  font-size: clamp(13px, 2vw, 15px);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.subscribe-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-}
-
-.subscribe-note {
-  margin-top: clamp(18px, 2vw, 26px);
-  font-size: clamp(12px, 1.8vw, 14px);
-  color: var(--ink-500);
-}
-
-/* 📱 موبایل */
-@media (max-width: 768px) {
-  .subscribe-wrapper {
-    flex-direction: column;
-  }
-}
 
 
 

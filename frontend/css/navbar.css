@@ -12,15 +12,16 @@ header.header{
 
   /* تغییر فقط رنگ‌ها */
   /* background: var(--meat-olive-800);                     */
+  /* background: var( --meat-red-600);   */
   background: var(--brand-900);  
-  /* background: var(--meat-red-800);   */
+  /* background: var(--accent-red-100);   */
   /* opacity: 0.9; */
   color: var(--amber-100);                          
   position: relative;
   /* border-bottom: 0.5rem solid var(--meat-yellow-600);   
   border-top:    0.5rem solid var(--meat-yellow-600);    */
-  border-bottom: 0.5rem solid var(--amber-600);   
-  border-top:    0.5rem solid var(--amber-600);    
+  border-bottom: 0.5rem solid var(--meat-brown-500);   
+  border-top:    0.5rem solid var(--meat-brown-500);    
 
   .main-header__menu {
     display: flex ;
@@ -50,7 +51,8 @@ header.header{
     padding: 1rem 0 0.5rem;
     cursor: pointer;
     transition: transform 0.25s ease-in-out;
-
+    color: var(--amber-100);
+    font-weight: 800;
     .main-header__dropdown {
       display: none;
       width: 100vw;
