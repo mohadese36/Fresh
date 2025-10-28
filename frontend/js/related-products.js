@@ -1,215 +1,241 @@
+// ✅ related-products.js (نسخه اصلاح‌شده)
+// related-products.js — نسخه‌ی پایدار با دیباگ و fallback
 import { supabase } from './supabaseClient.js';
 
-// گرفتن ID محصول از URL
-const urlParams = new URLSearchParams(window.location.search);
-const productId = parseInt(urlParams.get('id'));
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id'); // رشته‌ای نگه می‌داریم (ممکنه UUID باشد)
 
-async function loadRelatedProducts() {
-  if (!productId) return;
+  console.log('[related] productId from URL =', productId);
+  if (!productId) return renderEmpty('No product id in URL.');
 
-  // گرفتن category_id محصول
-  const { data: product, error: productError } = await supabase
-    .from('products')
-    .select('category_id')
-    .eq('id', productId)
-    .single();
+  loadRelatedProducts(productId);
+});
 
-  if (productError || !product) {
-    console.error('خطا در دریافت دسته محصول:', productError);
-    return;
+function renderEmpty(msg) {
+  const container = document.getElementById('related-products-container');
+  if (!container) return;
+  console.warn('[related] empty:', msg);
+  container.innerHTML = `<p class="text-muted mb-4">No related products found.</p>`;
+}
+
+async function loadRelatedProducts(productId) {
+  try {
+    // 1) گرفتن دسته‌ی محصول فعلی
+    const { data: product, error: productError } = await supabase
+      .from('products')
+      .select('id, name, category_id')
+      .eq('id', productId)
+      .maybeSingle();
+
+    if (productError) {
+      console.error('[related] product fetch error:', productError);
+      return renderEmpty('Product fetch error.');
+    }
+    if (!product) {
+      return renderEmpty('Product not found.');
+    }
+
+    console.log('[related] current product:', product);
+
+    // 2) اگر category_id نداشت → fallback
+    if (!product.category_id) {
+      console.warn('[related] product has no category_id; using fallback list.');
+      const { data: fallback, error: fbErr } = await supabase
+        .from('products')
+        .select('*')
+        .neq('id', productId)
+        .limit(4);
+
+      if (fbErr) {
+        console.error('[related] fallback error:', fbErr);
+        return renderEmpty('Fallback query failed.');
+      }
+      return renderRelatedProducts(fallback || []);
+    }
+
+    // 3) دریافت محصولات مرتبطِ همان دسته
+    const { data: relatedProducts, error: relatedError } = await supabase
+      .from('products')
+      .select('*')
+      .eq('category_id', product.category_id)
+      .neq('id', productId)
+      .limit(4);
+
+    if (relatedError) {
+      console.error('[related] related fetch error:', relatedError);
+      return renderEmpty('Related fetch error.');
+    }
+
+    console.log('[related] relatedProducts:', relatedProducts);
+    if (!relatedProducts || relatedProducts.length === 0) {
+      return renderEmpty('No related in same category.');
+    }
+
+    renderRelatedProducts(relatedProducts);
+  } catch (e) {
+    console.error('[related] unexpected error:', e);
+    renderEmpty('Unexpected error.');
   }
-
-  const { data: relatedProducts, error: relatedError } = await supabase
-    .from('products')
-    .select('*')
-    .eq('category_id', product.category_id)
-    .neq('id', productId)
-    .limit(4);
-
-  if (relatedError) {
-    console.error('خطا در دریافت محصولات مرتبط:', relatedError);
-    return;
-  }
-
-  renderRelatedProducts(relatedProducts);
 }
 
 function truncateText(text, maxLength) {
-  if (!text) return "No description available.";
-  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  if (!text) return 'No description available.';
+  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 }
 
 function renderRelatedProducts(products) {
   const container = document.getElementById('related-products-container');
   if (!container) {
-    console.error('Container for related products not found!');
+    console.error('[related] container not found!');
     return;
   }
 
-  container.innerHTML = ''; // پاکسازی قبل از افزودن کارت‌ها
+  container.innerHTML = '';
 
   products.forEach(p => {
-  // 🔹 تعیین طول توضیحات بر اساس عرض صفحه
-  let descLimit;
+    // طول توضیح نسبت به عرض صفحه
+    let descLimit;
+    if (window.innerWidth <= 480) descLimit = 160;
+    else if (window.innerWidth <= 768) descLimit = 130;
+    else if (window.innerWidth <= 1024) descLimit = 190;
+    else descLimit = 60;
 
-  if (window.innerWidth <= 480) {
-    descLimit = 160; // 📱 موبایل کوچک
-  } else if (window.innerWidth <= 768) {
-    descLimit = 130; // 📲 موبایل بزرگ / تبلت عمودی
-  } else if (window.innerWidth <= 1024) {
-    descLimit = 190; // 💻 تبلت افقی / لپ‌تاپ کوچک
-  } else {
-    descLimit = 60; // 🖥 دسکتاپ
-  }
-
-  // 🔹 ساخت ساختار کارت
-  const colDiv = document.createElement('div');
-  colDiv.className = 'col-md-6 col-lg-3 mb-4';
-  colDiv.innerHTML = `
-    <a href="product.html?id=${p.id}" class="related-products__card-link">
-      <div class="related-products__card shadow-sm">
-
-        <!-- ✅ تصویر و برچسب‌ها -->
-        <div class="related-products__card-img-wrapper">
-          <img src="${p.image_url || 'images/products/placeholder.webp'}"
-               class="img-fluid related-products__card-img"
-               alt="${p.name}">
-          
-          <div class="related-products__card-seller">Top Seller</div>
-          <div class="related-products__card-rating">
-            <i class="fa-solid fa-star"></i> ${p.rating || "4.5"}
+    const colDiv = document.createElement('div');
+    colDiv.className = 'col-md-6 col-lg-3 mb-4';
+    colDiv.innerHTML = `
+      <a href="product.html?id=${p.id}" class="related-products__card-link text-decoration-none">
+        <div class="related-products__card shadow-sm h-100">
+          <div class="related-products__card-img-wrapper">
+            <img src="${p.image_url || 'images/products/placeholder.webp'}"
+                 class="img-fluid related-products__card-img"
+                 alt="${p.name}">
+            <div class="related-products__card-seller">Top Seller</div>
+            <div class="related-products__card-rating">
+              <i class="fa-solid fa-star"></i> ${p.rating || '4.5'}
+            </div>
+          </div>
+          <div class="related-products__card-body text-center">
+            <h5 class="related-products__card-title">${p.name}</h5>
+            <p class="related-products__card-text">${truncateText(p.description, descLimit)}</p>
+            <span class="related-products__card-price text-danger fw-bold">$${p.price || '0.00'}</span>
           </div>
         </div>
-
-        <!-- ✅ بدنه‌ی کارت -->
-        <div class="related-products__card-body text-center">
-          <h5 class="related-products__card-title">${p.name}</h5>
-          <p class="related-products__card-text">${truncateText(p.description, descLimit)}</p>
-          <span class="related-products__card-price text-danger fw-bold">
-            $${p.price || "0.00"}
-          </span>
-        </div>
-      </div>
-    </a>
-  `;
-  container.appendChild(colDiv);
+      </a>
+    `;
+    container.appendChild(colDiv);
   });
-
-  // products.forEach(p => {
-  // const colDiv = document.createElement('div');
-  // colDiv.className = 'col-md-6 col-lg-3 mb-4';
-  // colDiv.innerHTML = `
-  //   <a href="product.html?id=${p.id}" class="related-products__card-link">
-  //     <div class="related-products__card shadow-sm">
-        
-  //       <!-- ✅ بسته مخصوص تصویر -->
-  //       <div class="related-products__card-img-wrapper">
-  //         <img src="${p.image_url || 'images/products/placeholder.webp'}"
-  //              class="img-fluid related-products__card-img"
-  //              alt="${p.name}">
-          
-  //         <!-- نوار بالا و امتیاز -->
-  //         <div class="related-products__card-seller">Top Seller</div>
-  //         <div class="related-products__card-rating">
-  //           <i class="fa-solid fa-star"></i> ${p.rating || "4.5"}
-  //         </div>
-  //       </div>
-
-  //       <!-- بدنه‌ی کارت -->
-  //       <div class="related-products__card-body text-center">
-  //         <h5 class="related-products__card-title">${p.name}</h5>
-  //         <p class="related-products__card-text">${truncateText(p.description, 70)}</p>
-  //         <span class="related-products__card-price text-danger fw-bold">
-  //           $${p.price || "0.00"}
-  //         </span>
-  //       </div>
-  //     </div>
-  //   </a>
-  // `;
-  // container.appendChild(colDiv);
-  // });
-
-  // products.forEach(p => {
-  //   const colDiv = document.createElement('div');
-  //   colDiv.className = 'col-md-6 col-lg-3 mb-4';
-  //   colDiv.innerHTML = `
-  //     <a href="product.html?id=${p.id}" class="related-products__card-link">
-  //       <div class="related-products__card shadow-sm">
-  //         <img src="${p.image_url || 'images/products/placeholder.webp'}" class="img-fluid related-products__card-img" alt="${p.name}">
-  //         <div class="related-products__card-meta">
-  //           <ul>
-  //             <li class="related-products__card-seller">Top Seller</li>
-  //             <li class="related-products__card-rating"><i class="fa-solid fa-star"></i> ${p.rating || "4.5"}</li>
-  //           </ul>
-  //         </div>
-  //         <div class="related-products__card-body text-center">
-  //           <h5 class="related-products__card-title">${p.name}</h5>
-  //           <p class="related-products__card-text">${truncateText(p.description, 50)}</p>
-  //           <span class="related-products__card-price text-danger fw-bold">$${p.price || "0.00"}</span>
-  //         </div>
-  //       </div>
-  //     </a>
-  //   `;
-  //   container.appendChild(colDiv);
-  // });
 }
 
-loadRelatedProducts();
 
-///////////// بخش You May Also Like
 
-// import { supabase } from './supabaseClient.js';
-// import { supabase } from './supabaseClient.js';
-
-document.addEventListener('DOMContentLoaded', async () => {
+// ------------------- بخش "You May Also Like" (هوشمند و ایزوله) -------------------
+(function initYouMayAlsoLike() {
   const container = document.getElementById('youMayAlsoLikeContainer');
   if (!container) return;
 
-  try {
-    // ✅ گرفتن محصولات مربوط به گروه Special Offers (id = 1)
-    const { data, error } = await supabase
-      .from('featured_group_products')
-      .select(`
-        product_id,
-        products (
-          id,
-          name,
-          image_url,
-          price,
-          description
-        )
-      `)
-      .eq('featured_group_id', 1)
+  const params = new URLSearchParams(location.search);
+  const productId = params.get('id');
+
+  // توابع کمکی داخلی (ایزوله از بقیه فایل)
+  function render(cards) {
+    container.innerHTML = cards.map(p => `
+      <div class="you-may-also-like__card">
+        <a href="product.html?id=${p.id}" class="text-decoration-none">
+          <img src="${p.image_url || 'images/products/placeholder.webp'}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p class="price">$${parseFloat(p.price || 0).toFixed(2)}</p>
+        </a>
+      </div>
+    `).join('');
+
+    // دکمه‌های اسلایدر (بعد از رندر کارت‌ها وصل شوند)
+    const slider = document.querySelector('.you-may-also-like__slider');
+    const btnPrev = document.querySelector('.slider-btn.prev');
+    const btnNext = document.querySelector('.slider-btn.next');
+
+    if (slider && btnPrev && btnNext) {
+      btnPrev.onclick = () => slider.scrollBy({ left: -300, behavior: 'smooth' });
+      btnNext.onclick = () => slider.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  }
+
+  async function fallbackFromFeatured() {
+    try {
+      const { data, error } = await supabase
+        .from('featured_group_products')
+        .select(`
+          product_id,
+          products ( id, name, image_url, price, description )
+        `)
+        .eq('featured_group_id', 1)
+        .limit(6);
+
+      if (error || !data?.length) {
+        container.innerHTML = `<p class="text-muted">No suggestions available.</p>`;
+        return;
+      }
+      render(data.map(x => x.products));
+    } catch {
+      container.innerHTML = `<p class="text-muted">No suggestions available.</p>`;
+    }
+  }
+
+  async function loadSmart() {
+    if (!productId) return fallbackFromFeatured();
+
+    // 1) محصول فعلی
+    const { data: current, error: currErr } = await supabase
+      .from('products')
+      .select('id, price, category_id')
+      .eq('id', productId)
+      .maybeSingle();
+
+    if (currErr || !current) return fallbackFromFeatured();
+
+    // اگر دسته ندارد → fallback قدیمی
+    if (!current.category_id || current.price == null) return fallbackFromFeatured();
+
+    const minPrice = Number(current.price) * 0.8;
+    const maxPrice = Number(current.price) * 1.2;
+
+    // 2) هم‌دسته + نزدیک قیمت
+    const { data: byCatAndPrice, error: relErr } = await supabase
+      .from('products')
+      .select('id, name, image_url, price, description')
+      .eq('category_id', current.category_id)
+      .neq('id', productId)
+      .gte('price', minPrice)
+      .lte('price', maxPrice)
       .limit(6);
 
-    if (error) throw error;
-
-    if (!data || data.length === 0) {
-      container.innerHTML = `<p style="color:#b91c1c; font-weight:600;">⚠️ No offers found.</p>`;
+    if (!relErr && byCatAndPrice?.length) {
+      render(byCatAndPrice);
       return;
     }
 
-    // ✅ ساخت کارت‌های محصولات آفر
-    const cardsHTML = data.map(item => {
-      const p = item.products;
-      return `
-        <div class="you-may-also-like__card">
-          <img src="${p.image_url}" alt="${p.name}">
-          <h3>${p.name}</h3>
-          <p class="price">$${p.price}</p>
-        </div>
-      `;
-    }).join('');
+    // 3) اگر چیزی نبود → فقط هم‌دسته
+    const { data: byCat, error: catErr } = await supabase
+      .from('products')
+      .select('id, name, image_url, price, description')
+      .eq('category_id', current.category_id)
+      .neq('id', productId)
+      .limit(6);
 
-    container.innerHTML = cardsHTML;
+    if (!catErr && byCat?.length) {
+      render(byCat);
+      return;
+    }
 
-  } catch (err) {
-    console.error('Error loading Special Offers:', err);
-    container.innerHTML = `<p style="color:#b91c1c; font-weight:600;">⚠️ Failed to load offers.</p>`;
+    // 4) آخرین انتخاب → fallback قدیمی
+    fallbackFromFeatured();
   }
-});
 
-// Slider buttons
+  loadSmart();
+})();
+
+
+// دکمه‌های اسلایدر
 const slider = document.querySelector('.you-may-also-like__slider');
 const btnPrev = document.querySelector('.slider-btn.prev');
 const btnNext = document.querySelector('.slider-btn.next');
@@ -222,5 +248,3 @@ if (slider && btnPrev && btnNext) {
     slider.scrollBy({ left: 300, behavior: 'smooth' });
   });
 }
-
-

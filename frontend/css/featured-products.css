@@ -189,7 +189,9 @@
 #discounted-products,
 #organic-healthy-products,
 #products-with-unique-features {
-  padding-bottom: clamp(2rem, 5vw, 6rem); /* 🟢 فاصله‌ی واکنش‌گرا از پایین */
+  padding-bottom: clamp(2rem, 5vw, 6rem); 
+  /* padding: clamp(2rem, 5vw, 6rem) 0;  */
+  margin: 0 !important;
 }
 
 /* =========================================================

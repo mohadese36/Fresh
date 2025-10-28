@@ -100,15 +100,20 @@ export async function updateBasketUI() {
         <!-- تصویر -->
         <td class="side-basket-thumb">
           <a href="/p/${p.id}/">
-            <img src="${getImageSrc(p)}" alt="${p.name || ''}"
-              style="width:56px;height:56px;object-fit:cover;border-radius:8px;display:block"
-              onerror="this.onerror=null;this.src='./images/products/deli-2880w.jpg';">
+          <img src="${getImageSrc(p)}" alt="${p.name || ''}"
+            onerror="this.onerror=null;this.src='./images/products/deli-2880w.jpg';">
           </a>
         </td>
 
         <!-- نام محصول -->
         <td class="side-basket-name">
           <a href="/p/${p.id}/" class="text-brown">${p.name || '—'}</a>
+        </td>
+
+        <!-- قیمت واحد -->
+        <td class="side-basket-unitprice">
+          <div class="mobile-label">Price</div>
+          <div class="value">£${unit.toFixed(2)}</div>
         </td>
 
         <!-- تعداد -->
@@ -121,11 +126,7 @@ export async function updateBasketUI() {
           </div>
         </td>
 
-        <!-- قیمت واحد -->
-        <td class="side-basket-unitprice">
-          <div class="mobile-label">Price</div>
-          <div class="value">£${unit.toFixed(2)}</div>
-        </td>
+
 
         <!-- مجموع + حذف -->
         <td class="side-basket-footer">

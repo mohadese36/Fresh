@@ -108,39 +108,7 @@ async function loadProductsForSection(sectionId, label) {
 }
 
 // 🔁 Global متغیر نگهدارنده
-// function initSwiper(sectionId) {
-//   let selector = '';
-//   if (sectionId === 'special-offers') selector = '.mySwiper';
-//   if (!selector) return;
 
-//   new Swiper(selector, {
-//     slidesPerView: 1,
-//     spaceBetween: 16,
-//     loop: true,
-//     pagination: {
-//       el: `${selector} .swiper-pagination`,
-//       clickable: true,
-//     },
-//     autoplay: {
-//       delay: 2800,
-//       disableOnInteraction: false,
-//     },
-//     breakpoints: {
-//       576: {
-//         slidesPerView: 2,
-//         spaceBetween: 20,
-//       },
-//       768: {
-//         slidesPerView: 3,
-//         spaceBetween: 24,
-//       },
-//       992: {
-//         slidesPerView: 4,
-//         spaceBetween: 24,
-//       },
-//     }
-//   });
-// }
 function initSwiper(sectionId) {
   let selector = '';
   if (sectionId === 'special-offers') selector = '.mySwiper';
