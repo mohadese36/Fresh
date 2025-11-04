@@ -259,7 +259,12 @@ right: clamp(-80px, -4vw, -68px);
    ========================================================= */
 #organic-healthy-products {
   background-image: url("../images/landing/pencil-meat-pattern-bg-light-green-02.png");
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+
+
 }
+
 
 #organic-healthy-products h2 {
   background: linear-gradient(90deg, var(--brand-700), var(--brand-400));

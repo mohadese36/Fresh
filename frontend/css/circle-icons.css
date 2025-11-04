@@ -22,7 +22,7 @@
 .circle-links__icon {
     width: 80px;
     height: 80px;
-    border: 4px solid var(--meat-brown-500);       
+    border: 4px solid var(--amber-700) !important;       
     border-radius: 50%;
     background: var(--meat-cream-50);              
     display: flex;
@@ -36,7 +36,7 @@
 /* هاور: تغییر پس‌زمینه به گرادیانت برند */
 .circle-links__icon:hover {
     background: var(--grad-brand);                 /* گرادیانت سبز برند */
-    border-color: var(--brand-600);
+    border-color: 2px solid var(--brand-600);
     transform: translateY(-4px);
     box-shadow: 0 10px 24px rgba(16,24,40,.18);
 }

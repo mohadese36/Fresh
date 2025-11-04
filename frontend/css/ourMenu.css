@@ -115,7 +115,7 @@
   justify-content: center;
   width: clamp(58px, 7vw, 78px);
   height: clamp(58px, 7vw, 78px);
-  border: 4px solid var(--meat-brown-500);
+  /* border: 3px solid var(--amber-700); */
   border-radius: 50%;
   /* background: var(--brand-100); */
   /* background: var(--surface-1); */
@@ -142,9 +142,8 @@
 
 .circle-links__item.active .circle-links__icon {
   background: var(--chip-selected-bg);
-  /* border-color: var(--meat-yellow-600); */
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--meat-yellow-600) 80%, transparent);
-   border-color: rgba(182, 13, 13, 0.812);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--meat-yellow-600) 60%, transparent);
+   border: 3px solid var(--amber-700);
 }
 
 .circle-links__item.active svg {

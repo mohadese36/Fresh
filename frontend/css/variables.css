@@ -13,8 +13,9 @@
   --brand-100:#e7f3e8; --brand-200:#cfe7d1; --brand-400:#2e7d32; --brand-500:#27712b;
   --brand-600:#1f7f37; --brand-700:#17662a; --brand-800:#14532d; --brand-900:#1B3C01;
 
-  --accent-red-100:#fde8e8; --accent-red-500:#b91c1c; --accent-red-600:#a81616;
-  --amber-100:#fff3d6; --amber-500:#f59e0b; --amber-600:#d97706;
+  --accent-red-100:#fde8e8; --accent-red-500:#b91c1c; --accent-red-600:#a81616; --accent-red-700:#EB0029;
+  --amber-100:#fff3d6; --amber-500:#f59e0b; --amber-600:#d97706; --amber-700:#EB692B;
+
 
   --ink-900:#1f2937; --ink-700:#374151; --ink-600:#4b5563; --ink-500:#6b7280; --ink-400:#9ca3af;
 
@@ -55,6 +56,7 @@
   --meat-yellow-600:#fcb917; /* border-button */
   --meat-brown-500:#b7884e;  /* brown */
   --meat-brown-700: #323232; /* Very dark brown – like dark chocolate */
+  --meat-brown-800: #FECC48; 
 
 
 

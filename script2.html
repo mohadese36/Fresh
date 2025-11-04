@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Transparent Recolor & Download</title>
+<style>
+  body{background:#1e1e1e;color:#fff;text-align:center;font-family:sans-serif;padding:24px}
+  canvas{max-width:90vw;background:transparent;border:1px dashed #555;margin-top:1rem}
+  .swatch{width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;margin:5px}
+</style>
+</head>
+<body>
+<h2>🎨 Change Image Color (Keep Transparency)</h2>
+
+<input type="file" id="upload" accept="image/*"><br><br>
+
+<div id="palette">
+  <button class="swatch" data-color="#2ea043" style="background:#2ea043" title="Green"></button>
+  <button class="swatch" data-color="#ff7a00" style="background:#ff7a00" title="Orange"></button>
+  <button class="swatch" data-color="#e63946" style="background:#e63946" title="Red"></button>
+  <button class="swatch" data-color="#7a4a28" style="background:#7a4a28" title="Brown"></button>
+  <button class="swatch" data-color="#b87333" style="background:#b87333" title="Copper"></button>
+</div>
+
+<canvas id="canvas"></canvas><br>
+<button id="download">Download Recolored PNG</button>
+
+<script>
+const upload = document.getElementById('upload');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const palette = document.getElementById('palette');
+const downloadBtn = document.getElementById('download');
+
+let img = new Image();
+let tintColor = '#b87333'; // پیش‌فرض مسی
+
+function recolor() {
+  if (!img.complete || !img.naturalWidth) return;
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  
+  // 1. تصویر را بکش
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0);
+
+  // 2. داده‌ی پیکسلی را بگیر
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+
+  // 3. رنگ انتخابی را به RGB تبدیل کن
+  const hex = tintColor.replace('#', '');
+  const rTint = parseInt(hex.substring(0,2), 16);
+  const gTint = parseInt(hex.substring(2,4), 16);
+  const bTint = parseInt(hex.substring(4,6), 16);
+
+  // 4. برای هر پیکسل غیرشفاف، رنگ را تغییر بده
+  for (let i = 0; i < data.length; i += 4) {
+    const alpha = data[i + 3];
+    if (alpha > 10) { // فقط پیکسل‌های غیر شفاف
+      data[i] = (data[i] + rTint) / 2; // قرمز
+      data[i + 1] = (data[i + 1] + gTint) / 2; // سبز
+      data[i + 2] = (data[i + 2] + bTint) / 2; // آبی
+    }
+  }
+
+  // 5. داده را برگردان
+  ctx.putImageData(imageData, 0, 0);
+}
+
+upload.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  img = new Image();
+  img.onload = () => {
+    recolor();
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+});
+
+palette.addEventListener('click', e => {
+  const btn = e.target.closest('.swatch');
+  if (!btn) return;
+  tintColor = btn.dataset.color;
+  recolor();
+});
+
+downloadBtn.addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'recolored.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+});
+</script>
+</body>
+</html>

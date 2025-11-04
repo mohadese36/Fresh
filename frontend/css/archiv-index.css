@@ -1,102 +1,1292 @@
 
-/* =========================
-   Later Products & Articles
-   ========================= */
-.products,
-.articles{ margin: 4rem 0; padding: 0 2rem; }
-.products-header,
-.articles-header{ display:flex; align-items:center; justify-content:space-between; }
 
-.products-header__right,
-.articles-header__right{ display:flex; flex-direction:column; align-items:center; }
 
-.products-header__text,
-.articles-header__text{
-  color: var(--ink-600);
-  font-size: 1.1rem;
-}
-.products-header__text::before,
-.articles-header__text::before{ content:""; }
 
-/* دکمه‌ی «مشاهده همه» مطابق پالت */
-.products-header__link,
-.articles-header__link{
-  display:flex; align-items:center; gap:.6rem;
-  background: var(--btn-primary); color:#fff;
-  padding:.5rem .9rem; border-radius: .6rem;
-  font-weight:600; letter-spacing:.2px; border:0;
-  transition: background-color .2s ease, transform .06s ease, box-shadow .2s ease;
-  box-shadow: 0 6px 14px rgba(31,127,55,.18);
-}
-.products-header__link:hover,
-.articles-header__link:hover{ background: var(--btn-primary-hover); }
-.products-header__link:active,
-.articles-header__link:active{ transform: translateY(1px); }
 
 /* =========================
-   About Us
+   Landing / Hero
    ========================= */
-.about-us{ margin: 6rem 0; }
-.about-us__header{ display:flex; flex-direction:column; }
-.about-us__subtitle{ color: var(--ink-600); font-size:1.1rem; }
+.Landing{
+  /* تصویر + وِیل تیره خوانایی متن */
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("../images/products/deli-2880w.jpg") center/cover no-repeat fixed;
+  text-align:center;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  color: var(--surface-1); /* سفیدِ پالت */
+}
+.Landing__title{
+  font-weight: 800;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  letter-spacing:.2px;
+}
+.Landing__subTitle{
+  font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+  margin-top: 1rem;
+  color: color-mix(in srgb, var(--surface-1), transparent 10%);
+}
 
-.about-us__box{
-  display:flex; align-items:center; gap:1rem;
+
+
+/* حداکثر عرض لایه‌ی محتوا */
+.main-content-products{ max-width:1260px; margin:0 auto; }
+
+/* =========================
+   Home Carousel (hero slider)
+   ========================= */
+
+   /* بخشgood afternoon */
+   /* 🎯 استایل بخش خوش‌آمد */
+.text-center.mb-3 {
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
+  margin-bottom: clamp(2rem, 3vw, 3rem);
+
+}
+
+
+/* ✨ تیتر اصلی */
+.h1-32 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--brand-700);
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 3px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.75rem;
+
+}
+
+/* ✨ توضیح زیر تیتر */
+.text-center.mb-3 .lead {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--brand-800);
+  font-weight: 400;
+}
+
+.text-center.mb-3 .lead a {
+  color: var(--meat-yellow-600);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.text-center.mb-3 .lead a:hover {
+  color: var(--meat-brown-700);
+  text-decoration: underline;
+}
+
+   /*  */
+#carouselHomePage{
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
   background: var(--surface-1);
-  border:1px solid var(--border-1);
-  box-shadow: var(--shadow-sm);
+  border-radius: 1.25rem; /* 🔹 گوشه‌های نرم‌تر و لوکس‌تر */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.05),
+      rgba(0, 0, 0, 0.05)
+    ),
+    var(--meat-cream-50); /* 🔹 ته‌مایه گرمی برای پس‌زمینه */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25), /* 🔹 سایه اصلی برای عمق */
+    0 4px 8px rgba(0, 0, 0, 0.15),   /* 🔹 سایه نرم‌تر زیر لبه */
+    inset 0 2px 4px rgba(255, 255, 255, 0.15); /* 🔹 برجستگی داخلی */
+  overflow: hidden; /* 🔹 برای هماهنگی لبه‌ها */
+  transition: all 0.3s ease;
+}
+
+/* اگر دو ستون (عکس/متن) کنار هم داری */
+.slide-img-WEF__container{ width:50%; }
+.slide-text-WEF{ width:50%; }
+
+/* تصویر ریسپانسیو با نسبت معقول */
+.slide-text-WEF {
+  width: 50%;
+  height: clamp(280px, 38vw, 420px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* border-radius: var(--radius-lg); */
+}
+
+
+.carousel-item:nth-child(1) .slide-text-WEF {
+  background-image: url("../images/landing/green-landing-1.jpg");
+}
+.carousel-item:nth-child(2) .slide-text-WEF {
+  background-image: url("../images/landing/orange-landing-2.jpg");
+}
+.carousel-item:nth-child(3) .slide-text-WEF {
+  background-image: url("../images/landing/red-landing-3.jpg");
+}
+.carousel-item:nth-child(4) .slide-text-WEF {
+  background-image: url("../images/landing/roux-landing-4.jpg");
+}
+
+/* مطمئن شو متن بالاتر از تصویر قرار می‌گیره */
+.carousel-home-row { position: relative; }
+.slide-text-WEF { position: relative; z-index: 3; }
+.slide-img-WEF__container { position: relative; z-index: 1; }
+
+/* اگه تصویر یا ظرفش روی متن افتاده، کلیک‌ها ازش عبور کنن */
+.slide-img-WEF__container,
+.slide-img-WEF__container .slide-img-WEF,
+.slide-img-WEF__container img {
+  pointer-events: none;
+}
+
+/* لینک‌ها داخل کاروسل حتماً کلیک‌پذیر باشن */
+#carouselHomePage a,
+#carouselHomePage .btn {
+  pointer-events: auto !important;
+}
+
+
+
+/* 🧠 تایپوگرافی و سه‌بعدی شدن متن */
+.slide-text-WEF h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem); /* 🔸 کمی بزرگ‌تر و چشم‌گیرتر */
+  font-weight: 700;
+  margin-bottom: clamp(0.85rem, 2vw, 1.4rem);
+  color: var(--meat-cream-50) !important;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    0 0 6px rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.01em; /* 🔸 کمی فاصله بین حروف برای جذابیت */
+  line-height: 1.3; /* 🔸 متراکم‌تر از پاراگراف تا تاکیدش بیشتر شه */
+  transition: all 0.3s ease;
+}
+
+
+
+.slide-text-WEF p {
+  max-width: 50ch; /* 🔹 عرض محدود و شیک برای متن */
+  margin-inline: auto;
+  font-size: clamp(1.15rem, 1.9vw, 1.4rem); /* 🔹 کمی درشت‌تر ولی نه زیاد */
+  line-height: 1.75;
+  font-weight: 300; /* 🔹 نازک و لوکس‌تر */
+  color: rgba(255, 255, 245, 0.95); /* 🔹 سفید گرم، نه سرد */
+  letter-spacing: 0.02em; /* 🔹 کمی فاصله برای ظرافت */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.25);
+  margin-bottom: clamp(0.8rem, 2vw, 1.3rem);
+  transition: all 0.3s ease;
+}
+
+/* برای موبایل */
+@media (max-width: 576px) {
+  .slide-text-WEF p {
+    max-width: 42ch;
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+    line-height: 1.65;
+  }
+}
+
+
+/* 🧈 دکمه‌ها */
+.slide-text-WEF .btn {
   border-radius: var(--radius-md);
-  margin: 2rem 0; padding: 1.25rem 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.2rem, 2vw, 1.8rem);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
-.about-us__icon{ color: var(--brand-600); font-size: 3.5rem; }
-.about-us__box-left{ display:flex; flex-direction:column; }
-.about-us__box-title{ font-weight: 800; font-size: 1.25rem; color: var(--ink-900); }
 
-/* =========================
-   Popular / Presell sections
-   ========================= */
-.popular, .presell{ margin: 5rem 0; }
-.presell__slider, .popular__slider{ margin: 2.5rem 0; position:relative; }
-.popular__slider .product-box,
-.presell__slider .product-box{
-  margin: 0 1.1rem;
-  box-shadow: 0 0 10px rgba(168,172,185,.3);
-  border-radius: var(--radius-md);
+/* دکمه روشن */
+.slide-text-WEF .btn-light,
+.slide-text-WEF .btn-green-logo {
+  background: var(--meat-cream-50) !important;
+  color: var(--meat-red-700);
+
 }
-.popular__slider .product-box:hover,
-.presell__slider .product-box{ transform:none; }
-
-/* =========================
-   Article Card
-   ========================= */
-.article-card{
-  margin: 3rem 0; border-radius: var(--radius-lg);
-  background: var(--surface-1); border:1px solid var(--border-1);
-  box-shadow: var(--shadow-sm);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.article-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.article-card__img{ border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-.article-card__content{ padding: 1rem 1.25rem 1.5rem; }
-.article-card__link{ font-weight:800; color: var(--brand-600); text-decoration:none; }
-.article-card__link:hover{ color: var(--brand-700) !important; }
-.article-card__text{ color: var(--ink-600); font-size: 1rem; padding: .6rem 0 1rem; }
-
-.article-card__btn{
-  background: var(--btn-primary); color:#f007cd;
-  font-size: .95rem; font-weight:700; border:0;
-  padding:.5rem .9rem; border-radius:.6rem;
-  transition: background-color .2s ease, transform .06s ease, box-shadow .2s ease;
-  box-shadow: 0 6px 14px rgba(31,127,55,.18);
-}
-.article-card__btn:hover{ background: var(--btn-primary-hover); }
-.article-card__btn:active{ transform: translateY(1px); }
-
-/* =========================
-   Helpers
-   ========================= */
-.title{
-  font-size: clamp(1.3rem, 2.4vw, 2rem);
+.slide-text-WEF .btn-light:hover,
+.slide-text-WEF .btn-green-logo:hover {
+  background: var(--meat-yellow-600) !important;
   color: var(--ink-900);
-  font-weight: 800; line-height:1.2; position:relative;
+  transform: translateY(-2px);
+}
+
+
+
+/* ظرف تصویر */
+.slide-img-WEF__container {
+  width: 50%;
+  overflow: hidden;
+  /* border-radius: var(--radius-lg); */
+  position: relative;
+}
+
+/* تصویر اصلی */
+.slide-img-WEF {
+  width: 100%;
+  height: clamp(280px, 38vw, 420px);
+  object-fit: cover;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* برای هماهنگی کامل بین متن و عکس */
+.carousel-home-row {
+  display: flex;
+  align-items: stretch;
+}
+/* حالت پیش‌فرض (دسکتاپ و تبلت) */
+.carousel-indicators-WEF {
+  position: absolute;
+  inset-inline: 0;
+  bottom: clamp(0.5rem, 1vw, 1rem);
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  z-index: 5;
+  background: none !important;
+}
+
+.carousel-indicators-WEF button {
+  width: clamp(16px, 2.4vw, 24px);
+  height: clamp(16px, 2.4vw, 24px);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25) !important;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border: none;
+}
+
+.carousel-indicators-WEF button.active {
+  background: var(--meat-yellow-600) !important;
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
+}
+
+/* 📱 نسخه موبایل (max-width: 768px) */
+@media (max-width: 768px) {
+
+  .carousel-home-row { flex-direction: column; }
+  .slide-img-WEF__container,
+  .slide-text-WEF {
+    width: 100%;
+  }
+
+  .slide-img-WEF {
+    height: clamp(220px, 45vw, 320px);
+  }
+
+  .carousel-indicators-WEF {
+    bottom: clamp(0.3rem, 1.5vw, 0.8rem);
+    gap: 0.4rem;
+  }
+
+  .carousel-indicators-WEF button {
+    width: clamp(8px, 3vw, 12px);
+    height: clamp(8px, 3vw, 12px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    backdrop-filter: blur(2px);
+  }
+
+  .carousel-indicators-WEF button.active {
+    background: var(--meat-yellow-500) !important;
+  }
+
+  .slide-text-WEF .btn-green-logo {
+    margin-bottom: 3rem !important;
+}
+}
+@media (max-width: 340px) {
+  .carousel-indicators-WEF {
+    gap: 0;
+  }
+}
+
+
+/* ==== Why Choose Us - Enhanced Style ==== */
+
+
+.why-choose-us-section {
+  background: var(--bg-cream);
+  padding-block: clamp(4rem, 7vw, 9rem);
+  margin-block: clamp(6rem, 9vw, 11rem);
+}
+
+/* عنوان اصلی */
+.why-title {
+  /* text-align: center; */
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--meat-olive-800);
+  margin-bottom: clamp(2.5rem, 4vw, 3rem);
+  letter-spacing: 0.3px;
+}
+
+.why-title span {
+  background: linear-gradient(90deg, var(--meat-red-700), var(--meat-yellow-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* گرید کارت‌ها */
+.reasons-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(220px, 28vw, 280px), 1fr));
+  gap: clamp(1.8rem, 3vw, 2.5rem);
+  justify-items: center;
+}
+
+/* کارت‌ها */
+.reason-card {
+  background: var(--meat-cream-50);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.8rem, 3vw, 2.3rem);
+  text-align: center;
+  border: 1px solid var(--card-accent-border);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+
+.reason-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* تیتر داخل کارت */
+.reason-card h3 {
+  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--brand-900);
+  margin-bottom: clamp(0.6rem, 1.5vw, 1rem);
+}
+
+/* متن داخل کارت */
+.reason-card p {
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  color: var(--amber-600);
+  line-height: 1.65;
+  max-width: 90%;
+  margin-inline: auto;
+}
+
+/* افکت hover برای آیکون */
+.reason-card:hover i {
+  color: var(--meat-red-600);
+}
+
+
+
+/* ==== Font Import: Modern, Professional ==== */
+
+.parallax-section {
+  position: relative;
+  background:
+  /* linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),  */
+   linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
+  url('../images/landing/special-offers-bg.jpg') center center / cover no-repeat fixed;
+  min-height: clamp(300px, 48vh, 520px);
+  display: flex;
+  align-items: center;
+  color: var(--meat-cream-50);
+  z-index: 1;
+  /* font-family: 'Inter', sans-serif; */
+  margin-top: clamp(4rem, 6vw, 8rem);
+  margin-bottom: clamp(5.5rem, 9vw, 11rem);
+
+}
+
+.parallax-overlay {
+  width: 100%;
+    padding-block: clamp(3rem, 10vh, 6rem); /* More vertical breathing */
+
+}
+
+.parallax-content {
+  max-width: clamp(320px, 60%, 680px);
+  text-align: left;
+  padding-inline: clamp(1.5rem, 6vw, 5rem);
+  margin-top: clamp(1.5rem, 4vh, 3rem); /* if content feels cramped */
+}
+
+/* section + section {
+  margin-top: clamp(3rem, 8vh, 5rem); 
+} */
+
+.parallax-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  /* color: var(--meat-yellow-500); */
+  margin-bottom: clamp(1rem, 2vw, 1.6rem);
+  /* text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.45); */
+
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-red-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0,0,0,0.4),
+    0 0 5px rgba(255, 200, 0, 0.4);
+
+
+}
+
+.parallax-text {
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--meat-cream-50);
+  padding: clamp(0.4rem, 1vw, 0.6rem) 0;
+  border-radius: 6px;
+}
+
+/* Button remains untouched */
+.btn-parallax-light {
+  display: inline-block;
+  background: var(--meat-cream-50);
+  color: var(--meat-red-700);
+  border: 1px solid var(--meat-red-700);
+  padding: clamp(0.65rem, 1.6vw, 0.9rem) clamp(1.4rem, 3.2vw, 1.8rem);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-parallax-light:hover {
+  background: var(--amber-100);
+  color: var(--meat-red-700);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .parallax-content {
+    padding-inline: clamp(1rem, 6vw, 2.5rem);
+  }
+
+  .parallax-title {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    text-align: center;
+  }
+
+  .parallax-text {
+    text-align: center;
+  }
+
+  .btn-parallax-light {
+    display: block;
+    margin-inline: auto;
+    margin-top: clamp(1rem, 2vh, 2rem);
+  }
+}
+
+
+
+/* 🌿 LANDING BANERS SECTION */
+
+    .content-inner {
+      padding-top: 100px;
+      padding-bottom: 70px;
+      background-image: url(../images/landing/background1.jpg);
+    }
+
+    .adv-box {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* تصویر پس‌زمینه */
+.adv-box .adv-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* بخش pastrami */
+
+.pastrami-banner {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3; 
+}
+/* قبلاً: 70px × 70px */
+.offer-label {
+  width: 4.375rem;   /* 70px */
+  height: 4.375rem;  /* 70px */
+}
+
+/* برچسب تخفیف: همان جای قبلی */
+.adv-box .offer-label {
+  position: absolute;
+  /* 👇 در دسکتاپ همان -77% است، در تبلت کمی بالاتر، در موبایل بالاترتر */
+  bottom: clamp(-95%, -77%, -60%);
+  /* 👇 در دسکتاپ همان -76% است، در تبلت و موبایل نزدیک‌تر می‌آید */
+  right: clamp(-90%, -76%, -50%);
+  text-align: center;
+}
+
+/* تصویر برچسب */
+.adv-box .offer-label img {
+  width: clamp(5rem, 7vw, 7rem); /* در نمایشگرهای بزرگ ثابت می‌ماند */
+  height: auto;
+  display: block;
+  animation: dzRotate360 10s linear infinite;
+}
+
+@media (max-width: 992px) {
+  .adv-box .offer-label img {
+    width: 8rem;
+  }
+.adv-box .offer-label {
+  bottom: -70%
+}
+
+.offer-label span {
+  font-size: 1.3rem !important;
+    left: 4.2rem !important;
+    top: 4.2rem !important;
+  line-height: 1.5;
+
+
+}
+  
+}
+@media (max-width: 375px) {
+  .adv-box .offer-label img {
+    width: 6rem !important;
+  }
+.adv-box .offer-label {
+  bottom: -70%
+}
+
+.offer-label span {
+  font-size: 1.3rem !important;
+    left: 3.3rem !important;
+    top: 3.3rem !important;
+  line-height: 1.5;
+
+
+}
+  
+}
+/* متن وسط: قبلاً 16px و bottom:245px */
+.offer-label span {
+  color: #222222;
+  font-size: 1.4rem;          /* 16px */
+  font-weight: 900 !important;
+  position: absolute;
+  left: 3.5rem;
+  top: 3.5rem;
+  transform: translate(-50%, -50%);
+  display: block;
+
+}
+
+/* انیمیشن همان قبلی */
+@keyframes dzRotate360 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* .style-2 */
+.adv-box.style-2 {
+  background-color: var(--accent-red-700);
+  display: flex;
+  align-items: center;
+  overflow: unset;
+   padding: 0 3rem;
+    /* 👇 فقط اضافه شده */
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: clamp(1rem, 2vw, 2.5rem);
+}
+.adv-box.style-2 .adv-media {
+  position: relative;
+  overflow: unset;
+  height: 220px;
+  min-height: 220px;
+  width: 200px;
+}
+
+.adv-box.style-2 .adv-content {
+  flex-shrink: 0 !important; /* نوشته‌ها کوچک نشن */
+}
+
+.adv-box.style-2 .adv-media {
+  flex-shrink: 1; 
+}
+.adv-box.style-2 .adv-media img {
+    position: absolute;
+    bottom: 0rem;
+    left: -30%;
+    object-fit: cover;
+    width: 28rem;
+}
+@media (max-width:992px) {
+    .adv-box.style-2 .adv-media img {
+    left: -87%;
+    height: 34rem;
+  }
+}
+
+@media (max-width:768px) {
+  .adv-box.style-2 {
+    justify-content: center;
+  }
+    .adv-box.style-2 .adv-media img {
+    left: -30%;
+    /* height: 34rem; */
+  }
+
+    .adv-box.style-2 {
+    gap: 0 !important;
+   
+  }
+
+
+
+.adv-box.style-2 .adv-content .price {
+display: inline-block !important;
+
+}
+}
+
+@media (max-width:576px) {
+
+      .adv-box.style-2 .adv-media img {
+    left: -30%;
+  }
+
+    /* .adv-box.style-2 .adv-content .special {
+  font-size: initial !important;
+
+}
+.adv-box.style-2 .adv-content .title {
+  font-size: 4rem !important;
+} */
+
+.adv-box.style-2 .adv-content .price {
+display: inline-block !important;
+
+}
+
+}
+
+@media (max-width:340px) {
+  
+        .adv-box.style-2 .adv-media img {
+    left: -65%;
+  }
+}
+
+
+
+@media (min-width:400px) and (max-width:768px){
+
+  .adv-box.style-2 {
+    /* padding: 0 1rem; */
+  }
+.adv-box.style-2 .adv-content .special {
+  font-size: 2rem !important;
+
+}
+.adv-box.style-2 .adv-content .title {
+  font-size: 4rem !important;
+}
+}
+
+
+
+@media (min-width:992px) and (max-width:1400px) {
+  .adv-box.style-2 .adv-media img {
+    left: -47%;
+  }
+
+  .adv-box.style-2 {
+    gap: 0 !important;
+   
+  }
+}
+@media (min-width:992px) and (max-width:1200px) {
+    .adv-box.style-2 .adv-media img {
+    left: -180%;
+  }
+}
+
+
+.adv-box.style-2 .adv-content {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.adv-box.style-2 .adv-content .price {
+  font-weight: 800;
+  font-size: clamp(20px, 2.5vw, 24px);
+  line-height: 36px;
+  color: var(--meat-brown-700);
+  display: block;
+  margin: clamp(0.375rem, 1vw, 0.5rem) 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/* style-3 */
+
+/* کارت اصلی */
+.adv-box.style-3 {
+  background-image: url(../images/landing/Turkey-Cranberry-Sausage.jpg);
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  padding: 2rem;   
+  min-height: 220px; 
+}
+
+/* محتوای داخل کارت */
+.adv-box.style-3 .adv-content {
+  display: flex;
+  justify-content: flex-end;
+}
+.adv-box.style-3 .adv-content .text-block {
+  width: 60%;
+}
+/* ==== استایل‌های مشترک ==== */
+.adv-box.style-2 .adv-content .special,
+.adv-box.style-3 .special {
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: clamp(1.3rem, 0.8vw + 1rem, 1.6rem);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  
+}
+
+.adv-box.style-2 .adv-content .title,
+.adv-box.style-3 .adv-content .title {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.3;
+}
+
+/* ==== تفاوت‌ها برای هر استایل ==== */
+.adv-box.style-2 .adv-content .special {
+  color: var(--brand-200) !important;
+}
+
+.adv-box.style-3 .special {
+  color: var(--brand-500);
+}
+
+.adv-box.style-2 .adv-content .title {
+  font-weight: 900;
+  color: var(--meat-cream-200) !important;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.adv-box.style-3 .title {
+  font-weight: 800;
+  color: #FECC48;
+  text-shadow:
+    4px 8px 4px rgba(0, 0, 0, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 📱 حالت ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+  .adv-box.style-3 {
+    justify-content: center; 
+    padding: 1.5rem;
+  }
+
+  .adv-box.style-3 .adv-content .text-block {
+  width: 50% !important;
+}
+}
+
+@media (max-width: 322px) {
+  .adv-box.style-3 .adv-content .text-block {
+  width: 60% !important;
+}
+}
+
+@media (min-width:768px) and (max-width:993px) {
+  .adv-box.style-3 .adv-content .text-block {
+  width: 70% !important;
+}
+}
+@media (min-width:992px) and (max-width:1400px) {
+  .adv-box.style-3 .adv-content .text-block {
+  width: 80% !important;
+}
+}
+
+
+/* بنر سبز کرم پایین */
+
+
+
+.adv-content-svg {
+  width: 100%;
+  max-width: 250px; /* یا هر مقدار دلخواه */
+}
+
+.adv-content-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.style-4 .adv-content .special {
+  /* قبلاً: font-size: 2.7rem ≈ 43px */
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  font-weight: 900;
+
+  color: var(--meat-red-600) !important;
+
+  /* 👇 خط دور تیره با ضخامت واکنش‌گرا */
+  -webkit-text-stroke: clamp(0.5px, 0.15vw, 1px) var(--meat-brown-700);
+  text-stroke: clamp(0.5px, 0.15vw, 1px) var(--meat-brown-700);
+
+  /* 👇 سایه‌ی نرم برای برجستگی */
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+.adv-box.style-4 {
+  overflow: unset;
+  background-image: url(../images/landing/landing-baner-4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: clamp(8px, 1.5vw, 16px) clamp(30px, 5vw, 60px);
+  border-radius: clamp(10px, 1.5vw, 16px);
+  /* min-height: clamp(200px, 25vw, 260px); */
+  position: relative;
+  min-height: 26rem;
+}
+
+
+/* کانتینر تصویر سمت راست */
+.adv-box.style-4 .adv-media {
+  position: absolute;
+  right: 2rem;
+  top: -2.5rem;
+  width: 35rem;
+  /* width: clamp(160px, 20vw, 320px); */
+  height: auto; 
+}
+
+/* عکس داخل بنر */
+.adv-box.style-4 .adv-media img {
+  width: 100%;
+  height: auto;
+  position: relative; /* ✅ دیگر absolute نباشد که از جریان خارج نشود */
+  bottom: auto;
+  right: auto;
+}
+
+/* تصویر SVG آویزان در adv-content */
+.adv-content img {
+  width: 18rem;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 12rem;
+  animation: gentleSwing 2.5s infinite alternate ease-in-out;
+}
+@keyframes gentleSwing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg); /* کمی به راست */
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-3deg); /* کمی به چپ */
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+@media (max-width:1400px) {
+  .adv-box.style-4 {
+    padding: clamp(8px, 1.5vw, 16px) 3rem;
+  }
+
+  .adv-content img  {
+    left: 8rem;
+  }
+}
+@media (max-width:1200px) {
+  .adv-box.style-4 {
+    padding: clamp(8px, 1.5vw, 16px) 3rem;
+    min-height: 22rem;
+  }
+
+  .adv-content img  {
+    left: 4rem;
+  }
+}
+
+
+
+
+
+@media (max-width:992px) {
+  /* فقط برای کارت پاسترامی */
+.pastrami-banner {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3; 
+}
+
+
+.pastrami-banner .adv-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}
+
+
+@media (max-width:576px) {
+.adv-box.style-4 .adv-media {
+  right: 1rem;
+  top: 4.5rem;
+  /* width: 30rem; */
+  width: 22rem;
+}
+
+  .adv-box.style-4 {
+    padding: clamp(8px, 1.5vw, 16px) 1rem;
+  }
+}
+
+@media (max-width:320px) {
+  .adv-box.style-4 .adv-media {
+  right: 0.8rem;
+  top: 10rem;
+  width: 15rem;
+}
+
+.adv-content img {
+  width: 10rem;
+  bottom: 8rem;
+  left: 1rem;
+}
+.adv-content-svg {
+  max-width: 120px;
+}
+}
+/*  */
+
+
+@media (min-width:375px) and (max-width:576px) {
+
+    .adv-box.style-4 {
+    padding: clamp(8px, 1.5vw, 16px) 2rem;
+  }
+    .adv-box.style-4 .adv-media {
+  right: 0.8rem;
+  top: 9rem;
+  width: 17rem;
+}
+
+.adv-content img {
+  width: 12rem;
+  bottom: 7rem;
+  left: 2rem;
+}
+.adv-content-svg {
+  max-width: 160px;
+}
+}
+
+@media (min-width:576px) and (max-width:768px) {
+
+    .adv-box.style-4 .adv-media {
+  right: 0.8rem;
+  top: 5rem;
+  width: 22rem;
+}
+
+.adv-content img {
+  width: 15rem;
+  bottom: 3rem;
+  left: 2rem;
+}
+.adv-content-svg {
+  max-width: 180px;
+}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  /* کارت اصلی */
+  .adv-box.style-4 {
+    padding: 12px 2rem; /* مقدار ثابت، بدون clamp */
+  }
+
+  /* کانتینر تصویر سمت راست */
+  .adv-box.style-4 .adv-media {
+    right: 0.8rem;
+    top: 0.1rem;
+    width: 29rem;
+  }
+
+  /* تصویر آویزان داخل محتوا */
+  .adv-content img {
+    width: 15rem;
+    bottom: 2rem;
+    left: 6rem;
+  }
+
+  /* SVG در محتوا */
+  .adv-content-svg {
+    max-width: 220px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+.adv-box.style-4 .adv-media {
+  right: 1.5rem;
+  top: 2rem;
+  width: 25rem;
+}
+
+  /* تصویر آویزان داخل محتوا */
+  .adv-content img {
+    width: 15rem;
+    bottom: 2rem;
+    left: 6rem;
+  }
+
+  /* SVG در محتوا */
+  .adv-content-svg {
+    max-width: 220px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+.adv-box.style-4 .adv-media {
+  right: 1rem;
+  top: 0.3rem;
+  width: 33rem;
+}
+
+  /* تصویر آویزان داخل محتوا */
+  .adv-content img {
+    width: 17rem;
+    bottom: 2rem;
+    left: 6rem;
+  }
+
+  /* SVG در محتوا */
+  .adv-content-svg {
+    max-width: 240px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🌿 SUBSCRIBE SECTION (Final Clean Version) */
+
+.subscribe-section{
+  background: var(--bg-cream);
+}
+
+.subscribe-card{
+  background: var(--brand-100);
+  border: 1px solid var(--card-accent-border);
+  border-radius: clamp(10px, 2vw, var(--radius-lg));
+  box-shadow: var(--shadow-sm);
+}
+
+.subscribe-badge{
+  font-size: clamp(12px, 1.6vw, 14px);
+  background: var(--badge-sale-bg);
+  color: var(--badge-sale-text);
+  padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px);
+}
+
+.subscribe-title{
+  /* color: var(--heading-olive); */
+   color: var(--brand-600);
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: clamp(20px, 3.2vw, 32px); 
+  margin-bottom: clamp(24px, 4vw, 36px) !important;
+}
+
+.subscribe-subtitle{
+  color: var(--ink-600);
+  font-size: clamp(13px, 2vw, 15px);
+   margin-bottom: clamp(20px, 3vw, 28px) !important;
+}
+
+/* Placeholder ها: ایتالیک و کمرنگ */
+.form-control::placeholder{
+  font-style: italic;
+  color: var(--ink-400);
+  opacity: 1; /* برای اعمال شدن رنگ در کروم */
+  font-size: clamp(12px, 1.7vw, 13px);
+}
+
+.form-label{
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: var(--amber-600);
+}
+
+.form-control{
+  border-radius: clamp(8px, 1.6vw, var(--radius-md));
+  border-color: var(--border-1);
+  padding: clamp(10px, 2.3vw, 12px) clamp(12px, 2.4vw, 14px);
+  font-size: clamp(14px, 2.2vw, 16px);
+}
+
+.form-check-label{
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: var(--ink-600);
+}
+
+/* چک‌باکس: هم‌رنگ پالت، کمی بزرگ‌تر و هم‌تراز با متن کنار خود */
+.form-check{
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.4vw, 10px);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 1px var(--meat-yellow-500);
+  border-color: var(--brand-400);
+}
+
+/* کارت: کمی فضای بالایی تا حس «به پایین چسبیده» از بین بره */
+.subscribe-card{
+  padding-top: clamp(22px, 3.6vw, 32px);
+}
+
+.subscribe-btn {
+  padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 28px);
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-600), var(--meat-yellow-600));
+  color: var(--surface-1);
+  font-weight: 700;
+  font-size: clamp(13px, 2vw, 15px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+#subscribeSpinner{
+  width: clamp(18px, 4vw, 20px);
+  height: clamp(18px, 4vw, 20px);
+  border-width: clamp(2px, .5vw, 3px);
+  color: var(--btn-primary);
+}
+
+#subscribeAlert{
+  font-size: clamp(13px, 2vw, 14px);
+  border-radius: clamp(8px, 1.6vw, var(--radius-md));
+}
+
+.subscribe-perks li{
+  background: var(--chip-selected-bg);
+  border: 1px dashed var(--meat-brown-500);
+  padding: clamp(6px, 1.8vw, 10px) clamp(10px, 2.6vw, 14px);
+  border-radius: clamp(10px, 2vw, var(--radius-lg));
+  color: var(--meat-brown-700);
+  font-size: clamp(12px, 1.8vw, 14px);
+}
+
+/* Visual area */
+.subscribe-visual{
+  display: grid;
+  place-items: center;
+  padding: clamp(8px, 2vw, 16px);
+}
+
+.subscribe-gif{
+  /* border-radius: clamp(12px, 2.4vw, 18px); */
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.subscribe-accent{
+  position: absolute;
+  inset: auto 0 0 auto;
+  transform: translate(12%, 18%);
+  width: clamp(120px, 24vw, 220px);
+  opacity: .12;
+  pointer-events: none;
 }

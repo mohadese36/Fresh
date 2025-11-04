@@ -152,8 +152,11 @@ header.header{
   transform: translateX(-100%);
   transition: transform 1s ease;
   /* background: var(--meat-brown-500, #795b2e); */
-  background-image: url(../images/landing/roux-texture-2-1.webp);
-  color: var(--meat-cream-50, #fff);
+  background-image: url(../images/landing/roux-landing-4.jpg);
+  color: var(--amber-100);
+  /* color: var(--meat-cream-50); */
+  font-size: 1.5rem;
+  font-weight: 600;
   z-index: 1100;
   overflow: auto;
   box-shadow: 0 10px 30px rgba(16,24,40,.25);
@@ -175,6 +178,7 @@ header.header{
   padding: .6rem .75rem;
   border-radius: 8px;
   cursor: pointer;
+
 }
 .offcanvas-nav #navbar a:hover{ background: rgba(255,255,255,.08); }
 
@@ -185,7 +189,11 @@ header.header{
   width: auto !important;
   background: none !important;
   padding: 0 !important;
+  margin-left: 1rem !important;
   border: 0 !important;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--meat-cream-100)
 }
 
 /* موبایل: تمام‌صفحه و دقیقاً زیر سرچ‌بار */
@@ -212,6 +220,8 @@ header.header{
 /* قفل اسکرول وقتی منو باز است */
 body.nav-lock{ overflow: hidden; }
 
+
+
 /* همبرگری → ضربدر (فقط همین؛ ابعادش عوض نمی‌شود) */
 /* حالت باز: همبرگر → ضربدر؛ بدون تغییر استایل پایه */
 .main-header__toggle.is-open > .main-header__toggle-bar:nth-child(1){
@@ -226,6 +236,9 @@ body.nav-lock{ overflow: hidden; }
 
 
 
+/* Hotfix: override any accidental display none */
+.offcanvas-nav { display: block !important; }
+.offcanvas-nav.is-open { display: block !important; }
 
 
 

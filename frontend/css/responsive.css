@@ -116,7 +116,7 @@
 
   .product-category,
   .why-title {
-    text-align: center !important;
+    /* text-align: center !important; */
     display: block !important;
     margin-inline: auto;
   }
