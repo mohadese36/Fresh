@@ -226,22 +226,19 @@ function renderGroupedProducts(grouped, headingOverride) {
   for (const categoryName in grouped) {
     const section = document.createElement('div');
     section.classList.add('product-boxes');
-
     section.innerHTML = `
       ${headingOverride ? '' : `<h2 class="product-category">${categoryName}</h2>`}
-      <div class="row g-3 g-md-4">
+      <div class="row products-row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-3 g-3">
         ${(grouped[categoryName] || []).map(prod => `
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+          <div class="col">
             <a href="product.html?id=${prod.id}" class="related-products__card-link text-decoration-none">
               <div class="product-box__main product-card shadow-sm h-100">
                 <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid related-products__card-img">
-                <div class="col-12 product-box__detiles">
+                <div class="col-12 product-box__detiles d-flex flex-column">
                   <a class="product-box__detiles-title">${prod.name}</a>
-                  <p class="product-box__detiles-info">${prod.description || ''}</p>
-                  <div class="product-box__price">£${parseFloat(prod.price || 0).toFixed(2)}/kg</div>
-
-                  <button
-                    class="add-to-cart-btn btn-cart"
+                  <p class="product-box__detiles-info flex-grow-1">${prod.description || ''}</p>
+                  <div class="product-box__price mt-auto">£${parseFloat(prod.price || 0).toFixed(2)}/kg</div>
+                  <button class="add-to-cart-btn btn-cart mt-2"
                     data-product-id="${prod.id}"
                     data-product-name="${prod.name}"
                     data-product-price="${prod.price}">
@@ -255,6 +252,8 @@ function renderGroupedProducts(grouped, headingOverride) {
         `).join('')}
       </div>
     `;
+
+
 
     container.appendChild(section);
   }

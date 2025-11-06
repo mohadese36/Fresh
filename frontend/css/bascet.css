@@ -12,30 +12,24 @@
 
 .col-right { align-self: start; }
 
-.basket-is-empty {
-  /* color: var(--accent-red-500) !important;          */
-}
-
-.card-body-basket {
-  /* background: var(--meat-cream-50) !important;       */
-}
 
 /* ===== Mini Basket ===== */
 
 .card.mini-basket {
-  /* background: var(--amber-100);  */
   background: color-mix(in srgb, var(--amber-100) 85%, white 15%) !important;
 
   border-radius: clamp(10px, 1vw, 14px);
   border: 0;
 
-  /* سایه طبیعی و برندمحور */
+
   box-shadow: 
     0 clamp(2px, 0.4vw, 4px) clamp(8px, 1vw, 12px) rgba(0, 0, 0, 0.12),
     0 clamp(1px, 0.3vw, 2px) clamp(4px, 0.6vw, 6px) rgba(0, 0, 0, 0.06);
 
-  padding: clamp(0.25rem, 0.4vw, 0.5rem);
+  /* padding: clamp(0.25rem, 0.4vw, 0.5rem); */
   transition: all 0.25s ease;
+  /* all:unset; */
+  /* border: 1px solid red; */
 }
 
 .card.mini-basket:hover {
@@ -44,20 +38,6 @@
   transform: translateY(clamp(-1px, -0.3vw, -2px));
 }
 
-/* .mini-basket{
-  border: 1px solid var(--border-1);               
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);                     
-  overflow: hidden;
-  background: var(--meat-red-600) !important;
-}
-.mini-basket__head,
-.mini-basket__body,
-.mini-basket__footer {
-  background: var(--meat-cream-200) !important;
-  opacity: 0.;
-}
-.mini-basket{ outline: none !important; box-shadow: var(--shadow-md) !important; } */
 
 /* ===== Header ===== */
 .mini-basket__head{
@@ -205,28 +185,26 @@
 
 
 /* موبایل: سبد راست نمایش داده نشود (از آیکن هدر استفاده کن) */
-@media (max-width: 991.98px){
+/* @media (max-width: 991.98px){
   .mini-basket{ display:none; }
-}
+} */
 /* =========================
    Mini-Basket Responsive ONLY
    (بدون تغییر استایل‌های پایه‌ی شما)
    ========================= */
 /* موبایل <768px: پنهان بماند (از آیکن هدر استفاده می‌کنی) */
-@media (max-width:767.98px){
+/* @media (max-width:767.98px){
   .mini-basket{ display:none; }
-}
+} */
 /* تبلت: 768–991px  → سبد را نمایش بده و عرضش 100% شود */
-@media (min-width:768px) and (max-width:991.98px){
-  /* چون در HTML ستون راست کلاس Bootstrap "d-none d-lg-block" دارد، اینجا override می‌کنیم */
+/* @media (min-width:768px) and (max-width:991.98px){
   .col-lg-3.d-none.d-lg-block{ display:block !important; }
   .col-lg-3.d-none.d-lg-block .mini-basket{
     max-width:100%;
     margin:1rem 0;
   }
-  /* استیکی لازم نیست؛ اگر خواستی فعال کن: */
   .mini-basket{ position:sticky; top:.5rem; }
-}
+} */
 
 
 /* ===== Mini-basket stick to bottom of sidebar (desktop) ===== */
@@ -234,20 +212,30 @@
 
 /* ===== Mini Basket – Layout & Card ===== */
 @media (min-width: 992px){
-  /* کمی باریک‌تر از ستون، تمیز و جمع‌وجور */
-  .col-lg-3 .mini-basket{
-    max-width: 320px;       /* می‌تونی 280–340 بزنی */
-    margin-left: auto;      /* به لبه‌ی راست ستون بچسبه */
-  }
+  /* .col-lg-3 .mini-basket{
+    max-width: 320px;       
+    margin-left: auto; 
+  } */
+
+/* #filtersOffcanvas,
+.filters-container {
+      position: sticky;
+    top: var(--stick-top-fixed);
+} */
+}
+
+/* دسکتاپ ≥992px: همان رفتار فعلی شما + کمی تطبیق برای viewport باریک */
+/* @media (min-width:992px) and (max-width:1199.98px){
+  .col-lg-3 .mini-basket{ max-width:300px; }
+} */
 
   .mini-basket-sticky{
     position: sticky;
     top: var(--stick-top-fixed);
-  }
 }
 
-
-/* دسکتاپ ≥992px: همان رفتار فعلی شما + کمی تطبیق برای viewport باریک */
-@media (min-width:992px) and (max-width:1199.98px){
-  .col-lg-3 .mini-basket{ max-width:300px; }
-}
+/* #filtersOffcanvas,
+.filters-container {
+      position: sticky;
+    top: var(--stick-top-fixed);
+} */

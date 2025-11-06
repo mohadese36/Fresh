@@ -22,12 +22,23 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- <link rel="stylesheet" href="css/categori.css"> -->
 
-  <!-- <style>
-    @media (min-width: 992px) {
-      .filters-sticky { position: sticky; top: 1rem; }
-    }
-    #filtersToggleBtn:focus { outline: none; box-shadow: none; }
-  </style> -->
+  <style>
+.container {
+  max-width: 100vw !important;
+  padding: 0 2rem !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 993px) {
+  /* .container {
+
+   max-width: revert !important;
+  padding: revert !important;
+  margin: revert !important;
+  } */
+}
+
+  </style>
 </head>
 <body>
     <!-- Start Header -->
@@ -92,7 +103,7 @@
 
     <!-- Start Main Info Section -->
     <main class="main">
-      <div class="container">
+      <div class="container w-100">
         <div class="products-wrapper">
 
           <!-- Breadcrumb -->
@@ -120,11 +131,9 @@
             </div>
           </section>
 
-          <div class="row g-4">
-            <!-- ستون فیلترها: یک نسخه برای همه‌ی سایزها -->
-            <div class="col-lg-3">
-              <!-- زیر 992px: offcanvas | از 992px به بالا: ثابت -->
-            <div class="offcanvas offcanvas-lg offcanvas-start border-0"
+          <div class="archive-layout">
+            <!-- فیلتر -->
+            <div class="offcanvas offcanvas-lg offcanvas-start  p-3"
                 tabindex="-1"
                 id="filtersOffcanvas"
                 aria-labelledby="filtersLabel">
@@ -140,7 +149,7 @@
                 </div>
 
                 <!-- بدنه -->
-                <div class="offcanvas-body filters-sticky">
+                <div class="offcanvas-body">
                   <!-- Search -->
                   <form id="archive-search" class="my-3 my-lg-0" role="search">
                     <label for="archive-q" class="form-label visually-hidden">Search products</label>
@@ -202,21 +211,20 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- ستون نتایج (وسط) -->
-            <div class="col-lg-9">
+            <!-- نتایج -->
+            <div >
               <div id="active-filters" class="filter-chips mb-3"></div>
               <div id="products-container" class="row g-3 g-md-4"></div>
             </div>
 
-            <!-- مینی‌بسکت (راست) -->
-            <div class="col-lg-3 d-none d-lg-block">
-              <aside class="mini-basket-sticky">
+            <!-- مینی‌بسکت -->
+            <div class="d-none d-lg-block  mini-basket-sticky">
+              <aside >
                 <div class="card mini-basket">
-                  <div class="card-body">
+                  <!-- <div class="card-body"> -->
                     <div id="basket-box-container"></div>
-                  </div>
+                  <!-- </div> -->
                 </div>
               </aside>
             </div>
@@ -314,10 +322,11 @@
   <!-- App JS -->
   <script type="module" src="./js/index.js"></script>
   <script type="module" src="./js/menu.js"></script>
-  <script type="module" src="./js/categori.js"></script>
+  <script type="module" src="js/categori.js"></script>
   <script type="module" src="./js/basket-box.js"></script>
   <script type="module" src="./js/breadcrumb.js"></script>
   <script type="module" src="./js/search.js"></script>
+  
 
   <!-- <script type="module" src="js/main.js"></script> -->
 

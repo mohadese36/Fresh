@@ -180,7 +180,94 @@
 
 
 
+<!-- ===================== 🌿 SUBSCRIBE SECTION ===================== -->
+<section class="subscribe-section py-5" aria-labelledby="subscribeHeading">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <!-- Text + Form -->
+      <div class="col-lg-7 order-1 order-lg-1">
+        <div class="subscribe-card p-4 p-md-5">
+          <span class="badge rounded-pill mb-3 subscribe-badge">
+            <i class="far fa-bell me-2" aria-hidden="true"></i> Join our list
+          </span>
 
+          <h2 id="subscribeHeading" class="subscribe-title mb-2">
+            Fresh deals, tips & recipes — straight to your inbox
+          </h2>
+          <p class="subscribe-subtitle mb-4">
+            Subscribe and get <strong>exclusive discounts</strong> and early access to new arrivals.
+          </p>
+
+          <form id="subscribeForm" class="row gy-3 needs-validation" novalidate>
+            <!-- Honeypot (anti-bot) -->
+            <input type="text" class="d-none" name="company" tabindex="-1" autocomplete="off">
+
+            <div class="col-md-6">
+              <label for="subName" class="form-label">Name (optional)</label>
+              <input type="text" class="form-control" id="subName" name="name" placeholder="Jane Doe" />
+            </div>
+
+            <div class="col-md-6">
+              <label for="subEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="subEmail" name="email" placeholder="you@example.com" required />
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="subConsent" required>
+                <label class="form-check-label" for="subConsent">
+                  I agree to receive emails and I can unsubscribe anytime.
+                </label>
+                <div class="invalid-feedback">Please accept to continue.</div>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex gap-2 align-items-center">
+              <button class="btn btn-primary subscribe-btn" type="submit">
+                <i class="far fa-paper-plane me-2" aria-hidden="true"></i> Subscribe
+              </button>
+              <div id="subscribeSpinner" class="spinner-border align-self-center d-none" role="status" aria-hidden="true"></div>
+            </div>
+
+            <div class="col-12">
+              <div id="subscribeAlert" class="alert d-none mt-2" role="alert" aria-live="polite"></div>
+            </div>
+          </form>
+
+          <ul class="subscribe-perks list-unstyled d-flex flex-wrap gap-3 mt-4">
+            <li><i class="far fa-check-circle me-2" aria-hidden="true"></i>No spam</li>
+            <li><i class="far fa-check-circle me-2" aria-hidden="true"></i>Exclusive promos</li>
+            <li><i class="far fa-check-circle me-2" aria-hidden="true"></i>Unsubscribe anytime</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- GIF / visual -->
+      <div class="col-lg-5 order-2 order-lg-2">
+        <div class="subscribe-visual position-relative text-center">
+          <!-- در صورت داشتن نسخه WebP -->
+          <!--
+          <picture>
+            <source srcset="./images/gif/subscribe_bg_faf7e8_fast.webp" type="image/webp">
+            <img src="./images/gif/subscribe_bg_faf7e8_fast.gif"
+                 alt="Subscribe animation"
+                 class="img-fluid rounded-4 shadow-sm subscribe-gif"
+                 width="220" height="220"
+                 loading="lazy">
+          </picture>
+          -->
+          <img
+            src="./images/gif/subscribe_bg_faf7e8_fast.gif"
+            alt="Subscribe animation"
+            class="img-fluid rounded-4 shadow-sm subscribe-gif"
+            width="220" height="220"
+            loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -262,6 +349,196 @@
 				</div>
 			</div>
 		</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Start Main Info Section -->
+    <main class="main">
+      <div class="container">
+        <div class="products-wrapper">
+
+          <!-- Breadcrumb -->
+          <section class="breadcrumb">
+            <div class="container px-0">
+              <div class="breadcrumb__content justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="breadcrumb__home-content-icon">
+                    <i class="fas fa-home breadcrumb__home-icon"></i>
+                  </div>
+                  <ul class="breadcrumb__list"><!-- breadcrumb.js پر می‌کند --></ul>
+                </div>
+
+                <!-- دکمه فیلتر فقط برای موبایل -->
+                <button id="filtersToggleBtn"
+                        class="btn filters-toggle d-lg-none"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#filtersOffcanvas"
+                        aria-controls="filtersOffcanvas">
+                  <i class="bi bi-funnel-fill filters-icon" aria-hidden="true"></i>
+                  <span class="filters-label">Filters</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <div class="archive-layout">
+            <!-- ستون فیلترها: یک نسخه برای همه‌ی سایزها -->
+            <div >
+              <!-- زیر 992px: offcanvas | از 992px به بالا: ثابت -->
+            <div class="offcanvas offcanvas-lg offcanvas-start border-0"
+                tabindex="-1"
+                id="filtersOffcanvas"
+                aria-labelledby="filtersLabel">
+
+
+                <!-- هدر فقط در موبایل -->
+                <div class="offcanvas-header d-lg-none">
+                  <h5 class="offcanvas-title" id="filtersLabel">Filters</h5>
+                  <button type="button" class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close">
+                  </button>
+                </div>
+
+                <!-- بدنه -->
+                <div class="offcanvas-body filters-sticky">
+                  <!-- Search -->
+                  <form id="archive-search" class="my-3 my-lg-0" role="search">
+                    <label for="archive-q" class="form-label visually-hidden">Search products</label>
+                    <div class="input-group">
+                      <input id="archive-q" class="form-control Landing__searchBar-input"
+                             type="text" placeholder="search products..." aria-label="search products">
+                      <button class="btn" type="submit" aria-label="Start search">
+                        <i class="bi bi-search"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                  <!-- Sort -->
+                  <div class="card my-3 my-lg-0">
+                    <div class="card-body">
+                      <label for="sort" class="form-label">Sort by</label>
+                      <select id="sort" class="form-select">
+                        <option value="">Default</option>
+                        <option value="price_asc">Price: Low → High</option>
+                        <option value="price_desc">Price: High → Low</option>
+                        <option value="name_asc">Name: A → Z</option>
+                        <option value="name_desc">Name: Z → A</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Price / Availability -->
+                  <div class="card my-3 my-lg-0">
+                    <div class="card-body">
+                      <div class="row g-2">
+                        <div class="col-6">
+                          <label for="minPrice" class="form-label">Min £</label>
+                          <input id="minPrice" type="number" class="form-control" min="0" step="0.01">
+                        </div>
+                        <div class="col-6">
+                          <label for="maxPrice" class="form-label">Max £</label>
+                          <input id="maxPrice" type="number" class="form-control" min="0" step="0.01">
+                        </div>
+                      </div>
+                      <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" id="inStock">
+                        <label class="form-check-label" for="inStock">In stock only</label>
+                      </div>
+
+                      <button id="applyFilters" class="btn w-100 mt-3" type="button">
+                        Apply filters
+                      </button>
+                      <!-- <button id="clearFilters" class="btn btn-link w-100 mt-2" type="button">
+                        Clear all
+                      </button> -->
+                    </div>
+                  </div>
+
+                  <!-- Categories -->
+                  <div class="card card-cats-menu">
+                    <div class="card-body">
+                      <ul id="cats-list" class="list-group list-group-flush"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ستون نتایج (وسط) -->
+            <div >
+              <div id="active-filters" class="filter-chips mb-3"></div>
+              <div id="products-container" class="row g-3 g-md-4"></div>
+            </div>
+
+            <!-- مینی‌بسکت (راست) -->
+            <div class=" d-none d-lg-block">
+              <aside class="mini-basket-sticky">
+                <div class="card mini-basket">
+                  <div class="card-body">
+                    <div id="basket-box-container"></div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <!-- Finish Main Info Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="frontend/vendor/fontAwesome5/all.min.js"></script>
     <script src="frontend/vendor/Bootstrap/bootstrap.bundle.min.js"></script>

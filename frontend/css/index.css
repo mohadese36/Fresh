@@ -33,10 +33,7 @@
    ========================= */
 
 .main-content-products {
-  width: 100%;
-  max-width: 1260px;
   margin: 0 auto;
-  padding-inline: clamp(1rem, 4vw, 2rem); /* حاشیه‌ی واکنش‌گرا برای یکدستی کارت‌ها */
 }
 
 /* =========================
@@ -69,9 +66,9 @@
   .Landing {
     padding: clamp(3rem, 10vw, 4rem) 0;
   }
-  .main-content-products {
+  /* .main-content-products {
     padding-inline: clamp(0.75rem, 5vw, 1.25rem);
-  }
+  } */
 }
 
 /* =========================
@@ -388,20 +385,22 @@
 
 /* --- Card Heading --- */
 .reason-card h3 {
-  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  font-weight: 700;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-weight: 800;
   color: var(--brand-900);
   margin-bottom: clamp(0.6rem, 1.5vw, 1rem);
 }
 
 /* --- Card Text --- */
 .reason-card p {
-  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-weight: 600;
   color: var(--amber-600);
-  line-height: 1.65;
+  line-height: 1.7;
   max-width: 90%;
   margin-inline: auto;
 }
+
 
 /* --- Icon Hover --- */
 .reason-card:hover i {
@@ -981,6 +980,8 @@
   .adv-content-svg {
     max-width: 180px;
   }
+
+
 }
 
 /* (min-width:400px) and (max-width:768px) */
@@ -1045,6 +1046,28 @@
   }
 }
 
+@media (max-width: 425px) {
+
+  .brush-stroke-subscribe svg{
+  position: absolute;
+  right: 1.2rem;
+  /* z-index: 3; */
+ width: 310px !important;
+  
+}
+
+.mask-box img{
+  /* position: absolute;
+  left: 50%;
+  top: 50%; */
+  width: 13rem;
+  height: auto;
+  /* transform: translate(-50%, -50%);
+  object-fit: cover; */
+  
+}
+}
+
 /* 375px ↓ */
 @media (max-width: 375px) {
   .adv-box .offer-label img {
@@ -1060,6 +1083,25 @@
     left: 3.3rem !important;
     top: 3.3rem !important;
     line-height: 1.5;
+  }
+
+
+
+
+    .adv-box.style-4 .adv-media {
+    right: 0.8rem;
+    top: 10rem;
+    width: 15rem;
+  }
+
+  .adv-content img {
+    width: 10rem;
+    bottom: 8rem;
+    left: 1rem;
+  }
+
+  .adv-content-svg {
+    max-width: 120px;
   }
 }
 
@@ -1078,7 +1120,7 @@
 }
 
 /* 320px ↓ */
-@media (max-width: 320px) {
+/* @media (max-width: 320px) {
   .adv-box.style-4 .adv-media {
     right: 0.8rem;
     top: 10rem;
@@ -1094,47 +1136,63 @@
   .adv-content-svg {
     max-width: 120px;
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+} */
 
 
 
 /* 🌿 SUBSCRIBE SECTION (Final Clean Version) */
 
-.subscribe-section{
-  background: var(--bg-cream);
+
+/* 🌿 پس‌زمینه با تصویر و overlay نیمه‌تیره */
+.subscribe-section {
+  position: relative;
+  background-image: url(../images/landing/sausage-products-carosel-2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
-.subscribe-card{
-  background: var(--brand-100);
-  border: 1px solid var(--card-accent-border);
-  border-radius: clamp(10px, 2vw, var(--radius-lg));
-  box-shadow: var(--shadow-sm);
+/* 🔹 لایه نیمه‌تیره روی پس‌زمینه */
+.subscribe-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.30);  */
+  z-index: 0;
 }
+
+/* 🔹 کارت سابسکرایب – همیشه مات و در بالاترین لایه */
+.subscribe-card {
+  position: relative;
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--meat-olive-800);
+  border-radius: clamp(10px, 2vw, var(--radius-lg));
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  padding-top: clamp(22px, 3.6vw, 32px);
+  z-index: 1;
+  backdrop-filter: blur(6px);
+}
+
+/* .subscribe-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);  
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: clamp(10px, 2vw, var(--radius-lg));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(20px) saturate(180%); 
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: clamp(22px, 3.6vw, 32px);
+  z-index: 1;
+} */
+
+
+/* 🔹 مطمئن شو محتوای کارت بالای لایه باشه */
+.subscribe-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 .subscribe-badge{
   font-size: clamp(12px, 1.6vw, 14px);
@@ -1144,8 +1202,8 @@
 }
 
 .subscribe-title{
-  /* color: var(--heading-olive); */
-   color: var(--brand-600);
+  color: var(--meat-cream-200);
+   /* color: var(--brand-600); */
   font-weight: 800;
   line-height: 1.2;
   font-size: clamp(20px, 3.2vw, 32px); 
@@ -1153,9 +1211,10 @@
 }
 
 .subscribe-subtitle{
-  color: var(--ink-600);
+  color: var(--brand-200);
   font-size: clamp(13px, 2vw, 15px);
-   margin-bottom: clamp(20px, 3vw, 28px) !important;
+  font-weight: 600;
+  margin-bottom: clamp(20px, 3vw, 28px) !important;
 }
 
 /* Placeholder ها: ایتالیک و کمرنگ */
@@ -1168,7 +1227,7 @@
 
 .form-label{
   font-size: clamp(12px, 1.8vw, 14px);
-  color: var(--amber-600);
+  color: var(--brand-100);
 }
 
 .form-control{
@@ -1176,11 +1235,15 @@
   border-color: var(--border-1);
   padding: clamp(10px, 2.3vw, 12px) clamp(12px, 2.4vw, 14px);
   font-size: clamp(14px, 2.2vw, 16px);
+  background: initial;
+  /* background: var(--accent-red-100); */
+  /* opacity: 0.5; */
+  color: var(--meat-cream-50) !important;
 }
 
 .form-check-label{
   font-size: clamp(12px, 1.8vw, 14px);
-  color: var(--ink-600);
+  color: var(--amber-100);
 }
 
 /* چک‌باکس: هم‌رنگ پالت، کمی بزرگ‌تر و هم‌تراز با متن کنار خود */
@@ -1191,14 +1254,16 @@
 }
 
 .form-control:focus {
-  box-shadow: 0 0 0 1px var(--meat-yellow-500);
-  border-color: var(--brand-400);
+  box-shadow: 0 0 0 2px var(--meat-red-600);
+  border-color: var(--brand-400) !important;
+  background-color: transparent !important;
+  /* color: inherit; */
 }
 
-/* کارت: کمی فضای بالایی تا حس «به پایین چسبیده» از بین بره */
-.subscribe-card{
-  padding-top: clamp(22px, 3.6vw, 32px);
-}
+
+/* start base bootstrap form-contro; */
+
+/* finish base bootstrap form-contro; */
 
 .subscribe-btn {
   padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 28px);
@@ -1245,17 +1310,57 @@
   padding: clamp(8px, 2vw, 16px);
 }
 
+
+.subscribe-visual{
+  position: relative;
+}
+
+.subscribe-visual svg{
+  position: relative;
+  z-index: 1;
+}
+
+.mask-box{
+  position: absolute;
+  z-index: 3;
+  width: 300px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  /* inset: auto 0 0 auto;  */
+  
+}
+
+.mask-box img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* width: 140%;
+  height: auto; */
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  
+}
+
+
+
+
 .subscribe-gif{
   /* border-radius: clamp(12px, 2.4vw, 18px); */
   box-shadow: none !important;
   border: none !important;
 }
 
-.subscribe-accent{
-  position: absolute;
-  inset: auto 0 0 auto;
-  transform: translate(12%, 18%);
-  width: clamp(120px, 24vw, 220px);
-  opacity: .12;
-  pointer-events: none;
+
+
+.brush-stroke-subscribe {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
 }
+
+
+
+
+
+
+
