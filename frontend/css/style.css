@@ -5,6 +5,8 @@
 @import "defaults.css";          /* استایل‌های پایه و Reset */
 @import "helper.css";            /* کلاس‌ها و افکت‌های کمکی */
 
+@import "carousel-home.css";          
+@import "landing-baners.css";            
 @import "top-bar.css";           
 @import "navbar.css";            
 @import "breadcrumb.css";        
@@ -23,4 +25,3 @@
 @import "categori.css";          
 @import "index.css";          
 
-@import "responsive.css";        /* همیشه آخر برای override واکنش‌گرا */

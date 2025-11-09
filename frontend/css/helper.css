@@ -14,14 +14,6 @@ body {
 }
 
 
-/* .product-details-container:hover,
-.related-products__card:hover,
-.you-may-also-like__card:hover {
-  box-shadow: 0 8px 24px rgba(39, 113, 43, 0.18), 
-  0 0 10px rgba(46, 125, 50, 0.15);
-  transform: translateY(-4px);
-} */
-
 .product-image img,
 .related-products__card-img,
 .you-may-also-like__card img {
@@ -34,33 +26,7 @@ body {
   transform: scale(1.03);
   filter: brightness(1.08) contrast(1.1);
 }
-/*  */
 
-
-
-/* h2, h3.section-title, .product-title {
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 3px;
-  background: var(--grad-underline); 
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-} */
-
-/* h2:hover::after,
-h3.section-title:hover::after,
-.product-title:hover::after {
-  transform: scaleX(1);
-} */
 
 
 /* ⭐ FIXED GOLD STARS STYLE */
@@ -95,14 +61,3 @@ h3.section-title:hover::after,
 }
 
 
-/*  */
-
-/* نوار زیر تیتر در featured-products*/
-/* #special-offers .featured-section__title::after,
-#best-sellers .featured-section__title::after,
-#new-arrivals .featured-section__title::after,
-#discounted-products .featured-section__title::after,
-#organic-healthy-products .featured-section__title::after,
-#products-with-unique-features .featured-section__title::after {
-  display: none;
-} */

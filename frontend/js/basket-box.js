@@ -1,58 +1,104 @@
 // frontend/js/basket-box.js
 import { supabase } from './supabaseClient.js';
 
-const GUEST_USER_ID = 'guest'; // کاربر ثابتِ نمونه
+// ===============================
+// 🧠 دریافت شناسه‌ی فعال (کاربر یا مهمان)
+// ===============================
+function getOrCreateGuestId() {
+  let gid = localStorage.getItem('guest_id');
+  if (!gid) {
+    gid = 'guest_' + crypto.randomUUID();
+    localStorage.setItem('guest_id', gid);
+  }
+  return gid;
+}
 
-// ==========================
-// Badge: تعداد آیتم‌ها (نه مجموع تعدادها)
+// برگرداندن شناسه‌ی واقعی کاربر در صورت وجود
+async function getActiveUserId() {
+  const storedUser = JSON.parse(localStorage.getItem('user') || 'null');
+  if (storedUser?.id) {
+    await mergeGuestCartToUser(storedUser.id);
+    return storedUser.id;
+  }
+  return getOrCreateGuestId();
+}
+
+// ادغام سبد مهمان با حساب کاربر در دیتابیس
+async function mergeGuestCartToUser(userId) {
+  const guestId = localStorage.getItem('guest_id');
+  if (!guestId) return;
+  try {
+    const { error } = await supabase
+      .from('cart_items')
+      .update({ user_id: userId })
+      .eq('user_id', guestId);
+    if (error) throw error;
+    localStorage.removeItem('guest_id');
+    console.log('✅ سبد مهمان به حساب کاربر منتقل شد');
+  } catch (err) {
+    console.error('mergeGuestCartToUser:', err.message);
+  }
+}
+
+// ===============================
+// 🛒 منطق سبد خرید
+// ===============================
+let USER_ID = null;
+
+// Badge: تعداد آیتم‌ها
 async function updateCartBadge() {
+  if (!USER_ID) USER_ID = await getActiveUserId();
   const badge = document.getElementById('cart-count-badge');
   if (!badge) return;
 
   try {
-    const { data: cartItems, error } = await supabase
+    const { data: items, error } = await supabase
       .from('cart_items')
-      .select('id', { count: 'exact' })
-      .eq('user_id', GUEST_USER_ID)
-      .order('id', { ascending: true }); // ترتیب پایدار
+      .select('id')
+      .eq('user_id', USER_ID);
 
     if (error) throw error;
 
-    const count = cartItems ? cartItems.length : 0;
+    const count = items ? items.length : 0;
     badge.textContent = count;
     badge.style.display = count > 0 ? 'inline-block' : 'none';
   } catch (err) {
-    console.error('Badge update error:', err.message);
+    console.error('updateCartBadge:', err.message);
   }
 }
 
-// ==========================
 // افزودن محصول به سبد
 export async function addItemToBasket(product) {
+  if (!USER_ID) USER_ID = await getActiveUserId();
+
   try {
-    const { data: existing, error: selectError } = await supabase
+    const { data: existing, error: selErr } = await supabase
       .from('cart_items')
       .select('*')
-      .eq('user_id', GUEST_USER_ID)
+      .eq('user_id', USER_ID)
       .eq('product_id', product.id)
       .maybeSingle();
 
-    if (selectError) throw selectError;
+    if (selErr) throw selErr;
 
     if (existing) {
       const { error: upErr } = await supabase
         .from('cart_items')
-        .update({ quantity: (existing.quantity || 1) + (product.quantity || 1) })
+        .update({
+          quantity: (existing.quantity || 1) + (product.quantity || 1),
+        })
         .eq('id', existing.id);
       if (upErr) throw upErr;
     } else {
       const { error: insErr } = await supabase
         .from('cart_items')
-        .insert([{
-          user_id: GUEST_USER_ID,
-          product_id: product.id,
-          quantity: product.quantity || 1,
-        }]);
+        .insert([
+          {
+            user_id: USER_ID,
+            product_id: product.id,
+            quantity: product.quantity || 1,
+          },
+        ]);
       if (insErr) throw insErr;
     }
 
@@ -63,9 +109,9 @@ export async function addItemToBasket(product) {
   }
 }
 
-// ==========================
-// رندر UI از دیتابیس
+// رندر UI
 export async function updateBasketUI() {
+  if (!USER_ID) USER_ID = await getActiveUserId();
   const emptyMessage = document.querySelector('.basket-is-empty');
   const notEmptySections = document.querySelectorAll('.basket-is-not-empty');
   const basketBody = document.querySelector('.basket-items');
@@ -75,31 +121,29 @@ export async function updateBasketUI() {
     const { data: cart, error } = await supabase
       .from('cart_items')
       .select(`id, quantity, products (id, name, price)`)
-      .eq('user_id', GUEST_USER_ID)
-      .order('id', { ascending: true }); // ← کلیدِ جلوگیری از جابه‌جایی ردیف‌ها
+      .eq('user_id', USER_ID)
+      .order('id', { ascending: true });
 
     if (error) throw error;
 
     if (!cart || cart.length === 0) {
       if (emptyMessage) emptyMessage.style.display = 'block';
-      notEmptySections.forEach(el => (el.style.display = 'none'));
+      notEmptySections.forEach((el) => (el.style.display = 'none'));
       basketBody.innerHTML = '';
-
       const checkoutBtn = document.getElementById('checkout-btn');
       if (checkoutBtn) checkoutBtn.style.display = 'none';
       return;
     }
 
     if (emptyMessage) emptyMessage.style.display = 'none';
-    notEmptySections.forEach(el => (el.style.display = 'block'));
+    notEmptySections.forEach((el) => (el.style.display = 'block'));
 
-    // بازآفرینی بدنه‌ی جدول
     let total = 0;
     let rowsHtml = '';
 
-    cart.forEach(item => {
+    cart.forEach((item) => {
       const price = Number(item?.products?.price || 0);
-      const qty   = Number(item?.quantity || 1);
+      const qty = Number(item?.quantity || 1);
       total += price * qty;
 
       rowsHtml += `
@@ -107,10 +151,10 @@ export async function updateBasketUI() {
           <td class="side-basket-qty">
             ${qty}
             <div class="side-basket-controls side-basket-controls-qty">
-              <button type="button" class="btn decrease" data-id="${item.id}" title="Decrease quantity">
+              <button type="button" class="btn decrease" data-id="${item.id}" title="کاهش تعداد">
                 <i class="bi bi-dash-lg"></i>
               </button>
-              <button type="button" class="btn increase" data-id="${item.id}" title="Increase quantity">
+              <button type="button" class="btn increase" data-id="${item.id}" title="افزایش تعداد">
                 <i class="bi bi-plus-lg"></i>
               </button>
             </div>
@@ -121,7 +165,7 @@ export async function updateBasketUI() {
           <td class="side-basket-price">
             £${(price * qty).toFixed(2)}
             <div class="side-basket-controls side-basket-controls-remove">
-              <button type="button" class="btn remove" data-id="${item.id}" title="Remove item">
+              <button type="button" class="btn remove" data-id="${item.id}" title="حذف آیتم">
                 <i class="bi bi-trash"></i>
               </button>
             </div>
@@ -130,28 +174,22 @@ export async function updateBasketUI() {
     });
 
     basketBody.innerHTML = rowsHtml;
-
     const guidePriceEl = document.querySelector('.basket-guide-price');
     if (guidePriceEl) guidePriceEl.textContent = `£${total.toFixed(2)}`;
 
     const checkoutBtn = document.getElementById('checkout-btn');
     if (checkoutBtn) checkoutBtn.style.display = cart.length > 0 ? 'block' : 'none';
 
-    // رویدادها را فقط یک‌بار وصل کن
     addBasketControlsListeners();
-
   } catch (err) {
     console.error('updateBasketUI:', err.message);
   }
 }
 
-// ==========================
-// لیسنرهای کنترل دکمه‌ها (Event Delegation)
+// کنترل دکمه‌ها
 function addBasketControlsListeners() {
   const tbody = document.querySelector('.basket-items');
   if (!tbody) return;
-
-  // قبلاً وصل شده؟ تکرار نکن
   if (tbody.dataset.bound === '1') return;
   tbody.dataset.bound = '1';
 
@@ -171,7 +209,6 @@ function addBasketControlsListeners() {
   });
 }
 
-// ==========================
 // تغییر تعداد
 async function changeQuantity(cartItemId, delta) {
   try {
@@ -180,18 +217,13 @@ async function changeQuantity(cartItemId, delta) {
       .select('quantity')
       .eq('id', cartItemId)
       .single();
-
     if (error) throw error;
-
     const newQty = Math.max(Number(data.quantity || 1) + Number(delta), 1);
-
     const { error: upErr } = await supabase
       .from('cart_items')
       .update({ quantity: newQty })
       .eq('id', cartItemId);
-
     if (upErr) throw upErr;
-
     await updateBasketUI();
     await updateCartBadge();
   } catch (err) {
@@ -199,17 +231,14 @@ async function changeQuantity(cartItemId, delta) {
   }
 }
 
-// ==========================
-// حذف محصول
+// حذف آیتم
 async function removeItem(cartItemId) {
   try {
     const { error } = await supabase
       .from('cart_items')
       .delete()
       .eq('id', cartItemId);
-
     if (error) throw error;
-
     await updateBasketUI();
     await updateCartBadge();
   } catch (err) {
@@ -217,9 +246,12 @@ async function removeItem(cartItemId) {
   }
 }
 
-// ==========================
-// بارگذاری اولیه
+// ===============================
+// 🚀 اجرای اولیه
+// ===============================
 document.addEventListener('DOMContentLoaded', async () => {
+  USER_ID = await getActiveUserId();
+  console.log('👤 basket-box USER_ID =', USER_ID);
   await updateBasketUI();
   await updateCartBadge();
 });

@@ -27,15 +27,6 @@ i {
   user-select: none;
 }
 
-/* .container-fluid {
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding-left: 15px;
-    padding-right: 15px;
-  } */
-
-/* Finish default styles */
-
 
 
 /* انواع تکست شادوها */
@@ -71,7 +62,7 @@ i {
 .text-shadow-4{
     font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-brown-500));
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-yellow-700));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
@@ -93,6 +84,7 @@ i {
 text-shadow:
   0 2px 3px rgba(0,0,0,0.25),
   0 0 8px rgba(255,255,255,0.25);
+  /* ******************** */
 
 }
 .text-shadow-7{
@@ -109,7 +101,7 @@ text-shadow:
   0 0 8px rgba(255,235,180,0.25);
 
 }
-.text-shadow-9{background: linear-gradient(90deg, var(--meat-brown-500), var(--meat-yellow-600));
+.text-shadow-9{background: linear-gradient(90deg, var(--meat-yellow-700), var(--meat-yellow-600));
 text-shadow:
   0 2px 3px rgba(0,0,0,0.45),
   0 0 6px rgba(255,230,160,0.15);
@@ -162,15 +154,17 @@ text-shadow:
 text-shadow:
   0 2px 4px rgba(0,0,0,0.4),
   0 0 8px rgba(255,235,180,0.25);
+  /* ++++++++++++++++++++ */
 
 }
 .text-shadow-16{
-  background: linear-gradient(90deg, var(--meat-brown-500), var(--meat-yellow-600));
+  background: linear-gradient(90deg, var(--meat-yellow-700), var(--meat-yellow-600));
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 text-shadow:
   0 2px 3px rgba(0,0,0,0.45),
   0 0 6px rgba(255,230,160,0.15);
+  /* ********************* */
 
 }
 .text-shadow-17{
@@ -210,7 +204,7 @@ text-shadow:
 
 }
 .text-shadow-21{
-  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-brown-500));
+  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-yellow-700));
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 text-shadow:

@@ -2,14 +2,13 @@
 
 /* Start Products Style */
 
-.row{
-  display: flex; /* استفاده از flexbox */
-  flex-wrap: wrap; /* برای این که در صورت کمبود فضا باکس‌ها به خط بعدی بروند */
+/* .row{
+  display: flex;
+  flex-wrap: wrap;
   padding: 0;
 }
 
 .products-content {
-  /* padding: 1rem !important; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,6 +24,7 @@
     display: flex;
     transition: all 400ms ease;
     overflow: hidden;
+    background: red !important;
   }
 
   .product-box__detiles-header {
@@ -33,16 +33,7 @@
       font-weight: 700;
       margin-bottom: 0.7rem !important;
       color: var(--color_red);
-  }
-
-
-  .product-box__detiles-info {
-    /* text-transform: uppercase; */
-    /* font-size: 1.5rem !important; */
-    /* color: var(--color-span); */
-    /* color: var(--amber-600); */
-    /* margin-bottom: 1.5rem; */
-    
+      background: red !important;
   }
 
   .product-box__detiles-price {
@@ -76,7 +67,7 @@
     height: auto;
     border-radius: 50%;
   }
-  
+   */
 
 
 

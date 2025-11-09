@@ -1,4 +1,4 @@
-/* ========= Searchbar (بدون تغییر مقادیر) ========= */
+
 
 /* لنگر مطمئن برای پنل نتایج */
 form.searchbar{ position: relative; }
@@ -27,38 +27,35 @@ form.searchbar{ position: relative; }
 
 /* ورودی */
 .searchbar .Landing__searchBar-input,
-.searchbar .Landing__searchBar-input:focus,
 .searchbar .Landing__searchBar-input:active{
   border: 0;
   outline: 0;
   box-shadow: none;
   background: transparent;
-  padding: clamp(.50rem, 1.8vw, .72rem) clamp(.75rem, 2.6vw, 1rem);
+  padding: clamp(0.25rem, 0.9vw, 0.36rem) clamp(0.38rem, 1.3vw, 0.5rem);
   min-width: clamp(160px, 45vw, 260px);
-  font-size: clamp(.95rem, 3.6vw, 1rem);
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
   line-height: 1.35;
   color: inherit;
 }
 
 /* Placeholder */
 .Landing__searchBar-input::placeholder{
-  font-size: clamp(1rem, 4vw, 1.5rem);
-  color: var(--ink-500, #6b7280);
-  opacity: 1;
+  font-size: clamp(0.95rem, 0.3vw + 0.85rem, 1.20rem);
+  opacity: 0.5 !important;
 }
 
 /* فوکوس روی ظرف */
 .searchbar:focus-within{
-  border-color: var(--meat-cream-200);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-200, #cfe7d1) 70%, transparent);
+  box-shadow: 0 0 0 2px rgba(235, 105, 43, 0.15);
 }
 
 
 /* ========= Results Panel ========= */
 
 .search-results-container{ display: none; }
-
-/* فقط وقتی محتوا دارد نمایش بده؛ لنگرش خود فرم است */
 form.searchbar.desktop-search > .search-results-container:not(:empty){
   display: block;
   position: absolute;
@@ -122,13 +119,11 @@ form.searchbar.desktop-search > .search-results-container:not(:empty){
 }
 
 
-/* اسکرول بار  */
 
 
 /* برای Chrome/Edge/Safari */
 .search-results-container::-webkit-scrollbar {
   width: 4px !important;
-  /* height: 60px !important; */
 }
 
 .search-results-container::-webkit-scrollbar-thumb {

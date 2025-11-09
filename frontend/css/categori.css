@@ -1,5 +1,5 @@
-/* ================== Categori.css — پالِت‌محور، موبایل‌اول، بدون تغییر HTML ================== */
 
+/* ================== Categori.css — پالِت‌محور، موبایل‌اول، بدون تغییر HTML ================== */
 
 /* لینک کارت (بدون تغییر رفتار) */
 .related-products__card-link{ display:block; color:inherit; text-decoration:none; }
@@ -11,10 +11,9 @@
 
 /* ظرف کارت */
 .product-card.product-box__main{
-  display:flex; flex-direction:column; height:100%;
+  height:100%;
   border:1px solid var(--border-1);
   border-radius: var(--radius-lg, 14px);
-  /* background: var(--surface-1) !important; */
   padding:0; overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
 }
@@ -47,7 +46,6 @@
   color: var(--brand-800, #14532d);
   letter-spacing:.2px;
   text-decoration:none;
-
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
   min-height: 2.6em; /* ≈ دو خط */
   margin:0;
@@ -55,7 +53,7 @@
 /* توضیح (دو خط): رنگ خنثیِ خوانا از پالت */
 .product-box__detiles-info{
   color: var(--ink-600);
-  font-size: clamp(0.95rem, 0.3vw + 0.85rem, 1.10rem);
+ font-size: clamp(1.05rem, 0.8vw + 0.9rem, 1.2rem);
   margin-bottom: .75rem;
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
   min-height: calc(1.3em * 2);
@@ -77,18 +75,14 @@
   border:none; border-radius: 999px;
   padding:.62rem .95rem;
   font-weight:800; font-size:1.05rem;
-
-  /* background: var(--brand-100); */
   background: var(--meat-cream-300) !important;
   color: var(--brand-700);
-  /* box-shadow: 0 2px 0 rgba(0,0,0,.06) inset, 0 6px 16px color-mix(in srgb, var(--brand-600) 18%, transparent); */
   transition: transform .06s ease, filter .15s ease, box-shadow .15s ease, background-color .15s ease;
 }
 
 .btn-cart i{ font-size:1.2rem; line-height:1; color: var(--amber-600); }
 .btn-cart:hover{
   filter: brightness(1.05);
-  /* box-shadow: 0 8px 22px color-mix(in srgb, var(--brand-600) 22%, transparent); */
 }
 .btn-cart:active{ transform: translateY(1px); }
 .btn-cart:focus-visible{ outline:3px solid var(--btn-primary-ring); outline-offset:2px; }
@@ -102,14 +96,13 @@
   font-weight: 900;
   font-size: clamp(2rem, 1vw + 1.8rem, 3.2rem) !important;
   line-height: 1.2;
+  text-transform: uppercase;
   color: var(--meat-olive-800);
   margin-block: clamp(1.6rem, 2.5vw, 2.8rem) clamp(1.6rem, 2.8vw, 3.2rem);
   padding-inline-start: clamp(0.1rem, 0.2vw, 0.25rem);
   width: max-content;
   overflow: visible;
 }
-
-
 
 /* خط زیر عنوان */
 .product-category::after {
@@ -136,8 +129,7 @@
   transform: translateY(0.03em);
 }
 
-/* اختیاری: اگر جایی خواستی عنوان را بدون media وسط‌چین کنی،
-   همین کلاس را به همان h2 اضافه کن (بدون تغییر بقیه‌ی صفحات) */
+
 .product-category.is-centered{
   display: block;
   width: max-content;
@@ -146,17 +138,11 @@
 
 /* 🔹 وسط‌چین در موبایل */
 
-
-
 /* فاصله‌های کلی صفحه */
 .products-wrapper {
-  /* پدینگ عمودی (بالا و پایین) واکنش‌گرا */
   padding: clamp(0.75rem, 2vw, 1.5rem) 0;
-
-  /* مارجین بالا، راست/چپ، پایین — با تغییر تطبیقی */
   margin: clamp(0.5rem, 1vw, 1rem) 0 clamp(1rem, 3vw, 2rem);
 }
-
 
 /* ===== فیلترها ===== */
 
@@ -165,120 +151,44 @@
   border: 0 ;
 }
 
-
 .input-group button i{
 color: var(--brand-800);
 }
 
-@media (min-width: 992px){
-
-  .archive-layout .offcanvas {
-    background: var(--meat-brown-500) !important;
-    /* padding: 0 1rem !important; */
-    border-radius: 1rem;
-  }
-  /* ظرف ستون فیلتر */
-  #filtersOffcanvas{
-    position: sticky;
-    top: var(--stick-top-fixed);
-    align-self: start;    
-    transform: none !important;
-    visibility: visible !important;
-    /* inset: auto !important; */
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  /* محتوای داخل (جایی که کلاس filters-sticky دارد) */
-  #filtersOffcanvas .offcanvas-body{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    overscroll-behavior: contain;
-    max-height: calc(100svh - var(--stick-top, 96px) - 1rem);
-    overflow-y: auto;           
-    overflow-x: visible;
-  }
-}
-
-
-
-
-/* حالت موبایل: پنهان‌سازی فیلتر */
-@media (max-width: 991.98px) {
-  header.header  {
-    z-index: 100;
-  }
-  /* #filtersCollapse {
-    display: none !important;
-  } */
-
-  .offcanvas-body {
-    margin: var(--sp-3) 0;
-    box-shadow: var(--shadow-card);
-    background: var(--meat-brown-700);
-  }
-}
-
-/* =========== فیلتر چپ (Sidebar) =========== */
-/* #archive-q::placeholder {
-  color: var(--amber-6000) !important;           
-  font-size: var(--fz-sm);           
-  font-weight: 400;
-  font-style: normal;
-  opacity: 0.5;                       
-  transition: color 0.2s ease;
-} */
-
-/* .offcanvas-body {
-    display: flex;              
-    flex-direction: column;
-    gap: 1rem;
-    overflow-y: auto;          
-    overflow-x: visible;        
-} */
 
 .offcanvas-body .card {
   border: 1px solid var(--meat-cream-300);
-  border-radius: var(--rad-md);
+  border-radius: clamp(8px, 0.6vw, var(--radius-md, 10px));
   margin-bottom: 1rem;
   background: var(--amber-100);
-    box-shadow:
-    0 clamp(1px, 0.3vw, 2px) clamp(6px, 0.8vw, 8px) rgba(0, 0, 0, 0.08),
-    0 clamp(1px, 0.2vw, 1px) clamp(3px, 0.4vw, 4px) rgba(0, 0, 0, 0.04);
+  box-shadow:
+  0 clamp(1px, 0.3vw, 2px) clamp(6px, 0.8vw, 8px) rgba(0, 0, 0, 0.08),
+  0 clamp(1px, 0.2vw, 1px) clamp(3px, 0.4vw, 4px) rgba(0, 0, 0, 0.04);
 }
-/* 
-.filters-sticky .card:hover {
-  transform: translateY(-2px);
-    box-shadow:
-    0 clamp(2px, 0.4vw, 4px) clamp(10px, 1vw, 12px) rgba(0, 0, 0, 0.12);
-  transform: translateY(clamp(-1px, -0.3vw, -2px));
-} */
 
 .offcanvas-body .form-label,
 .offcanvas-body label {
   color: var(--brand-500);
   font-weight: 600;
-  font-size: var(--fz-md);
+  font-size: clamp(0.98rem, 0.45vw + 0.88rem, 1.125rem);
 }
 
 .offcanvas-body .form-control,
 .offcanvas-body .form-select {
   border-color: var(--meat-cream-300);
-  border-radius: var(--rad-md);
-  font-size: var(--fz-md);
+  border-radius: clamp(8px, 0.6vw, var(--radius-md, 10px));
+  font-size: clamp(0.98rem, 0.45vw + 0.88rem, 1.125rem);
   font-weight: 600;
   padding: 0.5rem 0.75rem;
   color: var(--brand-800) !important;
 }
 
-
 #sort {
   background-color: var(--meat-cream-50);
   color: var(--ink-900);
   border: 1px solid var(--col-border);
-  border-radius: var(--rad-md);
-  padding: var(--sp-2) var(--sp-3);
+  border-radius: clamp(8px, 0.6vw, var(--radius-md, 10px));
+  padding: clamp(0.5rem, 0.45vw + 0.35rem, 0.75rem) clamp(0.75rem, 0.6vw + 0.5rem, 1rem);
   appearance: none;
 }
 
@@ -289,23 +199,6 @@ color: var(--brand-800);
   border:1px solid var(--meat-cream-300) !important;
   box-shadow: 0 0 0 1px var(--meat-cream-300);
 }
-
-.card-cats-menu .list-group-item {
-  border: none;
-  background: transparent;
-  color: var(--brand-800) !important;
-  font-size: var(--fz-md);
-  padding: 0.5rem 0;
-  transition: color 0.2s;
-}
-.card-cats-menu .list-group-item span {
-  background: var(--brand-100) !important;
-  color: var(--brand-600) !important;
-  border: 2px solid var(--meat-cream-300) !important;
-}
-/* .card-cats-menu .list-group-item:hover {
-  color: #a43c26 !important;
-} */
 
 /* چک‌باکس‌ها */
 .offcanvas-body .form-check-input {
@@ -324,13 +217,6 @@ color: var(--brand-800);
   box-shadow: 0 0 0 3px rgba(38, 77, 40, 0.15);
 }
 
-/* .filters-sticky .form-check-input:hover {
-  border-color: #1d3821;
-} */
-
-/* .filters-sticky .form-check-input:checked[type=checkbox] {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M13.485 1.929a1 1 0 0 1 0 1.414L6.414 10.414a1 1 0 0 1-1.414 0L2.515 7.929a1 1 0 0 1 1.414-1.414L6 8.586l6.071-6.071a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E");
-} */
 /* دگمه فیلتر */
 #applyFilters {
   padding: 0.7rem 1.2rem;
@@ -346,6 +232,26 @@ color: var(--brand-800);
 
 #applyFilters:hover {
   background: var(--meat-green-700);
+}
+
+.card-cats-menu .list-group-item {
+  font-size: clamp(0.98rem, 0.45vw + 0.88rem, 1.125rem);
+  font-weight: 600;
+  background: transparent;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+
+.card-cats-menu .list-group-item a {
+  color: var(--meat-red-600) ;
+}
+
+.card-cats-menu .list-group-item .badge {
+  background: rgba(201, 0, 0, 0.1);
+  color: var(--meat-red-700);
+  border: 1px solid var(--meat-red-700);
+  width: 2rem;
+
 }
 
 /* =========== فیلترهای فعال (چیب‌ها) =========== */
@@ -366,7 +272,6 @@ color: var(--brand-800);
   font-weight: 600;
   color: var(--meat-cream-50);
   transition: background-color .15s ease, border-color .15s ease;
-  /* margin-bottom: 3rem; */
 }
 
 .filter-chips .chip:hover {
@@ -376,12 +281,10 @@ color: var(--brand-800);
 
 .filter-chips .chip .chip-x {
   margin-inline-start: 1rem;
-  /* opacity: .6; */
 }
 
 .filter-chips .chip--clear {
   border: 3px solid var(--amber-500);
-  /* color: var(--meat-cream-50); */
 }
 
 .filter-chips {
@@ -456,40 +359,284 @@ color: var(--brand-800);
   animation: shimmer 1.4s infinite;
 }
 
-/* ستون فیلتر روی دسکتاپ چسبان بالا + ستونی */
-/* @media (min-width: 992px){
+/* ================== HERO (single clean solution) ================== */
+/* بخش */
+.taste-behind{
+  position: relative;
+  padding: 3.2rem 1rem;
+  overflow: visible;
+  z-index: 0;
+}
 
-  .filters-sticky .mini-basket{
-    margin-top: auto;      
-  }
-} */
+/* کارت/باکس */
+.taste-behind .content-wrapper{
+  position: relative;
+  margin: 0 auto;
+  background-image: url(../images/landing/red-texture-new.webp);
+  border-radius: calc(var(--radius-lg) + 6px);
+  box-shadow: 0 18px 40px rgba(16,24,40,0.12);
+  border: 1px solid rgba(0,0,0,0.03);
+  border-top: none !important;
+  padding: 3.2rem 2.4rem;
+  z-index: 3;      
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
 
 
+/* ===== تصویر تزئینی خارج از کارت (همیشه روی کارت) ===== */
+.taste-behind .hero-art{
+  position: absolute;
+  z-index: 5;                          
+  inset-block-start: -11%;              
+  inset-inline-end: clamp(-20px,-6vw,-60px);
+  pointer-events: none;                 
+}
+.taste-behind .hero-art-img{
+  display: block;
+  width: auto;
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,.18));
+}
 
-/* ///////////////////////// */
+/* بج روی تصویر */
+.taste-behind .sale-badge{
+  position: absolute;
+  inset-block-start: clamp(6px, 1.2vw, 12px);
+  inset-inline-start: clamp(6px, 1.2vw, 12px);
+  background: var(--badge-sale-bg);
+  color: var(--badge-sale-text);
+  padding: .45rem .75rem;
+  border: 1px solid color-mix(in srgb, var(--meat-yellow-600) 50%, transparent);
+  box-shadow: 0 1px 2px rgba(16,24,40,.06);
+  font-size: clamp(.72rem, .66rem + .25vw, .85rem);
+}
+
+/* ===== تایپوگرافی و چیپ‌ها (با همون پالت خودت) ===== */
+.eyebrow{ font-size: clamp(0.9rem, 0.85rem + 0.45vw, 1.1rem); color: var(--meat-yellow-500); }
+.eyebrow .dot{
+  width:.55rem;height:.55rem;border-radius:999px;background:var(--meat-yellow-400);
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--meat-yellow-400) 20%, transparent);
+}
+.hero-title{
+  font-size: clamp(1.6rem, 1.2rem + 2.2vw, 3rem);; line-height:1.1; color: var(--heading-olive);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--meat-red-600);
+text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3px 3px rgba(0,0,0,.25), 10px 10px 20px rgba(0,0,0,.5), 20px 40px 40px rgba(0,0,0,.5); 
+}
+.hero-subtext{ font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.35rem);font-style: italic; font-weight: 500; color: var(--amber-100); }
+.hero-chips .chip{
+  font-size: clamp(.75rem, .7rem + .25vw, .9rem);; padding:.4rem .7rem; background:var(--chip-selected-bg);
+  border:1px dashed color-mix(in srgb, var(--meat-brown-500) 40%, transparent);
+  border-radius:999px; color:var(--ink-700);
+}
+
+/* ===== دکمه‌ها (همان پالت) ===== */
+.btn-brand{
+  --bs-btn-color:var(--meat-cream-50); --bs-btn-bg:var(--btn-primary); --bs-btn-border-color:var(--btn-primary);
+  --bs-btn-hover-bg:var(--btn-primary-hover); --bs-btn-hover-border-color:var(--btn-primary-hover);
+  border-radius:12px; font-weight:700;
+  box-shadow:0 6px 18px color-mix(in srgb, var(--brand-600) 40%, transparent);
+}
+.btn-brand:focus{ outline:3px solid color-mix(in srgb, var(--brand-600) 40%, transparent); outline-offset:2px; }
+.btn-outline-olive{
+  color: var(--meat-yellow-600);
+  border: 2px solid var(--meat-yellow-600);
+  background: transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all .25s ease;
+}
+
+.btn-outline-olive:hover{
+  background: var(--meat-yellow-600);
+  border-color: var(--meat-yellow-600);
+}
 
 
-/* ////////////////// */
+/* دسترسی‌پذیری */
+.btn:focus-visible{ box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--brand-600) 40%, transparent); }
 
 
 .archive-layout {
   display: grid;
-  /* ستون چپ (فیلتر): بین 200 تا 280px، ستون وسط کشسان، ستون راست بین 220 تا 300px */
   grid-template-columns:
-    clamp(200px, 22vw, 280px)
-    1fr
-    clamp(200px, 22vw, 280px);
+  clamp(200px, 22vw, 280px)
+  1fr
+  clamp(200px, 22vw, 280px);
   gap: clamp(1rem, 3vw, 3rem);
   align-items: start;
 }
 
-/* زیر 992px فقط وسط نمایش داده بشه */
-@media (max-width: 992px) {
+
+/* =========================================
+   >= 1400px (XXL)
+========================================= */
+@media (min-width: 1400px) {
+  .taste-behind .hero-art {
+    transform: translateY(5%);
+  }
+  .taste-behind .hero-art-img {
+    height: clamp(220px, 24vw, 360px);
+  }
+}
+
+/* =========================================
+   >= 1200px (XL)
+========================================= */
+@media (min-width: 1200px) {
+  .taste-behind .hero-art {
+    transform: translateY(5%);
+  }
+}
+
+/* =========================================
+   (min-width:993px) and (max-width:1199.98px) — LG Range
+========================================= */
+@media (min-width: 993px) and (max-width: 1199.98px) {
+  .taste-behind .hero-art {
+    transform: translateY(10%);
+  }
+}
+
+/* =========================================
+   >= 992px (LG+)
+========================================= */
+@media (min-width: 992px) {
+  .archive-layout .offcanvas {
+    border-radius: 1rem;
+  }
+
+  /* ظرف ستون فیلتر */
+  #filtersOffcanvas {
+    position: sticky;
+    top: var(--stick-top-fixed);
+    align-self: start;
+    transform: none !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .offcanvas-header h5 {
+    font-size: clamp(1.2rem, 2vw + 0.5rem, 1.6rem);
+  }
+
+
+  /* محتوای داخل (جایی که کلاس filters-sticky دارد) */
+  #filtersOffcanvas .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overscroll-behavior: contain;
+    max-height: calc(100svh - var(--stick-top, 96px) - 1rem);
+    overflow-y: auto;
+    overflow-x: visible;
+  }
+}
+
+/* =========================================
+   (min-width:768px) and (max-width:991.98px) — MD Range
+========================================= */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .taste-behind .hero-art {
+    transform: translateY(30%);
+  }
+  .taste-behind .hero-art-img {
+    height: clamp(340px, 37vw, 500px);
+  }
+}
+
+/* =========================================
+   >= 768px (MD+)
+========================================= */
+@media (min-width: 768px) {
+  .taste-behind .content-wrapper > .col-12.col-md-7 {
+    flex: 0 0 58%;
+    max-width: 58%;
+  }
+}
+
+/* =========================================
+   <= 991.98px (Below LG)
+========================================= */
+@media (max-width: 991.98px) {
+  header.header {
+    z-index: 100;
+  }
+  .offcanvas-body {
+    margin: clamp(0.75rem, 0.6vw + 0.5rem, 1rem) 0;
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(16,24,40,.10));
+    background: var(--meat-brown-700);
+  }
+}
+
+/* =========================================
+   <= 991.98px (Archive grid)
+========================================= */
+@media (max-width: 991.98px) {
   .archive-layout {
     grid-template-columns: 1fr;
     gap: clamp(1rem, 2vw, 1.5rem);
   }
 }
 
+/* =========================================
+   <= 767.98px (Below MD)
+========================================= */
+@media (max-width: 767.98px) {
+  /* سکشن در موبایل خودش کارت می‌شود */
+  .taste-behind {
+    padding: 2.2rem 1rem;
+    background-image: url(../images/landing/red-texture-new.webp);
+    border-radius: calc(var(--radius-lg) + 6px);
+    box-shadow: 0 18px 40px rgba(16, 24, 40, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+  }
 
+  /* باکس داخلی شفاف می‌شود تا سایه دوگانه نگیریم */
+  .taste-behind .content-wrapper {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none !important;
+    border: 0 !important;
+    padding: 0;
+  }
+
+  .taste-behind .hero-art {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-block-end: 0.4rem;
+    transform: translateY(-10%);
+  }
+
+  .taste-behind .hero-art-img {
+    height: clamp(260px, 58vw, 320px);
+    width: auto;
+  }
+
+  /* بج روی تصویر وسط */
+  .taste-behind .sale-badge {
+    inset-block-start: 6px;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* در موبایل، متن تمام‌عرض */
+  .taste-behind .content-wrapper > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   <= 575.98px (Below SM)
+========================================= */
+@media (max-width: 575.98px) {
+  .product-box__detiles-info {
+    font-size: 1.5rem;
+  }
+}

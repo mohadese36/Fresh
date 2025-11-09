@@ -1,6 +1,4 @@
-/* =========================================================
-   🎯 SLIDERS SECTIONS – MAIN STYLES
-   ========================================================= */
+
 
 /* =========================================
    🧱 TITLES – Unified Style for All Sections
@@ -86,6 +84,7 @@
 /* =========================================================
    🖼️ OFFER BANNERS – Right Side
    ========================================================= */
+
 .offers-wrapper .offer-banners {
   display: flex;
   flex-direction: column;
@@ -140,6 +139,7 @@
 /* =========================================================
    🔥 2. BEST SELLERS – Parallax Background
    ========================================================= */
+
 #best-sellers {
   z-index: 1;
   background:
@@ -174,6 +174,7 @@
 /* =========================================================
    🍖 COMMON WRAPPERS & BACKGROUND SECTIONS
    ========================================================= */
+
 #special-offers,
 #new-arrivals,
 #best-sellers,
@@ -214,7 +215,7 @@
    💸 DISCOUNTED PRODUCTS
    ========================================================= */
 #discounted-products h2 {
-  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-brown-500));
+  background: linear-gradient(90deg, var(--meat-brown-700), var(--meat-yellow-700));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
@@ -234,16 +235,8 @@
 }
 
 .order-now-deco--right {
-  /* top: clamp(25px, 4vw, 36px);
-  right: clamp(-100px, -6vw, -86px); */
-  /* top: clamp(5px, 1.2vw, 10px);
-right: clamp(-80px, -4vw, -68px); */
-
-top: clamp(5px, 0.8vw, 12px);
-right: clamp(-80px, -4vw, -68px);
-
-
-
+  top: clamp(5px, 0.8vw, 12px);
+  right: clamp(-80px, -4vw, -68px);
 }
 
 @keyframes pulseShock {
@@ -255,16 +248,11 @@ right: clamp(-80px, -4vw, -68px);
 }
 
 /* =========================================================
-   🌿 ORGANIC & HEALTHY PRODUCTS
-   ========================================================= */
+  🌿 ORGANIC & HEALTHY PRODUCTS
+========================================================= */
 #organic-healthy-products {
   background-image: url("../images/landing/pencil-meat-pattern-bg-light-green-02.png");
-  /* background-repeat: no-repeat; */
-  /* background-position: center; */
-
-
 }
-
 
 #organic-healthy-products h2 {
   background: linear-gradient(90deg, var(--brand-700), var(--brand-400));
@@ -290,9 +278,7 @@ right: clamp(-80px, -4vw, -68px);
 }
 
 #products-with-unique-features h2 {
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-brown-500));
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-yellow-700));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
@@ -352,8 +338,9 @@ right: clamp(-80px, -4vw, -68px);
   margin: 0 6px !important;
   transition: all 0.3s ease;
 }
-/* ==== Pagination for Best Sellers ==== */
 
+
+/* ==== Pagination for Best Sellers ==== */
 
 
 /* دکمه‌های نقطه‌ای عادی */
@@ -369,27 +356,96 @@ right: clamp(-80px, -4vw, -68px);
   transform: scale(1.1);
   box-shadow: 0 0 6px rgba(185, 28, 28, 0.6);
   transform: scale(1.15);
-  /* box-shadow: 0 0 8px rgba(255, 152, 0, 0.5); */
+}
+
+
+/* featured-products */
+/* فقط درون اسلایدر */
+#special-offers .related-products__card-rating,
+#new-arrivals .related-products__card-rating,
+#best-sellers .related-products__card-rating,
+#discounted-products .related-products__card-rating,
+#organic-healthy-products .related-products__card-rating,
+#products-with-unique-features .related-products__card-rating {
+  position: absolute;
+  top: clamp(110px, 18vw, 175px);
+  z-index: 3;
+}
+
+
+/* فقط برای اسلایدر – پنهان بودن در حالت عادی */ 
+/* card-rating */
+#special-offers .swiper-slide .related-products__card-rating,
+#new-arrivals .related-products__card-rating,
+#best-sellers .swiper-slide .related-products__card-rating,
+#discounted-products .related-products__card-rating,
+#organic-healthy-products .related-products__card-rating,
+#products-with-unique-features .related-products__card-rating {
+  opacity: 0;
+  visibility: hidden;
+}
+#special-offers .swiper-slide:hover .related-products__card-rating,
+#new-arrivals .related-products__card:hover .related-products__card-rating,
+#best-sellers .swiper-slide:hover .related-products__card-rating,
+#discounted-products .related-products__card:hover .related-products__card-rating,
+#organic-healthy-products .related-products__card:hover .related-products__card-rating,
+#products-with-unique-features .related-products__card:hover .related-products__card-rating {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 3;
+}
+
+/* card-seller */
+#special-offers .swiper-slide .related-products__card-seller,
+#new-arrivals .related-products__card-seller,
+#best-sellers .swiper-slide .related-products__card-seller,
+#discounted-products .related-products__card-seller,
+#organic-healthy-products .related-products__card-seller,
+#products-with-unique-features .related-products__card-seller {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+#special-offers .swiper-slide:hover .related-products__card-seller,
+#new-arrivals .related-products__card:hover .related-products__card-seller,
+#best-sellers .swiper-slide:hover .related-products__card-seller,
+#discounted-products .related-products__card:hover .related-products__card-seller,
+#organic-healthy-products .related-products__card:hover .related-products__card-seller,
+#products-with-unique-features .related-products__card:hover .related-products__card-seller{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* =========================================================
-   📱 MEDIA QUERIES – AT THE END (Organized)
+   📱 MEDIA QUERIES – Organized & Mobile-First
    ========================================================= */
 
-/* ===== SMALL MOBILE ===== */
-@media (max-width: 400px) {
+/* =========================================
+   ≤ 400px — Small Mobile
+========================================= */
+@media (max-width: 399.98px) {
   #special-offers .related-products__card-title,
   #best-sellers .related-products__card-title {
     font-size: clamp(1.2rem, 3.5vw, 1.5rem);
   }
+
   #special-offers .related-products__card-text,
   #best-sellers .related-products__card-text {
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   }
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 576px) {
+/* =========================================
+   ≤ 575.98px — Mobile
+========================================= */
+@media (max-width: 575.98px) {
   #special-offers .offers-wrapper,
   #best-sellers .offers-wrapper {
     flex-direction: column;
@@ -428,7 +484,7 @@ right: clamp(-80px, -4vw, -68px);
   #special-offers .related-products__card-img-wrapper,
   #best-sellers .related-products__card-img-wrapper {
     width: 100%;
-    aspect-ratio: 16/11;
+    aspect-ratio: 16 / 11;
     overflow: hidden;
   }
 
@@ -440,22 +496,25 @@ right: clamp(-80px, -4vw, -68px);
   }
 }
 
-/* ===== TABLET ===== */
-@media (max-width: 767px) {
+/* =========================================
+   ≤ 768px — Small Desktop / Tablet
+========================================= */
+@media (max-width: 767.98px) {
   .offer-floating-banner,
   #special-offers .offer-banners .offer-banner:first-child,
   #special-offers .offer-banners .offer-banner:last-child img {
     display: none !important;
   }
+
+  .order-now-deco {
+    display: none;
+  }
 }
 
-/* ===== SMALL DESKTOP / TABLET ===== */
-@media (max-width: 768px) {
-  .order-now-deco { display: none; }
-}
-
-/* ===== LARGE MOBILE & TABLET ===== */
-@media (max-width: 991px) {
+/* =========================================
+   ≤ 991.98px — Large Mobile / Tablet
+========================================= */
+@media (max-width: 991.98px) {
   #special-offers,
   #products-with-unique-features {
     background-attachment: scroll;

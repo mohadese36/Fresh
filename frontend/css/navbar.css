@@ -9,19 +9,11 @@ header.header{
   display: flex;
   align-items: center !important;
   justify-content: center;
-
-  /* تغییر فقط رنگ‌ها */
-  /* background: var(--meat-olive-800);                     */
-  /* background: var( --meat-red-600);   */
   background: var(--brand-900);  
-  /* background: var(--accent-red-100);   */
-  /* opacity: 0.9; */
   color: var(--amber-100);                          
   position: relative;
-  /* border-bottom: 0.5rem solid var(--meat-yellow-600);   
-  border-top:    0.5rem solid var(--meat-yellow-600);    */
-  border-bottom: 0.5rem solid var(--meat-brown-500);   
-  border-top:    0.5rem solid var(--meat-brown-500);    
+  border-bottom: 0.5rem solid var(--meat-yellow-700);   
+  border-top:    0.5rem solid var(--meat-yellow-700);    
 
   .main-header__menu {
     display: flex ;
@@ -31,7 +23,6 @@ header.header{
     align-items: center;
     justify-content: center;
     gap: 6rem;
-    /* width: 70%; */
     margin: 0 auto;
   }
 
@@ -41,14 +32,12 @@ header.header{
 
   .main-header__menu li{
     font-family: var(--display);
-    /* -webkit-text-stroke: 2px var(--meat-brown-700);      */
     font-size: 2rem;
-    /* flex: 1; */
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0 0.5rem;
+    padding: 1rem 0.5rem;
     cursor: pointer;
     transition: transform 0.25s ease-in-out;
     color: var(--amber-100);
@@ -58,20 +47,7 @@ header.header{
       width: 100vw;
     }
 
-    /* تأکید داخل عنوان دو‌لایه */
-    /* span span {
-      color: var(--meat-yellow-600) ;                 
-    } */
-
     &:hover{
-      /* span {
-        transform: scale(1.1);
-        color: var(--meat-yellow-600);               
-        span {
-          color: var(--meat-yellow-600);              
-        }
-      } */
-
       .main-header__dropdown {
         list-style: none;
         margin: 0;
@@ -85,8 +61,6 @@ header.header{
         right: 0;
         background-image: url(../images/landing/red-texture-new.webp);
         padding: 2rem;
-        /* border-bottom: 0.5rem solid var(--meat-green-700) !important;
-        border-top: 0.5rem solid var(--meat-yellow-600)  ; */
         z-index: 1;
 
         li {
@@ -100,13 +74,9 @@ header.header{
           flex: 1;
 
           span {
-            /* font-size: 2rem; */
             color: var(--meat-cream-50); 
-            /* font-weight: 300 !important;              */
-
             &:hover {
               color: var(--meat-yellow-600);          
-              /* font-weight: 300 !important; */
             }
           }
 
@@ -142,19 +112,16 @@ header.header{
 
 /* منو در حالت همبرگری  */
 
-/* ===== Isolated Offcanvas (بدون دست‌زدن به تاپ‌بار و main-header) ===== */
 .offcanvas-nav{
   position: fixed;
   left: 0;
   top: var(--offcanvas-top, 0);
   height: calc(100dvh - var(--offcanvas-top, 0));
-  width: min(50vw, 520px);          /* ≥768px نصف صفحه */
+  width: min(50vw, 520px);  
   transform: translateX(-100%);
   transition: transform 1s ease;
-  /* background: var(--meat-brown-500, #795b2e); */
   background-image: url(../images/landing/roux-landing-4.jpg);
   color: var(--amber-100);
-  /* color: var(--meat-cream-50); */
   font-size: 1.5rem;
   font-weight: 600;
   z-index: 1100;
@@ -196,17 +163,6 @@ header.header{
   color: var(--meat-cream-100)
 }
 
-/* موبایل: تمام‌صفحه و دقیقاً زیر سرچ‌بار */
-@media (max-width: 767px){
-  .offcanvas-nav{
-    width: 100vw;
-    max-width: 100vw;
-    border-radius: 12px 12px 0 0;
-  }
-
-}
-
-
 /* بک‌دراپ */
 .nav-backdrop{
   position: fixed; inset: 0;
@@ -216,13 +172,10 @@ header.header{
   z-index: 1090;
 }
 .nav-backdrop.is-visible{ opacity: 1; pointer-events: auto; }
-
-/* قفل اسکرول وقتی منو باز است */
 body.nav-lock{ overflow: hidden; }
 
 
 
-/* همبرگری → ضربدر (فقط همین؛ ابعادش عوض نمی‌شود) */
 /* حالت باز: همبرگر → ضربدر؛ بدون تغییر استایل پایه */
 .main-header__toggle.is-open > .main-header__toggle-bar:nth-child(1){
   transform: translateY(calc(100% + 0.35rem)) rotate(45deg);
@@ -234,20 +187,22 @@ body.nav-lock{ overflow: hidden; }
   transform: translateY(calc(-100% - 0.35rem)) rotate(-45deg);
 }
 
-
-
-/* Hotfix: override any accidental display none */
 .offcanvas-nav { display: block !important; }
 .offcanvas-nav.is-open { display: block !important; }
 
+/* =========================
+   Responsive
+   ========================= */
 
+/* موبایل: تمام‌صفحه و دقیقاً زیر سرچ‌بار */
+@media (max-width: 767.98px){
+  .offcanvas-nav{
+    width: 100vw;
+    max-width: 100vw;
+    border-radius: 12px 12px 0 0;
+  }
 
-
-
-
-
-
-
+}
 
 
 

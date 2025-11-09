@@ -3,6 +3,11 @@
    📰 ARTICLE PAGE – Pastro Style Redesign
    =========================================== */
 
+
+.blog-mobile-tabs {
+  display: none;
+}
+
 /* ========== Article Wrapper ========== */
 .article {
   padding: clamp(1.6rem, 2vw, 3.2rem);
@@ -235,52 +240,10 @@
 .product-info__products-link:hover .product-info__products-img {
   transform: scale(1.05);
 }
-
-/* ========== Responsive Layouts ========== */
-@media (max-width: 991px) {
-  .blog-tab-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(0.4rem, 1vw, 0.8rem);
-    width: 100%;
-  }
-
-  .blog-tab-buttons button {
-    flex: 0 1 36%;
-    max-width: 180px;
-    padding: clamp(0.35rem, 0.6vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem) !important;
-    font-size: clamp(0.85rem, 0.5vw + 0.8rem, 1rem);
-    border-radius: 2.2rem;
-    line-height: 1.3;
-  }
-
-  .article .row {
-    flex-direction: column;
-  }
-
-  .col-8,
-  .col-4 {
-    width: 100%;
-  }
-
-  .products-info {
-    position: static;
-  }
-
-  .product-info {
-    margin-top: 2rem;
-  }
-}
-
 /* =========================================
-   📱 BLOG – Mobile Tabs (Under Breadcrumb)
+   <= 991.98px (Below LG)
 ========================================= */
-.blog-mobile-tabs {
-  display: none;
-}
-
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
   .blog-mobile-tabs {
     display: block;
     background: var(--meat-cream-100);
@@ -294,16 +257,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(0.6rem, 1vw, 1.2rem);
+    gap: clamp(0.4rem, 1vw, 0.8rem);
+    width: 100%;
     margin-bottom: clamp(1.2rem, 2vw, 2rem);
   }
 
   .blog-tab-buttons button {
-    flex: 1;
     border: none;
     font-weight: 700;
-    font-size: clamp(1.2rem, 0.8vw + 0.8rem, 1.6rem);
-    padding: clamp(0.8rem, 1.2vw, 1.4rem) clamp(1.2rem, 2vw, 2.4rem);
+    flex: 0 1 36%;
+    max-width: 180px;
+    padding: clamp(0.35rem, 0.6vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.2rem) !important;
+    font-size: clamp(0.85rem, 0.5vw + 0.8rem, 1rem);
+    border-radius: 2.2rem;
+    line-height: 1.3;
     transition: all 0.3s ease;
     cursor: pointer;
     color: var(--ink-900);
@@ -369,10 +336,27 @@
 
   .products-info {
     display: none;
+    position: static;
+  }
+
+  .article .row {
+    flex-direction: column;
+  }
+
+  .col-8,
+  .col-4 {
+    width: 100%;
+  }
+
+  .product-info {
+    margin-top: 2rem;
   }
 }
 
-@media (max-width: 576px) {
+/* =========================================
+   <= 575.98px (Below SM)
+========================================= */
+@media (max-width: 575.98px) {
   .article__title {
     font-size: clamp(1.6rem, 5vw, 2rem);
   }

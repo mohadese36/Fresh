@@ -149,7 +149,7 @@ async function loadCategoriesWithCounts() {
   list.innerHTML = items.map(cat => `
     <li class="list-group-item d-flex justify-content-between align-items-center">
       <a class="d-block text-decoration-none" href="categori.html?category=${encodeURIComponent(cat.slug)}">${cat.name}</a>
-      <span class="badge bg-light text-dark">${cat.count}</span>
+      <span class="badge">${cat.count}</span>
     </li>
   `).join('');
 }

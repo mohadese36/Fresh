@@ -35,7 +35,7 @@ logoutBtn.addEventListener('click', async () => {
 const token = localStorage.getItem('token');
 
 if (!token) {
-  alert('⛔️ دسترسی غیرمجاز! لطفا لاگین کن');
+  alert('⛔️ Unauthorized access! Please log in.');
   window.location.href = 'login.html';
 }
 

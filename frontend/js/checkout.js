@@ -1,8 +1,30 @@
+// frontend/js/checkout.js
 import { supabase } from './supabaseClient.js';
 
-const GUEST_USER_ID = 'guest';
+// ===============================
+// 🧠 شناسه‌ی کاربر / مهمان
+// ===============================
+function getOrCreateGuestId() {
+  let gid = localStorage.getItem('guest_id');
+  if (!gid) {
+    gid = 'guest_' + crypto.randomUUID();
+    localStorage.setItem('guest_id', gid);
+  }
+  return gid;
+}
 
+async function getActiveUserId() {
+  const storedUser = JSON.parse(localStorage.getItem('user') || 'null');
+  if (storedUser?.id) return storedUser.id;
+  return getOrCreateGuestId();
+}
+
+// ===============================
+// 🧾 رندر محصولات سبد در صفحه‌ی پرداخت
+// ===============================
 async function renderCheckoutItems() {
+  const USER_ID = await getActiveUserId();
+
   const { data: cart, error } = await supabase
     .from('cart_items')
     .select(`
@@ -15,7 +37,7 @@ async function renderCheckoutItems() {
         image_url
       )
     `)
-    .eq('user_id', GUEST_USER_ID);
+    .eq('user_id', USER_ID);
 
   if (error) return console.error(error.message);
 
@@ -35,19 +57,14 @@ async function renderCheckoutItems() {
     card.className = 'card mb-3 basket-item';
     card.innerHTML = `
       <div class="row g-0 align-items-start">
-        <!-- تصویر -->
         <div class="col-3">
-          <img src="${item.products.image_url}" class="img-fluid rounded-start" alt="${item.products.name}">
+          <img src="${item.products.image_url || './images/products/deli-2880w.jpg'}" class="img-fluid rounded-start" alt="${item.products.name}">
         </div>
-
-        <!-- فقط نام محصول -->
         <div class="col-6">
           <div class="card-body p-2">
             <h6 class="card-title mb-0">${item.products.name}</h6>
           </div>
         </div>
-
-        <!-- راست: £price × qty و زیرش Total -->
         <div class="col-3 text-end p-2">
           <p class="price-xqty fw-bold mb-1">
             £${item.products.price.toFixed(2)} × ${item.quantity}
@@ -58,52 +75,47 @@ async function renderCheckoutItems() {
         </div>
       </div>
     `;
-
-
-
     container.appendChild(card);
   });
+
+  // مجموع کل در انتها
+  const totalEl = document.getElementById('checkout-total');
+  if (totalEl) totalEl.textContent = `£${total.toFixed(2)}`;
 }
 
 document.addEventListener('DOMContentLoaded', renderCheckoutItems);
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// گرفتن ارجاعات
+// ===============================
+// 💳 پاپ‌آپ و فرم پرداخت با انیمیشن نرم (zoom in/out)
+// ===============================
 const form = document.getElementById("checkout-form");
 const popup = document.getElementById("demoPopup");
 const overlay = document.getElementById("overlay");
 const closeBtn = document.getElementById("closePopup");
 
-// تابع پاک‌سازی فرم
 function clearForm() {
   if (!form) return;
-  form.reset(); // همه input/textarea ها به حالت اولیه (خالی) برمی‌گردند
-  // اگر از Bootstrap validation استفاده می‌کنی، این کلاس‌ها هم پاک شوند:
+  form.reset();
   form.querySelectorAll('.is-valid, .is-invalid').forEach(el => {
     el.classList.remove('is-valid', 'is-invalid');
   });
 }
 
-// ارسال فرم → فقط پاپ‌آپ را نشان بده
+// باز شدن پاپ‌آپ با افکت آرام
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  popup.style.display = "block";
-  overlay.style.display = "block";
+  popup.classList.add("show");
+  overlay.classList.add("show");
 });
 
-// دکمه OK در پاپ‌آپ
-closeBtn.addEventListener("click", () => {
-  popup.style.display = "none";
-  overlay.style.display = "none";
-  clearForm();                 // ←ــــ این خط فرم را خالی می‌کند
-});
+// بستن پاپ‌آپ با افکت آرام
+function closePopup() {
+  popup.classList.remove("show");
+  overlay.classList.remove("show");
+  clearForm();
+}
 
-// کلیک روی بیرونِ پاپ‌آپ (اختیاری: اگر می‌خواهی با این هم فرم خالی شود، clearForm را اضافه کن)
-overlay.addEventListener("click", () => {
-  popup.style.display = "none";
-  overlay.style.display = "none";
-  // clearForm();              // ← در صورت تمایل فعال کن
-});
+closeBtn.addEventListener("click", closePopup);
+overlay.addEventListener("click", closePopup);
