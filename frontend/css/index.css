@@ -1,16 +1,14 @@
 
-
 /* =========================
    Landing / Hero
    ========================= */
 
 .Landing {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+     linear-gradient(0deg, rgba(25, 25, 15, 0.75), rgba(25, 25, 15, 0.75)),
     url("../images/products/deli-2880w.jpg") center / cover no-repeat fixed;
   text-align: center;
   padding: clamp(4rem, 8vw, 7rem) 0;
-  color: var(--surface-1);
 }
 
 .Landing__title {
@@ -18,65 +16,145 @@
   font-size: clamp(2.1rem, 4vw, 3.4rem);
   letter-spacing: 0.2px;
   line-height: clamp(1.15, 2vw, 1.25);
-  margin: 0; /* هم‌راستاسازی تیتر در همه بریک‌ها */
+  margin: 0; 
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-yellow-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 3px rgba(0,0,0,0.4),
+    0 0 6px rgba(255,221,150,0.2);
 }
 
 .Landing__subTitle {
-  font-size: clamp(1.2rem, 2.6vw, 2.1rem);
-  margin-top: clamp(0.75rem, 1.5vw, 1rem);
+  color: var(--meat-cream-300) ;
+}
+.Landing__subTitle,
+.words span {
+  font-size: clamp(1.8rem, 3.9vw, 3.15rem) !important;
+  font-weight: 800;
   color: color-mix(in srgb, var(--surface-1), transparent 10%);
   line-height: clamp(1.5, 2.2vw, 1.7);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
-/* =========================
-   Layout Container
-   ========================= */
+.Landing__cta .btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  margin: 0 0.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
 
+.landing-wrapper {
+  box-sizing: content-box;
+  height: 70px;
+  padding: clamp(1rem, 5vh, 3rem) clamp(1rem, 4vw, 2rem);
+  display: flex;
+  justify-content: center;
+}
 
-
-/* =========================
-   Responsive
-   ========================= */
-
-/* <= 992px: بهبود عملکرد موبایل و تبلت */
-@media (max-width: 992px) {
-  .Landing {
-    /* جلوگیری از لگ اسکرول روی موبایل */
-    background-attachment: scroll;
-    padding: clamp(3.5rem, 8vw, 6rem) 0;
+.words {
+  overflow: hidden;
+}
+.words span {
+  display: block;
+  height: 100%;
+  text-align: left;
+  margin-left: 1rem;
+  color: color-mix(in srgb, var(--meat-red-700), var(--meat-yellow-500) 30%);
+  animation: spin_words 10s infinite;
+}
+@keyframes spin_words {
+  10% {
+    transform: translateY(-112%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-212%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-312%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  85% {
+    transform: translateY(-412%);
+  }
+  100% {
+    transform: translateY(-400%);
   }
 }
 
-/* <= 768px: تیتر و زیرتیتر کمی فشرده‌تر برای هم‌قد شدن کارت‌ها در بریک مشترک */
-@media (max-width: 768px) {
-  .Landing__title {
-    font-size: clamp(1.9rem, 6vw, 2.6rem);
-    line-height: 1.2;
-  }
-  .Landing__subTitle {
-    font-size: clamp(1.05rem, 3.6vw, 1.35rem);
-    margin-top: clamp(0.6rem, 2vw, 0.8rem);
-  }
+
+
+
+/* Container */
+.Landing .container {
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
-/* <= 576px: تایپوگرافی خواناتر و مارجین/پدینگ هماهنگ */
-@media (max-width: 576px) {
-  .Landing {
-    padding: clamp(3rem, 10vw, 4rem) 0;
-  }
-
+/* Tagline (small text above main title) */
+.Landing__tagline {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  color: var(--meat-yellow-500);
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
 }
 
+/* Badges (small labels below text) */
+.Landing__extras {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
 
+.Landing__extras .badge {
+  background: var(--brand-600);
+  color: var(--meat-cream-50);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  letter-spacing: 0.5px;
+}
 
+/* Buttons (using your .Landing__cta .btn) */
+.btn-primary {
+  background-color: var(--meat-yellow-600);
+  color: var(--ink-900);
+  border-color:var(--meat-red-600) ;
+}
 
+.btn-primary:hover {
+  background-color: var(--meat-yellow-700);
+  border-color:var(--meat-red-600) ;
+}
 
+.btn-outline {
+  border: 2px solid var(--amber-100);
+  color: var(--amber-100);
+}
 
-
-
-
-
-
+.btn-outline:hover {
+  background-color: var(--surface-1);
+  color: var(--meat-brown-700);
+}
 
 /* =========================
    Why Choose Us - Enhanced
@@ -481,3 +559,63 @@
 }
 
 
+
+/* =========================================
+   Responsive Fix for Landing Animation Text
+   ========================================= */
+
+/* وقتی عرض کمتر از 1225 پیکسل شد */
+@media (max-width: 1224.98px) {
+  .landing-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .Landing__subTitle {
+    display: block;
+    margin: 0;
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  }
+
+  .words {
+    display: inline-block;
+    height: 50px;
+  }
+
+  .words span {
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+    text-align: center;
+    margin-left: 0;
+    padding:0 0 2rem ;
+  }
+}
+
+/* وقتی وارد موبایل شدیم */
+@media (max-width: 700px) {
+  .landing-wrapper {
+   padding: clamp(0.3rem, 1.2vh, 0.7rem) clamp(0.3rem, 1.5vw, 0.6rem);
+  }
+
+  .Landing__subTitle {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  .words span {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    padding:0.5rem 0 !important ;
+  }
+}
+
+@media (max-width: 341.98px) {
+
+  
+  .words span {
+    padding: 1rem 0 !important ;
+  }
+  .btn-primary {
+    margin-bottom: 1rem !important;
+  }
+
+}

@@ -168,6 +168,7 @@
 .offer-floating-banner img {
   width: clamp(150px, 22vw, 240px);
   height: auto;
+  transform: rotate(-10deg);
   transform-origin: bottom left;
 }
 

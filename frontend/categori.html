@@ -2,342 +2,258 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>categori</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Category | Pastro</title>
 
-  <!-- ✅ Bootstrap CSS (هم‌نسخه با JS) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ==================== External CSS ==================== -->
+  <!-- Bootstrap Core -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Vendor CSS (اگه نسخه‌ات قدیمیه، بهتره این خط رو حذف کنی) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="vendor/BootStrap/bootstrap.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
+  <!-- ==================== Vendor CSS ==================== -->
+  <link rel="stylesheet" href="vendor/BootStrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css" />
   <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
 
-  <!-- Project CSS -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- <link rel="stylesheet" href="css/categori.css"> -->
-
-  <style>
-/* .container {
-  max-width: 100vw !important;
-  padding: 0 2rem !important;
-  margin: 0 !important;
-} */
-
-@media (max-width: 993px) {
-  /* .container {
-
-   max-width: revert !important;
-  padding: revert !important;
-  margin: revert !important;
-  } */
-}
-
-  </style>
+  <!-- ==================== Project CSS ==================== -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-    <!-- Start Header -->
-    <header class="header" role="banner">
-        <div class="top-bar">
-          <div class="container-fluid">
-              <div class="top-bar__content d-flex align-items-center justify-content-between">
-
-                <div class="top-bar__left">
-                    <a href="index.html" class="brand" aria-label="Go to home">
-                      <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
-                    </a>
-                </div>
-
-                <div class="top-bar__right d-flex align-items-center">
-                    <form class="searchbar desktop-search" role="search" action="/search" method="get">
-                      <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
-                      <input id="main-search" class="Landing__searchBar-input text-muted" type="search" name="q"
-                             placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search"/>
-                    </form>
-
-                    <button class="main-header__toggle d-inline-block d-lg-none"
-                            type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="main-header__toggle-bar"></span>
-                      <span class="main-header__toggle-bar"></span>
-                      <span class="main-header__toggle-bar"></span>
-                    </button>
-
-                    <a href="./cart.html" class="main-header__cart-btn position-relative" aria-label="Open cart">
-                      <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
-                      <span id="cart-count-badge"
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                            style="display:none;">0</span>
-                    </a>
-
-                    <a href="#" class="main-header__profile d-flex align-items-center" aria-label="Your account">
-                      <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
-                      <span class="main-header__profile-text d-none d-md-inline"></span>
-                    </a>
-
-                    <button id="logout-btn" type="button" class="d-flex align-items-center">
-                      <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
-                      <span class="logout-text d-none d-md-inline">Logout</span>
-                    </button>
-                </div>
-              </div>
+  <!-- ==================== Start Header ==================== -->
+  <header class="header" role="banner">
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="top-bar__content d-flex align-items-center justify-content-between">
+          <div class="top-bar__left">
+            <a href="index.html" class="brand" aria-label="Go to home">
+              <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
+            </a>
           </div>
 
-          <!-- Main header / Navigation strip -->
-          <div class="main-header">
-            <div class="container-fluid px-0">
-              <div class="main-header__content">
-                <nav class="main-header__nav" aria-label="Main navigation">
-                  <ul id="navbar" class="main-header__menu"></ul>
-                </nav>
-              </div>
-            </div>
+          <div class="top-bar__right d-flex align-items-center">
+            <form class="searchbar desktop-search" role="search" action="/search" method="get">
+              <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
+              <input id="main-search" class="Landing__searchBar-input text-muted" type="search" name="q"
+                     placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search" />
+            </form>
+
+            <button class="main-header__toggle d-inline-block d-lg-none" type="button"
+                    aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="main-header__toggle-bar"></span>
+              <span class="main-header__toggle-bar"></span>
+              <span class="main-header__toggle-bar"></span>
+            </button>
+
+            <a href="./cart.html" class="main-header__cart-btn position-relative" aria-label="Open cart">
+              <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
+              <span id="cart-count-badge"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style="display:none;">0</span>
+            </a>
+
+            <a href="#" class="main-header__profile d-flex align-items-center" aria-label="Your account">
+              <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
+              <span class="main-header__profile-text d-none d-md-inline"></span>
+            </a>
+
+            <button id="logout-btn" type="button" class="d-flex align-items-center">
+              <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
+              <span class="logout-text d-none d-md-inline">Logout</span>
+            </button>
           </div>
         </div>
-    </header>
-    <!-- Finish Header -->
+      </div>
 
-    <!-- Start Main Info Section -->
-    <main class="main">
-      <div class="container " style="max-width: 100vw; padding: 2rem ; margin: 0;;">
-        <div class="products-wrapper">
+      <!-- Navigation Bar -->
+      <div class="main-header">
+        <div class="container-fluid px-0">
+          <div class="main-header__content">
+            <nav class="main-header__nav" aria-label="Main navigation">
+              <ul id="navbar" class="main-header__menu"></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ==================== Finish Header ==================== -->
 
-          <!-- Breadcrumb -->
-          <section class="breadcrumb">
-            <div class="container px-0">
-              <div class="breadcrumb__content justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                  <div class="breadcrumb__home-content-icon">
-                    <i class="fas fa-home breadcrumb__home-icon"></i>
-                  </div>
-                  <ul class="breadcrumb__list"><!-- breadcrumb.js پر می‌کند --></ul>
+  <!-- ==================== Start Main Content ==================== -->
+  <main class="main">
+    <div class="container" style="max-width: 100vw; padding: 2rem; margin: 0;">
+      <div class="products-wrapper">
+
+        <!-- ==================== Start Breadcrumb ==================== -->
+        <section class="breadcrumb">
+          <div class="container px-0">
+            <div class="breadcrumb__content justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="breadcrumb__home-content-icon">
+                  <i class="fas fa-home breadcrumb__home-icon"></i>
                 </div>
-
-                <!-- دکمه فیلتر فقط برای موبایل -->
-                <button id="filtersToggleBtn"
-                        class="btn filters-toggle d-lg-none"
-                        type="button"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#filtersOffcanvas"
-                        aria-controls="filtersOffcanvas">
-                  <i class="bi bi-funnel-fill filters-icon" aria-hidden="true"></i>
-                  <span class="filters-label">Filters</span>
-                </button>
+                <ul class="breadcrumb__list"></ul>
               </div>
+
+              <!-- Mobile Filter Button -->
+              <button id="filtersToggleBtn"
+                      class="btn filters-toggle d-lg-none"
+                      type="button"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#filtersOffcanvas"
+                      aria-controls="filtersOffcanvas">
+                <i class="bi bi-funnel-fill filters-icon" aria-hidden="true"></i>
+                <span class="filters-label">Filters</span>
+              </button>
             </div>
-          </section>
+          </div>
+        </section>
+        <!-- ==================== Finish Breadcrumb ==================== -->
 
-          <div class="archive-layout">
-            <!-- فیلتر -->
-            <div class="offcanvas offcanvas-lg offcanvas-start  p-3"
-                tabindex="-1"
-                id="filtersOffcanvas"
-                aria-labelledby="filtersLabel">
+        <!-- ==================== Start Archive Layout ==================== -->
+        <div class="archive-layout">
 
+          <!-- Filters Sidebar -->
+          <div class="offcanvas offcanvas-lg offcanvas-start p-3"
+               tabindex="-1"
+               id="filtersOffcanvas"
+               aria-labelledby="filtersLabel">
 
-                <!-- هدر فقط در موبایل -->
-                <div class="offcanvas-header d-lg-none">
-                  <h5 class="offcanvas-title" id="filtersLabel">Filters</h5>
-                  <button type="button" class="btn-close text-reset"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close">
+            <div class="offcanvas-header d-lg-none">
+              <h5 class="offcanvas-title" id="filtersLabel">Filters</h5>
+              <button type="button" class="btn-close text-reset"
+                      data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <!-- Search -->
+              <form id="archive-search" class="my-3 my-lg-0" role="search">
+                <label for="archive-q" class="form-label visually-hidden">Search products</label>
+                <div class="input-group">
+                  <input id="archive-q" class="form-control Landing__searchBar-input"
+                         type="text" placeholder="search products..." aria-label="search products">
+                  <button class="btn" type="submit" aria-label="Start search">
+                    <i class="bi bi-search"></i>
                   </button>
                 </div>
+              </form>
 
-                <!-- بدنه -->
-                <div class="offcanvas-body">
-                  <!-- Search -->
-                  <form id="archive-search" class="my-3 my-lg-0" role="search">
-                    <label for="archive-q" class="form-label visually-hidden">Search products</label>
-                    <div class="input-group">
-                      <input id="archive-q" class="form-control Landing__searchBar-input"
-                             type="text" placeholder="search products..." aria-label="search products">
-                      <button class="btn" type="submit" aria-label="Start search">
-                        <i class="bi bi-search"></i>
-                      </button>
-                    </div>
-                  </form>
-
-                  <!-- Sort -->
-                  <div class="card my-3 my-lg-0">
-                    <div class="card-body">
-                      <label for="sort" class="form-label">Sort by</label>
-                      <select id="sort" class="form-select">
-                        <option value="">Default</option>
-                        <option value="price_asc">Price: Low → High</option>
-                        <option value="price_desc">Price: High → Low</option>
-                        <option value="name_asc">Name: A → Z</option>
-                        <option value="name_desc">Name: Z → A</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <!-- Price / Availability -->
-                  <div class="card my-3 my-lg-0">
-                    <div class="card-body">
-                      <div class="row g-2">
-                        <div class="col-6">
-                          <label for="minPrice" class="form-label">Min £</label>
-                          <input id="minPrice" type="number" class="form-control" min="0" step="0.01">
-                        </div>
-                        <div class="col-6">
-                          <label for="maxPrice" class="form-label">Max £</label>
-                          <input id="maxPrice" type="number" class="form-control" min="0" step="0.01">
-                        </div>
-                      </div>
-                      <div class="form-check mt-3">
-                        <input class="form-check-input" type="checkbox" id="inStock">
-                        <label class="form-check-label" for="inStock">In stock only</label>
-                      </div>
-
-                      <button id="applyFilters" class="btn w-100 mt-3" type="button">
-                        Apply filters
-                      </button>
-                      <!-- <button id="clearFilters" class="btn btn-link w-100 mt-2" type="button">
-                        Clear all
-                      </button> -->
-                    </div>
-                  </div>
-
-                  <!-- Categories -->
-                  <div class="card card-cats-menu">
-                    <div class="card-body">
-                      <ul id="cats-list" class="list-group list-group-flush"></ul>
-                    </div>
-                  </div>
+              <!-- Sort -->
+              <div class="card my-3 my-lg-0">
+                <div class="card-body">
+                  <label for="sort" class="form-label">Sort by</label>
+                  <select id="sort" class="form-select">
+                    <option value="">Default</option>
+                    <option value="price_asc">Price: Low → High</option>
+                    <option value="price_desc">Price: High → Low</option>
+                    <option value="name_asc">Name: A → Z</option>
+                    <option value="name_desc">Name: Z → A</option>
+                  </select>
                 </div>
               </div>
 
-            <!-- نتایج -->
-            <div >
-              <div id="active-filters" class="filter-chips mb-3"></div>
-              <div id="products-container" class="row g-3 g-md-4"></div>
-            </div>
-
-            <!-- مینی‌بسکت -->
-            <div class="d-none d-lg-block  mini-basket-sticky">
-              <aside >
-                <div class="card mini-basket">
-                  <!-- <div class="card-body"> -->
-                    <div id="basket-box-container"></div>
-                  <!-- </div> -->
+              <!-- Price / Availability -->
+              <div class="card my-3 my-lg-0">
+                <div class="card-body">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <label for="minPrice" class="form-label">Min £</label>
+                      <input id="minPrice" type="number" class="form-control" min="0" step="0.01">
+                    </div>
+                    <div class="col-6">
+                      <label for="maxPrice" class="form-label">Max £</label>
+                      <input id="maxPrice" type="number" class="form-control" min="0" step="0.01">
+                    </div>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="inStock">
+                    <label class="form-check-label" for="inStock">In stock only</label>
+                  </div>
+                  <button id="applyFilters" class="btn w-100 mt-3" type="button">Apply filters</button>
                 </div>
-              </aside>
+              </div>
+
+              <!-- Categories -->
+              <div class="card card-cats-menu">
+                <div class="card-body">
+                  <ul id="cats-list" class="list-group list-group-flush"></ul>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- Products Results -->
+          <div>
+            <div id="active-filters" class="filter-chips mb-3"></div>
+            <div id="products-container" class="row g-3 g-md-4"></div>
+          </div>
 
+          <!-- Mini Basket -->
+          <div class="d-none d-lg-block mini-basket-sticky">
+            <aside>
+              <div class="card mini-basket">
+                <div id="basket-box-container"></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <!-- ==================== Finish Archive Layout ==================== -->
+      </div>
+    </div>
+  </main>
+  <!-- ==================== Finish Main Content ==================== -->
 
+  <!-- ==================== Start Hero Section ==================== -->
+  <div class="container">
+    <section class="taste-behind my-5" aria-labelledby="heroTitle">
+      <figure class="hero-art" aria-hidden="true">
+        <img src="images/landing/my-ham.png" alt="" class="hero-art-img" />
+        <figcaption class="sale-badge rounded-pill fw-semibold">Fresh | Promo</figcaption>
+      </figure>
 
+      <div class="content-wrapper row gx-0">
+        <div class="col-12 col-md-7 p-4 p-md-5">
+          <span class="eyebrow d-inline-flex align-items-center gap-2 mb-3">
+            <span class="dot"></span> Category: Sausage
+          </span>
 
+          <h1 id="heroTitle" class="hero-title fw-black mb-3">
+            Smoked & Handcrafted Sausages
+          </h1>
+
+          <p class="hero-subtext mb-4">
+            Authentic meat blends with signature spices—perfect for grilling and hearty breakfasts.
+            Fast delivery, freshness guaranteed.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#filters" class="btn btn-brand btn-lg px-4">Browse Products</a>
+            <a href="#new" class="btn btn-outline-olive btn-lg px-4">New Arrivals</a>
+          </div>
+
+          <ul class="hero-chips list-unstyled d-flex flex-wrap gap-2 m-0">
+            <li class="chip">Lightly Smoked</li>
+            <li class="chip">Premium Meat</li>
+            <li class="chip">Gluten-Free</li>
+            <li class="chip">Same-Day Dispatch</li>
+          </ul>
         </div>
       </div>
-    </main>
-
-
-
-
-<!-- Taste section: place before footer -->
-<!-- <section class="taste-behind container my-5">
-  <div class="content-wrapper row gx-0 align-items-center">
-    <div class="col-lg-8 col-md-12 text-container">
-
-      <div class="inner-text">
-        <div class="kicker">Real Food · Real Flavor</div>
-        <h2 class="section-title">Discover the Taste Behind the Screen</h2>
-        <p class="section-text">
-          Feel the warmth of freshly grilled meats and handcrafted flavors — where every bite
-          brings you closer to the real kitchen. <strong>Pastro</strong> brings the soul of food
-          to life: carefully selected, traditionally prepared and full of character.
-        </p>
-        <a href="featured.html" class="btn explore-btn" role="button">Explore Featured Products</a>
-      </div>
-    </div>
-
-
-    <div class="col-lg-4 d-none d-lg-block img-container" aria-hidden="true">
-      <img src="images/landing/my-ham.png" alt="Burger popping out of phone" class="floating-img">
-    </div>
+    </section>
   </div>
-</section> -->
+  <!-- ==================== Finish Hero Section ==================== -->
 
-
-
-
-<!-- HERO (Archive) -->
- <div class="container">
-  <section class="taste-behind  my-5" aria-labelledby="heroTitle">
-
-  <!-- Decorative image OUTSIDE the card -->
-  <figure class="hero-art" aria-hidden="true">
-    <img src="images/landing/my-ham.png" alt="" class="hero-art-img">
-    <figcaption class="sale-badge rounded-pill fw-semibold">Fresh | Promo</figcaption>
-  </figure>
-
-  <!-- Card / Content -->
-  <div class="content-wrapper row gx-0">
-    <div class="col-12 col-md-7 p-4 p-md-5">
-      <span class="eyebrow d-inline-flex align-items-center gap-2 mb-3">
-        <span class="dot"></span> Category: Sausage
-      </span>
-
-      <h1 id="heroTitle" class="hero-title fw-black mb-3">
-        Smoked & Handcrafted Sausages
-      </h1>
-
-      <p class="hero-subtext mb-4">
-        Authentic meat blends with signature spices—perfect for grilling and hearty breakfasts.
-        Fast delivery, freshness guaranteed.
-      </p>
-
-      <div class="d-flex flex-wrap gap-3 mb-4">
-        <a href="#filters" class="btn btn-brand btn-lg px-4">Browse Products</a>
-        <a href="#new"     class="btn btn-outline-olive btn-lg px-4">New Arrivals</a>
-      </div>
-
-      <ul class="hero-chips list-unstyled d-flex flex-wrap gap-2 m-0">
-        <li class="chip">Lightly Smoked</li>
-        <li class="chip">Premium Meat</li>
-        <li class="chip">Gluten-Free</li>
-        <li class="chip">Same-Day Dispatch</li>
-      </ul>
-    </div>
-  </div>
-</section>
- </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Finish Main Info Section -->
-
-
-
-
+  <!-- ==================== Start Footer ==================== -->
   <footer class="footer">
     <div class="footer-container">
-      <!-- Logo + About -->
+      <!-- About -->
       <div class="footer-section about">
         <a href="index.html">
-          <img src="images/logo/logo-pastro.png" alt="Pastro Logo" class="footer-logo-img">
+          <img src="images/logo/logo-pastro.png" alt="Pastro Logo" class="footer-logo-img" />
         </a>
-        <p>Artisan meat delicacies crafted with tradition and quality.<br> We bring rich flavor to every bite.</p>
+        <p>Artisan meat delicacies crafted with tradition and quality.<br />We bring rich flavor to every bite.</p>
         <div class="footer-socials">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
@@ -357,7 +273,7 @@
         </ul>
       </div>
 
-      <!-- Contact Info -->
+      <!-- Contact -->
       <div class="footer-section contact">
         <h3>Contact Us</h3>
         <ul>
@@ -371,61 +287,42 @@
       <div class="footer-section newsletter">
         <h3>Subscribe</h3>
         <p>Subscribe for exclusive discounts and early access to new arrivals.</p>
-
         <form id="newsletterForm" class="newsletter__form" novalidate>
           <label for="email" class="field__label">Email address</label>
-          <div class="field" >
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-              placeholder="you@example.com"
-              class="field__input"
-              aria-describedby="emailHint"
-            />
-            <button type="submit">
-              <i class="fas fa-paper-plane"></i> Subscribe
-            </button>
+          <div class="field">
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   placeholder="you@example.com" class="field__input" aria-describedby="emailHint" />
+            <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
           </div>
-
-          <small id="emailHint" class="field__hint text-muted" >
+          <small id="emailHint" class="field__hint text-muted">
             We’ll never share your email. Unsubscribe anytime.
           </small>
-
           <div class="newsletter__live field__hint" aria-live="polite"></div>
         </form>
       </div>
-
-    </div>
     </div>
 
     <div class="footer-bottom">
       <p>&copy; 2025 Pastro. All rights reserved.</p>
     </div>
   </footer>
-  <!-- Finish Footer -->
+  <!-- ==================== Finish Footer ==================== -->
 
+  <!-- ==================== Start Scripts ==================== -->
   <!-- Vendor JS -->
   <script src="vendor/fontAwesome5/all.min.js"></script>
-  <!-- ✅ Bootstrap JS (bundle) -->
+  <!-- Bootstrap Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <!-- App JS -->
-  <script type="module" src="./js/index.js"></script>
-  <script type="module" src="./js/menu.js"></script>
+  <script type="module" src="js/index.js"></script>
+  <script type="module" src="js/menu.js"></script>
   <script type="module" src="js/categori.js"></script>
-  <script type="module" src="./js/basket-box.js"></script>
-  <script type="module" src="./js/breadcrumb.js"></script>
-  <script type="module" src="./js/search.js"></script>
-  
-
-  <!-- <script type="module" src="js/main.js"></script> -->
-
-  
-
+  <script type="module" src="js/basket-box.js"></script>
+  <script type="module" src="js/breadcrumb.js"></script>
+  <script type="module" src="js/search.js"></script>
+  <!-- ==================== Finish Scripts ==================== -->
 </body>
 </html>
-

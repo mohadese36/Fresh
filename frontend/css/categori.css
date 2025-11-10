@@ -512,7 +512,7 @@ text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3p
   /* ظرف ستون فیلتر */
   #filtersOffcanvas {
     position: sticky;
-    top: var(--stick-top-fixed);
+    top: 195px;
     align-self: start;
     transform: none !important;
     visibility: visible !important;

@@ -134,3 +134,42 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
+
+
+
+
+
+
+
+// ///////////////////////fجلوگیری از تداخل کلیک روی لینک‌ها داخل Bootstrap Carousel ///////////////////////
+
+
+
+document.querySelectorAll('#carouselHomePage a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.stopPropagation(); // اجازه نده Carousel عوض بشه
+    
+    
+    window.location.href = link.href; // برو به لینک
+  });
+});
+
+
+
+///////////برای پارالاکس  لندینگ صفحه خانه /////
+
+window.addEventListener("scroll", function () {
+  const landing = document.querySelector(".Landing");
+  let offset = window.pageYOffset;
+  landing.style.backgroundPositionY = offset * 0.5 + "px";
+});
+
+
+
+
+
+///////////////////////////////////////////////////
+
+
+
+

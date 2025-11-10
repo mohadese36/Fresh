@@ -158,7 +158,7 @@ export async function updateBasketUI() {
         </td>
         <td class="side-basket-footer">
           <div class="side-basket-total">£${rowTotal.toFixed(2)}</div>
-          <button class="btn remove" data-id="${item.id}"><i class="bi bi-trash"></i></button>
+          <button class="btn remove" data-id="${item.id}"><i class="bi bi-trash fs-4 text-warning"></i></button>
         </td>
       </tr>`;
     });

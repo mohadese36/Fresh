@@ -21,6 +21,9 @@
   overflow: hidden;
 }
 
+.cart-container .basket-is-not-empty h3 {
+  margin-left: 1.5rem;
+}
 /* Table (desktop/tablet) */
 .cart-container .table {
   width: 100%;
@@ -90,7 +93,7 @@
 }
 
 .cart-container .side-basket-unitprice {
-  font-size: clamp(1.15rem, .8vw + 1.05rem, 1.35rem);
+  font-size: clamp(1.25rem, .9vw + 1.5rem, 1.5rem) !important;
   color: var(--brand-800) !important;
   font-weight: 600;
   min-width: 8ch;
@@ -114,7 +117,7 @@
 }
 
 .cart-container .side-basket-controls-qty .btn {
-  font-size: clamp(1.1rem, .6vw + 1.05rem, 1.25rem);
+  font-size: 1.6rem;
   padding: .32rem .6rem;
   color: var(--brand-800) !important;
 }
@@ -258,6 +261,7 @@
     align-self: start;
     justify-self: end;
   }
+
 
   /* کنترل تعداد */
   .cart-container .side-basket-controls-qty {

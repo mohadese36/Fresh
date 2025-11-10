@@ -1,179 +1,163 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Featured Products</title>
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Featured Products | Pastro</title>
 
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-<link rel="stylesheet" href="vendor/BootStrap/bootstrap.min.css">
-<link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-<link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/style.css">
+  <!-- ==================== External CSS ==================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- ==================== Vendor CSS ==================== -->
+  <link rel="stylesheet" href="vendor/BootStrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css" />
+  <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
+
+  <!-- ==================== Project CSS ==================== -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body class="featured-page">
-    <!-- Start Header -->
-    <header class="header" role="banner">
-        <div class="top-bar">
-          <div class="container-fluid">
-              <div class="top-bar__content d-flex align-items-center justify-content-between">
-
-                <div class="top-bar__left">
-                    <a href="index.html" class="brand" aria-label="Go to home">
-                      <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
-                    </a>
-                </div>
-
-                <div class="top-bar__right d-flex align-items-center">
-                    <form class="searchbar desktop-search" role="search" action="/search" method="get">
-                      <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
-                      <input id="main-search" class="Landing__searchBar-input" type="search" name="q"
-                             placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search"/>
-                    </form>
-
-                    <button class="main-header__toggle d-inline-block d-lg-none"
-                            type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="main-header__toggle-bar"></span>
-                      <span class="main-header__toggle-bar"></span>
-                      <span class="main-header__toggle-bar"></span>
-                    </button>
-
-                    <a href="./cart.html" class="main-header__cart-btn position-relative" aria-label="Open cart">
-                      <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
-                      <span id="cart-count-badge"
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                            style="display:none;">0</span>
-                    </a>
-
-                    <a href="#" class="main-header__profile d-flex align-items-center" aria-label="Your account">
-                      <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
-                      <span class="main-header__profile-text d-none d-md-inline"></span>
-                    </a>
-
-                    <button id="logout-btn" type="button" class="d-flex align-items-center">
-                      <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
-                      <span class="logout-text d-none d-md-inline">Logout</span>
-                    </button>
-                </div>
-              </div>
+  <!-- ==================== Start Header ==================== -->
+  <header class="header" role="banner">
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="top-bar__content d-flex align-items-center justify-content-between">
+          <div class="top-bar__left">
+            <a href="index.html" class="brand" aria-label="Go to home">
+              <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
+            </a>
           </div>
 
-          <!-- Main header / Navigation strip -->
-          <div class="main-header">
-            <div class="container-fluid px-0">
-              <div class="main-header__content">
-                <nav class="main-header__nav" aria-label="Main navigation">
-                  <ul id="navbar" class="main-header__menu"></ul>
-                </nav>
-              </div>
-            </div>
+          <div class="top-bar__right d-flex align-items-center">
+            <form class="searchbar desktop-search" role="search" action="/search" method="get">
+              <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
+              <input id="main-search" class="Landing__searchBar-input" type="search" name="q"
+                     placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search" />
+            </form>
+
+            <button class="main-header__toggle d-inline-block d-lg-none"
+                    type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="main-header__toggle-bar"></span>
+              <span class="main-header__toggle-bar"></span>
+              <span class="main-header__toggle-bar"></span>
+            </button>
+
+            <a href="./cart.html" class="main-header__cart-btn position-relative" aria-label="Open cart">
+              <i class="fas fa-shopping-cart main-header__cart-icon" aria-hidden="true"></i>
+              <span id="cart-count-badge"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style="display:none;">0</span>
+            </a>
+
+            <a href="#" class="main-header__profile d-flex align-items-center" aria-label="Your account">
+              <i class="fas fa-user profile-icon d-md-none fs-5 ms-1 me-1"></i>
+              <span class="main-header__profile-text d-none d-md-inline"></span>
+            </a>
+
+            <button id="logout-btn" type="button" class="d-flex align-items-center">
+              <i class="fas fa-right-from-bracket logout-icon d-md-none fs-5 ms-1 me-1"></i>
+              <span class="logout-text d-none d-md-inline">Logout</span>
+            </button>
           </div>
         </div>
-    </header>
-    <!-- Finish Header -->
+      </div>
 
+      <!-- Main Navigation -->
+      <div class="main-header">
+        <div class="container-fluid px-0">
+          <div class="main-header__content">
+            <nav class="main-header__nav" aria-label="Main navigation">
+              <ul id="navbar" class="main-header__menu"></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ==================== Finish Header ==================== -->
+
+  <!-- ==================== Start Main Content ==================== -->
   <main class="featured-page">
-    <!-- Start Breadcrumb -->
+
+    <!-- ==================== Breadcrumb ==================== -->
     <section class="breadcrumb">
       <div class="container">
         <div class="breadcrumb__content">
           <div class="breadcrumb__home-content-icon">
             <i class="fas fa-home breadcrumb__home-icon"></i>
           </div>
-          <ul class="breadcrumb__list">
-            <!-- اینجا JS ما داینامیک پر می‌کنه -->
-          </ul>
+          <ul class="breadcrumb__list"></ul>
         </div>
       </div>
     </section>
-    <!-- Finish Breadcrumb -->
 
-
+    <!-- ==================== Special Offers Section ==================== -->
     <section id="special-offers" class="featured-section carousel-section">
       <h2 class="featured-section__title">Special Offers</h2>
 
-      <div class="offers-wrapper">   <!-- ✅ پدر مشترک جدید -->
+      <div class="offers-wrapper">
         <div class="w-75 ms-5">
           <div class="swiper mySwiper carousel-container">
-            <div class="swiper-wrapper products-container">
-              <!-- کارت‌ها -->
-            </div>
+            <div class="swiper-wrapper products-container"></div>
             <div class="swiper-pagination"></div>
           </div>
         </div>
 
         <div class="offer-banners">
           <div class="offer-banner">
-            <img src="images/products/curve_line_2.png" alt="Discount Banner 2">
+            <img src="images/products/curve_line_2.png" alt="Discount Banner 2" />
           </div>
           <div class="offer-banner">
-            <img src="images/landing/hero-img-1-3-2.png" alt="Discount Banner 1">
+            <img src="images/landing/hero-img-1-3-2.png" alt="Discount Banner 1" />
           </div>
         </div>
       </div>
     </section>
 
-<!-- New Arrivals - Parallax -->
-<section id="new-arrivals" class="featured-section parallax-section">
-  <div class="w-75 m-auto position-relative">
-    <!-- <div class="parallax-section__bg"></div> -->
-    <div class="container position-relative z-10">
-      <h2 class="featured-section__title">New Arrivals</h2>
-      <div class="row products-container"></div>
-    </div>
-  </div>
-</section>
+    <!-- ==================== New Arrivals Section ==================== -->
+    <section id="new-arrivals" class="featured-section parallax-section">
+      <div class="w-75 m-auto position-relative">
+        <div class="container position-relative z-10">
+          <h2 class="featured-section__title">New Arrivals</h2>
+          <div class="row products-container"></div>
+        </div>
+      </div>
+    </section>
 
-
-    <!-- ==== 2. Best Sellers - Carousel ==== -->
+    <!-- ==================== Best Sellers Section ==================== -->
     <section id="best-sellers" class="featured-section carousel-section">
-
-      <!-- 🔻 این تصویر بیرون از کانتینر وسط‌چین قرار می‌گیره -->
       <div class="offer-floating-banner">
-        <img src="./images/landing/my-offer.png" alt="Special Offer" />
+        <img src="images/landing/my-offer.png" alt="Special Offer" />
       </div>
 
       <div class="w-75 m-auto">
         <h2 class="featured-section__title">Best Sellers</h2>
         <div class="swiper mySwiper-bestsellers carousel-container">
-          <div class="swiper-wrapper products-container">
-            <!-- کارت محصولات توسط JS اضافه میشه -->
-          </div>
+          <div class="swiper-wrapper products-container"></div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
 
+    <!-- ==================== Discounted Products Section ==================== -->
+    <section id="discounted-products" class="featured-section discounted-section">
+      <div class="w-75 m-auto position-relative">
+        <div class="container position-relative z-10">
+          <h2 class="featured-section__title">Discounted Products</h2>
 
+          <img src="images/landing/button_1.png" alt="Order Now" class="order-now-deco order-now-deco--right" />
+          <div class="row products-container"></div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Discounted Products - Highlight -->
-<section id="discounted-products" class="featured-section discounted-section">
-  <div class="w-75 m-auto position-relative">
-    <div class="container position-relative z-10">
-      <h2 class="featured-section__title">Discounted Products</h2>
-
-      <!-- 🔸 Decorative Order Now image -->
-      <img
-        src="./images/landing/button_1.png"
-        alt="Order Now"
-        class="order-now-deco order-now-deco--right"
-      />
-
-      <div class="row products-container"></div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Organic & Healthy Products - Soft Green Layout -->
+    <!-- ==================== Organic & Healthy Products Section ==================== -->
     <section id="organic-healthy-products" class="featured-section organic-section">
-      <div class=" w-75 m-auto">
+      <div class="w-75 m-auto">
         <div class="container position-relative z-10">
           <h2 class="featured-section__title">Organic & Healthy Products</h2>
           <div class="row products-container"></div>
@@ -181,29 +165,28 @@
       </div>
     </section>
 
-      <!-- Unique Features - Split Grid -->
-      <section id="products-with-unique-features" class="featured-section unique-section mb-1">
-        <div class="w-75 m-auto">
-          <div class="container position-relative z-10">
-            <h2 class="featured-section__title">Products with Unique Features</h2>
-            <div class="row products-container"></div>
-          </div>
+    <!-- ==================== Unique Features Section ==================== -->
+    <section id="products-with-unique-features" class="featured-section unique-section mb-1">
+      <div class="w-75 m-auto">
+        <div class="container position-relative z-10">
+          <h2 class="featured-section__title">Products with Unique Features</h2>
+          <div class="row products-container"></div>
         </div>
-      </section>
-    <!-- <aside>
-      <div id="basket-box-container"></div>
-    </aside> -->
-  </main>
+      </div>
+    </section>
 
-  <!-- Start Footer -->
+  </main>
+  <!-- ==================== Finish Main Content ==================== -->
+
+  <!-- ==================== Start Footer ==================== -->
   <footer class="footer">
     <div class="footer-container">
-      <!-- Logo + About -->
+
       <div class="footer-section about">
         <a href="index.html">
-          <img src="images/logo/logo-pastro.png" alt="Pastro Logo" class="footer-logo-img">
+          <img src="images/logo/logo-pastro.png" alt="Pastro Logo" class="footer-logo-img" />
         </a>
-        <p>Artisan meat delicacies crafted with tradition and quality.<br> We bring rich flavor to every bite.</p>
+        <p>Artisan meat delicacies crafted with tradition and quality.<br />We bring rich flavor to every bite.</p>
         <div class="footer-socials">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
@@ -212,7 +195,6 @@
         </div>
       </div>
 
-      <!-- Quick Links -->
       <div class="footer-section links">
         <h3>Quick Links</h3>
         <ul>
@@ -223,7 +205,6 @@
         </ul>
       </div>
 
-      <!-- Contact Info -->
       <div class="footer-section contact">
         <h3>Contact Us</h3>
         <ul>
@@ -233,61 +214,44 @@
         </ul>
       </div>
 
-      <!-- Newsletter -->
       <div class="footer-section newsletter">
         <h3>Subscribe</h3>
         <p>Subscribe for exclusive discounts and early access to new arrivals.</p>
-
         <form id="newsletterForm" class="newsletter__form" novalidate>
           <label for="email" class="field__label">Email address</label>
-          <div class="field" >
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-              placeholder="you@example.com"
-              class="field__input"
-              aria-describedby="emailHint"
-            />
-            <button type="submit">
-              <i class="fas fa-paper-plane"></i> Subscribe
-            </button>
+          <div class="field">
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   placeholder="you@example.com" class="field__input" aria-describedby="emailHint" />
+            <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
           </div>
-
-          <small id="emailHint" class="field__hint text-muted" >
+          <small id="emailHint" class="field__hint text-muted">
             We’ll never share your email. Unsubscribe anytime.
           </small>
-
           <div class="newsletter__live field__hint" aria-live="polite"></div>
         </form>
       </div>
 
-    </div>
     </div>
 
     <div class="footer-bottom">
       <p>&copy; 2025 Pastro. All rights reserved.</p>
     </div>
   </footer>
-  <!-- Finish Footer -->
+  <!-- ==================== Finish Footer ==================== -->
 
-  <!-- Bootstrap JS -->
+  <!-- ==================== Start Scripts ==================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/fontAwesome5/all.min.js"></script>
-  <!-- در انتهای body -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- <script src="js/featured-archive.js"></script> -->
-  <!-- Bootstrap JS -->
-    <script type="module" src="js/menu.js"></script>
-    <script type="module" src="js/index.js"></script>
-    <script type="module" src="./js/search.js"></script>
-    <script type="module" src="js/login-form.js"></script>
-    <script type="module" src="js/user-header.js"></script>
-    <script type="module" src="js/featured-products-page.js"></script>
-    <script type="module" src="./js/breadcrumb.js"></script>
 
-
+  <!-- App JS -->
+  <script type="module" src="js/menu.js"></script>
+  <script type="module" src="js/index.js"></script>
+  <script type="module" src="js/search.js"></script>
+  <script type="module" src="js/login-form.js"></script>
+  <script type="module" src="js/user-header.js"></script>
+  <script type="module" src="js/featured-products-page.js"></script>
+  <script type="module" src="js/breadcrumb.js"></script>
+  <!-- ==================== Finish Scripts ==================== -->
 </body>
 </html>
