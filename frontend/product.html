@@ -11,9 +11,19 @@
   <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
   <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
 
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <!-- ====== Custom Styles ====== -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Full favicon support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/logo/logo-icon-pastro.png">
+  <link rel="shortcut icon" href="images/logo/logo-icon-pastro.png">
+
 </head>
 
 <body class="product-page">
@@ -99,10 +109,10 @@
   </div>
 
   <div class="container">
-    <section class="product-intro fade-in">
+    <section class="product-intro" data-aos="zoom-out-up" data-aos-delay="10" data-aos-duration="1200" data-aos-easing="ease-in-out">
       <div class="select-products-container">
         <div class="product-details-container">
-          <div class="product-image">
+          <div class="product-image" data-aos="zoom-in-right" data-aos-delay="10" data-aos-duration="1200" data-aos-easing="ease-in-out">
             <img id="product-image" src="" alt="Product Image">
           </div>
 
@@ -141,14 +151,14 @@
         <div>
           <aside>
             <!-- جعبه سبد خرید -->
-            <div id="basket-box-container"></div>
+            <div id="basket-box-container"  data-aos="zoom-in" data-aos-delay="10" data-aos-duration="1700" data-aos-easing="ease-in-out"></div>
           </aside>
         </div>
       </div>
     </section>
 
     <!-- Tabs -->
-    <section class="products-tabs fade-in">
+    <section class="products-tabs"  data-aos="slide-right" data-aos-delay="10" data-aos-duration="1700" data-aos-easing="ease-in-out">
       <div class="product-intro">
         <div class="container">
           <!-- Navigation Tabs -->
@@ -227,16 +237,16 @@
     </section>
 
     <!-- Related Products -->
-    <section class="related-products fade-in">
+    <section class="related-products">
       <div class="related-products">
-        <h2 class="text-lg-start mb-4">Related Products</h2>
+        <h2 class="text-lg-start mb-4" data-aos="zoom-in-up" data-aos-delay="10" data-aos-duration="1500" data-aos-easing="ease-in-out">Related Products</h2>
         <div id="related-products-container" class="row"></div>
       </div>
     </section>
 
     <!-- You May Also Like -->
     <section class="you-may-also-like fade-in">
-      <h2>You May Also Like</h2>
+      <h2 data-aos="zoom-in" data-aos-delay="10" data-aos-duration="1500" data-aos-easing="ease-in-out">You May Also Like</h2>
       <div class="you-may-also-like__wrapper">
         <button class="slider-btn prev" aria-label="Previous">&#10094;</button>
         <div id="youMayAlsoLikeContainer" class="you-may-also-like__slider"></div>
@@ -316,7 +326,9 @@
 
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- <script type="module" src="js/featured-products-categorized.js"></script> -->
+  
+  <!-- AOS JS (فقط لینک فایل) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
   <script type="module" src="js/index.js"></script>
   <script type="module" src="js/menu.js"></script>

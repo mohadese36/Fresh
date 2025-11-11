@@ -137,16 +137,17 @@ export async function updateBasketUI() {
       const rowTotal = unit * qty;
       grand += rowTotal;
 
+      // ✅ فقط لینک‌ها تغییر داده شدند تا به product.html?id=PRODUCT_ID بروند
       rowsHtml += `
       <tr data-rowid="${item.id}">
         <td class="side-basket-thumb">
-          <a href="/p/${p.id}/">
-          <img src="${getImageSrc(p)}" alt="${p.name || ''}"
-            onerror="this.onerror=null;this.src='./images/products/deli-2880w.jpg';">
+          <a href="product.html?id=${p.id}">
+            <img src="${getImageSrc(p)}" alt="${p.name || ''}"
+              onerror="this.onerror=null;this.src='./images/products/deli-2880w.jpg';">
           </a>
         </td>
         <td class="side-basket-name">
-          <a href="/p/${p.id}/" class="text-brown">${p.name || '—'}</a>
+          <a href="product.html?id=${p.id}" class="pe-auto">${p.name || '—'}</a>
         </td>
         <td class="side-basket-unitprice">£${unit.toFixed(2)}</td>
         <td class="text-sm-start">

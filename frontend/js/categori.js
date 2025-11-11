@@ -227,12 +227,12 @@ function renderGroupedProducts(grouped, headingOverride) {
     const section = document.createElement('div');
     section.classList.add('product-boxes');
     section.innerHTML = `
-      ${headingOverride ? '' : `<h2 class="product-category">${categoryName}</h2>`}
+      ${headingOverride ? '' : `<h2 class="product-category" data-aos="zoom-out-up" data-aos-delay="10" data-aos-duration="800" data-aos-easing="ease-in-out">${categoryName}</h2>`}
       <div class="row products-row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-3 g-3">
         ${(grouped[categoryName] || []).map(prod => `
           <div class="col">
             <a href="product.html?id=${prod.id}" class="related-products__card-link text-decoration-none">
-              <div class="product-box__main product-card shadow-sm h-100">
+              <div class="product-box__main product-card shadow-sm h-100"  data-aos="zoom-in" data-aos-delay="10" data-aos-duration="800" data-aos-easing="ease-in-out">
                 <img src="${fixImageUrl(prod.image_url)}" alt="${prod.name}" class="img-fluid related-products__card-img">
                 <div class="col-12 product-box__detiles d-flex flex-column">
                   <a class="product-box__detiles-title">${prod.name}</a>

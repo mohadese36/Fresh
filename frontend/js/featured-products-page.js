@@ -30,7 +30,7 @@ function createProductCard(product, labelText, sectionId) {
   // 🧠 فقط داخل related-products__card المان‌ها اضافه بشن
   div.innerHTML = `
     <a href="product.html?id=${product.id}" class="related-products__card-link text-decoration-none">
-      <div class="related-products__card shadow-sm h-100">
+      <div class="related-products__card shadow-sm h-100" data-aos="zoom-out-up" data-aos-delay="10" data-aos-duration="800" data-aos-easing="ease-in-out">
         <div class="related-products__card-img-wrapper">
           <img src="${product.image_url || 'images/products/placeholder.webp'}"
                class="img-fluid related-products__card-img"

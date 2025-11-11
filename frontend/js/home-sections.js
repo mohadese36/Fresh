@@ -1,3 +1,7 @@
+
+// // document.body.style.background = 'red'
+
+
 // import { supabase } from './supabaseClient.js';
 // import { updateHeaderUserInfo } from './user-header.js';
 
@@ -26,7 +30,7 @@
 //   } catch {
 //     return `${Number(value).toLocaleString(LOCALE)} ${currency}`;
 //   }
-// }
+// }-con
 
 // // اسکلت لودینگ ساده
 // function renderSkeletonCards(count = 4) {
@@ -64,7 +68,7 @@
 //   div.className = 'col-md-6 col-lg-3 mb-4';
 //   div.innerHTML = `
 //     <a href="/product/${item.slug || item.id}" class="related-products__card-link text-decoration-none">
-//       <div class="related-products__card shadow-sm h-100">
+//       <div class="related-products__card shadow-sm h-100" data-aos="slide-right" data-aos-delay="10" data-aos-duration="1700" data-aos-easing="ease-in-out">
 //         <img src="${item.image_url || FALLBACK_IMG}" 
 //              class="img-fluid related-products__card-img" 
 //              alt="${item.name}">

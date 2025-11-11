@@ -57,7 +57,6 @@
 .cart-container td.side-basket-thumb {
   width: var(--cart-img);
   min-width: var(--cart-img);
-  pointer-events: none;
 }
 
 .cart-container .side-basket-thumb img {
@@ -81,7 +80,6 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  pointer-events: none;
 }
 
 .cart-container .side-basket-name a:hover { color: var(--meat-brown-700) !important; }

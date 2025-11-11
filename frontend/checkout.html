@@ -13,9 +13,19 @@
   <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css" />
   <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
 
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <!-- ==================== Project CSS ==================== -->
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Full favicon support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/logo/logo-icon-pastro.png">
+  <link rel="shortcut icon" href="images/logo/logo-icon-pastro.png">
+
 </head>
 
 <body>
@@ -94,12 +104,12 @@
         </div>
       </section>
 
-      <h2 class="checkout-title text-center text-lg-start mb-4">Checkout</h2>
+      <h2 class="checkout-title text-center text-lg-start mb-4" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1500" data-aos-easing="ease-in-out">Checkout</h2>
 
       <div class="row g-3 g-lg-4 align-items-start">
 
         <!-- Basket Column -->
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6"  data-aos="slide-right" data-aos-delay="100" data-aos-duration="1500" data-aos-easing="ease-in-out" >
           <div class="card shadow-sm mb-3 basket-card">
             <div class="card-header d-flex align-items-center gap-2">
               <i class="fas fa-shopping-basket"></i>
@@ -110,7 +120,7 @@
         </div>
 
         <!-- Payment Form Column -->
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6" data-aos="slide-left" data-aos-delay="100" data-aos-duration="1500" data-aos-easing="ease-in-out">
           <div class="card payment-card shadow-sm">
             <div class="card-header d-flex align-items-center justify-content-between">
               <div class="d-flex align-items-center gap-2">
@@ -120,7 +130,7 @@
               <span class="badge bg-light fw-normal">SSL Secured</span>
             </div>
 
-            <div class="card-body">
+            <div class="card-body" >
               <form id="checkout-form" novalidate>
 
                 <div class="mb-3">
@@ -281,6 +291,9 @@
   <!-- Font Awesome -->
   <script src="vendor/fontAwesome5/all.min.js"></script>
 
+  <!-- AOS JS (فقط لینک فایل) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <!-- App JS -->
   <script type="module" src="js/menu.js"></script>
   <script type="module" src="js/checkout.js"></script>
@@ -290,6 +303,7 @@
   <script type="module" src="js/user-auth.js"></script>
   <script type="module" src="js/user-header.js"></script>
   <script type="module" src="js/user.js"></script>
+  <script type="module" src="js/index.js"></script>
   <!-- ==================== Finish Scripts ==================== -->
 </body>
 </html>

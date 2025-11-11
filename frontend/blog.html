@@ -11,6 +11,16 @@
   <link rel="stylesheet" href="vendor/FontAwesome5/all.min.css" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Full favicon support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/logo/logo-icon-pastro.png">
+  <link rel="shortcut icon" href="images/logo/logo-icon-pastro.png">
+
 </head>
 
 <body>
@@ -104,9 +114,9 @@
       </div>
 
       <div class="row">
-        <div class="col-8" id="article-container"></div>
+        <div class="col-8" id="article-container"   data-aos="slide-right" data-aos-delay="10" data-aos-duration="1500" data-aos-easing="ease-in-out"></div>
         <div class="col-4">
-          <div class="products-info">
+          <div class="products-info" data-aos="slide-left" data-aos-delay="10" data-aos-duration="1500" data-aos-easing="ease-in-out">
             <div class="product-info">
               <span class="product-info__products-title">Latest Articles</span>
               <ul class="last-articles__list" id="latest-articles-list"></ul>
@@ -215,6 +225,11 @@
   <!-- Scripts -->
   <script src="vendor/fontAwesome5/all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+  <!-- AOS JS (فقط لینک فایل) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <script type="module" src="js/index.js"></script>
   <script type="module" src="js/menu.js"></script>
   <script type="module" src="js/article.js"></script>

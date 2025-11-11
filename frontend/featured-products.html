@@ -10,6 +10,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
 
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <!-- ==================== Vendor CSS ==================== -->
   <link rel="stylesheet" href="vendor/BootStrap/bootstrap.min.css" />
   <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css" />
@@ -18,6 +21,13 @@
   <!-- ==================== Project CSS ==================== -->
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Full favicon support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/logo/logo-icon-pastro.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/logo/logo-icon-pastro.png">
+  <link rel="shortcut icon" href="images/logo/logo-icon-pastro.png">
+
 </head>
 
 <body class="featured-page">
@@ -97,7 +107,7 @@
 
     <!-- ==================== Special Offers Section ==================== -->
     <section id="special-offers" class="featured-section carousel-section">
-      <h2 class="featured-section__title">Special Offers</h2>
+      <h2 class="featured-section__title" data-aos="flip-up" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">Special Offers</h2>
 
       <div class="offers-wrapper">
         <div class="w-75 ms-5">
@@ -122,7 +132,7 @@
     <section id="new-arrivals" class="featured-section parallax-section">
       <div class="w-75 m-auto position-relative">
         <div class="container position-relative z-10">
-          <h2 class="featured-section__title">New Arrivals</h2>
+          <h2 class="featured-section__title"  data-aos="zoom-out" data-aos-delay="10" data-aos-duration="1000" data-aos-easing="ease-in-out">New Arrivals</h2>
           <div class="row products-container"></div>
         </div>
       </div>
@@ -131,11 +141,11 @@
     <!-- ==================== Best Sellers Section ==================== -->
     <section id="best-sellers" class="featured-section carousel-section">
       <div class="offer-floating-banner">
-        <img src="images/landing/my-offer.png" alt="Special Offer" />
+        <img src="images/landing/my-offer.png" alt="Special Offer" data-aos="zoom-out" data-aos-delay="100" data-aos-duration="1500" data-aos-easing="ease-in-out"/>
       </div>
 
       <div class="w-75 m-auto">
-        <h2 class="featured-section__title">Best Sellers</h2>
+        <h2 class="featured-section__title" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">Best Sellers</h2>
         <div class="swiper mySwiper-bestsellers carousel-container">
           <div class="swiper-wrapper products-container"></div>
           <div class="swiper-pagination"></div>
@@ -147,7 +157,7 @@
     <section id="discounted-products" class="featured-section discounted-section">
       <div class="w-75 m-auto position-relative">
         <div class="container position-relative z-10">
-          <h2 class="featured-section__title">Discounted Products</h2>
+          <h2 class="featured-section__title" data-aos="zoom-out" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">Discounted Products</h2>
 
           <img src="images/landing/button_1.png" alt="Order Now" class="order-now-deco order-now-deco--right" />
           <div class="row products-container"></div>
@@ -159,7 +169,7 @@
     <section id="organic-healthy-products" class="featured-section organic-section">
       <div class="w-75 m-auto">
         <div class="container position-relative z-10">
-          <h2 class="featured-section__title">Organic & Healthy Products</h2>
+          <h2 class="featured-section__title"  data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1500" data-aos-easing="ease-in-out">Organic & Healthy Products</h2>
           <div class="row products-container"></div>
         </div>
       </div>
@@ -169,7 +179,7 @@
     <section id="products-with-unique-features" class="featured-section unique-section mb-1">
       <div class="w-75 m-auto">
         <div class="container position-relative z-10">
-          <h2 class="featured-section__title">Products with Unique Features</h2>
+          <h2 class="featured-section__title" data-aos="slide-right" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">Products with Unique Features</h2>
           <div class="row products-container"></div>
         </div>
       </div>
@@ -243,6 +253,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/fontAwesome5/all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- AOS JS (فقط لینک فایل) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
   <!-- App JS -->
   <script type="module" src="js/menu.js"></script>

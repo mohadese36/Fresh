@@ -1,65 +1,5 @@
 [
 {
-  "id": 1,
-  "title": "Why Lean Meat is Key to a Healthy Diet",
-  "slug": "benefits-of-lean-meat",
-  "author": "Emma Johnson",
-  "date": "2025-09-01",
-  "views": 2450,
-  "category": "Nutrition",
-  "rating": 4.8,
-  "ratingCount": 12,
-  "cover": "images/blog/lean_meat_cover.jpg",
-  "content": [
-    {
-      "type": "paragraph",
-      "text": "Lean meat is a powerhouse of nutrition, making it a cornerstone of a balanced and healthy diet. Whether you're aiming to build muscle, manage your weight, or simply eat better, lean meats like chicken breast, turkey, or lean cuts of beef offer a wealth of benefits in just a few bites."
-    },
-    {
-      "type": "heading",
-      "text": "Packed with Protein and Nutrients"
-    },
-    {
-      "type": "paragraph",
-      "text": "Lean meats deliver high-quality protein, essential for muscle growth, tissue repair, and overall body function. A 100-gram serving of grilled chicken breast provides around 31 grams of protein, packed with all the essential amino acids your body needs. Beyond protein, lean meats are rich in nutrients like iron, which supports oxygen transport, and zinc, which boosts immunity. B vitamins, especially B12 found in poultry and pork, keep your energy levels steady and nerves healthy."
-    },
-    {
-      "type": "paragraph",
-      "text": "Additionally, lean meats are incredibly versatile, making it easy to incorporate them into various dishes. From stir-fries to salads, their nutrient density ensures you’re getting maximum health benefits without excess calories. For example, lean pork tenderloin is not only a great protein source but also provides selenium, an antioxidant that supports thyroid function and immune health."
-    },
-    {
-      "type": "image",
-      "src": "images/blog/lean_meat_meal.jpg",
-      "alt": "Grilled chicken breast with vegetables"
-    },
-    {
-      "type": "heading",
-      "text": "Heart-Healthy and Weight-Friendly"
-    },
-    {
-      "type": "paragraph",
-      "text": "Unlike fattier cuts, lean meats are low in saturated fat, helping you maintain heart health without sacrificing flavor. The American Heart Association recommends lean proteins to lower cholesterol and reduce heart disease risk. Lean meats also promote satiety, keeping you full longer and curbing snack cravings. Their high protein content can boost metabolism, burning extra calories during digestion."
-    },
-    {
-      "type": "paragraph",
-      "text": "Incorporating lean meats into your diet can also simplify meal planning. Opting for high-quality cuts like grass-fed beef or organic poultry ensures you’re getting cleaner, nutrient-rich options. These choices often have higher levels of omega-3 fatty acids, which further support heart health and reduce inflammation. Pairing lean meats with fiber-rich vegetables or whole grains creates balanced meals that keep you energized and satisfied."
-    },
-    {
-      "type": "paragraph",
-      "text": "For those focused on weight management, lean meats are a game-changer. Studies suggest that high-protein foods increase the thermic effect of food, meaning your body burns more calories processing them. A simple swap, like choosing lean turkey over processed meats, can make a big difference in achieving your health goals without feeling deprived."
-    },
-    {
-      "type": "image",
-      "src": "images/blog/protein_plate.jpg",
-      "alt": "Plate of lean beef with salad"
-    },
-    {
-      "type": "paragraph",
-      "text": "In short, lean meats are a versatile and nutrient-dense addition to any diet. Grill or bake them with herbs for a delicious, healthy meal that fuels your body and supports your goals. With lean meat, eating well is both simple and satisfying."
-    }
-  ]
-},
-{
   "id": 2,
   "title": "How to Cook the Perfect Steak Every Time",
   "slug": "perfect-steak-cooking-tips",
@@ -148,6 +88,7 @@
     }
   ]
 },
+
 {
   "id": 3,
   "title": "How to Choose High-Quality Meat for Your Meals",
@@ -238,6 +179,67 @@
     {
       "type": "paragraph",
       "text": "Choosing high-quality meat is a skill that enhances every meal. By focusing on appearance, understanding labels, and sourcing from reliable suppliers, you can bring the best cuts to your table. Visit our store to explore our range of premium, responsibly sourced meats and start creating healthier, tastier dishes today."
+    }
+  ]
+},
+
+{
+  "id": 1,
+  "title": "Why Lean Meat is Key to a Healthy Diet",
+  "slug": "benefits-of-lean-meat",
+  "author": "Emma Johnson",
+  "date": "2025-09-01",
+  "views": 2450,
+  "category": "Nutrition",
+  "rating": 4.8,
+  "ratingCount": 12,
+  "cover": "images/blog/lean_meat_cover.jpg",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Lean meat is a powerhouse of nutrition, making it a cornerstone of a balanced and healthy diet. Whether you're aiming to build muscle, manage your weight, or simply eat better, lean meats like chicken breast, turkey, or lean cuts of beef offer a wealth of benefits in just a few bites."
+    },
+    {
+      "type": "heading",
+      "text": "Packed with Protein and Nutrients"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lean meats deliver high-quality protein, essential for muscle growth, tissue repair, and overall body function. A 100-gram serving of grilled chicken breast provides around 31 grams of protein, packed with all the essential amino acids your body needs. Beyond protein, lean meats are rich in nutrients like iron, which supports oxygen transport, and zinc, which boosts immunity. B vitamins, especially B12 found in poultry and pork, keep your energy levels steady and nerves healthy."
+    },
+    {
+      "type": "paragraph",
+      "text": "Additionally, lean meats are incredibly versatile, making it easy to incorporate them into various dishes. From stir-fries to salads, their nutrient density ensures you’re getting maximum health benefits without excess calories. For example, lean pork tenderloin is not only a great protein source but also provides selenium, an antioxidant that supports thyroid function and immune health."
+    },
+    {
+      "type": "image",
+      "src": "images/blog/lean_meat_meal.jpg",
+      "alt": "Grilled chicken breast with vegetables"
+    },
+    {
+      "type": "heading",
+      "text": "Heart-Healthy and Weight-Friendly"
+    },
+    {
+      "type": "paragraph",
+      "text": "Unlike fattier cuts, lean meats are low in saturated fat, helping you maintain heart health without sacrificing flavor. The American Heart Association recommends lean proteins to lower cholesterol and reduce heart disease risk. Lean meats also promote satiety, keeping you full longer and curbing snack cravings. Their high protein content can boost metabolism, burning extra calories during digestion."
+    },
+    {
+      "type": "paragraph",
+      "text": "Incorporating lean meats into your diet can also simplify meal planning. Opting for high-quality cuts like grass-fed beef or organic poultry ensures you’re getting cleaner, nutrient-rich options. These choices often have higher levels of omega-3 fatty acids, which further support heart health and reduce inflammation. Pairing lean meats with fiber-rich vegetables or whole grains creates balanced meals that keep you energized and satisfied."
+    },
+    {
+      "type": "paragraph",
+      "text": "For those focused on weight management, lean meats are a game-changer. Studies suggest that high-protein foods increase the thermic effect of food, meaning your body burns more calories processing them. A simple swap, like choosing lean turkey over processed meats, can make a big difference in achieving your health goals without feeling deprived."
+    },
+    {
+      "type": "image",
+      "src": "images/blog/protein_plate.jpg",
+      "alt": "Plate of lean beef with salad"
+    },
+    {
+      "type": "paragraph",
+      "text": "In short, lean meats are a versatile and nutrient-dense addition to any diet. Grill or bake them with herbs for a delicious, healthy meal that fuels your body and supports your goals. With lean meat, eating well is both simple and satisfying."
     }
   ]
 }

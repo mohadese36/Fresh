@@ -55,26 +55,31 @@ async function renderCheckoutItems() {
 
     const card = document.createElement('div');
     card.className = 'card mb-3 basket-item';
+
+    // ✅ افزودن لینک برای هدایت به صفحه‌ی معرفی محصول
     card.innerHTML = `
-      <div class="row g-0 align-items-start">
-        <div class="col-3">
-          <img src="${item.products.image_url || './images/products/deli-2880w.jpg'}" class="img-fluid rounded-start" alt="${item.products.name}">
-        </div>
-        <div class="col-6">
-          <div class="card-body p-2">
-            <h6 class="card-title mb-0">${item.products.name}</h6>
+      <a href="product.html?id=${item.products.id}" class="text-decoration-none text-dark">
+        <div class="row g-0 align-items-start">
+          <div class="col-3">
+            <img src="${item.products.image_url || './images/products/deli-2880w.jpg'}" class="img-fluid rounded-start" alt="${item.products.name}">
+          </div>
+          <div class="col-6">
+            <div class="card-body p-2">
+              <h6 class="card-title mb-0">${item.products.name}</h6>
+            </div>
+          </div>
+          <div class="col-3 text-end p-2">
+            <p class="price-xqty fw-bold mb-1">
+              £${item.products.price.toFixed(2)} × ${item.quantity}
+            </p>
+            <small class="line-total">
+              Total £${(item.products.price * item.quantity).toFixed(2)}
+            </small>
           </div>
         </div>
-        <div class="col-3 text-end p-2">
-          <p class="price-xqty fw-bold mb-1">
-            £${item.products.price.toFixed(2)} × ${item.quantity}
-          </p>
-          <small class="line-total">
-            Total £${(item.products.price * item.quantity).toFixed(2)}
-          </small>
-        </div>
-      </div>
+      </a>
     `;
+
     container.appendChild(card);
   });
 
@@ -84,7 +89,6 @@ async function renderCheckoutItems() {
 }
 
 document.addEventListener('DOMContentLoaded', renderCheckoutItems);
-
 
 
 // ===============================

@@ -104,7 +104,7 @@ function renderRelatedProducts(products) {
     const colDiv = document.createElement('div');
     colDiv.className = 'col-md-6 col-lg-3 mb-4';
     colDiv.innerHTML = `
-      <a href="product.html?id=${p.id}" class="related-products__card-link text-decoration-none">
+      <a href="product.html?id=${p.id}" class="related-products__card-link text-decoration-none"  data-aos="zoom-in-up" data-aos-delay="10" data-aos-duration="1500" data-aos-easing="ease-in-out">
         <div class="related-products__card shadow-sm h-100">
           <div class="related-products__card-img-wrapper">
             <img src="${p.image_url || 'images/products/placeholder.webp'}"
@@ -140,7 +140,7 @@ function renderRelatedProducts(products) {
   // توابع کمکی داخلی (ایزوله از بقیه فایل)
   function render(cards) {
     container.innerHTML = cards.map(p => `
-      <div class="you-may-also-like__card">
+      <div class="you-may-also-like__card" data-aos="zoom-out-up" data-aos-delay="10" data-aos-duration="1500" data-aos-easing="ease-in-out">
         <a href="product.html?id=${p.id}" class="text-decoration-none">
           <img src="${p.image_url || 'images/products/placeholder.webp'}" alt="${p.name}">
           <h3>${p.name}</h3>

@@ -99,19 +99,19 @@
   padding-top: .4rem;
 }
 
-.side-basket-name{
-  padding: .5rem .25rem .25rem .25rem;
-  vertical-align: top;
+.basket-items .side-basket-name{
+  padding: .5rem 0 0;
+  vertical-align: middle;
 }
 
-.side-basket-name a{
+.basket-items  .side-basket-name a{
   display: block;
   text-decoration: none;
   color: var(--meat-brown-700);                 
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.2;
-  pointer-events: none !important;
+  /* pointer-events: none; */
 }
 
 .side-basket-price{

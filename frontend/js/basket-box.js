@@ -159,7 +159,7 @@ export async function updateBasketUI() {
               </button>
             </div>
           </td>
-          <td class="side-basket-name">
+          <td class="side-basket-name pe-none">
             <a href="/p/${item.products.id}/">${item.products.name}</a>
           </td>
           <td class="side-basket-price">
