@@ -147,7 +147,7 @@ export async function updateBasketUI() {
           </a>
         </td>
         <td class="side-basket-name">
-          <a href="product.html?id=${p.id}" class="pe-auto">${p.name || '—'}</a>
+          <a href="product.html?id=${p.id}" class="">${p.name || '—'}</a>
         </td>
         <td class="side-basket-unitprice">£${unit.toFixed(2)}</td>
         <td class="text-sm-start">
