@@ -1,5 +1,8 @@
 
 /* Start default styles */
+* {
+  outline: 1px solid transparent !important;
+}
 
 
 body {
