@@ -1,7 +1,3 @@
-
-
-////////////////////////////////////////
-
 import { supabase } from './supabaseClient.js';
 import { updateHeaderUserInfo } from './user-header.js';
 
@@ -17,29 +13,31 @@ function truncateText(text, maxLength) {
 
 // --- ایجاد کارت محصول ---
 function createProductCard(product, labelText, sectionId) {
-  // ✅ فقط در کارت‌ها ساخته بشه
   const div = document.createElement('div');
+  const isSlider = sectionId === 'special-offers' || sectionId === 'best-sellers';
 
-  // اگر سکشن اسلایدر باشه، swiper-slide
-  if (sectionId === 'special-offers' || sectionId === 'best-sellers') {
+  if (isSlider) {
     div.classList.add('swiper-slide');
   } else {
-    div.className = 'col-md-6 col-lg-3 mb-4';
+    div.className = 'col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4';
   }
 
-  // 🧠 فقط داخل related-products__card المان‌ها اضافه بشن
   div.innerHTML = `
     <a href="product.html?id=${product.id}" class="related-products__card-link text-decoration-none">
-      <div class="related-products__card shadow-sm h-100" data-aos="zoom-out-up" data-aos-delay="10" data-aos-duration="800" data-aos-easing="ease-in-out">
+      <div class="related-products__card shadow-sm h-100"
+           data-aos="zoom-out-up"
+           data-aos-delay="10"
+           data-aos-duration="800"
+           data-aos-easing="ease-in-out">
         <div class="related-products__card-img-wrapper">
           <img src="${product.image_url || 'images/products/placeholder.webp'}"
                class="img-fluid related-products__card-img"
                alt="${product.name}">
-          
           <div class="related-products__card-seller">${labelText}</div>
-          <div class="related-products__card-rating"><i class="fa-solid fa-star"></i> ${product.rating || "4.5"}</div>
+          <div class="related-products__card-rating">
+            <i class="fa-solid fa-star"></i> ${product.rating || "4.5"}
+          </div>
         </div>
-
         <div class="related-products__card-body text-center">
           <h5 class="related-products__card-title">${product.name}</h5>
           <p class="related-products__card-text">${truncateText(product.description, 50)}</p>
@@ -48,10 +46,8 @@ function createProductCard(product, labelText, sectionId) {
       </div>
     </a>
   `;
-
   return div;
 }
-
 
 // --- نمایش/مخفی کردن سکشن‌ها ---
 function toggleSections(sections, selectedType) {
@@ -74,45 +70,35 @@ async function loadProductsForSection(sectionId, label) {
     .eq('slug', sectionId)
     .single();
 
-  if (groupError || !group) {
-    console.warn(`Group not found: ${sectionId}`);
-    return;
-  }
+  if (groupError || !group) return;
 
   const { data: products, error: prodError } = await supabase
     .from('featured_group_products')
-    .select('product_id, products(id, name, description, price, image_url)')
+    .select('product_id, products(id, name, description, price, image_url, rating)')
     .eq('featured_group_id', group.id);
 
-  if (prodError) {
-    console.error(`Error loading products for ${sectionId}`, prodError);
-    return;
-  }
+  if (prodError) return;
 
   const container = sectionElement.querySelector('.products-container');
   if (!container) return;
-
   container.innerHTML = '';
 
-  // ایجاد کارت محصول
   products.forEach(item => {
     const product = item.products;
     const card = createProductCard(product, label, sectionId);
     container.appendChild(card);
   });
 
-  // ✅ بعد از لود شدن محصولات، Swiper رو فعال کن (فقط برای دو سکشن خاص)
   if (sectionId === 'special-offers' || sectionId === 'best-sellers') {
     initSwiper(sectionId);
   }
 }
 
-// 🔁 Global متغیر نگهدارنده
-
+// --- مقداردهی اولیه Swiper ---
 function initSwiper(sectionId) {
   let selector = '';
   if (sectionId === 'special-offers') selector = '.mySwiper';
-  if (sectionId === 'best-sellers') selector = '.mySwiper-bestsellers'; // ✅ اضافه شد
+  if (sectionId === 'best-sellers') selector = '.mySwiper-bestsellers';
   if (!selector) return;
 
   new Swiper(selector, {
@@ -128,44 +114,12 @@ function initSwiper(sectionId) {
       disableOnInteraction: false,
     },
     breakpoints: {
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      },
-      992: {
-        slidesPerView: 4,
-        spaceBetween: 24,
-      },
+      576: { slidesPerView: 2, spaceBetween: 20 },
+      768: { slidesPerView: 3, spaceBetween: 24 },
+      992: { slidesPerView: 4, spaceBetween: 24 },
+      1200: { slidesPerView: 4, spaceBetween: 24 },
     }
   });
-}
-// document.addEventListener("DOMContentLoaded", () => {
-//   initSwiper('special-offers');
-//   initSwiper('best-sellers'); // ✅ اضافه شد
-// });
-
-// window.addEventListener('resize', () => {
-//   initSwiper('special-offers');
-//   initSwiper('best-sellers'); // ✅ اضافه شد
-// });
-
-
-
-// --- بارگذاری باکس سبد خرید ---
-function loadBasketBox() {
-  fetch('basket-box.html')
-    .then(res => res.text())
-    .then(data => {
-      const container = document.getElementById('basket-box-container');
-      if (container) {
-        container.innerHTML = data;
-        updateBasketUI();
-      }
-    });
 }
 
 // --- شروع ---
@@ -182,19 +136,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const selectedType = urlParams.get('type');
 
-  // ۱. مدیریت نمایش بخش‌ها
   toggleSections(sections, selectedType);
 
-  // ۲. بارگذاری محصولات
   for (const [sectionId, label] of Object.entries(sections)) {
     await loadProductsForSection(sectionId, label);
   }
-
-  // ۳. لود باکس سبد خرید
-  // loadBasketBox();
 });
-
-
-//////
-
-// === 🎠 New Arrivals Carousel (Final Version) ===

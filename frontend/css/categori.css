@@ -634,7 +634,7 @@ text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3p
   /* در موبایل، متن تمام‌عرض */
   .taste-behind .content-wrapper > [class*="col-"] {
     flex: 0 0 100%;
-    max-width: 100%;
+    /* max-width: 100%; */
   }
 }
 

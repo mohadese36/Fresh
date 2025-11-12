@@ -158,11 +158,11 @@ document.querySelectorAll('#carouselHomePage a').forEach(link => {
 
 ///////////برای پارالاکس  لندینگ صفحه خانه /////
 
-window.addEventListener("scroll", function () {
-  const landing = document.querySelector(".Landing");
-  let offset = window.pageYOffset;
-  landing.style.backgroundPositionY = offset * 0.5 + "px";
-});
+// window.addEventListener("scroll", function () {
+//   const landing = document.querySelector(".Landing");
+//   let offset = window.pageYOffset;
+//   landing.style.backgroundPositionY = offset * 0.5 + "px";
+// });
 
 
 

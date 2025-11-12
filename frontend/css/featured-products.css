@@ -360,20 +360,6 @@
 }
 
 
-/* featured-products */
-/* فقط درون اسلایدر */
-#special-offers .related-products__card-rating,
-#new-arrivals .related-products__card-rating,
-#best-sellers .related-products__card-rating,
-#discounted-products .related-products__card-rating,
-#organic-healthy-products .related-products__card-rating,
-#products-with-unique-features .related-products__card-rating {
-  position: absolute;
-  top: clamp(110px, 18vw, 175px);
-  z-index: 3;
-}
-
-
 /* فقط برای اسلایدر – پنهان بودن در حالت عادی */ 
 /* card-rating */
 #special-offers .swiper-slide .related-products__card-rating,
@@ -384,6 +370,7 @@
 #products-with-unique-features .related-products__card-rating {
   opacity: 0;
   visibility: hidden;
+  transition: all 0.5s ease-in-out;
 }
 #special-offers .swiper-slide:hover .related-products__card-rating,
 #new-arrivals .related-products__card:hover .related-products__card-rating,
@@ -393,10 +380,6 @@
 #products-with-unique-features .related-products__card:hover .related-products__card-rating {
   opacity: 1;
   visibility: visible;
-  pointer-events: none;
-  transform: translateY(-6px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  z-index: 3;
 }
 
 /* card-seller */
@@ -408,9 +391,7 @@
 #products-with-unique-features .related-products__card-seller {
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-6px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: all 0.5s ease-in-out;
 }
 #special-offers .swiper-slide:hover .related-products__card-seller,
 #new-arrivals .related-products__card:hover .related-products__card-seller,
@@ -420,8 +401,6 @@
 #products-with-unique-features .related-products__card:hover .related-products__card-seller{
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 /* =========================================================
@@ -529,4 +508,19 @@
   #products-with-unique-features::before {
     background: rgba(30, 15, 5, 0.8);
   }
+}
+
+@media (max-width: 992px) {
+  .featured-section .container {
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.related-products__card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+.related-products__card:hover {
+  transform: translateY(-5px);
 }

@@ -1,11 +1,14 @@
 
 
+
+
 header.header {
   background: var(--meat-cream-100) !important;
   position: sticky !important;
   top: 0;
-  z-index: 1100;
-  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+    z-index: 1100;
+  will-change: transform !important;
+  /* transition: box-shadow 0.25s ease, background-color 0.25s ease; */
 }
 
 /* حالت عادی */
@@ -296,3 +299,4 @@ header.header.is-scrolled .top-bar {
     max-inline-size: clamp(130px, 27vw, 230px) !important;
   }
 }
+

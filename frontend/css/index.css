@@ -2,14 +2,24 @@
 /* =========================
    Landing / Hero
    ========================= */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+html {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
 
 .Landing {
   background:
-     linear-gradient(0deg, rgba(25, 25, 15, 0.75), rgba(25, 25, 15, 0.75)),
-    url("../images/products/deli-2880w.jpg") center / cover no-repeat fixed;
+    url("../images/landing/home-paralax-2.jpg") center / cover no-repeat fixed;
   text-align: center;
   padding: clamp(4rem, 8vw, 7rem) 0;
 }
+
+
 
 .Landing__title {
   font-weight: 800;
@@ -50,6 +60,20 @@
   text-decoration: none;
 }
 
+.Landing-container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  background-color: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+
 .landing-wrapper {
   box-sizing: content-box;
   height: 70px;
@@ -66,7 +90,7 @@
   height: 100%;
   text-align: left;
   margin-left: 1rem;
-  color: color-mix(in srgb, var(--meat-red-700), var(--meat-yellow-500) 30%);
+  color: var(--accent-red-700) !important;
   animation: spin_words 10s infinite;
 }
 @keyframes spin_words {
@@ -135,26 +159,54 @@
 }
 
 /* Buttons (using your .Landing__cta .btn) */
-.btn-primary {
+/* پایه همه دکمه‌ها */
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  margin: 0 0.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  border: 2px solid transparent;
+}
+
+/* دکمه زرد پررنگ */
+.cta-btn-primary {
   background-color: var(--meat-yellow-600);
   color: var(--ink-900);
-  border-color:var(--meat-red-600) ;
+  border-color: var(--meat-red-600);
 }
 
-.btn-primary:hover {
+.cta-btn-primary:hover {
   background-color: var(--meat-yellow-700);
-  border-color:var(--meat-red-600) ;
-}
-
-.btn-outline {
-  border: 2px solid var(--amber-100);
   color: var(--amber-100);
 }
 
-.btn-outline:hover {
-  background-color: var(--surface-1);
-  color: var(--meat-brown-700);
+/* دکمه بدون زمینه */
+.cta-btn-outline {
+  background-color: transparent;
+  color: var(--amber-100);
+  border-color: var(--amber-100);
 }
+
+.cta-btn-outline:hover {
+  background-color: var(--surface-1);
+  color: var(--accent-red-700);
+  border-color: var(--meat-yellow-600);
+}
+
+/* حذف فوکوس آبی Bootstrap */
+.cta-btn:focus,
+.cta-btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 
 /* =========================
    Why Choose Us - Enhanced
@@ -236,16 +288,19 @@
 
 .parallax-section {
   position: relative;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
     url('../images/landing/special-offers-bg.jpg') center center / cover no-repeat fixed;
   min-height: clamp(300px, 48vh, 520px);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   color: var(--meat-cream-50);
   z-index: 1;
   margin-top: clamp(4rem, 6vw, 8rem);
-  margin-bottom: clamp(5.5rem, 9vw, 11rem);
 }
+
+
+
 
 .parallax-overlay {
   width: 100%;
@@ -265,12 +320,12 @@
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: clamp(1rem, 2vw, 1.6rem);
-  background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-red-600));
+  /* background: linear-gradient(90deg, var(--meat-yellow-600), var(--meat-red-600));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
     0 2px 3px rgba(0, 0, 0, 0.4),
-    0 0 5px rgba(255, 200, 0, 0.4);
+    0 0 5px rgba(255, 200, 0, 0.4); */
 }
 
 .parallax-text {
@@ -517,6 +572,18 @@
    کارت‌ها راحت‌تر می‌شکنند و تیترها خواناتر می‌شوند
 ========================================= */
 @media (max-width: 767.98px) {
+  .Landing {
+    background-attachment: scroll; 
+    padding: 3rem 1rem;
+  }
+
+  .Landing__subTitle {
+    font-size: 1.25rem; 
+  }
+
+  .words span {
+    font-size: 1.1rem;
+  }
   .reasons-wrapper {
     grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 42vw, 320px), 1fr));
     gap: clamp(1.25rem, 3.5vw, 1.75rem);
@@ -527,6 +594,12 @@
   }
 
   /* Parallax Section */
+
+    .parallax-section {
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   .parallax-content {
     padding-inline: clamp(1rem, 6vw, 2.5rem);
   }
@@ -534,10 +607,12 @@
   .parallax-title {
     font-size: clamp(2rem, 7vw, 2.8rem);
     text-align: center;
+    color: var(--accent-red-700);
   }
 
   .parallax-text {
     text-align: center;
+    color: var(--meat-yellow-600);
   }
 
   .btn-parallax-light {
@@ -614,7 +689,7 @@
   .words span {
     padding: 1rem 0 !important ;
   }
-  .btn-primary {
+  .cta-btn-primary {
     margin-bottom: 1rem !important;
   }
 
