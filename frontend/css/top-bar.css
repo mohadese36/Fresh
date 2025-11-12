@@ -162,15 +162,16 @@ header.header.is-scrolled .top-bar {
 }
 
 
-
-@supports(selector(:has(*))){
-  .main-header__cart-btn:has(#cart-count-badge){
+@supports(selector(:has(*))) {
+  .main-header__cart-btn:has(#cart-count-badge) {
     position: relative !important;
   }
-  .main-header__cart-btn #cart-count-badge{
+
+  .main-header__cart-btn #cart-count-badge {
+    font-size: clamp(0.65rem, 0.4vw + 0.7rem, 1rem);
     position: absolute !important;
-    inset-block-start: 0 !important;
-    inset-inline-end: 0 !important;
+    inset-block-start: clamp(-4px, -0.3vw, 0px) !important;
+    inset-inline-end: clamp(-4px, -0.3vw, 0px) !important;
     transform: translate(50%, -50%) !important;
     margin: 0 !important;
   }
