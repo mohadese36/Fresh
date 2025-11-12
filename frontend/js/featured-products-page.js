@@ -14,25 +14,21 @@ function truncateText(text, maxLength) {
 // --- ایجاد کارت محصول ---
 function createProductCard(product, labelText, sectionId) {
   const div = document.createElement('div');
-  const isSlider = sectionId === 'special-offers' || sectionId === 'best-sellers';
 
+  // ✅ بررسی نوع سکشن: اسلایدر یا گرید معمولی
+  const isSlider = sectionId === 'special-offers' || sectionId === 'best-sellers';
   if (isSlider) {
     div.classList.add('swiper-slide');
   } else {
-    div.className = 'col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-4';
+    div.className = 'col-12 col-sm-6 col-md-4 col-lg-3 mb-4';
   }
 
+  // 🧠 ساختار کارت محصول
   div.innerHTML = `
     <a href="product.html?id=${product.id}" class="related-products__card-link text-decoration-none">
-      <div class="related-products__card shadow-sm h-100"
-           data-aos="zoom-out-up"
-           data-aos-delay="10"
-           data-aos-duration="800"
-           data-aos-easing="ease-in-out">
+      <div class="related-products__card shadow-sm h-100" data-aos="zoom-out-up" data-aos-delay="10" data-aos-duration="800" data-aos-easing="ease-in-out">
         <div class="related-products__card-img-wrapper">
-          <img src="${product.image_url || 'images/products/placeholder.webp'}"
-               class="img-fluid related-products__card-img"
-               alt="${product.name}">
+          <img src="${product.image_url || 'images/products/placeholder.webp'}" class="img-fluid related-products__card-img" alt="${product.name}">
           <div class="related-products__card-seller">${labelText}</div>
           <div class="related-products__card-rating">
             <i class="fa-solid fa-star"></i> ${product.rating || "4.5"}
@@ -54,8 +50,7 @@ function toggleSections(sections, selectedType) {
   for (const [sectionId] of Object.entries(sections)) {
     const sectionElement = document.getElementById(sectionId);
     if (!sectionElement) continue;
-    sectionElement.style.display =
-      selectedType && selectedType !== sectionId ? 'none' : 'block';
+    sectionElement.style.display = selectedType && selectedType !== sectionId ? 'none' : 'block';
   }
 }
 
@@ -70,25 +65,33 @@ async function loadProductsForSection(sectionId, label) {
     .eq('slug', sectionId)
     .single();
 
-  if (groupError || !group) return;
+  if (groupError || !group) {
+    console.warn(`Group not found: ${sectionId}`);
+    return;
+  }
 
   const { data: products, error: prodError } = await supabase
     .from('featured_group_products')
-    .select('product_id, products(id, name, description, price, image_url, rating)')
+    .select('product_id, products(id, name, description, price, image_url)')
     .eq('featured_group_id', group.id);
 
-  if (prodError) return;
+  if (prodError) {
+    console.error(`Error loading products for ${sectionId}`, prodError);
+    return;
+  }
 
   const container = sectionElement.querySelector('.products-container');
   if (!container) return;
   container.innerHTML = '';
 
+  // ✅ ساخت کارت‌های محصول
   products.forEach(item => {
     const product = item.products;
     const card = createProductCard(product, label, sectionId);
     container.appendChild(card);
   });
 
+  // ✅ فقط برای اسلایدرها، Swiper را فعال کن
   if (sectionId === 'special-offers' || sectionId === 'best-sellers') {
     initSwiper(sectionId);
   }
@@ -117,9 +120,21 @@ function initSwiper(sectionId) {
       576: { slidesPerView: 2, spaceBetween: 20 },
       768: { slidesPerView: 3, spaceBetween: 24 },
       992: { slidesPerView: 4, spaceBetween: 24 },
-      1200: { slidesPerView: 4, spaceBetween: 24 },
-    }
+    },
   });
+}
+
+// --- بارگذاری باکس سبد خرید ---
+function loadBasketBox() {
+  fetch('basket-box.html')
+    .then(res => res.text())
+    .then(data => {
+      const container = document.getElementById('basket-box-container');
+      if (container) {
+        container.innerHTML = data;
+        updateBasketUI();
+      }
+    });
 }
 
 // --- شروع ---
@@ -136,9 +151,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const selectedType = urlParams.get('type');
 
+  // ۱. مدیریت نمایش بخش‌ها
   toggleSections(sections, selectedType);
 
+  // ۲. بارگذاری محصولات هر بخش
   for (const [sectionId, label] of Object.entries(sections)) {
     await loadProductsForSection(sectionId, label);
   }
+
+  // ۳. در صورت نیاز فعال‌سازی سبد خرید
+  // loadBasketBox();
 });
