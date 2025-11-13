@@ -1,19 +1,16 @@
 
 /* Start default styles */
-* {
-  outline: 1px solid transparent !important;
-}
 
 
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-x: hidden; */
+  /* overflow-y: auto; */
   background: var(--meat-cream-100); 
   line-height: 1.6;
 }
 html {
-  overflow-x: visible;
-  overflow-y: visible;
+  /* overflow-x: visible; */
+  /* overflow-y: visible; */
   box-sizing: border-box;
   font-size: 62.5%;
 }

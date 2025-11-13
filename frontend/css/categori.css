@@ -446,7 +446,7 @@ text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3p
   border-radius:12px; font-weight:700;
   box-shadow:0 6px 18px color-mix(in srgb, var(--brand-600) 40%, transparent);
 }
-.btn-brand:focus{ outline:3px solid color-mix(in srgb, var(--brand-600) 40%, transparent); outline-offset:2px; }
+.btn-brand:hover{ outline:3px solid color-mix(in srgb, var(--brand-600) 40%, transparent); outline-offset:2px; }
 .btn-outline-olive{
   color: var(--meat-yellow-600);
   border: 2px solid var(--meat-yellow-600);
@@ -463,7 +463,7 @@ text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3p
 
 
 /* دسترسی‌پذیری */
-.btn:focus-visible{ box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--brand-600) 40%, transparent); }
+/* .btn:focus-visible{ box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--brand-600) 40%, transparent); } */
 
 
 .archive-layout {

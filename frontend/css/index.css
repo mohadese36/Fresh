@@ -2,14 +2,7 @@
 /* =========================
    Landing / Hero
    ========================= */
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-html {
-  overflow-x: visible;
-  overflow-y: visible;
-}
+
 
 
 .Landing {
@@ -293,7 +286,6 @@ html {
     url('../images/landing/special-offers-bg.jpg') center center / cover no-repeat fixed;
   min-height: clamp(300px, 48vh, 520px);
   display: flex;
-  /* align-items: center; */
   color: var(--meat-cream-50);
   z-index: 1;
   margin-top: clamp(4rem, 6vw, 8rem);
@@ -598,7 +590,6 @@ html {
     .parallax-section {
     background-position: center right;
     background-size: cover;
-    background-repeat: no-repeat;
   }
   .parallax-content {
     padding-inline: clamp(1rem, 6vw, 2.5rem);
@@ -621,6 +612,12 @@ html {
     margin-top: clamp(1rem, 2vh, 2rem);
   }
 }
+
+
+
+
+  
+
 
 /* =========================================
    ≤ 991.98px — Large Mobile / Small Desktop
@@ -694,3 +691,7 @@ html {
   }
 
 }
+
+/* ///////////جلوگیری از بیرون زدگی  */
+
+

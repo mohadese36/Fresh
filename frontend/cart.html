@@ -37,7 +37,6 @@
     <div class="top-bar">
       <div class="container-fluid">
         <div class="top-bar__content d-flex align-items-center justify-content-between">
-
           <div class="top-bar__left">
             <a href="index.html" class="brand" aria-label="Go to home">
               <img src="images/logo/logo-pastro.png" alt="Pastro" class="brand__logo" />
@@ -47,12 +46,12 @@
           <div class="top-bar__right d-flex align-items-center">
             <form class="searchbar desktop-search" role="search" action="/search" method="get">
               <i class="fas fa-search searchbar__icon" aria-hidden="true"></i>
-              <input class="Landing__searchBar-input" type="search" name="q"
+              <input id="main-search" class="Landing__searchBar-input" type="search" name="q"
                      placeholder="Search sausages, salami…" autocomplete="off" aria-label="Search" />
             </form>
 
-            <button class="main-header__toggle d-inline-block d-lg-none" type="button"
-                    aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="main-header__toggle d-inline-block d-lg-none"
+                    type="button" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
               <span class="main-header__toggle-bar"></span>
               <span class="main-header__toggle-bar"></span>
               <span class="main-header__toggle-bar"></span>
@@ -78,7 +77,7 @@
         </div>
       </div>
 
-      <!-- Main header / Navigation strip -->
+      <!-- Main Navigation -->
       <div class="main-header">
         <div class="container-fluid px-0">
           <div class="main-header__content">
@@ -178,13 +177,14 @@
         </ul>
       </div>
 
-      <!-- Contact Info -->
+     <!-- Contact Info -->
       <div class="footer-section contact">
         <h3>Contact Us</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i> 123 Deli Street, Flavor Town</li>
           <li><i class="fas fa-phone-alt"></i> +98 (930) 163-7677</li>
           <li><i class="fas fa-envelope"></i> ariagh3936@gmail.com</li>
+          <li><i class="fab fa-telegram-plane"></i> <a href="https://t.me/crafted_by_aria" target="_blank">@crafted_by_aria</a></li>
         </ul>
       </div>
 
@@ -228,8 +228,7 @@
   <script type="module" src="./js/cart.js"></script>
   <script type="module" src="./js/breadcrumb.js"></script>
   <script type="module" src="./js/user-header.js"></script>
-  <!-- <script type="module" src="./js/index.js"></script> -->
-
+  <script type="module" src="js/search.js"></script>
 
   <!-- ==================== Finish Scripts ==================== -->
 </body>
