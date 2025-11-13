@@ -24,6 +24,7 @@
   --surface-2:#fbfbfc;
   --border-1:#e6e9ee;
 
+
   --btn-primary: var(--brand-600);
   --btn-primary-hover: var(--brand-700);
   --btn-primary-ring: color-mix(in srgb, var(--brand-600) 40%, transparent);

@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (featuredGroups?.length) {
           childrenHTML = `<ul class="main-header__dropdown">` +
             featuredGroups.map(fg => `
-              <li class="main-header__item fs-5 fw-light">
+              <li class="main-header__item">
                 <a href="featured-products.html?type=${fg.slug}" class="main-header__link ">${fg.name}</a>
               </li>`).join('') +
             `</ul>`;

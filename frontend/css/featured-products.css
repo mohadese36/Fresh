@@ -411,15 +411,15 @@
    ≤ 400px — Small Mobile
 ========================================= */
 @media (max-width: 399.98px) {
-  #special-offers .related-products__card-title,
+  /* #special-offers .related-products__card-title,
   #best-sellers .related-products__card-title {
     font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  }
-
+  } */
+/* 
   #special-offers .related-products__card-text,
   #best-sellers .related-products__card-text {
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  }
+  } */
 }
 
 /* =========================================

@@ -1,78 +1,155 @@
 
+/* ================================
+   IMPORT GOOGLE FONTS
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Luckiest+Guy&display=swap');
-
-* {
-  font-family: sans-serif !important;
+/* ================================
+   FONT VARIABLES
+================================ */
+:root {
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-fredoka: 'Fredoka', sans-serif;
+  --font-quicksand: 'Quicksand', sans-serif;
+  --font-lato: 'Lato', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-mulish: 'Mulish', sans-serif;
+  --font-poetsen: 'Poetsen One', cursive;
+  --font-lobster: 'Lobster Two', cursive;
+  --font-playball: 'Playball', cursive;
+  --font-neonderthaw: 'Neonderthaw', cursive;
 }
 
-
-
-
-
-
-@font-face {
-    font-family: 'IRANSans';
-    src: url(../fonts/IRANSans/IRANSans.ttf);
+/* ================================
+   GLOBAL DEFAULTS
+================================ */
+html, body {
+  font-family: var(--font-lato);
 }
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
+/* ================================
+   HEADINGS
+================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poetsen);
+  font-weight: 700;
+  line-height: 1.3;
+}
 
-/* ==== SWEET CREAMY FONT FAMILY ==== */
+/* ================================
+   TEXT ELEMENTS
+================================ */
+p,
+span,
+strong,
+em,
+small,
+label,
+blockquote,
+cite,
+mark {
+  font-family: var(--font-lato);
+  /* font-weight: 400; */
+}
 
-/* Regular */
-@font-face {
-  font-family: "Sweet Creamy";
-  src: url("../fonts/IRANSans/Sweet\Creamy.woff2 ") format("woff2"),
-       url("../fonts/IRANSans/Sweet\ Creamy.ttf") format("truetype"),
-       url("../fonts/IRANSans/Sweet\ Creamy.otf") format("opentype");
+strong, b {
+  font-family: var(--font-roboto);
+  font-weight: 700;
+}
+
+em, i {
+  font-family: var(--font-quicksand);
+  font-style: italic;
+}
+
+blockquote {
+  font-family: var(--font-playball);
+  font-style: italic;
+}
+
+cite {
+  font-family: var(--font-poetsen);
+  font-style: normal;
+}
+
+mark {
+  font-family: var(--font-mulish);;
+}
+
+/* ================================
+   LINKS
+================================ */
+a,
+a:link,
+a:visited,
+a:active {
+  font-family: var(--font-poppins);
+  font-weight: 500;
+}
+
+/* a:hover {
+  font-family: var(--font-fredoka);
+} */
+
+/* ================================
+   LISTS
+================================ */
+ul,
+ol,
+li,
+dt,
+dd {
+  font-family: var(--font-lato);
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  line-height: 1.5;
 }
 
-/* Italic */
-@font-face {
-  font-family: "Sweet Creamy";
-  src: url("../fonts/IRANSans/Creamy Italic.woff2") format("woff2"),
-       url("../fonts/IRANSans/Sweet\ Creamy\ Italic.ttf") format("truetype"),
-       url("../fonts/IRANSans/Sweet\ Creamy\ Italic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+/* ================================
+   FORM ELEMENTS
+================================ */
+input,
+textarea,
+select,
+button,
+option {
+  font-family: var(--font-roboto);
 }
 
-
-@font-face {
-  font-family: 'SweetCreamy-Regular';
-  src: url('../fonts/IRANSans/Sweet\ Creamy.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+button {
+  font-family: var(--font-poetsen),sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-@font-face {
-  font-family: 'SweetCreamy-Regular-OTF';
-  src: url('../fonts/IRANSans/Sweet\ Creamy.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+/* ================================
+   TABLES
+================================ */
+table,
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th,
+caption {
+  font-family: var(--font-mulish);
+  border-collapse: collapse;
 }
 
-@font-face {
-  font-family: 'SweetCreamy-Italic';
-  src: url('../fonts/IRANSans/Sweet\ Creamy\ Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SweetCreamy-Italic-OTF';
-  src: url('../fonts/IRANSans/Sweet\ Creamy\ Italic.otf') format('opentype');
-  font-weight: normal;
+caption {
+  font-family: var(--font-poetsen);
   font-style: italic;
 }
-
-/* //////////////////// */
-
 
 
