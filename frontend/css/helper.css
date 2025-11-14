@@ -1,13 +1,5 @@
 
 
-html {
-  scroll-behavior: smooth; 
-}
-
-body {
-  animation: softLoad 0.8s ease-out; 
-}
-
 @keyframes softLoad {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

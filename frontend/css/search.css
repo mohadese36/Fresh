@@ -56,29 +56,37 @@ form.searchbar{ position: relative; }
 /* ========= Results Panel ========= */
 
 .search-results-container{ display: none; }
-form.searchbar.desktop-search > .search-results-container:not(:empty){
+.search-section-title {
+  font-family: var(--font-roboto);
+  font-weight: 800;
+}
+form.searchbar.desktop-search > .search-results-container:not(:empty) {
   display: block;
   position: absolute;
   inset-inline: 0;
   top: calc(100% + .5rem);
   width: 100%;
   box-sizing: border-box;
-  z-index: 5;                 /* کافی؛ کل تاپ‌بار بالاتر از منوست */
+  z-index: 5;
   max-height: 50vh;
   overflow: auto;
   border: 2px solid var(--meat-cream-200);
   border-radius: var(--radius-lg);
-  background: #fff;
+  background: var(--bg-page);
   box-shadow: var(--shadow-md);
   padding: .6rem;
-  font-size: clamp(13px, 2.6vw, 16px);
+  font-size: clamp(1rem, 3vw, 1.35rem);
+
+
+
   line-height: 1.4;
 }
+
 
 /* آیتم‌ها */
 .search-results-container :is(a, button, li, .result-item){
   display: block;
-  background: #fff !important;
+  background: var(--bg-page);
   border: 1px solid var(--meat-cream-200) !important;
   border-radius: 12px !important;
   padding: .6rem .8rem !important;
@@ -110,7 +118,7 @@ form.searchbar.desktop-search > .search-results-container:not(:empty){
   margin-top: .75rem !important;
   padding: .65rem 1rem !important;
   border-radius: 999px !important;
-  background: transparent !important;
+  background: var(--meat-yellow-500) !important;
   border: 1.5px solid var(--meat-green-700) !important;
   color: var(--meat-green-700) !important;
   text-align: center !important;

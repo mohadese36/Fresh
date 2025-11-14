@@ -40,6 +40,7 @@
 /* عنوان: دوخطه + کِلمپ برای سایز */
 .product-box__detiles-title {
   display:block;
+  font-family: var(--font-roboto);
   font-weight: 800;
   font-size: clamp(1.9rem, 1rem + 1.6vw, 2rem);
   line-height:1.25;
@@ -50,6 +51,7 @@
   min-height: 2.6em; /* ≈ دو خط */
   margin:0;
   cursor: pointer;
+
 }
 
 .product-box__detiles-title:hover {
@@ -84,6 +86,10 @@
   background: var(--meat-cream-300) !important;
   color: var(--brand-700);
   transition: transform .06s ease, filter .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+.btn-cart span {
+font-family: var(--font-poetsen);
 }
 
 .btn-cart i{ line-height:1; color: var(--amber-600); margin-right: 0.5rem;}
@@ -233,7 +239,7 @@ color: var(--brand-800);
   text-decoration: none;
   background: var(--meat-green-600);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-  border: n
+  border: n;
 }
 
 #applyFilters:hover {
@@ -420,36 +426,48 @@ color: var(--brand-800);
 }
 
 /* ===== تایپوگرافی و چیپ‌ها (با همون پالت خودت) ===== */
-.eyebrow{ font-size: clamp(0.9rem, 0.85rem + 0.45vw, 1.1rem); color: var(--meat-yellow-500); }
+  /* font-family: var(--font-playball); */
+.eyebrow{ font-size: clamp(1.4rem, 1.2rem + 0.7vw, 3.5rem); color: var(--meat-cream-200); font-family: var(--font-playball); }
 .eyebrow .dot{
-  width:.55rem;height:.55rem;border-radius:999px;background:var(--meat-yellow-400);
-  box-shadow:0 0 0 4px color-mix(in srgb, var(--meat-yellow-400) 20%, transparent);
+  width:.85rem;height:.85rem;border-radius:999px;background:var(--meat-yellow-600);
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--meat-yellow-400) 30%, transparent);
+  margin-right: 0.5rem;
 }
 .hero-title{
   font-size: clamp(1.6rem, 1.2rem + 2.2vw, 3rem);; line-height:1.1; color: var(--heading-olive);
   font-weight: 900;
   text-transform: uppercase;
   color: var(--meat-red-600);
-text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3px 3px rgba(0,0,0,.25), 10px 10px 20px rgba(0,0,0,.5), 20px 40px 40px rgba(0,0,0,.5); 
+  text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3px 3px rgba(0,0,0,.25), 10px 10px 20px rgba(0,0,0,.5), 20px 40px 40px rgba(0,0,0,.5); 
 }
-.hero-subtext{ font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.35rem);font-style: italic; font-weight: 500; color: var(--amber-100); }
+.hero-subtext{ font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.35rem);font-style: italic; font-weight: 400; color: var(--amber-100);font-family: var(--font-poetsen);}
 .hero-chips .chip{
-  font-size: clamp(.75rem, .7rem + .25vw, .9rem);; padding:.4rem .7rem; background:var(--chip-selected-bg);
+  font-size: clamp(.75rem, .7rem + .25vw, .9rem);; padding:.4rem .7rem; background:var(--brand-100);
   border:1px dashed color-mix(in srgb, var(--meat-brown-500) 40%, transparent);
-  border-radius:999px; color:var(--ink-700);
+  border-radius:999px; color:var(--brand-400);
+  font-weight: 600;
+
 }
 
 /* ===== دکمه‌ها (همان پالت) ===== */
 .btn-brand{
-  --bs-btn-color:var(--meat-cream-50); --bs-btn-bg:var(--btn-primary); --bs-btn-border-color:var(--btn-primary);
-  --bs-btn-hover-bg:var(--btn-primary-hover); --bs-btn-hover-border-color:var(--btn-primary-hover);
+  background: var(--meat-cream-200);
+  color: var(--meat-brown-700);
+  font-family: var(--font-poetsen) !important;
+  text-transform: uppercase;
   border-radius:12px; font-weight:700;
   box-shadow:0 6px 18px color-mix(in srgb, var(--brand-600) 40%, transparent);
+
+
 }
-.btn-brand:hover{ outline:3px solid color-mix(in srgb, var(--brand-600) 40%, transparent); outline-offset:2px; }
+.btn-brand:hover{ outline:1px solid color-mix(in srgb, var(--meat-yellow-400) 40%, transparent); outline-offset:3px; background: var(--amber-100); color: var(--brand-400);}
+
 .btn-outline-olive{
-  color: var(--meat-yellow-600);
-  border: 2px solid var(--meat-yellow-600);
+  font-family: var(--font-poetsen) !important;
+  font-weight: 700;
+  text-transform: uppercase; 
+  color: var(--meat-cream-50);
+  border: 2px solid var(--meat-cream-50);
   background: transparent;
   border-radius: 12px;
   font-weight: 700;
@@ -459,6 +477,7 @@ text-shadow: -1px -1px 0 rgba(255,255,255,.5), 1px 1px 0 rgba(0,0,0,.25), 3px 3p
 .btn-outline-olive:hover{
   background: var(--meat-yellow-600);
   border-color: var(--meat-yellow-600);
+  color: var(--meat-brown-700);
 }
 
 

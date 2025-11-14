@@ -66,13 +66,13 @@ header.header.is-scrolled .top-bar {
 /* دکمه‌ها (واکنش‌گرا) */
 .top-bar .top-bar__right > :is(a, button) {
   appearance: none;
-  border: 2px solid var(--meat-yellow-600, #fcb917);
-  background: var(--meat-yellow-500) !important;
+  border: 2px solid var(--meat-yellow-600);
+  /* background: var(--meat-yellow-400) !important; */
+  background: var(--meat-cream-200);
   color: var(--meat-brown-700) !important;
-  font-family: var(--serif, "Bitter", serif);
-  font-weight: 800;
 
-  font-size: clamp(0.78rem, 1.5vw, 1.1rem);        
+  font-size: clamp(0.78rem, 1.5vw, 1.1rem);
+  font-weight: 600;        
   line-height: 1.1;
 
   padding-block: clamp(0.35rem, 1.2vw, 0.8rem);    
@@ -88,6 +88,14 @@ header.header.is-scrolled .top-bar {
   transition: transform 1s ease, box-shadow 1s ease, filter 1s ease;
 }
 
+.main-header__profile-text  {
+   font-family: var(--font-poetsen);
+} 
+
+.logout-text {
+font-family: var(--font-poetsen);
+text-transform: lowercase;
+}
 
 /* حالت هاور/فوکوس */
 .top-bar .top-bar__right > :is(a,button):hover {

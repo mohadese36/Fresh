@@ -539,6 +539,7 @@ aside {
 
 /* === Product Title === */
 .related-products__card-title {
+  font-family: var(--font-roboto);
   font-weight: 800;
   color: var(--brand-800);
   line-height: 1.25;
@@ -560,6 +561,7 @@ aside {
 .related-products__card-text {
   font-weight: 600;
   color: var(--ink-700);
+  font-size: clamp(1.2rem, 0.9rem + 0.6vw, 1.3rem);
   line-height: 1.55;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -567,7 +569,6 @@ aside {
   overflow: hidden;
   min-height: calc(2 * 1.55em);
   margin-bottom: clamp(0.6rem, 1vw, 1rem);
-  font-size: clamp(1.2rem, 0.9rem + 0.6vw,2.3184px, 1.3rem);
   text-align: left !important;
 
 

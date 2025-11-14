@@ -167,7 +167,7 @@
 
 .btn-checkout{
   background: var(--btn-primary);                  
-  color: #fff;
+  color: var(--surface-1);
   font-weight: 700;
   letter-spacing: .2px;
   border: 0;

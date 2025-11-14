@@ -99,7 +99,7 @@ if (!input) {
     let html = '';
 
     if (products?.length) {
-      html += `<h4 class="search-section-title">Products</h4>`;
+      html += `<h4 class="search-section-title fs-4">Products</h4>`;
       html += products
         .map(
           (p, i) =>
@@ -126,7 +126,7 @@ if (!input) {
 
     // View all
     const encoded = encodeURIComponent(query);
-    html += `<a class="search-view-all" href="categori.html?search=${encodeURIComponent(query)}&src=header">View all results</a>`;
+    html += `<a class="search-view-all text-center bg-warning fw-bold" href="categori.html?search=${encodeURIComponent(query)}&src=header">View all results</a>`;
 
 
     results.innerHTML = html;
@@ -196,3 +196,16 @@ if (!input) {
     if (input.value.trim().length >= MIN_CHARS) handle();
   });
 }
+
+
+// --- Clear search input & results when returning from another page (back navigation)
+// این کد وقتی صفحه از cache لود شده باشد، سرچ‌بار و نتایج را ریست می‌کند.
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    const input = document.querySelector('#main-search');
+    const results = document.querySelector('.search-results-container');
+
+    if (input) input.value = '';
+    if (results) results.innerHTML = '';
+  }
+});

@@ -36,8 +36,10 @@
 
 .footer-section h3{
   color: var(--meat-yellow-500);
+  font-family: var(--font-roboto);
   font-size: clamp(1.3rem, 3vw, 1.7rem);
   margin-bottom: clamp(0.8rem, 2vw, 1.1rem);
+  font-weight: 500;
 }
 
 /* ==================== Body Text ==================== */
@@ -46,6 +48,7 @@
   font-size: clamp(1.02rem, 2.1vw, 1.15rem);
   line-height: clamp(1.5, 2vw, 1.75);
   color: var(--surface-2);
+  font-weight: 400;
 }
 
 /* ==================== Lists & Links ==================== */
@@ -117,6 +120,7 @@
   color: var(--ink-900);
   border: none;
   border-radius: var(--radius-md);
+  font-family: var(--font-poppins);
   font-weight: 600;
   font-size: clamp(1.02rem, 2.1vw, 1.15rem);
   display: flex;

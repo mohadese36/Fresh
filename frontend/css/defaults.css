@@ -3,14 +3,12 @@
 
 
 body {
-  /* overflow-x: hidden; */
-  /* overflow-y: auto; */
   background: var(--meat-cream-100); 
   line-height: 1.6;
+  animation: softLoad 0.8s ease-out;
 }
 html {
-  /* overflow-x: visible; */
-  /* overflow-y: visible; */
+  scroll-behavior: smooth; 
   box-sizing: border-box;
   font-size: 62.5%;
 }

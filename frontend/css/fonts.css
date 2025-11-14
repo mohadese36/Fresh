@@ -25,10 +25,11 @@
   --font-poppins: 'Poppins', sans-serif;
   --font-roboto: 'Roboto', sans-serif;
   --font-mulish: 'Mulish', sans-serif;
-  --font-poetsen: 'Poetsen One', cursive;
+  --font-poetsen: 'Poetsen One', sans-serif;
+
   --font-lobster: 'Lobster Two', cursive;
   --font-playball: 'Playball', cursive;
-  --font-neonderthaw: 'Neonderthaw', cursive;
+  --font-neonderthaw: 'Neonderthaw', sans-serif;
 }
 
 /* ================================
@@ -36,6 +37,7 @@
 ================================ */
 html, body {
   font-family: var(--font-lato);
+
 }
 
 /* ================================
@@ -59,8 +61,9 @@ label,
 blockquote,
 cite,
 mark {
-  font-family: var(--font-lato);
-  /* font-weight: 400; */
+  /* font-family: var(--font-montserrat); */
+  font-family: var(--font-poppins);
+  font-weight: 500;
 }
 
 strong, b {
@@ -126,8 +129,8 @@ option {
   font-family: var(--font-roboto);
 }
 
-button {
-  font-family: var(--font-poetsen),sans-serif;
+body button {
+  font-family: var(--font-poetsen);
   font-weight: 600;
   text-transform: uppercase;
 }

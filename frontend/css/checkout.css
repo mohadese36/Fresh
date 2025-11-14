@@ -136,10 +136,11 @@ section .card-header svg {
   box-shadow: 0 4px 14px rgba(0,0,0,.08);
 }
 #checkout-items .basket-item .card-title {
+  font-family: var(--font-roboto);
   font-size: clamp(1.2rem, 1rem + 1vw, 2rem);
+  font-weight: 800;
   line-height: 1.35;
   margin: 0;
-  font-weight: 700;
   color: var(--brand-800);
 }
 #checkout-items .basket-item .col-3.text-end {
