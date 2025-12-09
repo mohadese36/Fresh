@@ -30,3 +30,4 @@ window.supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // Export for ES imports (so your old code continues working)
 export const supabase = window.supabase;
 
+// Supabase configuration reset successfully
