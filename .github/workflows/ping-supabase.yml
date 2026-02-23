@@ -1,0 +1,66 @@
+
+name: Daily Supabase Ping All Tables
+
+# هر روز ساعت 8 صبح UTC اجرا میشه
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch: # اجازه اجرای دستی هم بده
+
+jobs:
+  ping_all_tables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping orders table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/orders?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping menus table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/menus?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping order_items table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/order_items?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping users table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/users?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping featured_groups table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/featured_groups?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping categories table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/categories?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping featured_group_products table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/featured_group_products?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping cart_items table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/cart_items?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+
+      - name: Ping products table
+        run: |
+          curl -X GET "https://lgbgwpbpxtmltzrsbjnx.supabase.co/rest/v1/products?select=*" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
